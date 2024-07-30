@@ -1,0 +1,7 @@
+.drawerBody {
+    @apply text-white flex flex-col
+}
+
+.menuItem {
+    @apply py-3
+}
