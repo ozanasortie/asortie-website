@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { NextIntlClientProvider } from "next-intl";
 import { ChakraProvider } from "@chakra-ui/react";
 import { getMessages } from "next-intl/server";
@@ -31,6 +32,7 @@ export default async function LocaleLayout({ children, params: { locale } }) {
           <NextIntlClientProvider messages={messages}>
             <Header />
             {children}
+            <Footer />
           </NextIntlClientProvider>
         </ChakraProvider>
       </body>

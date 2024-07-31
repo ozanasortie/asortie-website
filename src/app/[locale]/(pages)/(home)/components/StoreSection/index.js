@@ -1,24 +1,14 @@
 "use client";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import Store from "@/assets/store.png";
 
 const StoreSection = () => {
   return (
-    <div className="relative w-full h-[100vh] overflow-hidden flex items-center justify-center flex-col">
+    <div
+      className="bg-cover bg-center bg-fixed relative lg:h-[100vh] p-10 flex flex-col items-center justify-center text-white"
+      style={{ backgroundImage: `url(${Store.src})` }}
+    >
       <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-35 z-30" />
-      <motion.div
-        transition={{ duration: 0.8, delay: 0.2 }}
-        initial="hidden"
-        whileInView="visible"
-        variants={{
-          visible: { opacity: 1, y: 0 },
-          hidden: { opacity: 0, y: 80 },
-        }}
-        className="absolute left-0 top-0 w-full h-full"
-      >
-        <Image src={Store} alt="Asortie" className="object-cover h-full" />
-      </motion.div>
       <motion.div
         transition={{ duration: 0.8, delay: 0.2 }}
         initial="hidden"

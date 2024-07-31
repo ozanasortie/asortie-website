@@ -39,7 +39,7 @@ export default function Header() {
         className={`${styles.headerBase} ${small ? styles.headerSmall : ""}`}
       >
         <nav className={`${styles.navBase} ${small ? styles.navSmall : ""}`}>
-          <MobileMenu />
+          <MobileMenu isSmall={small} />
           <div className={styles.left}>
             <div className={styles.desktopItems}>
               <NavItem href="/">{t("home")}</NavItem>
@@ -56,7 +56,7 @@ export default function Header() {
             </div>
           </div>
 
-          <div className="absolute right-10 flex items-center">
+          <div className="absolute right-10 max-lg:static flex items-center">
             <SearchSection small={small} />
             <LocalSwitcher />
           </div>

@@ -44,13 +44,13 @@ export default function SearchSection({ small }) {
         variant={"secondary"}
       >
         <DrawerOverlay backdropFilter="auto" backdropBlur="2px" />
-        <DrawerContent className="h-[87.5vh]" backgroundColor={"#1d1d1b"}>
+        <DrawerContent className="h-[87.5vh]">7
           <DrawerHeader className={styles.drawerHeader}>
-            <DrawerCloseButton top={5} right={5} color={"white"} size={25} />
+            <DrawerCloseButton top={5} right={5} size={25} />
           </DrawerHeader>
           <DrawerBody className={styles.drawerBody}>
             <Input
-              color={"white"}
+              autoFocus
               fontSize={50}
               height={100}
               textAlign={"center"}
@@ -60,10 +60,9 @@ export default function SearchSection({ small }) {
               outlineColor={"none"}
               paddingX={10}
               border={0}
-              focusBorderColor="#1d1d1b"
+              focusBorderColor="white"
               placeholder="Ürün Ara"
-              borderBottom={1}
-              borderBottomColor={"white"}
+              mb={5}
             />
 
             <Flex flexWrap={"wrap"} justifyContent={"center"}>
@@ -80,7 +79,7 @@ export default function SearchSection({ small }) {
             </Flex>
           </DrawerBody>
         </DrawerContent>
-      </Drawer>
+      </Drawer >
     </>
   );
 }

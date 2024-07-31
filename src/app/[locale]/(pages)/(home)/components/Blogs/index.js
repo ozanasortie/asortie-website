@@ -33,7 +33,11 @@ export default function Blogs() {
           }}
           className="w-[100vw] flex items-center justify-center mt-10"
         >
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 place-content-center place-items-center">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-5 place-content-center place-items-center">
+            <BlogItem
+              image={BlogSample}
+              title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"
+            />
             <BlogItem
               image={BlogSample}
               title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"

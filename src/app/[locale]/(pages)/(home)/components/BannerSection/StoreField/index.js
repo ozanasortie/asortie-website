@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { Animator, batch, MoveIn, StickyIn } from "react-scroll-motion";
 
 import Arma from "@assets/14arma.png";
-import AsortieGif from "@assets/asortie.gif";
 
 export default function StoreField() {
   return (
@@ -31,7 +30,7 @@ export default function StoreField() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="text-center max-lg:mt-10 text-2xl lg:text-5xl w-full font-md z-30"
+        className="text-center text-2xl lg:text-5xl w-full font-md z-30"
       >
         GELECEĞİN ANTİKALARINI ÜRETİYORUZ
       </motion.div>
@@ -39,18 +38,18 @@ export default function StoreField() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="mt-20 lg:mt-8 lg:w-[70%] w-full text-center text-xs lg:text-base z-30"
+        className="mt-6 lg:mt-8 lg:w-[70%] w-full text-center text-xs lg:text-base z-30"
       >
         Zamanın ötesine uzanan tasarımlarımızla, bugünün zarafetini geleceğin
         mirasıyla buluşturuyoruz. Her parçamız, geleceğin antikası olmaya aday
         benzersiz bir sanat eseri.
       </motion.div>
-      <Image
+      {/* <Image
         className="absolute right-5 top-24 lg:top-28 lg:w-16 lg:28 z-40"
         src={Arma}
         width={60}
         alt="Arma"
-      />
+      /> */}
     </motion.div>
   );
 }

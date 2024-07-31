@@ -12,11 +12,9 @@ import Sample3 from "@assets/sample-3.jpg";
 
 export default function Collections() {
   return (
-    <div className="relative flex flex-1 flex-col items-center w-full box-border overflow-hidden py-5 pb-10 lg:px-20">
-      <Image
-        className="absolute top-0 left-0 w-full h-full object-cover"
-        src={Background}
-      />
+    <div className="bg-fixed bg-cover bg-center relative flex flex-1 flex-col items-center w-full box-border overflow-hidden py-5 pb-10 lg:px-20"
+      style={{ backgroundImage: `url(${Background.src})` }}
+    >
       <motion.div
         transition={{ duration: 1, delay: 0.2 }}
         initial="hidden"
@@ -49,7 +47,6 @@ export default function Collections() {
           image={Sample3}
           secondImage={Sample2}
           title="Belinda Koltuk Takımı"
-          className="col-span-2"
         />
         <CollectionItem
           image={Sample}
@@ -77,15 +74,6 @@ export default function Collections() {
           image={Sample2}
           secondImage={Sample2}
           title="Belinda Koltuk Takımı"
-          className="col-span-2"
-        />
-
-        {/* Üçüncü satır */}
-        <CollectionItem
-          image={Sample2}
-          secondImage={Sample2}
-          title="Belinda Koltuk Takımı"
-          className="col-span-2"
         />
         <CollectionItem
           image={Sample2}
@@ -93,7 +81,7 @@ export default function Collections() {
           title="Belinda Koltuk Takımı"
         />
         <CollectionItem
-          image={Sample3}
+          image={Sample2}
           secondImage={Sample2}
           title="Belinda Koltuk Takımı"
         />

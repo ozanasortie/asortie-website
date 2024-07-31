@@ -27,19 +27,19 @@ import logo from "@assets/logo-left.png";
 
 import styles from "./mobileMenu.module.css";
 
-export default function MobileMenu() {
+export default function MobileMenu({ isSmall }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
 
   return (
-    <div className={"flex items-center mr-4 xl:hidden"}>
+    <div className={"flex items-center mr-4 xl:hidden min-w-[50px]"}>
       <Button
         className={styles.buttonBase}
         ref={btnRef}
         colorScheme="none"
         onClick={onOpen}
       >
-        <HamburgerIcon fontSize={30} color={"white"} />
+        <HamburgerIcon fontSize={30} color={isSmall ? "black" : "white"} />
       </Button>
       <Drawer
         isOpen={isOpen}

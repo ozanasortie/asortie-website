@@ -38,7 +38,7 @@ export default function LocalSwitcher() {
   return (
     <div className={"flex items-center"}>
       <Button
-        className={styles.buttonBase}
+        className={[styles.buttonBase, "mr-0"]}
         ref={btnRef}
         colorScheme="none"
         onClick={onOpen}
