@@ -64,28 +64,6 @@ export default function Collections() {
           secondImage={Sample2}
           title="Belinda Koltuk Takımı"
         />
-
-        {/* İkinci satır */}
-        <CollectionItem
-          image={Sample}
-          secondImage={Sample2}
-          title="Belinda Koltuk Takımı"
-        />
-        <CollectionItem
-          image={Sample2}
-          secondImage={Sample2}
-          title="Belinda Koltuk Takımı"
-        />
-        <CollectionItem
-          image={Sample2}
-          secondImage={Sample2}
-          title="Belinda Koltuk Takımı"
-        />
-        <CollectionItem
-          image={Sample2}
-          secondImage={Sample2}
-          title="Belinda Koltuk Takımı"
-        />
         <CollectionItem
           image={Sample2}
           secondImage={Sample2}

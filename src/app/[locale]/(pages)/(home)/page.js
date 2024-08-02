@@ -5,6 +5,7 @@ import BannerSection from "./components/BannerSection";
 import AboutUs from "./components/AboutUs";
 import NewProducts from "./components/NewProducts";
 import Blogs from "./components/Blogs";
+import News from "./components/News";
 import StoreSection from "./components/StoreSection";
 import Collections from "./components/Collections";
 import PromotionSection from "./components/PromotionSection";
@@ -18,10 +19,11 @@ export default function Index() {
       <BannerSection />
       <NewProducts />
       <Collections />
-      <PromotionSection />
-      <Blogs />
       <AboutUs />
+      <Blogs />
+      <PromotionSection />
       <StoreSection />
+      <News />
       <CatalogueFormSection />
       {/* <ScrollPage>
         <Animator animation={FadeIn()} className="w-full">
