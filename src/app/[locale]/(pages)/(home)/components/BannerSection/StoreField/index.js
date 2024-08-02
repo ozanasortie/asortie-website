@@ -1,4 +1,5 @@
 "use client";
+import { useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Animator, batch, MoveIn, StickyIn } from "react-scroll-motion";
@@ -11,7 +12,7 @@ export default function StoreField() {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2 }}
-      className="overflow-hidden relative flex items-center justify-center flex-col group w-[100vw] h-[100vh] max-lg:h-[100vh] text-white"
+      className="overflow-hidden relative flex items-center justify-center flex-col group w-[100vw] h-[75vh] lg:h-[100vh] text-white"
     >
       {/* <Image
         className="w-full h-full object-cover absolute left-0 top-0"
@@ -20,6 +21,7 @@ export default function StoreField() {
         unoptimized
       /> */}
       <video
+        id="video"
         src="asortie.mp4"
         className="w-full h-full object-cover absolute left-0 top-0"
         autoPlay
@@ -30,7 +32,7 @@ export default function StoreField() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="text-center text-2xl lg:text-5xl w-full font-md z-30"
+        className="text-center text-[28px] lg:text-5xl w-full font-md z-30"
       >
         GELECEĞİN ANTİKALARINI ÜRETİYORUZ
       </motion.div>
@@ -38,7 +40,7 @@ export default function StoreField() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="mt-6 lg:mt-8 lg:w-[70%] w-full text-center text-xs lg:text-base z-30"
+        className="w-[95%] mt-6 lg:mt-8 lg:w-[70%] text-center lg:text-base z-30"
       >
         Zamanın ötesine uzanan tasarımlarımızla, bugünün zarafetini geleceğin
         mirasıyla buluşturuyoruz. Her parçamız, geleceğin antikası olmaya aday

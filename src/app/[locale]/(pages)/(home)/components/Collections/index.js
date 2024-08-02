@@ -1,9 +1,10 @@
 "use client";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 import CollectionItem from "./CollectionItem";
 import CollectionSlider from "./CollectionSlider";
+
+import useIsSafari from "@hooks/useIsSafari";
 
 import Background from "@assets/featured-background.jpeg";
 import Sample2 from "@assets/Samplebanner.jpg";
@@ -11,8 +12,13 @@ import Sample from "@assets/sample.jpg";
 import Sample3 from "@assets/sample-3.jpg";
 
 export default function Collections() {
+  const isSafari = useIsSafari();
+
   return (
-    <div className="bg-fixed bg-cover bg-center relative flex flex-1 flex-col items-center w-full box-border overflow-hidden py-5 pb-10 lg:px-20"
+    <div
+      className={`bg-cover bg-center relative flex flex-1 flex-col items-center w-full box-border overflow-hidden py-10 pb-10 lg:px-20 ${
+        isSafari ? "" : "bg-fixed"
+      }`}
       style={{ backgroundImage: `url(${Background.src})` }}
     >
       <motion.div

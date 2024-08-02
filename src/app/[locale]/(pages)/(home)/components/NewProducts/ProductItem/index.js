@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const ProductItem = ({ image, secondImage, title }) => {
   return (
-    <div className="box-border w-[98%] h-56 lg:w-[460px] lg:h-80 cursor-pointer relative overflow-hidden flex flex-col items-center justify-center text-2xl group">
+    <div className="box-border w-[98%] h-72 lg:h-80 cursor-pointer relative overflow-hidden flex flex-col items-center justify-center text-2xl group">
       <div className="overflow-hidden w-[97%] h-full relative">
         {/* İlk resim */}
         <Image

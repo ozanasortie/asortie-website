@@ -2,6 +2,8 @@
 import { motion } from "framer-motion";
 import BlogSample from "@assets/blog-sample.jpg";
 import BlogSample2 from "@assets/blog-sample-2.png";
+
+import BlogSlider from "./BlogSlider";
 import BlogItem from "./BlogItem";
 
 export default function Blogs() {
@@ -33,17 +35,10 @@ export default function Blogs() {
           }}
           className="w-[100vw] flex items-center justify-center mt-10"
         >
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-5 place-content-center place-items-center">
+          <BlogSlider />
+          <div className="max-lg:hidden w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 px-5 place-content-center place-items-center">
             <BlogItem
               image={BlogSample}
-              title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"
-            />
-            <BlogItem
-              image={BlogSample}
-              title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"
-            />
-            <BlogItem
-              image={BlogSample2}
               title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"
             />
             <BlogItem
@@ -56,7 +51,7 @@ export default function Blogs() {
             />
           </div>
         </motion.div>
-        <span className="mt-10 lg:text-2xl text-center lg:text-start font-light">
+        <span className="mt-10 text-xl lg:text-2xl text-center lg:text-start font-light">
           Tümünü Gör
         </span>
       </div>

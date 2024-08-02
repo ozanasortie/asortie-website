@@ -4,7 +4,7 @@ import Image from "next/image";
 const CollectionItem = ({ image, secondImage, title, className }) => {
   return (
     <div
-      className={`box-border h-56 w-full lg:h-96 mb-5 mx-2 cursor-pointer relative overflow-hidden flex flex-col items-center justify-center text-2xl group ${className}`}
+      className={`box-border h-72 w-full lg:h-96 mb-5 mx-2 cursor-pointer relative overflow-hidden flex flex-col items-center justify-center text-2xl group ${className}`}
     >
       <div className="overflow-hidden w-[97%] h-full relative">
         {/* İlk resim */}

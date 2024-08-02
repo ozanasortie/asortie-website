@@ -18,7 +18,7 @@ export default function NewProducts() {
             visible: { opacity: 1, y: 0 },
             hidden: { opacity: 0, y: 90 },
           }}
-          className="w-full flex items-center justify-center mt-10"
+          className="w-full flex items-center justify-center lg:mt-10"
         >
           <span className="text-4xl lg:text-5xl text-center lg:text-start font-light">
             YENİ ÇIKANLAR
@@ -34,7 +34,7 @@ export default function NewProducts() {
           }}
           className="w-full flex items-center justify-center mt-10"
         >
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 place-content-center place-items-center">
+          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 place-content-center place-items-center">
             <ProductItem
               image={Sample2}
               secondImage={Sample3}

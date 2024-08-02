@@ -7,7 +7,7 @@ import Background from "@assets/background.webp";
 export default function AboutUs() {
   return (
     <div
-      className="bg-cover bg-center bg-fixed relative p-10 flex flex-col items-center justify-center text-white"
+      className="bg-cover bg-center bg-fixed relative p-4 lg:p-10 flex flex-col items-center justify-center text-white"
       style={{ backgroundImage: `url(${Background.src})` }}
     >
       <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-35 z-30" />
@@ -20,9 +20,9 @@ export default function AboutUs() {
             visible: { opacity: 1, x: 0 },
             hidden: { opacity: 0, x: 80 },
           }}
-          className="flex items-center lg:items-start flex-col lg:ml-10"
+          className="w-[100%] flex items-center lg:items-start flex-col lg:ml-10"
         >
-          <h1 className="text-2xl text-center lg:text-start lg:text-6xl my-4 mb-5 uppercase">
+          <h1 className="text-3xl text-center lg:text-start lg:text-6xl my-4 mb-5 uppercase">
             Bizim Tasarımlarımız Kalıba Sığmaz:
           </h1>
         </motion.div>
@@ -35,11 +35,11 @@ export default function AboutUs() {
               visible: { opacity: 1, x: 0 },
               hidden: { opacity: 0, x: -50 },
             }}
-            className="w-[550px] h-[65vh]"
+            className="lg:w-[500px] lg:h-[65vh] max-lg:mb-8"
           >
             <Image
               src={Team}
-              className="w-[550px] h-full z-20 object-cover rounded-lg"
+              className="lg:w-full h-full z-20 object-cover rounded-lg"
             />
           </motion.div>
 
@@ -67,20 +67,6 @@ export default function AboutUs() {
               darbesindeki heyecanı, bir heykeltıraşın toprağa ilk dokunuşunda
               duyduğu his, bir nakkaşın kaleminden damlayan ilk mürekkebin
               coşkusu ve bir çocuğun ilk adım atmasının heyecanı…
-            </p>
-            <h1 className="text-2xl lg:text-3xl mt-3 mb-5 lg:hidden max-lg:block">
-              Sizin İçin, Sizinle Birlikte…
-            </h1>
-
-            <h1 className="w-full text-3xl mt-3 mb-5 text-start max-lg:hidden">
-              Sizin İçin, Sizinle Birlikte…
-            </h1>
-            <p className="mb-5 max-lg:mt-5">
-              Asortie, mobilya ve dekorasyon adına, kendinizi mutlu
-              hissedeceğiniz olağanüstü tasarımlara imza atıyor. 1965 yılından
-              bugüne gelişen engin bir tecrübenin ürünü ile müşterilerine hizmet
-              sağlayan Asortie, kendine özgü çizgisi ile günün moda anlayışına
-              paralel olarak dizayn edilmiş fark edilebilen ürünler tasarlıyor.
             </p>
           </motion.div>
         </div>
