@@ -13,7 +13,7 @@
   }
   
   .languageButton {
-    @apply flex justify-start items-center w-full my-3;
+    @apply flex justify-start items-center w-full;
   }
   
   .image {
@@ -21,6 +21,6 @@
   }
   
   .buttonText {
-    @apply font-normal hover:text-theme-color motion-safe:transition;
+    @apply font-normal hover:text-theme-color motion-safe:transition text-black;
   }
   

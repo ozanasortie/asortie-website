@@ -19,7 +19,7 @@ export default function Blogs() {
             visible: { opacity: 1, y: 0 },
             hidden: { opacity: 0, y: 90 },
           }}
-          className="w-full flex items-center justify-between mt-10 px-10"
+          className="w-full flex items-center justify-between mt-5 px-10"
         >
           <span className="w-full text-4xl lg:text-5xl text-center font-light">
             BLOGLAR

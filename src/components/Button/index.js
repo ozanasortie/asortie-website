@@ -1,10 +1,11 @@
 "use client";
 
 import { Button as ChakraButton } from "@chakra-ui/react";
+import classNames from "classnames";
 
 export default function Button({
   background = "none",
-  color = "black",
+  color = "white",
   size = 20,
   text,
   children,
@@ -13,7 +14,10 @@ export default function Button({
 }) {
   return (
     <ChakraButton
-      className={className}
+      className={[
+        className,
+        "w-full flex items-center justify-center h-[56px] rounded-lg group",
+      ]}
       color={color}
       background={background}
       size={size}
@@ -21,11 +25,13 @@ export default function Button({
       _focus={"none"}
       _active={"none"}
       onClick={onClick}
-      borderRadius={0}
-      justifyContent={"start"}
     >
       {children}
-      {text && <div>{text}</div>}
+      {text && (
+        <div className="font-light text-lg group-hover:text-theme-color motion-safe:transition">
+          {text}
+        </div>
+      )}
     </ChakraButton>
   );
 }

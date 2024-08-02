@@ -61,18 +61,6 @@ export default function LocalSwitcher() {
 
           <DrawerBody className={styles.drawerBody}>
             <Button
-              onClick={() => onLanguageChange("tr")}
-              className={styles.languageButton}
-            >
-              <Image
-                width={22}
-                className={styles.image}
-                src={turkey}
-                alt="Turkey"
-              />
-              <div className={styles.buttonText}>Türkçe</div>
-            </Button>
-            <Button
               onClick={() => onLanguageChange("en")}
               className={styles.languageButton}
             >

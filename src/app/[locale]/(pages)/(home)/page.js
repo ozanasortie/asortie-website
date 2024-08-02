@@ -8,6 +8,7 @@ import Blogs from "./components/Blogs";
 import StoreSection from "./components/StoreSection";
 import Collections from "./components/Collections";
 import PromotionSection from "./components/PromotionSection";
+import CatalogueFormSection from "./components/CatalogueFormSection";
 
 export default function Index() {
   const t = useTranslations("Index");
@@ -21,6 +22,7 @@ export default function Index() {
       <Blogs />
       <AboutUs />
       <StoreSection />
+      <CatalogueFormSection />
       {/* <ScrollPage>
         <Animator animation={FadeIn()} className="w-full">
           <Animator animation={batch(FadeIn())}>

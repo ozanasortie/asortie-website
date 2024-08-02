@@ -4,10 +4,16 @@ import Image from "next/image";
 import Background from "@assets/background.webp";
 import Logo from "@assets/logo-left.png";
 
+import useIsSafari from "@/hooks/useIsSafari";
+
 export default function Footer() {
+  const isSafari = useIsSafari();
+
   return (
     <footer
-      className="bg-fixed bg-cover bg-center relative flex flex-col items-center w-full box-border overflow-hidden py-10 pb-10 lg:px-20"
+      className={`bg-cover bg-center relative flex flex-col items-center w-full box-border overflow-hidden py-10 pb-10 lg:px-20 ${
+        isSafari ? "" : "bg-fixed"
+      }`}
       style={{ backgroundImage: `url(${Background.src})` }}
     >
       <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-50 z-30" />
@@ -26,12 +32,10 @@ export default function Footer() {
           <p>INFO@ASORTIE.COM</p>
         </div>
 
-        {/* Ortada: Logo */}
         <div className="flex justify-center lg:w-1/3 mb-4 lg:mb-0">
           <Image src={Logo} alt="Logo" width={120} />
         </div>
 
-        {/* Sağda: Sosyal Medyalar */}
         <div className="flex justify-center lg:w-1/3 mb-4 lg:mb-0">
           <a href="https://facebook.com" className="mx-2 text-white">
             Facebook
@@ -44,6 +48,13 @@ export default function Footer() {
           </a>
         </div>
       </div>
+      <p className="w-[95%] lg:max-w-[1100px] text-center text-white text-sm leading-6 mt-5 z-30">
+        Copyright © 2010-2024 asortie.com, Site içeriğinin her hakkı mahfuzdur
+        ve Fikir ve Sanat Eserleri Kanunu ve diğer mevzuat uyarınca
+        korunmaktadır. Sitede bulunan resimlerin ve diğer tüm içeriklerin
+        Asortie Mobilya ve Dekorasyon A.Ş'nin yazılı izni olmadan kopyalanması,
+        farklı mecralarda yayınlanması yasaktır.
+      </p>
     </footer>
   );
 }

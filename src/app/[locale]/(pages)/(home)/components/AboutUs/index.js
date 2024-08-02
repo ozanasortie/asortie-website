@@ -1,13 +1,19 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
+
+import useIsSafari from "@/hooks/useIsSafari";
+
 import Team from "@/assets/about-us.jpg";
-import Arma from "@/assets/14arma.png";
 import Background from "@assets/background.webp";
 
 export default function AboutUs() {
+  const isSafari = useIsSafari();
+
   return (
     <div
-      className="bg-cover bg-center bg-fixed relative p-4 lg:p-10 flex flex-col items-center justify-center text-white"
+      className={`bg-cover bg-center relative p-4 lg:p-10 flex flex-col items-center justify-center text-white ${
+        isSafari ? "" : "bg-fixed"
+      }`}
       style={{ backgroundImage: `url(${Background.src})` }}
     >
       <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-35 z-30" />

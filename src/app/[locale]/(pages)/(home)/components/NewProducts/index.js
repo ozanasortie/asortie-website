@@ -32,7 +32,7 @@ export default function NewProducts() {
             visible: { opacity: 1, x: 0 },
             hidden: { opacity: 0, x: 90 },
           }}
-          className="w-full flex items-center justify-center mt-10"
+          className="w-full flex items-center justify-center mt-5"
         >
           <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 place-content-center place-items-center">
             <ProductItem

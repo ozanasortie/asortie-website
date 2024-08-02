@@ -25,7 +25,7 @@ export default function SearchSection({ small }) {
   return (
     <>
       <Button
-        className={"lg:mr-4 max-lg:mr-2"}
+        className={"mr-4 lg:mr-4"}
         ref={btnRef}
         colorScheme="none"
         onClick={onOpen}
@@ -44,7 +44,7 @@ export default function SearchSection({ small }) {
         variant={"secondary"}
       >
         <DrawerOverlay backdropFilter="auto" backdropBlur="2px" />
-        <DrawerContent className="h-[87.5vh]">7
+        <DrawerContent className="h-[87.5vh]">
           <DrawerHeader className={styles.drawerHeader}>
             <DrawerCloseButton top={5} right={5} size={25} />
           </DrawerHeader>
@@ -79,7 +79,7 @@ export default function SearchSection({ small }) {
             </Flex>
           </DrawerBody>
         </DrawerContent>
-      </Drawer >
+      </Drawer>
     </>
   );
 }

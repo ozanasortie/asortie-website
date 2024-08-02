@@ -1,11 +1,17 @@
 "use client";
 import { motion } from "framer-motion";
+
 import Store from "@/assets/store.png";
+import useIsSafari from "@/hooks/useIsSafari";
 
 const StoreSection = () => {
+  const isSafari = useIsSafari();
+
   return (
     <div
-      className="bg-cover bg-center bg-fixed relative h-[100vh] p-10 flex flex-col items-center justify-center text-white"
+      className={`bg-cover bg-center relative h-[100vh] p-10 flex flex-col items-center justify-center text-white ${
+        isSafari ? "" : "bg-fixed"
+      }`}
       style={{ backgroundImage: `url(${Store.src})` }}
     >
       <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-35 z-30" />
