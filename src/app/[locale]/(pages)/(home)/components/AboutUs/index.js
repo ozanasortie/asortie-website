@@ -45,7 +45,7 @@ export default function AboutUs() {
           >
             <Image
               src={Team}
-              className="lg:w-full h-full z-20 object-cover rounded-lg"
+              className="lg:w-full md:h-[360px] lg:h-full z-20 object-cover rounded-lg"
             />
           </motion.div>
 

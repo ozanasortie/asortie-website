@@ -1,9 +1,12 @@
 "use client";
 import { motion } from "framer-motion";
+
 import Sample2 from "@assets/Samplebanner.jpg";
 import Sample from "@assets/sample.jpg";
 import Sample3 from "@assets/sample-3.jpg";
+
 import ProductItem from "./ProductItem";
+import ProductsSlider from "./ProductsSlider";
 
 export default function NewProducts() {
   return (
@@ -34,7 +37,8 @@ export default function NewProducts() {
           }}
           className="w-full flex items-center justify-center mt-5"
         >
-          <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 place-content-center place-items-center">
+          <ProductsSlider />
+          <div className="max-lg:hidden w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 place-content-center place-items-center">
             <ProductItem
               image={Sample2}
               secondImage={Sample3}

@@ -27,7 +27,7 @@ export default function CatalogueFormSection() {
         className="flex items-center justify-center lg:mt-10 mb-10 z-30"
       >
         <span className="text-4xl lg:text-6xl text-center font-light">
-          KATALOG TALEP FORMU
+          KATALOG TALEP EDİN
         </span>
       </motion.div>
       <motion.div
