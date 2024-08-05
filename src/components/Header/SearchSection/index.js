@@ -9,27 +9,18 @@ import {
   Input,
   Flex,
 } from "@chakra-ui/react";
-import Image from "next/image";
-import { useRef } from "react";
 
 import Button from "@components/Button";
 import ResultItem from "./ResultItem";
 import styles from "./searchSection.module.css";
-import Search from "@assets/icons/search.png";
 import { SearchIcon } from "@chakra-ui/icons";
 
 export default function SearchSection({ small }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = useRef();
 
   return (
     <>
-      <Button
-        className={"mr-4 lg:mr-4"}
-        ref={btnRef}
-        colorScheme="none"
-        onClick={onOpen}
-      >
+      <Button className={"mr-4 lg:mr-4"} colorScheme="none" onClick={onOpen}>
         <SearchIcon
           color={small ? "#1d1d1b" : "white"}
           fontWeight={"thin"}
@@ -40,7 +31,6 @@ export default function SearchSection({ small }) {
         isOpen={isOpen}
         placement="bottom"
         onClose={onClose}
-        finalFocusRef={btnRef}
         variant={"secondary"}
       >
         <DrawerOverlay backdropFilter="auto" backdropBlur="2px" />

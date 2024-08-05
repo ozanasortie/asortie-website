@@ -17,13 +17,11 @@ import styles from "./localSwitcher.module.css";
 
 import eng from "@assets/icons/flags/eng.png";
 import arab from "@assets/icons/flags/arab.png";
-import turkey from "@assets/icons/flags/turkey.png";
 
 export default function LocalSwitcher() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
-  const btnRef = useRef();
   const router = useRouter();
   const localActive = useLocale();
 
@@ -39,7 +37,6 @@ export default function LocalSwitcher() {
     <div className={"flex items-center"}>
       <Button
         className={[styles.buttonBase, "mr-0"]}
-        ref={btnRef}
         colorScheme="none"
         onClick={onOpen}
       >
@@ -49,7 +46,6 @@ export default function LocalSwitcher() {
         isOpen={isOpen}
         placement="right"
         onClose={onClose}
-        finalFocusRef={btnRef}
         variant={"secondary"}
       >
         <DrawerOverlay backdropFilter="auto" backdropBlur="2px" />

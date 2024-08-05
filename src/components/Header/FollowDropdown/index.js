@@ -31,7 +31,6 @@ export default function FollowDropdown() {
         py={1}
         background={"rgba(0,0,0,0.8)"}
       >
-        <PopoverArrow backgroundColor={"#1d1d1b"} color={"#1d1d1b"} />
         <PopoverBody className="flex justify-center items-center">
           <div className="flex items-center py-1.5 cursor-pointer mr-5">
             <Image

@@ -29,23 +29,16 @@ import styles from "./mobileMenu.module.css";
 
 export default function MobileMenu({ isSmall }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const btnRef = useRef();
 
   return (
     <div className={"flex items-center mr-4 xl:hidden min-w-[50px]"}>
-      <Button
-        className={styles.buttonBase}
-        ref={btnRef}
-        colorScheme="none"
-        onClick={onOpen}
-      >
+      <Button className={styles.buttonBase} colorScheme="none" onClick={onOpen}>
         <HamburgerIcon fontSize={30} color={isSmall ? "black" : "white"} />
       </Button>
       <Drawer
         isOpen={isOpen}
         placement="left"
         onClose={onClose}
-        finalFocusRef={btnRef}
         variant={"secondary"}
       >
         <DrawerOverlay backdropFilter="auto" backdropBlur="2px" />
@@ -71,6 +64,13 @@ export default function MobileMenu({ isSmall }) {
                   <AccordionIcon />
                 </AccordionButton>
                 <AccordionPanel className="flex flex-col items-start" pb={0}>
+                  <Link
+                    onClick={onClose}
+                    className={styles.menuItem}
+                    href="/collection"
+                  >
+                    All
+                  </Link>
                   <Link className={styles.menuItem} href="/detail">
                     Hotel Furnitures
                   </Link>

@@ -10,6 +10,7 @@ import Background from "@assets/featured-background.jpeg";
 import Sample2 from "@assets/Samplebanner.jpg";
 import Sample from "@assets/sample.jpg";
 import Sample3 from "@assets/sample-3.jpg";
+import Link from "next/link";
 
 export default function Collections() {
   const isSafari = useIsSafari();
@@ -71,9 +72,11 @@ export default function Collections() {
         />
       </motion.div>
 
-      <span className="z-30 text-lg mt-5 cursor-pointer underline">
-        Daha Fazlasını Keşfet
-      </span>
+      <Link href="/collection">
+        <span className="z-30 text-lg mt-5 cursor-pointer underline">
+          Daha Fazlasını Keşfet
+        </span>
+      </Link>
     </div>
   );
 }

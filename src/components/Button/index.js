@@ -21,9 +21,6 @@ export default function Button({
       color={color}
       background={background}
       size={size}
-      _hover={"none"}
-      _focus={"none"}
-      _active={"none"}
       onClick={onClick}
     >
       {children}

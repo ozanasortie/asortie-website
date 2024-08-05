@@ -17,7 +17,7 @@ export default function CollectionMenu() {
   return (
     <Popover trigger="hover">
       <PopoverTrigger>
-        <Link className={styles.navLink} href={"/"}>
+        <Link className={styles.navLink} href={"/collection"}>
           Koleksiyon <ChevronDownIcon mb={1} />
         </Link>
       </PopoverTrigger>
@@ -30,24 +30,68 @@ export default function CollectionMenu() {
         background={"rgba(0,0,0,0.8)"}
         zIndex={9999}
       >
-        <PopoverArrow backgroundColor={"#1d1d1b"} color={"#1d1d1b"} />
-        <PopoverBody className="z-50">
-          <SimpleGrid columns={{ sm: 2, md: 3, lg: 7 }} spacing={1}>
-            <CategoryItem />
-            <CategoryItem />
-            <CategoryItem />
-            <CategoryItem />
-            <CategoryItem />
-            <CategoryItem />
-            <CategoryItem />
-            <CategoryItem />
-            <CategoryItem />
-            <CategoryItem />
-            <CategoryItem />
-            <CategoryItem />
-            <CategoryItem />
-            <CategoryItem />
-          </SimpleGrid>
+        <PopoverBody className="flex flex-wrap justify-center items-center">
+          <div className="flex items-center  cursor-pointer mr-5 my-3">
+            <div className="text-white hover:text-theme-color">
+              Klasik Koltuk Takımları
+            </div>
+          </div>
+          <div className="flex items-center  cursor-pointer mr-5 my-3">
+            <div className="text-white hover:text-theme-color">
+              Klasik Yemek Odası Takımları
+            </div>
+          </div>
+          <div className="flex items-center  cursor-pointer mr-5 my-3">
+            <div className="text-white hover:text-theme-color">
+              Klasik Yatak Odası Takımları
+            </div>
+          </div>
+          <div className="flex items-center  cursor-pointer mr-5 my-3">
+            <div className="text-white hover:text-theme-color">
+              Köşe Takımı Modelleri
+            </div>
+          </div>
+          <div className="flex items-center  cursor-pointer mr-5 my-3">
+            <div className="text-white hover:text-theme-color">
+              Duvar ve TV Üniteleri
+            </div>
+          </div>
+          <div className="flex items-center  cursor-pointer mr-5 my-3">
+            <div className="text-white hover:text-theme-color">
+              Bebek ve Genç Odaları
+            </div>
+          </div>
+          <div className="flex items-center  cursor-pointer mr-5 my-3">
+            <div className="text-white hover:text-theme-color">
+              Ofis Mobilyaları
+            </div>
+          </div>
+          <div className="flex items-center  cursor-pointer mr-5 my-3">
+            <div className="text-white hover:text-theme-color">Aksesuarlar</div>
+          </div>
+          <div className="flex items-center  cursor-pointer mr-5 my-3">
+            <div className="text-white hover:text-theme-color">
+              Otel Mobilyaları
+            </div>
+          </div>
+          <div className="flex items-center  cursor-pointer mr-5 my-3">
+            <div className="text-white hover:text-theme-color">
+              Modern Koleksiyon
+            </div>
+          </div>
+          <div className="flex items-center  cursor-pointer mr-5 my-3">
+            <div className="text-white hover:text-theme-color">Avizeler</div>
+          </div>
+          <div className="flex items-center  cursor-pointer mr-5 my-3">
+            <div className="text-white hover:text-theme-color">
+              Klasik Berjerler
+            </div>
+          </div>
+          <div className="flex items-center  cursor-pointer mr-5 my-3">
+            <div className="text-white hover:text-theme-color">
+              Pet Mobilyaları
+            </div>
+          </div>
         </PopoverBody>
       </PopoverContent>
     </Popover>

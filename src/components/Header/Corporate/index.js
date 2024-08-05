@@ -7,12 +7,6 @@ import {
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 
-import Image from "next/image";
-
-import Facebook from "@assets/icons/socials/facebook.png";
-import Youtube from "@assets/icons/socials/youtube.png";
-import Instagram from "@assets/icons/socials/instagram.png";
-
 import styles from "../header.module.css";
 
 export default function FollowDropdown() {
@@ -31,7 +25,6 @@ export default function FollowDropdown() {
         py={1}
         background={"rgba(0,0,0,0.8)"}
       >
-        <PopoverArrow backgroundColor={"#1d1d1b"} color={"#1d1d1b"} />
         <PopoverBody className="flex justify-center items-center">
           <div className="flex items-center py-1.5 cursor-pointer mr-5">
             <div className="text-white hover:text-theme-color">Hakkımızda</div>
