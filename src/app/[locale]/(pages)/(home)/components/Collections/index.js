@@ -47,9 +47,8 @@ export default function Collections() {
           visible: { opacity: 1, y: 0 },
           hidden: { opacity: 0, y: 90 },
         }}
-        className="max-lg:hidden w-full grid grid-cols-4 gap-4 items-center justify-center z-30"
+        className="max-lg:hidden w-full flex items-center justify-center z-30"
       >
-        {/* İlk satır */}
         <CollectionItem
           image={Sample3}
           secondImage={Sample2}

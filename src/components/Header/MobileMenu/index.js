@@ -31,7 +31,11 @@ export default function MobileMenu({ isSmall }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <div className={"flex items-center mr-4 xl:hidden min-w-[50px]"}>
+    <div
+      className={
+        "flex items-center mr-4 xl:hidden min-w-[50px] absolute left-5"
+      }
+    >
       <Button className={styles.buttonBase} colorScheme="none" onClick={onOpen}>
         <HamburgerIcon fontSize={30} color={isSmall ? "black" : "white"} />
       </Button>

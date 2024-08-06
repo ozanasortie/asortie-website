@@ -32,7 +32,7 @@ export default function StoreField() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="text-center text-[28px] lg:text-5xl w-full font-md z-30"
+        className="text-center text-[28px] lg:text-5xl w-full font-light z-30"
       >
         GELECEĞİN ANTİKALARINI ÜRETİYORUZ
       </motion.div>

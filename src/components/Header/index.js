@@ -47,7 +47,9 @@ export default function Header() {
               <Corporate />
             </div>
           </div>
-          <Image src={logo} width={180} alt="Logo" />
+          <Link href={"/"}>
+            <Image src={logo} width={180} alt="Logo" />
+          </Link>
           <div className={styles.right}>
             <div className={styles.desktopItems}>
               <FollowDropdown />
@@ -56,7 +58,7 @@ export default function Header() {
             </div>
           </div>
 
-          <div className="absolute right-10 max-lg:static flex items-center">
+          <div className="absolute right-5 flex items-center">
             <SearchSection small={small} />
             <LocalSwitcher />
           </div>

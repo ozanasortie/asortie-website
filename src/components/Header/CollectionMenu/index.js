@@ -11,7 +11,6 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 import Link from "next/link";
 
 import styles from "../header.module.css";
-import CategoryItem from "./CategoryItem";
 
 export default function CollectionMenu() {
   return (
@@ -28,7 +27,7 @@ export default function CollectionMenu() {
         borderRadius={2}
         width={"100vw"}
         background={"rgba(0,0,0,0.8)"}
-        zIndex={9999}
+        zIndex={99}
       >
         <PopoverBody className="flex flex-wrap justify-center items-center">
           <div className="flex items-center  cursor-pointer mr-5 my-3">
