@@ -1,9 +1,9 @@
 import { motion } from "framer-motion";
 import useIsSafari from "@/hooks/useIsSafari";
 import Input from "@components/Input";
+import Button from "@/components/Button";
 
 import FormBackground from "@/assets/form-background.png";
-import Button from "@/components/Button";
 
 export default function CatalogueFormSection() {
   const isSafari = useIsSafari();

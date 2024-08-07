@@ -8,10 +8,10 @@ export default createMiddleware({
   defaultLocale: "en",
   localePrefix: "necessary",
   pathnames: {
-    "/detail": {
-      en: "/detail",
-      tr: "/detay",
-    },
+    // "/detail": {
+    //   en: "/detail",
+    //   tr: "/detay",
+    // },
   },
 });
 

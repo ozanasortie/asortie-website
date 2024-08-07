@@ -14,10 +14,10 @@ export default function Button({
 }) {
   return (
     <ChakraButton
-      className={classNames([
+      className={[
         className,
         "w-full flex items-center justify-center h-[56px] rounded-lg group",
-      ])}
+      ]}
       color={color}
       background={background}
       size={size}

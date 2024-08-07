@@ -47,9 +47,9 @@ export default function Products() {
         className="w-[100%] flex items-center flex-col"
       >
         <h1 className="font-light mt-40 mb-10 text-4xl lg:text-6xl text-center">
-          KLASİK KOLTUK TAKIMLARI
+          KLASİK YATAK TAKIMLARI
         </h1>
-        <p className="max-w-[1100px] md:max-w-[900px] w-[95%] leading-loose text-xs lg:text-[16px] mb-10 text-center">
+        <i className="max-w-[1100px] md:max-w-[900px] w-[95%] leading-loose text-xs lg:text-[16px] mb-10 text-center">
           Bir ömüre zor sığacak çok sayıda şaheseri dünyaya armağan eden Mimar
           Sinan, önündeki kâğıda ilk çizgiyi çizmeden önce, bir şehrin
           geleceğini değiştirecek olmanın heyecanını yaşıyordu. Gelecek
@@ -57,62 +57,68 @@ export default function Products() {
           görürlerse mutlu olacaklarını, hangi binalara girmekten huzur ve gurur
           duyacaklarını hayal ediyordu. Bu yüzden eserleri yüzyıllar boyu ayakta
           ve yüzyıllar boyu kılavuz…
-        </p>
+        </i>
       </motion.div>
 
-      <div className="lg:max-w-[1000px] xl:max-w-[1200px] lg:mt-7 flex flex-wrap justify-around">
-        <ListProduct image={Sample2} title={"Klasik Koltuk Takımları"} />
-        <ListProduct image={Sample} title={"Klasik Koltuk Takımları"} />
-        <ListProduct image={Sample3} title={"Klasik Koltuk Takımları"} />
-        <ListProduct image={Sample2} title={"Klasik Koltuk Takımları"} />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 lg:max-w-[1000px] xl:max-w-[1600px] lg:mt-7 justify-around">
         <ListProduct
-          image={Sample3}
-          secondImage={Sample2}
-          title={"Klasik Koltuk Takımları"}
-        />
-        <ListProduct
-          image={Sample}
-          secondImage={Sample2}
-          title={"Klasik Koltuk Takımları"}
-        />
-        <ListProduct
+          href={"/detail"}
           image={Sample2}
-          secondImage={Sample2}
-          title={"Klasik Koltuk Takımları"}
+          title={"Olimpos Yatak Odası"}
         />
         <ListProduct
+          href={"detail"}
           image={Sample}
-          secondImage={Sample2}
           title={"Klasik Koltuk Takımları"}
         />
         <ListProduct
+          href={"detail"}
           image={Sample3}
-          secondImage={Sample2}
           title={"Klasik Koltuk Takımları"}
         />
         <ListProduct
-          image={Sample}
-          secondImage={Sample2}
+          href={"detail"}
+          image={Sample2}
           title={"Klasik Koltuk Takımları"}
         />
         <ListProduct
-          image={Sample}
-          secondImage={Sample2}
+          href={"/detail"}
+          image={Sample2}
           title={"Klasik Koltuk Takımları"}
         />
         <ListProduct
+          href={"detail"}
           image={Sample}
-          secondImage={Sample2}
           title={"Klasik Koltuk Takımları"}
         />
         <ListProduct
-          image={Sample}
-          secondImage={Sample2}
+          href={"detail"}
+          image={Sample3}
           title={"Klasik Koltuk Takımları"}
         />
         <ListProduct
+          href={"detail"}
+          image={Sample2}
+          title={"Klasik Koltuk Takımları"}
+        />
+        <ListProduct
+          href={"/detail"}
+          image={Sample2}
+          title={"Klasik Koltuk Takımları"}
+        />
+        <ListProduct
+          href={"detail"}
           image={Sample}
-          secondImage={Sample2}
+          title={"Klasik Koltuk Takımları"}
+        />
+        <ListProduct
+          href={"detail"}
+          image={Sample3}
+          title={"Klasik Koltuk Takımları"}
+        />
+        <ListProduct
+          href={"detail"}
+          image={Sample2}
           title={"Klasik Koltuk Takımları"}
         />
       </div>

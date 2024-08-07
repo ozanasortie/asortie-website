@@ -7,13 +7,11 @@ const CollectionItem = ({ image, secondImage, title, className }) => {
       className={`box-border w-full h-72 md:h-96 mb-5 mx-2 cursor-pointer relative overflow-hidden flex flex-col items-center justify-center text-2xl group ${className}`}
     >
       <div className="overflow-hidden w-[98%] h-full relative">
-        {/* İlk resim */}
         <Image
           src={image}
           alt="Slider Furniture Product"
           className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:translate-x-full"
         />
-        {/* İkinci resim - varsayılan olarak gizli ve sağdan gelecek */}
         <Image
           src={secondImage}
           alt="Second Image"

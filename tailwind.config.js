@@ -19,7 +19,7 @@ module.exports = {
       indigo: colors.indigo,
       red: colors.rose,
       yellow: colors.amber,
-      "theme-color": "#DCA50C",
+      "theme-color": "#bd8f0f",
       "background-color": "#1d1d1b",
     },
     extend: {

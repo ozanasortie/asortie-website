@@ -4,11 +4,11 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ListProduct({ image, secondImage, title }) {
+export default function ListProduct({ href, image, secondImage, title }) {
   return (
     <Link
-      className="w-[95%] lg:w-[48%] h-72 md:h-96 lg:h-[400px] mb-6 cursor-pointer relative overflow-hidden group"
-      href={"/products"}
+      className="w-[95%] lg:w-[100%] h-72 md:h-96 lg:h-[400px] cursor-pointer relative overflow-hidden group"
+      href={href}
     >
       <motion.div
         transition={{ duration: 1.5, delay: 0.2 }}
