@@ -7,10 +7,14 @@ import Sample3 from "@assets/sample-3.jpg";
 
 import ProductItem from "./ProductItem";
 import ProductsSlider from "./ProductsSlider";
+import { forwardRef } from "react";
 
-export default function NewProducts() {
+const NewProducts = forwardRef(({ props, ref }) => {
   return (
-    <div className="w-full relative flex flex-1 justify-start items-start max-lg:flex-col p-2 z-40 py-10">
+    <div
+      ref={ref}
+      className="w-full relative flex flex-1 justify-start items-start max-lg:flex-col p-2 z-40 py-10"
+    >
       <div className="absolute left-0 top-0 w-full bg-black bg-opacity-35" />
       <div className="w-full flex flex-col items-center justify-center z-20">
         <motion.div
@@ -84,4 +88,6 @@ export default function NewProducts() {
       </div>
     </div>
   );
-}
+});
+
+export default NewProducts;

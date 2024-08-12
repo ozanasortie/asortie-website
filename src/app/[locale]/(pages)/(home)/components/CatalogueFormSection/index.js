@@ -45,9 +45,24 @@ export default function CatalogueFormSection() {
           katmak için, katalog talep formumuzu doldurarak geniş ürün yelpazemizi
           keşfedin."
         </i>
-        <Input placeholder="Ad Soyad" className="mb-5" />
-        <Input placeholder="E-Mail" className="mb-5" />
-        <Input placeholder="Phone" className="mb-5" />
+        <Input
+          borderColor="white"
+          color="white"
+          placeholder="Ad Soyad"
+          className="mb-5"
+        />
+        <Input
+          borderColor="white"
+          color="white"
+          placeholder="E-Mail"
+          className="mb-5"
+        />
+        <Input
+          borderColor="white"
+          color="white"
+          placeholder="Phone"
+          className="mb-5"
+        />
         <Button
           background="black"
           className="w-full flex items-center justify-center py-4"

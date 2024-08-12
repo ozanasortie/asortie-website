@@ -1,4 +1,5 @@
 "use client";
+import { useRef } from "react";
 import { useTranslations } from "next-intl";
 
 import BannerSection from "./components/BannerSection";
@@ -13,11 +14,19 @@ import CatalogueFormSection from "./components/CatalogueFormSection";
 
 export default function Index() {
   const t = useTranslations("Index");
+  const newProductsRef = useRef(null);
+
+  const scrollToNewProducts = () => {
+    console.log("new p", newProductsRef.current);
+    if (newProductsRef.current) {
+      newProductsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="overflow-x-hidden">
-      <BannerSection />
-      <NewProducts />
+      <BannerSection onClick={scrollToNewProducts} />
+      <NewProducts ref={newProductsRef} />
       <Collections />
       <AboutUs />
       <Blogs />

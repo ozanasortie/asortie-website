@@ -1,7 +1,6 @@
 "use client";
 
 import { Button as ChakraButton } from "@chakra-ui/react";
-import classNames from "classnames";
 
 export default function Button({
   background = "none",

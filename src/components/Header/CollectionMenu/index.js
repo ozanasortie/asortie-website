@@ -21,15 +21,17 @@ export default function CollectionMenu() {
         </Link>
       </PopoverTrigger>
       <PopoverContent
-        mt={6}
         py={4}
         border={0}
         borderRadius={2}
         width={"100vw"}
-        background={"rgba(0,0,0,0.8)"}
+        display={"flex"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        background={"rgba(0,0,0,0.0)"}
         zIndex={99}
       >
-        <PopoverBody className="flex flex-wrap justify-center items-center">
+        <PopoverBody className="flex flex-wrap justify-center items-center bg-black w-[100%] rounded-sm">
           <div className="flex items-center  cursor-pointer mr-5 my-3">
             <div className="text-white hover:text-theme-color">
               Klasik Koltuk Takımları

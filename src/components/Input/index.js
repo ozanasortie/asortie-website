@@ -2,12 +2,13 @@
 import { Input as ChakraInput } from "@chakra-ui/react";
 
 export default function Input({
-  color = "white",
-  textColor = "white",
+  color = "black",
+  textColor = "black",
   outline = "none",
   width = "100%",
   height = "56px",
   className = "w-full",
+  borderColor = "black",
   focusBorderColor = "transparent",
   placeholder = "",
   type = "text",
@@ -22,8 +23,9 @@ export default function Input({
       className={className}
       focusBorderColor={focusBorderColor}
       placeholder={placeholder}
-      _placeholder={{ color: "white" }}
+      _placeholder={{ color: color }}
       type={type}
+      borderColor={borderColor}
     />
   );
 }
