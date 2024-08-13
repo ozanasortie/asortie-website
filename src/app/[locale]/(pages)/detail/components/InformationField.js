@@ -39,7 +39,7 @@ function InformationField() {
           }}
           className={`${small ? "hidden lg:block mb-5 mt-10" : "hidden"}`}
         >
-          <h1 className="text-white font-light lg:text-4xl xl:text-6xl [text-shadow:_2px_2px_4px_rgb(0_0_0_/_70%)]">
+          <h1 className="text-white text-center font-light lg:text-4xl xl:text-6xl [text-shadow:_2px_2px_4px_rgb(0_0_0_/_70%)]">
             OLİMPOS YATAK ODASI
           </h1>
         </motion.div>
@@ -87,16 +87,16 @@ function InformationField() {
           <InformationForm isOpen={isOpen} onClose={onClose} />
 
           <div className="w-[95%] space-y-2 mt-2">
-            <div className="flex justify-between">
+            <div className="flex flex-col lg:flex-row lg:justify-between">
               <Button
                 background="transparent"
-                className="w-[49.5%] flex items-center justify-center py-4 border !border-[#075e54]"
+                className="w-full lg:w-[49.5%] mb-3 lg:mb-0 flex items-center justify-center py-4 border !border-[#075e54]"
                 text={"WhatsApp: +90 549 460 30 07"}
                 onClick={onOpen}
               />
               <Button
                 background="transparent"
-                className="w-[49.5%] flex items-center justify-center py-4 border border-theme-color"
+                className="w-full lg:w-[49.5%] flex items-center justify-center py-4 border border-theme-color"
                 text={"Telefon: +90 212 675 04 46"}
                 onClick={onOpen}
               />

@@ -7,7 +7,7 @@ import DetailHeader from "./components/DetailHeader";
 import ImageField from "./components/ImageField";
 import RecommendedProducts from "./components/RecommendProducts";
 
-import SampleBanner from "@assets/bosna.jpg";
+import SampleBanner from "@assets/defne.jpg";
 
 export default function Detail() {
   const isSafari = useIsSafari();

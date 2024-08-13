@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function ListProduct({ href, image, secondImage, title }) {
   return (
     <Link
-      className="box-border w-[100%] h-72 md:h-96 lg:h-[400px] cursor-pointer relative overflow-hidden flex items-center justify-center text-2xl group"
+      className="box-border w-[98%] h-72 md:h-96 lg:h-[400px] cursor-pointer relative overflow-hidden flex items-center justify-center text-2xl group"
       href={href}
     >
       <motion.div
