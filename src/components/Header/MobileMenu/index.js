@@ -84,7 +84,7 @@ export default function MobileMenu({ isSmall }) {
                   <Link className={styles.menuItem} href="/detail">
                     CONTACT
                   </Link>
-                  <Link className={styles.menuItem} href="/detail">
+                  <Link className={styles.menuItem} href="/blog">
                     BLOG
                   </Link>
                 </AccordionPanel>
@@ -107,7 +107,7 @@ export default function MobileMenu({ isSmall }) {
                   <Link className={styles.menuItem} href="/detail">
                     CONTACT
                   </Link>
-                  <Link className={styles.menuItem} href="/detail">
+                  <Link className={styles.menuItem} href="/blog">
                     BLOG
                   </Link>
                 </AccordionPanel>
@@ -122,7 +122,7 @@ export default function MobileMenu({ isSmall }) {
             <Link className={styles.menuItem} href="/detail">
               CONTACT
             </Link>
-            <Link className={styles.menuItem} href="/detail">
+            <Link className={styles.menuItem} href="/blog">
               BLOG
             </Link>
             <FollowSection />

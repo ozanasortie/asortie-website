@@ -53,7 +53,7 @@ export default function Header() {
           <div className={styles.right}>
             <div className={styles.desktopItems}>
               <FollowDropdown />
-              <NavItem href="/detail">Blog</NavItem>
+              <NavItem href="/blog">Blog</NavItem>
               <NavItem href="/detail">İletişim</NavItem>
             </div>
           </div>
