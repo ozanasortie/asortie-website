@@ -5,10 +5,12 @@ import BlogSample2 from "@assets/blog-sample-2.png";
 
 import BlogSlider from "./BlogSlider";
 import BlogItem from "./BlogItem";
+import Link from "next/link";
+import { ChevronRightIcon } from "@chakra-ui/icons";
 
 export default function Blogs() {
   return (
-    <div className="w-full relative flex flex-1 justify-start items-start max-lg:flex-col p-2 z-40 py-10">
+    <div className="w-full relative flex flex-1 justify-start items-start max-lg:flex-col mt-4 z-40 mb-14 px-page">
       <div className="absolute left-0 top-0 w-full bg-black bg-opacity-35" />
       <div className="w-full flex flex-col items-center justify-center z-20">
         <motion.div
@@ -19,11 +21,17 @@ export default function Blogs() {
             visible: { opacity: 1, y: 0 },
             hidden: { opacity: 0, y: 90 },
           }}
-          className="w-full flex items-center justify-between mt-5 px-10"
+          className="w-full flex items-center justify-between mt-10 mb-14 z-30"
         >
-          <span className="w-full text-4xl lg:text-5xl text-center font-light">
-            BLOGLAR
+          <span className="text-4xl lg:text-5xl text-center lg:text-start font-light">
+            BLOG
           </span>
+
+          <Link href="/collection">
+            <span className="z-30 text-2xl mt-5 cursor-pointer">
+              TÜMÜNÜ GÖR <ChevronRightIcon mb={1} />
+            </span>
+          </Link>
         </motion.div>
         <motion.div
           transition={{ duration: 1, delay: 0.2 }}
@@ -33,10 +41,14 @@ export default function Blogs() {
             visible: { opacity: 1, x: 0 },
             hidden: { opacity: 0, x: 90 },
           }}
-          className="w-[100vw] flex items-center justify-center mt-10"
+          className="w-full flex items-center justify-center"
         >
           <BlogSlider />
-          <div className="max-lg:hidden w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 px-5 place-content-center place-items-center">
+          <div className="max-lg:hidden w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 place-content-center place-items-center">
+            <BlogItem
+              image={BlogSample}
+              title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"
+            />
             <BlogItem
               image={BlogSample}
               title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"
@@ -51,9 +63,6 @@ export default function Blogs() {
             />
           </div>
         </motion.div>
-        <span className="mt-10 text-xl lg:text-2xl text-center lg:text-start font-light">
-          Tümünü Gör
-        </span>
       </div>
     </div>
   );

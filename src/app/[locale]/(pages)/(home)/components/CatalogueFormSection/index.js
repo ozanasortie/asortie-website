@@ -27,7 +27,7 @@ export default function CatalogueFormSection() {
         className="flex items-center justify-center lg:mt-10 mb-10 z-30"
       >
         <span className="text-4xl lg:text-6xl text-center font-light">
-          KATALOG TALEP EDİN
+          DİJİTAL KATALOG FORMU
         </span>
       </motion.div>
       <motion.div
@@ -64,9 +64,10 @@ export default function CatalogueFormSection() {
           className="mb-5"
         />
         <Button
-          background="black"
+          background="white"
+          color="black"
           className="w-full flex items-center justify-center py-4"
-          text={"TALEP ET"}
+          text={"KATALOG GÖNDER"}
         />
       </motion.div>
     </div>

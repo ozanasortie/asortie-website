@@ -23,42 +23,61 @@ export default function FollowDropdown() {
         border={0}
         borderRadius={0}
         py={1}
-        background={"rgba(0,0,0,0.8)"}
+        background={"#a67f5e"}
       >
         <PopoverBody className="flex justify-center items-center">
-          <div className="flex items-center py-1.5 cursor-pointer mr-5">
-            <div className="text-white hover:text-theme-color">Hakkımızda</div>
+          <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
+            <div className="text-white relative">
+              Hakkımızda
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </div>
           </div>
-          <div className="flex items-center py-1.5 cursor-pointer mr-5">
-            <div className="text-white hover:text-theme-color">Felsefemiz</div>
+          <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
+            <div className="text-white relative">
+              Felsefemiz
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </div>
           </div>
-          <div className="flex items-center py-1.5 cursor-pointer mr-5">
-            <div className="text-white hover:text-theme-color">Referanslar</div>
+          <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
+            <div className="text-white relative">
+              Referanslar
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </div>
           </div>
-          <div className="flex items-center py-1.5 cursor-pointer mr-5">
-            <div className="text-white hover:text-theme-color">Asortie VIP</div>
+          <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
+            <div className="text-white relative">
+              Asortie VIP
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </div>
           </div>
-          <div className="flex items-center py-1.5 cursor-pointer mr-5">
-            <div className="text-white hover:text-theme-color">
+          <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
+            <div className="text-white relative">
               Müşteri Hakları
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </div>
           </div>
-          <div className="flex items-center py-1.5 cursor-pointer mr-5">
-            <div className="text-white hover:text-theme-color">
+          <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
+            <div className="text-white relative">
               İnsan Kaynakları
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </div>
           </div>
-          <div className="flex items-center py-1.5 cursor-pointer mr-5">
-            <div className="text-white hover:text-theme-color">
+          <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
+            <div className="text-white relative">
               Şikayet ve Öneri
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </div>
           </div>
-          <div className="flex items-center py-1.5 cursor-pointer mr-5">
-            <div className="text-white hover:text-theme-color">Asortie TV</div>
+          <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
+            <div className="text-white relative">
+              Asortie TV
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </div>
           </div>
-          <div className="flex items-center py-1.5 cursor-pointer mr-5">
-            <div className="text-white hover:text-theme-color">
+          <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
+            <div className="text-white relative">
               Yasal Uyarılar
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </div>
           </div>
         </PopoverBody>

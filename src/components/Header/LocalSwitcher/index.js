@@ -18,7 +18,7 @@ import styles from "./localSwitcher.module.css";
 import eng from "@assets/icons/flags/eng.png";
 import arab from "@assets/icons/flags/arab.png";
 
-export default function LocalSwitcher() {
+export default function LocalSwitcher({ small }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isPending, startTransition] = useTransition();
   const pathname = usePathname();
@@ -37,10 +37,11 @@ export default function LocalSwitcher() {
     <div className={"flex items-center"}>
       <Button
         className={[styles.buttonBase, "mr-0"]}
+        color={small ? "#1d1d1b" : "white"}
         colorScheme="none"
         onClick={onOpen}
       >
-        <Image width={22} src={eng} alt="Language" />
+        EN
       </Button>
       <Drawer
         isOpen={isOpen}

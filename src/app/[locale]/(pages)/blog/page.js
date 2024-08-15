@@ -12,9 +12,6 @@ export default function Blog() {
       className={`bg-cover bg-center bg-no-repeat relative flex flex-col items-center lg:justify-around text-white ${
         isSafari ? "" : "bg-fixed"
       }`}
-      style={{
-        backgroundImage: `url(${"https://www.cappellettisrl.com/wp-content/uploads/2021/01/luxury-sfondo-ok.jpg"})`,
-      }}
     >
       <BlogsHeader />
       <BlogList />

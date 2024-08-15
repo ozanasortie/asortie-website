@@ -11,16 +11,14 @@ import Sample2 from "@assets/Samplebanner.jpg";
 import Sample from "@assets/sample.jpg";
 import Sample3 from "@assets/sample-3.jpg";
 import Link from "next/link";
+import { ChevronRightIcon } from "@chakra-ui/icons";
 
 export default function Collections() {
   const isSafari = useIsSafari();
 
   return (
     <div
-      className={`bg-cover bg-center relative flex flex-1 flex-col items-center w-full box-border overflow-hidden py-10 pb-10 lg:px-20 ${
-        isSafari ? "" : "bg-fixed"
-      }`}
-      style={{ backgroundImage: `url(${Background.src})` }}
+      className={`flex flex-1 flex-col items-center w-full max-w-page box-border overflow-hidden py-7 pb-10 lg:px-page`}
     >
       <motion.div
         transition={{ duration: 1, delay: 0.2 }}
@@ -30,11 +28,17 @@ export default function Collections() {
           visible: { opacity: 1, y: 0 },
           hidden: { opacity: 0, y: 90 },
         }}
-        className="w-full flex items-center justify-center my-8 z-30"
+        className="w-full flex items-center justify-between mt-10 mb-14 z-30"
       >
         <span className="text-4xl lg:text-5xl text-center lg:text-start font-light">
-          KOLEKSİYONLAR
+          KOLEKSİYON
         </span>
+
+        <Link href="/collection">
+          <span className="z-30 text-2xl mt-5 cursor-pointer">
+            TÜMÜNÜ GÖR <ChevronRightIcon mb={1} />
+          </span>
+        </Link>
       </motion.div>
 
       <CollectionSlider />
@@ -47,7 +51,7 @@ export default function Collections() {
           visible: { opacity: 1, y: 0 },
           hidden: { opacity: 0, y: 90 },
         }}
-        className="max-lg:hidden w-full flex items-center justify-center z-30"
+        className="max-lg:hidden w-full flex items-center justify-between z-30 gap-6"
       >
         <CollectionItem
           image={Sample3}
@@ -70,12 +74,6 @@ export default function Collections() {
           title="Belinda Koltuk Takımı"
         />
       </motion.div>
-
-      <Link href="/collection">
-        <span className="z-30 text-lg mt-5 cursor-pointer underline">
-          Daha Fazlasını Keşfet
-        </span>
-      </Link>
     </div>
   );
 }

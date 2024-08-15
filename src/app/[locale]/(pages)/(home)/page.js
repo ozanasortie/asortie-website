@@ -27,12 +27,12 @@ export default function Index() {
     <div className="overflow-x-hidden">
       <BannerSection onClick={scrollToNewProducts} />
       <NewProducts ref={newProductsRef} />
+      <PromotionSection />
       <Collections />
       <AboutUs />
-      <Blogs />
-      <PromotionSection />
-      <StoreSection />
       <News />
+      <StoreSection />
+      <Blogs />
       <CatalogueFormSection />
       {/* <ScrollPage>
         <Animator animation={FadeIn()} className="w-full">

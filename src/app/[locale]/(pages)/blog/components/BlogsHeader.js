@@ -10,7 +10,7 @@ function BlogsHeader() {
         visible: { opacity: 1, y: 0 },
         hidden: { opacity: 0, y: 80 },
       }}
-      className="w-[100%] flex items-center flex-col"
+      className="w-[100%] flex items-center flex-col text-black"
     >
       <h1 className="font-light mt-40 mb-10 text-5xl lg:text-6xl text-center">
         BLOG

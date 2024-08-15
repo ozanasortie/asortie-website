@@ -13,7 +13,7 @@ const NewProducts = forwardRef(({ props, ref }) => {
   return (
     <div
       ref={ref}
-      className="w-full relative flex flex-1 justify-start items-start max-lg:flex-col p-2 z-40 py-10"
+      className="w-full relative flex flex-1 justify-start items-start max-lg:flex-col lg:px-page z-40 pt-4 pb-8"
     >
       <div className="absolute left-0 top-0 w-full bg-black bg-opacity-35" />
       <div className="w-full flex flex-col items-center justify-center z-20">
@@ -27,8 +27,8 @@ const NewProducts = forwardRef(({ props, ref }) => {
           }}
           className="w-full flex items-center justify-center lg:mt-10"
         >
-          <span className="text-4xl lg:text-5xl text-center lg:text-start font-light">
-            YENİ ÇIKANLAR
+          <span className="text-4xl lg:text-5xl mb-1 text-center lg:text-start font-light">
+            YENİ MODELLER
           </span>
         </motion.div>
         <motion.div

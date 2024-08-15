@@ -29,30 +29,29 @@ export default function FollowDropdown() {
         border={0}
         borderRadius={0}
         py={1}
-        background={"rgba(0,0,0,0.8)"}
+        background={"#a67f5e"}
       >
         <PopoverBody className="flex justify-center items-center">
-          <div className="flex items-center py-1.5 cursor-pointer mr-5">
-            <Image
-              width={20}
-              className="mt-1 mr-2"
-              src={Youtube}
-              alt="Youtube"
-            />{" "}
-            <div className="text-white hover:text-theme-color">Youtube</div>
+          <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
+            {/* <Image width={20} className="mt-1 mr-2" src={Youtube} alt="Youtube" />{" "} */}
+            <div className="text-white relative">
+              Youtube
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </div>
           </div>
-          <div className="flex items-center py-1.5 cursor-pointer mr-5">
-            <Image
-              width={19}
-              className="mr-2"
-              src={Instagram}
-              alt="Instagram"
-            />{" "}
-            <div className="text-white hover:text-theme-color">Instagram</div>
+          <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
+            {/* <Image width={19} className="mr-2" src={Instagram} alt="Instagram" />{" "} */}
+            <div className="text-white relative">
+              Instagram
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </div>
           </div>
-          <div className="flex items-center py-1.5 cursor-pointer mr-5">
-            <Image width={19} className="mr-2" src={Facebook} alt="Facebook" />{" "}
-            <div className="text-white hover:text-theme-color">Facebook</div>
+          <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
+            {/* <Image width={19} className="mr-2" src={Facebook} alt="Facebook" />{" "} */}
+            <div className="text-white relative">
+              Facebook
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </div>
           </div>
         </PopoverBody>
       </PopoverContent>

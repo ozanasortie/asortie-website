@@ -47,8 +47,8 @@ export default function Header() {
               <Corporate />
             </div>
           </div>
-          <Link href={"/"}>
-            <Image src={logo} width={180} alt="Logo" />
+          <Link className="mx-10" href={"/"}>
+            <Image src={logo} width={300} alt="Logo" />
           </Link>
           <div className={styles.right}>
             <div className={styles.desktopItems}>
@@ -58,9 +58,9 @@ export default function Header() {
             </div>
           </div>
 
-          <div className="absolute right-5 flex items-center">
+          <div className="absolute right-12 flex items-center">
             <SearchSection small={small} />
-            <LocalSwitcher />
+            <LocalSwitcher small={small} />
           </div>
         </nav>
       </motion.div>

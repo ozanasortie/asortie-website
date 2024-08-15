@@ -21,76 +21,95 @@ export default function CollectionMenu() {
         </Link>
       </PopoverTrigger>
       <PopoverContent
-        py={4}
         border={0}
         borderRadius={2}
         width={"100vw"}
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
-        background={"rgba(0,0,0,0.0)"}
+        mt={13}
+        background={
+          "radial-gradient(circle, rgba(0,0,0,0.8260097984506303) 8%, rgba(232,178,81,1) 99%, rgba(210,165,47,1) 100%)"
+        }
         zIndex={99}
       >
-        <PopoverBody className="flex flex-wrap justify-center items-center bg-black w-[100%] rounded-sm">
-          <div className="flex items-center  cursor-pointer mr-5 my-3">
-            <div className="text-white hover:text-theme-color">
+        <PopoverBody className="flex flex-wrap justify-center items-center w-[100%] rounded-sm">
+          <div className="flex items-center cursor-pointer mr-5 my-3 group">
+            <div className="text-white relative">
               Klasik Koltuk Takımları
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </div>
           </div>
-          <div className="flex items-center  cursor-pointer mr-5 my-3">
-            <div className="text-white hover:text-theme-color">
+          <div className="flex items-center cursor-pointer mr-5 my-3 group">
+            <div className="text-white relative">
               Klasik Yemek Odası Takımları
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </div>
           </div>
-          <div className="flex items-center  cursor-pointer mr-5 my-3">
-            <div className="text-white hover:text-theme-color">
+          <div className="flex items-center cursor-pointer mr-5 my-3 group">
+            <div className="text-white relative">
               Klasik Yatak Odası Takımları
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </div>
           </div>
-          <div className="flex items-center  cursor-pointer mr-5 my-3">
-            <div className="text-white hover:text-theme-color">
+          <div className="flex items-center cursor-pointer mr-5 my-3 group">
+            <div className="text-white relative">
               Köşe Takımı Modelleri
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </div>
           </div>
-          <div className="flex items-center  cursor-pointer mr-5 my-3">
-            <div className="text-white hover:text-theme-color">
+          <div className="flex items-center cursor-pointer mr-5 my-3 group">
+            <div className="text-white relative">
               Duvar ve TV Üniteleri
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </div>
           </div>
-          <div className="flex items-center  cursor-pointer mr-5 my-3">
-            <div className="text-white hover:text-theme-color">
+          <div className="flex items-center cursor-pointer mr-5 my-3 group">
+            <div className="text-white relative">
               Bebek ve Genç Odaları
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </div>
           </div>
-          <div className="flex items-center  cursor-pointer mr-5 my-3">
-            <div className="text-white hover:text-theme-color">
+          <div className="flex items-center cursor-pointer mr-5 my-3 group">
+            <div className="text-white relative">
               Ofis Mobilyaları
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </div>
           </div>
-          <div className="flex items-center  cursor-pointer mr-5 my-3">
-            <div className="text-white hover:text-theme-color">Aksesuarlar</div>
+          <div className="flex items-center cursor-pointer mr-5 my-3 group">
+            <div className="text-white relative">
+              Aksesuarlar
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </div>
           </div>
-          <div className="flex items-center  cursor-pointer mr-5 my-3">
-            <div className="text-white hover:text-theme-color">
+          <div className="flex items-center cursor-pointer mr-5 my-3 group">
+            <div className="text-white relative">
               Otel Mobilyaları
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </div>
           </div>
-          <div className="flex items-center  cursor-pointer mr-5 my-3">
-            <div className="text-white hover:text-theme-color">
+          <div className="flex items-center cursor-pointer mr-5 my-3 group">
+            <div className="text-white relative">
               Modern Koleksiyon
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </div>
           </div>
-          <div className="flex items-center  cursor-pointer mr-5 my-3">
-            <div className="text-white hover:text-theme-color">Avizeler</div>
+          <div className="flex items-center cursor-pointer mr-5 my-3 group">
+            <div className="text-white relative">
+              Avizeler
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
+            </div>
           </div>
-          <div className="flex items-center  cursor-pointer mr-5 my-3">
-            <div className="text-white hover:text-theme-color">
+          <div className="flex items-center cursor-pointer mr-5 my-3 group">
+            <div className="text-white relative">
               Klasik Berjerler
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </div>
           </div>
-          <div className="flex items-center  cursor-pointer mr-5 my-3">
-            <div className="text-white hover:text-theme-color">
+          <div className="flex items-center cursor-pointer mr-5 my-3 group">
+            <div className="text-white relative">
               Pet Mobilyaları
+              <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </div>
           </div>
         </PopoverBody>

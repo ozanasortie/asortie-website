@@ -11,27 +11,13 @@ export default function AboutUs() {
 
   return (
     <div
-      className={`bg-cover bg-center relative p-4 lg:p-10 flex flex-col items-center justify-center text-white ${
+      className={`bg-cover bg-center relative p-4 lg:p-10 lg:px-page flex flex-col items-center justify-center text-white ${
         isSafari ? "" : "bg-fixed"
       }`}
       style={{ backgroundImage: `url(${Background.src})` }}
     >
       <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-35 z-30" />
       <div className="flex flex-col w-full z-30">
-        <motion.div
-          transition={{ duration: 0.8, delay: 0.2 }}
-          initial="hidden"
-          whileInView="visible"
-          variants={{
-            visible: { opacity: 1, x: 0 },
-            hidden: { opacity: 0, x: 80 },
-          }}
-          className="w-[100%] flex items-center lg:items-start flex-col lg:ml-10"
-        >
-          <h1 className="text-3xl text-center lg:text-start lg:text-6xl my-4 mb-5 uppercase">
-            Bizim Tasarımlarımız Kalıba Sığmaz:
-          </h1>
-        </motion.div>
         <div className="flex flex-col lg:flex-row items-center lg:items-start">
           <motion.div
             transition={{ duration: 1.2, delay: 0.2 }}
@@ -41,11 +27,11 @@ export default function AboutUs() {
               visible: { opacity: 1, x: 0 },
               hidden: { opacity: 0, x: -50 },
             }}
-            className="lg:w-[500px] lg:h-[65vh] max-lg:mb-8"
+            className="max-lg:mb-8 h-full"
           >
             <Image
               src={Team}
-              className="lg:w-full md:h-[360px] lg:h-full z-20 object-cover rounded-lg"
+              className="lg:w-full lg:h-full max-w-[40vw] z-20 object-cover rounded-lg"
             />
           </motion.div>
 
@@ -59,6 +45,20 @@ export default function AboutUs() {
             }}
             className="flex flex-col items-center text-center lg:text-start lg:ml-10 lg:w-[40vw]"
           >
+            <motion.div
+              transition={{ duration: 0.8, delay: 0.2 }}
+              initial="hidden"
+              whileInView="visible"
+              variants={{
+                visible: { opacity: 1, x: 0 },
+                hidden: { opacity: 0, x: 80 },
+              }}
+              className="w-[100%] flex items-center lg:items-start flex-col"
+            >
+              <h1 className="text-3xl text-center lg:text-start lg:text-6xl my-4 mb-8 uppercase">
+                Bizim Tasarımlarımız Kalıba Sığmaz:
+              </h1>
+            </motion.div>
             <p className="w-full  mb-5">
               Bir ömüre zor sığacak çok sayıda şaheseri dünyaya armağan eden
               Mimar Sinan, önündeki kâğıda ilk çizgiyi çizmeden önce, bir şehrin
@@ -73,6 +73,17 @@ export default function AboutUs() {
               darbesindeki heyecanı, bir heykeltıraşın toprağa ilk dokunuşunda
               duyduğu his, bir nakkaşın kaleminden damlayan ilk mürekkebin
               coşkusu ve bir çocuğun ilk adım atmasının heyecanı…
+            </p>
+            <p className="mb-5">
+              Bugün bizde böyle bir heyecanın içindeyiz. Bir ressamın ilk fırça
+              darbesindeki heyecanı, bir heykeltıraşın toprağa ilk dokunuşunda
+              duyduğu his, bir nakkaşın kaleminden damlayan ilk mürekkebin
+              coşkusu ve bir çocuğun ilk adım atmasının heyecanı…
+            </p>
+            <p className="mb-5">
+              Bugün bizde böyle bir heyecanın içindeyiz. Bir ressamın ilk fırça
+              darbesindeki heyecanı. Bugün bizde böyle bir heyecanın içindeyiz.
+              Bir ressamın ilk fırça darbesindeki heyecanı.
             </p>
           </motion.div>
         </div>

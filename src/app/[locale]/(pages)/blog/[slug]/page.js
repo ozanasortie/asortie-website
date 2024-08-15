@@ -4,10 +4,12 @@ import { usePathname } from "../../../../../../navigation";
 import useIsSafari from "@/hooks/useIsSafari";
 import Image from "next/image";
 
-import Sample from "@assets/luxury.jpg";
+import Sample from "@assets/Naorabi.jpg";
 import Sample2 from "@assets/blog-sample.jpg";
 import Sample3 from "@assets/blog-sample-2.png";
+
 import BlogItem from "./components/BlogItem";
+import RecommendedBlogs from "./components/RecommendedBlogs";
 
 export default function Page() {
   const pathname = usePathname();
@@ -15,11 +17,11 @@ export default function Page() {
   console.log("router", pathname);
   return (
     <div
-      className={`pt-32 pb-10 bg-cover min-h-full bg-center bg-no-repeat relative flex justify-center text-white ${
+      className={`pt-52 pb-10 bg-cover min-h-full bg-center bg-no-repeat relative flex flex-col items-center justify-center text-white ${
         isSafari ? "" : "bg-fixed"
       }`}
       style={{
-        backgroundImage: `url(${"https://www.cappellettisrl.com/wp-content/uploads/2021/01/luxury-sfondo-ok.jpg"})`,
+        backgroundImage: `url(${"https://www.cappellettisrl.com/wp-content/uploads/2023/05/EQ0.jpg"})`,
       }}
     >
       <div className="max-w-[1400px] flex justify-around">
@@ -184,6 +186,7 @@ export default function Page() {
           </div>
         </motion.div>
       </div>
+      <RecommendedBlogs />
     </div>
   );
 }
