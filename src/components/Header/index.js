@@ -14,6 +14,7 @@ import CollectionMenu from "./CollectionMenu";
 import Corporate from "./Corporate";
 
 import logo from "@assets/logo.png";
+import arma from "@assets/logo-left.png";
 import styles from "./header.module.css";
 
 export default function Header() {
@@ -38,29 +39,35 @@ export default function Header() {
         }}
         className={`${styles.headerBase} ${small ? styles.headerSmall : ""}`}
       >
+        <nav className={styles.smallNav}>
+          <div className="flex items-center">
+            <SearchSection small={small} />
+            <LocalSwitcher small={small} />
+            <FollowDropdown />
+          </div>
+        </nav>
         <nav className={`${styles.navBase} ${small ? styles.navSmall : ""}`}>
           <MobileMenu isSmall={small} />
           <div className={styles.left}>
             <div className={styles.desktopItems}>
               <NavItem href="/">{t("home")}</NavItem>
               <CollectionMenu />
-              <Corporate />
+              <NavItem href="/detail">PROJELER</NavItem>
             </div>
           </div>
           <Link className="mx-10" href={"/"}>
-            <Image src={logo} width={300} alt="Logo" />
+            {small ? (
+              <Image src={arma} width={70} alt="Logo" />
+            ) : (
+              <Image src={logo} width={280} alt="Logo" />
+            )}
           </Link>
           <div className={styles.right}>
             <div className={styles.desktopItems}>
-              <FollowDropdown />
               <NavItem href="/blog">Blog</NavItem>
+              <Corporate />
               <NavItem href="/detail">İletişim</NavItem>
             </div>
-          </div>
-
-          <div className="absolute right-12 flex items-center">
-            <SearchSection small={small} />
-            <LocalSwitcher small={small} />
           </div>
         </nav>
       </motion.div>

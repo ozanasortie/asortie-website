@@ -7,7 +7,7 @@ import DetailHeader from "./components/DetailHeader";
 import ImageField from "./components/ImageField";
 import RecommendedProducts from "./components/RecommendProducts";
 
-import SampleBanner from "@assets/defne.jpg";
+import SampleBanner from "@assets/bosna.jpg";
 
 export default function Detail() {
   const isSafari = useIsSafari();
@@ -21,7 +21,7 @@ export default function Detail() {
         visible: { opacity: 1 },
         hidden: { opacity: 0 },
       }}
-      className={`w-full bg-cover bg-center bg-no-repeat relative flex flex-col items-center text-white pb-16 lg:pb-32 ${
+      className={`w-full bg-cover bg-center bg-no-repeat relative flex flex-col items-center text-black pb-16 lg:pb-32 ${
         isSafari ? "" : "bg-fixed"
       }`}
       style={{

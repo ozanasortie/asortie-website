@@ -18,7 +18,7 @@ function InformationField() {
   }, []);
 
   return (
-    <div className="w-full lg:w-2/5 h-full lg:sticky top-24 z-40">
+    <div className="w-full lg:w-2/5 h-full lg:sticky top-24 z-40 !text-black">
       <motion.div
         transition={{ duration: 1 }}
         initial="hidden"

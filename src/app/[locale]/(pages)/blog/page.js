@@ -3,6 +3,7 @@ import useIsSafari from "@/hooks/useIsSafari";
 
 import BlogList from "./components/BlogList";
 import BlogsHeader from "./components/BlogsHeader";
+import BannerSection from "./components/BannerSection";
 
 export default function Blog() {
   const isSafari = useIsSafari();
@@ -13,6 +14,7 @@ export default function Blog() {
         isSafari ? "" : "bg-fixed"
       }`}
     >
+      <BannerSection />
       <BlogsHeader />
       <BlogList />
     </div>

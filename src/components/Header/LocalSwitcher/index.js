@@ -34,14 +34,14 @@ export default function LocalSwitcher({ small }) {
   }
 
   return (
-    <div className={"flex items-center"}>
+    <div className={"flex items-center ml-2"}>
       <Button
-        className={[styles.buttonBase, "mr-0"]}
+        className={[styles.buttonBase, "mr-0 !h-fit"]}
         color={small ? "#1d1d1b" : "white"}
         colorScheme="none"
         onClick={onOpen}
       >
-        EN
+        TR
       </Button>
       <Drawer
         isOpen={isOpen}

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 import useIsSafari from "@hooks/useIsSafari";
 
-import Arma from "@/assets/14arma.png";
+import Arma from "@/assets/16arma.png";
 import Background from "@assets/background.webp";
 
 export default function PRomotionSection() {
@@ -29,7 +29,7 @@ export default function PRomotionSection() {
             }}
             className="flex flex-col items-start text-center lg:text-start lg:ml-10"
           >
-            <Image src={Arma} className="w-[230px]" />
+            <Image src={Arma} className="w-[220px]" />
           </motion.div>
           <motion.div
             transition={{ duration: 1.2, delay: 0.2 }}
@@ -45,10 +45,10 @@ export default function PRomotionSection() {
               SİZİN İÇİN, SİZİNLE BİRLİKTE...
             </h1>
 
-            <h1 className="w-full text-4xl xl:text-6xl mt-3 mb-5 text-start max-lg:hidden">
+            <h1 className="w-full text-4xl xl:text-4xl mt-3 mb-5 text-start max-lg:hidden">
               SİZİN İÇİN, SİZİNLE BİRLİKTE...
             </h1>
-            <p className="mb-5 text-xl text-start lg:w-[45vw]">
+            <p className="mb-5 text-lg text-start lg:w-[45vw]">
               Asortie, mobilya ve dekorasyon adına, kendinizi mutlu
               hissedeceğiniz olağanüstü tasarımlara imza atıyor. 1965 yılından
               bugüne gelişen engin bir tecrübenin ürünü ile müşterilerine hizmet

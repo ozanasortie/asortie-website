@@ -17,7 +17,7 @@ export default function CollectionMenu() {
     <Popover trigger="hover">
       <PopoverTrigger>
         <Link className={styles.navLink} href={"/collection"}>
-          Koleksiyon <ChevronDownIcon mb={1} />
+          Koleksiyon
         </Link>
       </PopoverTrigger>
       <PopoverContent

@@ -20,7 +20,11 @@ export default function SearchSection({ small }) {
 
   return (
     <>
-      <Button className={"mr-4 lg:mr-4"} colorScheme="none" onClick={onOpen}>
+      <Button
+        className={"mr-4 lg:mr-6 h-fit"}
+        colorScheme="none"
+        onClick={onOpen}
+      >
         <SearchIcon
           color={small ? "#1d1d1b" : "white"}
           fontWeight={"thin"}

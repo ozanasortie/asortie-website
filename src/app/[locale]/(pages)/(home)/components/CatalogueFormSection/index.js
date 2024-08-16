@@ -15,20 +15,28 @@ export default function CatalogueFormSection() {
       }`}
       style={{ backgroundImage: `url(${FormBackground.src})` }}
     >
-      <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-35 z-20" />
+      <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-55 z-20" />
       <motion.div
         transition={{ duration: 1 }}
         initial="hidden"
         whileInView="visible"
         variants={{
-          visible: { opacity: 1, y: 0 },
-          hidden: { opacity: 0, y: 90 },
+          visible: { opacity: 1, x: 0 },
+          hidden: { opacity: 0, x: 90 },
         }}
-        className="flex items-center justify-center lg:mt-10 mb-10 z-30"
+        className="w-1/2 lg:w-[40%] z-30 flex flex-col items-center"
       >
-        <span className="text-4xl lg:text-6xl text-center font-light">
-          DİJİTAL KATALOG FORMU
-        </span>
+        <i className="mb-5 text-center">
+          "Özenle tasarlanmış klasik mobilyalarımızla yaşam alanlarınıza zarafet
+          katmak için, katalog talep formumuzu doldurarak geniş ürün yelpazemizi
+          keşfedin."
+        </i>
+        <Button
+          background="white"
+          color="black"
+          className="w-[90%] flex items-center justify-center py-4"
+          text={"DİJİTAL KATALOG TALEP ET"}
+        />
       </motion.div>
       <motion.div
         transition={{ duration: 1 }}
@@ -38,8 +46,22 @@ export default function CatalogueFormSection() {
           visible: { opacity: 1, x: 0 },
           hidden: { opacity: 0, x: 90 },
         }}
-        className="w-full lg:w-[40%] z-30 flex flex-col items-center"
+        className="w-1/2 lg:w-[40%] z-30 flex flex-col items-center"
       >
+        <motion.div
+          transition={{ duration: 1 }}
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: 90 },
+          }}
+          className="flex items-center justify-center lg:mt-10 mb-10 z-30"
+        >
+          <span className="text-4xl lg:text-6xl text-center font-light">
+            BİZE ULAŞIN
+          </span>
+        </motion.div>
         <i className="mb-5 text-center">
           "Özenle tasarlanmış klasik mobilyalarımızla yaşam alanlarınıza zarafet
           katmak için, katalog talep formumuzu doldurarak geniş ürün yelpazemizi

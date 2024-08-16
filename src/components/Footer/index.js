@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-import Background from "@assets/background.webp";
+import Background from "@assets/montaj.jpg";
 import Logo from "@assets/logo-left.png";
 
 import useIsSafari from "@/hooks/useIsSafari";
@@ -16,38 +16,9 @@ export default function Footer() {
       }`}
       style={{ backgroundImage: `url(${Background.src})` }}
     >
-      <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-50 z-30" />
+      <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-70 z-30" />
 
-      <div className="z-30 max-w-[1200px] flex flex-col lg:flex-row w-full items-center justify-between px-4">
-        {/* Sol Kısım: Adres */}
-        <div className="text-center text-sm lg:text-left lg:w-1/3 mb-4 lg:mb-0 text-white">
-          <p className="uppercase text-lg mb-4">
-            Asortie Furniture & DecoratIon
-          </p>
-          <p className="lg:max-w-40 mb-4">
-            İkitelli OSB, Başakşehir Mahallesi Masko Mobilya Kenti 4-B Blok
-            D:11-13, 34600 Başakşehir
-          </p>
-          <p className="mb-4">Telefon: (0212) 675 04 46</p>
-          <p>INFO@ASORTIE.COM</p>
-        </div>
-
-        <div className="flex justify-center lg:w-1/3 mb-4 lg:mb-0">
-          <Image src={Logo} alt="Logo" width={120} />
-        </div>
-
-        <div className="flex justify-center lg:w-1/3 mb-4 lg:mb-0">
-          <a href="https://facebook.com" className="mx-2 text-white">
-            Facebook
-          </a>
-          <a href="https://twitter.com" className="mx-2 text-white">
-            Twitter
-          </a>
-          <a href="https://instagram.com" className="mx-2 text-white">
-            Instagram
-          </a>
-        </div>
-      </div>
+      <div className="z-30 max-w-[1200px] flex flex-col lg:flex-row w-full items-center justify-between px-4"></div>
 
       {/* Kategori İsimleri */}
       <div className="z-30 max-w-[1200px] w-full p-4 border-t border-b border-gray-500 text-white text-center text-sm leading-6 mt-5 grid grid-cols-2 gap-2 lg:flex lg:flex-wrap lg:justify-center">
@@ -87,6 +58,8 @@ export default function Footer() {
         Asortie Mobilya ve Dekorasyon A.Ş'nin yazılı izni olmadan kopyalanması,
         farklı mecralarda yayınlanması yasaktır.
       </p>
+
+      <Image src={Logo} width={100} className="z-30 mt-4 mb-2" />
     </footer>
   );
 }

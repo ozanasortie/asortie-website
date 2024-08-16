@@ -44,7 +44,7 @@ export default function Blogs() {
           className="w-full flex items-center justify-center"
         >
           <BlogSlider />
-          <div className="max-lg:hidden w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 place-content-center place-items-center">
+          <div className="max-lg:hidden w-full flex gap-4 place-content-center place-items-center">
             <BlogItem
               image={BlogSample}
               title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"

@@ -11,6 +11,7 @@ import StoreSection from "./components/StoreSection";
 import Collections from "./components/Collections";
 import PromotionSection from "./components/PromotionSection";
 import CatalogueFormSection from "./components/CatalogueFormSection";
+import { InstagramEmbed } from "react-social-media-embed";
 
 export default function Index() {
   const t = useTranslations("Index");
@@ -34,6 +35,12 @@ export default function Index() {
       <StoreSection />
       <Blogs />
       <CatalogueFormSection />
+      <div className="flex justify-center py-4 lg:hidden">
+        <InstagramEmbed
+          url="https://www.instagram.com/asortiemobilya/"
+          width={"80%"}
+        />
+      </div>
       {/* <ScrollPage>
         <Animator animation={FadeIn()} className="w-full">
           <Animator animation={batch(FadeIn())}>

@@ -19,8 +19,8 @@ export default function FollowDropdown() {
   return (
     <Popover trigger="hover">
       <PopoverTrigger className="w-auto">
-        <span className={styles.navLink} href={"/"}>
-          Takip Et <ChevronDownIcon mb={1} />
+        <span className="ml-6 text-white font-bold" href={"/"}>
+          TAKİP ET
         </span>
       </PopoverTrigger>
       <PopoverContent

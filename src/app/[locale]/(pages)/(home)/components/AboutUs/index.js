@@ -11,14 +11,14 @@ export default function AboutUs() {
 
   return (
     <div
-      className={`bg-cover bg-center relative p-4 lg:p-10 lg:px-page flex flex-col items-center justify-center text-white ${
+      className={`bg-cover bg-center relative p-2 lg:p-10 lg:px-page flex flex-col items-center justify-center text-white ${
         isSafari ? "" : "bg-fixed"
       }`}
       style={{ backgroundImage: `url(${Background.src})` }}
     >
       <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-35 z-30" />
       <div className="flex flex-col w-full z-30">
-        <div className="flex flex-col lg:flex-row items-center lg:items-start">
+        <div className="flex flex-col lg:flex-row items-center lg:items-center">
           <motion.div
             transition={{ duration: 1.2, delay: 0.2 }}
             initial="hidden"
@@ -43,7 +43,7 @@ export default function AboutUs() {
               visible: { opacity: 1, y: 0 },
               hidden: { opacity: 0, y: 50 },
             }}
-            className="flex flex-col items-center text-center lg:text-start lg:ml-10 lg:w-[40vw]"
+            className="flex flex-col items-center text-center lg:text-start lg:ml-10 lg:w-[45vw]"
           >
             <motion.div
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -55,8 +55,8 @@ export default function AboutUs() {
               }}
               className="w-[100%] flex items-center lg:items-start flex-col"
             >
-              <h1 className="text-3xl text-center lg:text-start lg:text-6xl my-4 mb-8 uppercase">
-                Bizim Tasarımlarımız Kalıba Sığmaz:
+              <h1 className="text-3xl text-center lg:text-start lg:text-5xl my-4 mb-8 uppercase">
+                Bizim Tasarımlarımız Kalıba Sığmaz
               </h1>
             </motion.div>
             <p className="w-full  mb-5">

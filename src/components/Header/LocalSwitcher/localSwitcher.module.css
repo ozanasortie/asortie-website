@@ -1,7 +1,7 @@
 /* localSwitcher.module.css */
 
 .buttonBase {
-    @apply flex items-center cursor-pointer hover:opacity-60 motion-safe:transition mr-3;
+    @apply flex items-center cursor-pointer hover:opacity-60 motion-safe:transition mr-3 ml-6;
   }
   
   .drawerHeader {

@@ -12,7 +12,7 @@ import {
 import YouTube from "react-youtube";
 import Slider from "react-slick";
 
-import SampleBanner from "@assets/defne.jpg";
+import SampleBanner from "@assets/bosna.jpg";
 import Image from "next/image";
 
 function ImageField() {

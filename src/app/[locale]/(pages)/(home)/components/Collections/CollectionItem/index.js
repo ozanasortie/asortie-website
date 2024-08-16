@@ -18,11 +18,11 @@ const CollectionItem = ({ image, secondImage, title, className }) => {
           className="absolute top-0 left-0 w-full h-full object-cover transform translate-x-full transition-transform duration-1000 group-hover:translate-x-0"
         />
       </div>
-      <div className="w-full mt-2 text-0 text-center text-2xl relative">
-        <h2 className="text-start pl-2 motion-safe:transition font-light">
+      <div className="mt-2 text-0 text-center text-2xl relative">
+        <h2 className="text-start motion-safe:transition font-light">
           {title}
         </h2>
-        <div className="absolute left-0 right-0 bottom-0 h-[1px] bg-background-color scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+        <div className="absolute left-0 right-0 bottom-0 h-[0.5px] bg-[gray] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
       </div>
     </div>
   );

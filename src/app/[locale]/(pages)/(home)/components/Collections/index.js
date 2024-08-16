@@ -56,22 +56,22 @@ export default function Collections() {
         <CollectionItem
           image={Sample3}
           secondImage={Sample2}
-          title="Belinda Koltuk Takımı"
+          title="Klasik Koltuk Takımları"
         />
         <CollectionItem
           image={Sample}
           secondImage={Sample2}
-          title="Belinda Koltuk Takımı"
+          title="Klasik Yatak Takımları"
         />
         <CollectionItem
           image={Sample2}
           secondImage={Sample2}
-          title="Belinda Koltuk Takımı"
+          title="Klasik Mutfak Takımları"
         />
         <CollectionItem
           image={Sample2}
           secondImage={Sample2}
-          title="Belinda Koltuk Takımı"
+          title="Klasik Ofis Takımları"
         />
       </motion.div>
     </div>

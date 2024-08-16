@@ -12,7 +12,7 @@ function BlogsHeader() {
       }}
       className="w-[100%] flex items-center flex-col text-black"
     >
-      <h1 className="font-light mt-40 mb-10 text-5xl lg:text-6xl text-center">
+      <h1 className="font-light mt-20 mb-10 text-5xl lg:text-6xl text-center">
         BLOG
       </h1>
       <i className="max-w-[1100px] md:max-w-[900px] w-[95%] leading-loose lg:text-[16px] mb-10 text-center">
