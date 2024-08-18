@@ -11,7 +11,7 @@ export default function AboutUs() {
 
   return (
     <div
-      className={`bg-cover bg-center relative p-2 lg:p-10 lg:px-page flex flex-col items-center justify-center text-white ${
+      className={`bg-cover bg-center relative p-2 lg:p-0 lg:px-page flex flex-col items-center justify-center text-white ${
         isSafari ? "" : "bg-fixed"
       }`}
       style={{ backgroundImage: `url(${Background.src})` }}
@@ -31,7 +31,7 @@ export default function AboutUs() {
           >
             <Image
               src={Team}
-              className="lg:w-full lg:h-full max-w-[40vw] z-20 object-cover rounded-lg"
+              className="lg:w-[90%] lg:h-full z-20 object-cover"
             />
           </motion.div>
 
@@ -59,7 +59,7 @@ export default function AboutUs() {
                 Bizim Tasarımlarımız Kalıba Sığmaz
               </h1>
             </motion.div>
-            <p className="w-full  mb-5">
+            <p className="w-full mb-5">
               Bir ömüre zor sığacak çok sayıda şaheseri dünyaya armağan eden
               Mimar Sinan, önündeki kâğıda ilk çizgiyi çizmeden önce, bir şehrin
               geleceğini değiştirecek olmanın heyecanını yaşıyordu. Gelecek

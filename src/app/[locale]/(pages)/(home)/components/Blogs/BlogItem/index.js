@@ -11,9 +11,8 @@ const BlogItem = ({ image, title }) => {
           className="z-20 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
         />
       </div>
-      <div className="w-[98%] mt-2 text-0 text-center text-xl lg:text-[22px] relative">
+      <div className="w-[98%] mt-2 text-0 text-center text-lg lg:text-[20px] relative">
         <h2 className="motion-safe:transition font-light">{title}</h2>
-        <div className="absolute left-0 right-0 bottom-0 h-[1px] bg-background-color scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
       </div>
     </div>
   );

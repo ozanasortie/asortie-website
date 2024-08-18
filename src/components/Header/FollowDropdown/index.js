@@ -1,25 +1,20 @@
 import {
   Popover,
   PopoverTrigger,
-  PopoverArrow,
   PopoverContent,
   PopoverBody,
 } from "@chakra-ui/react";
-import { ChevronDownIcon } from "@chakra-ui/icons";
 
-import Image from "next/image";
-
-import Facebook from "@assets/icons/socials/facebook.png";
-import Youtube from "@assets/icons/socials/youtube.png";
-import Instagram from "@assets/icons/socials/instagram.png";
-
-import styles from "../header.module.css";
-
-export default function FollowDropdown() {
+export default function FollowDropdown({ small }) {
   return (
     <Popover trigger="hover">
       <PopoverTrigger className="w-auto">
-        <span className="ml-6 text-white font-bold" href={"/"}>
+        <span
+          className={`ml-6 mb-0.5 ${
+            small ? "text-black" : "text-white"
+          } text-sm cursor-pointer`}
+          href={"/"}
+        >
           TAKİP ET
         </span>
       </PopoverTrigger>

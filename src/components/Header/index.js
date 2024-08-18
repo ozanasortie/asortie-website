@@ -39,13 +39,7 @@ export default function Header() {
         }}
         className={`${styles.headerBase} ${small ? styles.headerSmall : ""}`}
       >
-        <nav className={styles.smallNav}>
-          <div className="flex items-center">
-            <SearchSection small={small} />
-            <LocalSwitcher small={small} />
-            <FollowDropdown />
-          </div>
-        </nav>
+        <nav className={styles.smallNav}></nav>
         <nav className={`${styles.navBase} ${small ? styles.navSmall : ""}`}>
           <MobileMenu isSmall={small} />
           <div className={styles.left}>
@@ -56,11 +50,11 @@ export default function Header() {
             </div>
           </div>
           <Link className="mx-10" href={"/"}>
-            {small ? (
-              <Image src={arma} width={70} alt="Logo" />
-            ) : (
-              <Image src={logo} width={280} alt="Logo" />
-            )}
+            <Image
+              src={small ? arma : logo}
+              width={small ? 70 : 240}
+              alt="Logo"
+            />
           </Link>
           <div className={styles.right}>
             <div className={styles.desktopItems}>
@@ -68,6 +62,11 @@ export default function Header() {
               <Corporate />
               <NavItem href="/detail">İletişim</NavItem>
             </div>
+          </div>
+          <div className="flex items-center absolute right-5">
+            <SearchSection small={small} />
+            <LocalSwitcher small={small} />
+            <FollowDropdown small={small} />
           </div>
         </nav>
       </motion.div>

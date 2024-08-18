@@ -33,7 +33,7 @@ export default function StoreField() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="text-center text-[28px] lg:text-5xl xl:text-6xl w-full z-30 [text-shadow:_2px_2px_4px_rgb(0_0_0_/_70%)]"
+        className="text-center text-[28px] lg:text-5xl xl:text-6xl w-full z-30 [text-shadow:_2px_2px_10px_rgb(0_0_0_/_50%)]"
       >
         GELECEĞİN ANTİKALARINI ÜRETİYORUZ
       </motion.div>
@@ -48,12 +48,12 @@ export default function StoreField() {
         benzersiz bir sanat eseri.
       </motion.div>
       <Button
-        className={"bg-white flex items-center w-[250px] py-2 !h-60"}
+        className={"bg-white flex items-center w-[200px] py-2"}
         background="white"
         color="black"
       >
-        <Image width={30} className="mr-3" src={CatalogueGold} />
-        <span className="font-light text-xl">KATALOG İNDİR</span>
+        <Image width={25} className="mr-3" src={CatalogueGold} />
+        <span className="font-normal text-lg">KATALOG İNDİR</span>
       </Button>
     </motion.div>
   );

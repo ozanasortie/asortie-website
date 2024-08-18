@@ -41,7 +41,7 @@ export default function LocalSwitcher({ small }) {
         colorScheme="none"
         onClick={onOpen}
       >
-        TR
+        <span className="font-normal">TR</span>
       </Button>
       <Drawer
         isOpen={isOpen}

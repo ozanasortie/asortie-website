@@ -27,7 +27,7 @@ export default function CollectionMenu() {
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
-        mt={13}
+        mt={18}
         background={
           "radial-gradient(circle, rgba(0,0,0,0.8260097984506303) 8%, rgba(232,178,81,1) 99%, rgba(210,165,47,1) 100%)"
         }

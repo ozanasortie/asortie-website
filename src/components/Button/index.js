@@ -4,6 +4,8 @@ import { Button as ChakraButton } from "@chakra-ui/react";
 
 export default function Button({
   background = "none",
+  hoverBgColor = "none",
+  hoverColor = "none",
   color = "white",
   size = 20,
   text,
@@ -21,6 +23,15 @@ export default function Button({
       background={background}
       size={size}
       onClick={onClick}
+      _hover={{
+        backgroundColor: hoverBgColor,
+        color: hoverColor,
+        transform: "scale(1.01)",
+        transition: "transform 0.2s ease-in-out",
+      }}
+      _active={{
+        backgroundColor: hoverBgColor,
+      }}
     >
       {children}
       {text && (

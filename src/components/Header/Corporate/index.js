@@ -14,7 +14,7 @@ export default function FollowDropdown() {
     <Popover trigger="hover">
       <PopoverTrigger className="w-auto">
         <span className={styles.navLink} href={"/"}>
-          Kurumsal <ChevronDownIcon mb={1} />
+          Kurumsal
         </span>
       </PopoverTrigger>
       <PopoverContent

@@ -35,7 +35,7 @@ export default function Collections() {
         </span>
 
         <Link href="/collection">
-          <span className="z-30 text-2xl mt-5 cursor-pointer">
+          <span className="z-30 text-xl mt-5 cursor-pointer">
             TÜMÜNÜ GÖR <ChevronRightIcon mb={1} />
           </span>
         </Link>

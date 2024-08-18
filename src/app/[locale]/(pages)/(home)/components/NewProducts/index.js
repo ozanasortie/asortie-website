@@ -13,7 +13,7 @@ const NewProducts = forwardRef(({ props, ref }) => {
   return (
     <div
       ref={ref}
-      className="w-full relative flex flex-1 justify-start items-start max-lg:flex-col lg:px-page z-40 pt-4 pb-8"
+      className="w-full relative flex flex-1 justify-start items-start max-lg:flex-col lg:px-page z-40 pt-6 pb-12"
     >
       <div className="absolute left-0 top-0 w-full bg-black bg-opacity-35" />
       <div className="w-full flex flex-col items-center justify-center z-20">
