@@ -4,16 +4,20 @@ import Image from "next/image";
 const CollectionItem = ({ image, secondImage, title, className }) => {
   return (
     <div
-      className={`box-border w-[100%] h-72 md:h-96 mb-5 cursor-pointer relative overflow-hidden flex flex-col items-center justify-center text-2xl group ${className}`}
+      className={`box-border w-[100%] h-72 md:h-[500px] mb-5 cursor-pointer relative overflow-hidden flex flex-col items-center justify-center text-2xl group ${className}`}
     >
       <div className="overflow-hidden w-[98%] h-full relative">
         <Image
           src={image}
+          width={300}
+          height={300}
           alt="Slider Furniture Product"
           className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:translate-x-full"
         />
         <Image
           src={secondImage}
+          width={300}
+          height={300}
           alt="Second Image"
           className="absolute top-0 left-0 w-full h-full object-cover transform translate-x-full transition-transform duration-1000 group-hover:translate-x-0"
         />

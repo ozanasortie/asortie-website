@@ -1,5 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
+import { useSelector } from "react-redux";
+import { ChevronRightIcon } from "@chakra-ui/icons";
 
 import CollectionItem from "./CollectionItem";
 import CollectionSlider from "./CollectionSlider";
@@ -10,11 +12,11 @@ import Sample2 from "@assets/Samplebanner.jpg";
 import Sample from "@assets/sample.jpg";
 import Sample3 from "@assets/sample-3.jpg";
 import Link from "next/link";
-import { ChevronRightIcon } from "@chakra-ui/icons";
 
 export default function Collections() {
   const isSafari = useIsSafari();
-
+  const categories = useSelector((state) => state.categories);
+  console.log("categories", categories);
   return (
     <div
       className={`flex flex-1 flex-col items-center w-full max-w-page box-border overflow-hidden py-7 pb-10 lg:px-page`}
@@ -52,26 +54,16 @@ export default function Collections() {
         }}
         className="max-lg:hidden w-full flex items-center justify-between z-30 gap-6"
       >
-        <CollectionItem
-          image={Sample3}
-          secondImage={Sample2}
-          title="Klasik Koltuk Takımları"
-        />
-        <CollectionItem
-          image={Sample}
-          secondImage={Sample2}
-          title="Klasik Yatak Takımları"
-        />
-        <CollectionItem
-          image={Sample2}
-          secondImage={Sample2}
-          title="Klasik Mutfak Takımları"
-        />
-        <CollectionItem
-          image={Sample2}
-          secondImage={Sample2}
-          title="Klasik Ofis Takımları"
-        />
+        {categories.data &&
+          categories.data.slice(0, 4).map((item) => {
+            return (
+              <CollectionItem
+                image={categories.image_url + item.resimanasayfa}
+                secondImage={categories.image_url + item.resim}
+                title={item.kategori}
+              />
+            );
+          })}
       </motion.div>
     </div>
   );

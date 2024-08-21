@@ -22,6 +22,8 @@ export default function ListProduct({ href, image, secondImage, title }) {
       >
         <div className="overflow-hidden w-full h-full relative">
           <Image
+            width={300}
+            height={300}
             src={image}
             alt="Slider Furniture Product"
             className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110"
