@@ -14,7 +14,6 @@ import RecommendedBlogs from "./components/RecommendedBlogs";
 export default function Page() {
   const pathname = usePathname();
   const isSafari = useIsSafari();
-  console.log("router", pathname);
   return (
     <div
       className={`pt-52 pb-10 bg-cover min-h-full bg-center bg-no-repeat relative flex flex-col items-center justify-center text-white ${

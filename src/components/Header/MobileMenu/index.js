@@ -27,7 +27,7 @@ import logo from "@assets/logo-left.png";
 
 import styles from "./mobileMenu.module.css";
 
-export default function MobileMenu({ isSmall }) {
+export default function MobileMenu({ categories, isSmall }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -75,18 +75,18 @@ export default function MobileMenu({ isSmall }) {
                   >
                     All
                   </Link>
-                  <Link className={styles.menuItem} href="/detail">
-                    Hotel Furnitures
-                  </Link>
-                  <Link className={styles.menuItem} href="/detail">
-                    ABOUT US
-                  </Link>
-                  <Link className={styles.menuItem} href="/detail">
-                    CONTACT
-                  </Link>
-                  <Link className={styles.menuItem} href="/blog">
-                    BLOG
-                  </Link>
+                  {categories &&
+                    categories.map((item) => {
+                      return (
+                        <Link
+                          key={"collection-" + item.id}
+                          className={styles.menuItem}
+                          href="/detail"
+                        >
+                          {item.kategori}
+                        </Link>
+                      );
+                    })}
                 </AccordionPanel>
               </AccordionItem>
 

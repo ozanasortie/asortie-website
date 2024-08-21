@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,6 +20,7 @@ import styles from "./header.module.css";
 
 export default function Header() {
   const t = useTranslations("Header");
+  const categories = useSelector((state) => state.categories);
   const [small, setSmall] = useState(false);
 
   useEffect(() => {
@@ -41,11 +43,11 @@ export default function Header() {
       >
         <nav className={styles.smallNav}></nav>
         <nav className={`${styles.navBase} ${small ? styles.navSmall : ""}`}>
-          <MobileMenu isSmall={small} />
+          <MobileMenu categories={categories.data} isSmall={small} />
           <div className={styles.left}>
             <div className={styles.desktopItems}>
               <NavItem href="/">{t("home")}</NavItem>
-              <CollectionMenu />
+              <CollectionMenu data={categories.data} />
               <NavItem href="/detail">PROJELER</NavItem>
             </div>
           </div>

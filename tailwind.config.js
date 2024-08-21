@@ -7,6 +7,7 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/hooks/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/store/slices/**/*.{js,ts,jsx,tsx,mdx}",
     "./videos/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {

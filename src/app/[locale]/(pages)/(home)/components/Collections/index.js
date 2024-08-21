@@ -6,7 +6,6 @@ import CollectionSlider from "./CollectionSlider";
 
 import useIsSafari from "@hooks/useIsSafari";
 
-import Background from "@assets/featured-background.jpeg";
 import Sample2 from "@assets/Samplebanner.jpg";
 import Sample from "@assets/sample.jpg";
 import Sample3 from "@assets/sample-3.jpg";

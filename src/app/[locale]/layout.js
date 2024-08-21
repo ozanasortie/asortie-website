@@ -1,8 +1,5 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { NextIntlClientProvider } from "next-intl";
-import { ChakraProvider } from "@chakra-ui/react";
 import { getMessages } from "next-intl/server";
+import ProviderLayout from "./providerLayout";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -28,13 +25,9 @@ export default async function LocaleLayout({ children, params: { locale } }) {
   return (
     <html lang={locale}>
       <body className={jost.variable}>
-        <ChakraProvider>
-          <NextIntlClientProvider messages={messages}>
-            <Header />
-            {children}
-            <Footer />
-          </NextIntlClientProvider>
-        </ChakraProvider>
+        <ProviderLayout messages={messages} locale={locale}>
+          {children}
+        </ProviderLayout>
       </body>
     </html>
   );

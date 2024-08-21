@@ -1,4 +1,3 @@
-"use client";
 import Image from "next/image";
 
 import Background from "@assets/montaj.jpg";
@@ -7,12 +6,10 @@ import Logo from "@assets/logo-left.png";
 import useIsSafari from "@/hooks/useIsSafari";
 
 export default function Footer() {
-  const isSafari = useIsSafari();
-
   return (
     <footer
       className={`bg-cover bg-center relative flex flex-col items-center w-full box-border overflow-hidden py-10 pb-10 lg:px-20 font-light ${
-        isSafari ? "" : "bg-fixed"
+        true ? "" : "bg-fixed"
       }`}
       style={{ backgroundImage: `url(${Background.src})` }}
     >
@@ -59,7 +56,7 @@ export default function Footer() {
         farklı mecralarda yayınlanması yasaktır.
       </p>
 
-      <Image src={Logo} width={100} className="z-30 mt-4 mb-2" />
+      {/* <Image src={Logo} width={100} className="z-30 mt-4 mb-2" /> */}
     </footer>
   );
 }
