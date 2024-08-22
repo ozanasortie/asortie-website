@@ -28,41 +28,49 @@ function CollectionSlider() {
     >
       <Slider className="z-30 w-full" {...settings}>
         <CollectionItem
+          href={"/detail"}
           image={Sample3}
           secondImage={Sample2}
           title="Belinda Koltuk Takımı"
         />
         <CollectionItem
+          href={"/detail"}
           image={Sample}
           secondImage={Sample2}
           title="Belinda Koltuk Takımı"
         />
         <CollectionItem
+          href={"/detail"}
           image={Sample2}
           secondImage={Sample2}
           title="Belinda Koltuk Takımı"
         />
         <CollectionItem
+          href={"/detail"}
           image={Sample}
           secondImage={Sample2}
           title="Belinda Koltuk Takımı"
         />
         <CollectionItem
+          href={"/detail"}
           image={Sample2}
           secondImage={Sample2}
           title="Belinda Koltuk Takımı"
         />
         <CollectionItem
+          href={"/detail"}
           image={Sample2}
           secondImage={Sample2}
           title="Belinda Koltuk Takımı"
         />
         <CollectionItem
+          href={"/detail"}
           image={Sample3}
           secondImage={Sample2}
           title="Belinda Koltuk Takımı"
         />
         <CollectionItem
+          href={"/detail"}
           image={Sample2}
           secondImage={Sample2}
           title="Belinda Koltuk Takımı"

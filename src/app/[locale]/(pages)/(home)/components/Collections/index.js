@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
+import kebabCase from "lodash/kebabCase";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
 import CollectionItem from "./CollectionItem";
@@ -8,15 +9,13 @@ import CollectionSlider from "./CollectionSlider";
 
 import useIsSafari from "@hooks/useIsSafari";
 
-import Sample2 from "@assets/Samplebanner.jpg";
-import Sample from "@assets/sample.jpg";
-import Sample3 from "@assets/sample-3.jpg";
 import Link from "next/link";
 
 export default function Collections() {
   const isSafari = useIsSafari();
   const categories = useSelector((state) => state.categories);
   console.log("categories", categories);
+
   return (
     <div
       className={`flex flex-1 flex-col items-center w-full max-w-page box-border overflow-hidden py-7 pb-10 lg:px-page`}
@@ -31,11 +30,11 @@ export default function Collections() {
         }}
         className="w-full flex items-center justify-between mt-10 mb-14 z-30"
       >
-        <span className="text-4xl lg:text-5xl text-center lg:text-start font-light">
+        <span className="text-4xl lg:text-5xl text-center w-full lg:w-auto lg:text-start font-light">
           KOLEKSİYON
         </span>
 
-        <Link href="/collection">
+        <Link href="/collection" className="max-lg:hidden">
           <span className="z-30 text-xl mt-5 cursor-pointer">
             TÜMÜNÜ GÖR <ChevronRightIcon mb={1} />
           </span>
@@ -52,19 +51,28 @@ export default function Collections() {
           visible: { opacity: 1, y: 0 },
           hidden: { opacity: 0, y: 90 },
         }}
-        className="max-lg:hidden w-full flex items-center justify-between z-30 gap-6"
+        className="max-lg:hidden w-full flex items-center justify-between z-30 gap-6 -mt-16"
       >
         {categories.data &&
-          categories.data.slice(0, 4).map((item) => {
+          categories.data.slice(0, 4).map((item, index) => {
+            const categoryName = kebabCase(item.kategori);
             return (
               <CollectionItem
+                href={"/collection" + "/" + categoryName}
                 image={categories.image_url + item.resimanasayfa}
                 secondImage={categories.image_url + item.resim}
                 title={item.kategori}
+                index={index}
               />
             );
           })}
       </motion.div>
+
+      <Link href="/collection" className="lg:hidden">
+        <span className="z-30 text-xl mt-8 cursor-pointer underline">
+          TÜMÜNÜ GÖR
+        </span>
+      </Link>
     </div>
   );
 }

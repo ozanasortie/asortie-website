@@ -5,13 +5,17 @@ export default createMiddleware({
   locales: ["en", "tr"],
 
   // Used when no locale matches
-  defaultLocale: "en",
-  localePrefix: "necessary",
+  defaultLocale: "tr",
+  localePrefix: "as-needed",
   pathnames: {
-    // "/detail": {
-    //   en: "/detail",
-    //   tr: "/detay",
-    // },
+    "/collection": {
+      en: "/collection",
+      tr: "/koleksiyon",
+    },
+    "/collection/[endpoint]": {
+      en: "/collection/[endpoint]",
+      tr: "/koleksiyon/[endpoint]",
+    },
   },
 });
 
