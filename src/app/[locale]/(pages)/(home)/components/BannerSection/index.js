@@ -10,7 +10,7 @@ export default function BannerSection() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="z-50 w-full absolute bottom-10 flex justify-center"
+        className="w-full absolute bottom-10 flex justify-center"
       >
         <ChevronDownIcon color={"white"} boxSize={16} />
       </motion.div>

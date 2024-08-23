@@ -10,13 +10,14 @@ import ProductItem from "../ProductItem";
 
 const settings = {
   centerMode: true,
+  centerPadding: "20px",
   infinite: true,
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
 };
 
-function ProductSlider() {
+function ProductSlider({ products }) {
   return (
     <motion.div
       transition={{ duration: 1, delay: 0.2 }}
@@ -29,21 +30,15 @@ function ProductSlider() {
       className="lg:hidden w-full flex flex-wrap items-center justify-center z-30"
     >
       <Slider className="z-30 w-full" {...settings}>
-        <ProductItem
-          image={Sample2}
-          secondImage={Sample3}
-          title="Olimpos Yatak Odası"
-        />
-        <ProductItem
-          image={Sample3}
-          secondImage={Sample2}
-          title="Belinda Koltuk Takımı"
-        />
-        <ProductItem
-          image={Sample2}
-          secondImage={Sample3}
-          title="Olimpos Yatak Odası"
-        />
+        {products?.data?.map((item, index) => {
+          return (
+            <ProductItem
+              image={item.resim}
+              secondImage={Sample2}
+              title={item.urun_adi}
+            />
+          );
+        })}
       </Slider>
     </motion.div>
   );

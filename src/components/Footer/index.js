@@ -6,10 +6,11 @@ import Logo from "@assets/logo-left.png";
 import useIsSafari from "@/hooks/useIsSafari";
 
 export default function Footer() {
+  const isSafari = useIsSafari();
   return (
     <footer
       className={`bg-cover bg-center relative flex flex-col items-center w-full box-border overflow-hidden py-10 pb-10 lg:px-20 font-light ${
-        true ? "" : "bg-fixed"
+        isSafari ? "" : "bg-fixed"
       }`}
       style={{ backgroundImage: `url(${Background.src})` }}
     >

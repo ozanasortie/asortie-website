@@ -28,7 +28,7 @@ export default function Collections() {
           visible: { opacity: 1, y: 0 },
           hidden: { opacity: 0, y: 90 },
         }}
-        className="w-full flex items-center justify-between mt-10 mb-14 z-30"
+        className="w-full flex items-center justify-between mt-10 mb-10 lg:mb-14 z-30"
       >
         <span className="text-4xl lg:text-5xl text-center w-full lg:w-auto lg:text-start font-light">
           KOLEKSİYON
@@ -41,7 +41,7 @@ export default function Collections() {
         </Link>
       </motion.div>
 
-      <CollectionSlider />
+      <CollectionSlider categories={categories} />
 
       <motion.div
         transition={{ duration: 1, delay: 0.2 }}
@@ -68,8 +68,8 @@ export default function Collections() {
           })}
       </motion.div>
 
-      <Link href="/collection" className="lg:hidden">
-        <span className="z-30 text-xl mt-8 cursor-pointer underline">
+      <Link href="/collection" className="lg:hidden mt-4">
+        <span className="z-30 text-md lg:text-xl last:cursor-pointer underline">
           TÜMÜNÜ GÖR
         </span>
       </Link>

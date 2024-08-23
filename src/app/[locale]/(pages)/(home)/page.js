@@ -2,6 +2,12 @@
 import { useTranslations } from "next-intl";
 import { InstagramEmbed } from "react-social-media-embed";
 
+import {
+  useGetNewProductsQuery,
+  useGetBlogsQuery,
+  useGetNewsQuery,
+} from "@slices/homeServices";
+
 import BannerSection from "./components/BannerSection";
 import AboutUs from "./components/AboutUs";
 import NewProducts from "./components/NewProducts";
@@ -14,22 +20,29 @@ import CatalogueFormSection from "./components/CatalogueFormSection";
 
 export default function Index({ props }) {
   const t = useTranslations("Index");
+  const { data: newProducts, isLoading: isLoadingNewProducts } =
+    useGetNewProductsQuery();
+  const { data: news, isLoading: isLoadingNews } = useGetNewsQuery();
+
+  if (isLoadingNewProducts || isLoadingNews) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="overflow-x-hidden">
       <BannerSection />
-      <NewProducts />
+      <NewProducts products={newProducts} />
       <PromotionSection />
       <Collections />
       <AboutUs />
-      <News />
+      <News news={news.data} />
       <StoreSection />
       <Blogs />
       <CatalogueFormSection />
       <div className="flex justify-center py-4 lg:hidden">
         <InstagramEmbed
           url="https://www.instagram.com/asortiemobilya/"
-          width={"80%"}
+          width={"95%"}
         />
       </div>
     </div>

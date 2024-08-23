@@ -11,10 +11,11 @@ import {
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Loading from "@/components/Loading";
 
 export default function ClientLayout({ children, locale, messages }) {
   const dispatch = useDispatch();
-  const { data, isLoading, error } = useGetCategoriesQuery();
+  const { data } = useGetCategoriesQuery();
   const categories = useSelector((state) => state.categories);
 
   useEffect(() => {
@@ -23,7 +24,7 @@ export default function ClientLayout({ children, locale, messages }) {
     }
   }, [data]);
 
-  if (!categories) return <div>YÜKLENİYOR...</div>;
+  if (!categories) return <Loading />;
 
   return (
     <ChakraProvider>

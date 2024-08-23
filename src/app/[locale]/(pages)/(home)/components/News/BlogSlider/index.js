@@ -10,12 +10,13 @@ import BlogItem from "../BlogItem";
 const settings = {
   centerMode: true,
   infinite: true,
+  centerPadding: "20px",
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
 };
 
-function BlogSlider() {
+function BlogSlider({ news }) {
   return (
     <motion.div
       transition={{ duration: 1, delay: 0.2 }}
@@ -28,30 +29,16 @@ function BlogSlider() {
       className="lg:hidden w-full flex flex-wrap items-center justify-center z-30"
     >
       <Slider className="z-30 w-full" {...settings}>
-        <BlogItem
-          image={BlogSample2}
-          title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"
-        />
-        <BlogItem
-          image={BlogSample}
-          title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"
-        />
-        <BlogItem
-          image={BlogSample2}
-          title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"
-        />
-        <BlogItem
-          image={BlogSample}
-          title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"
-        />
-        <BlogItem
-          image={BlogSample2}
-          title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"
-        />
-        <BlogItem
-          image={BlogSample}
-          title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"
-        />
+        {news &&
+          news.map((item) => {
+            return (
+              <BlogItem
+                // imageBaseUrl={news.image_url}
+                image={BlogSample}
+                title={item.baslik}
+              />
+            );
+          })}
       </Slider>
     </motion.div>
   );

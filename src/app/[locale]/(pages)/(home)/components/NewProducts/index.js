@@ -7,14 +7,11 @@ import Sample3 from "@assets/sample-3.jpg";
 
 import ProductItem from "./ProductItem";
 import ProductsSlider from "./ProductsSlider";
-import { forwardRef } from "react";
 
-const NewProducts = forwardRef(({ props, ref }) => {
+const NewProducts = ({ products }) => {
+  console.log("products", products);
   return (
-    <div
-      ref={ref}
-      className="w-full relative flex flex-1 justify-start items-start max-lg:flex-col lg:px-page z-40 pt-6 pb-12"
-    >
+    <div className="w-full relative flex flex-1 justify-start items-start max-lg:flex-col lg:px-10 2xl:px-page z-40 pt-12 lg:pt-8 pb-14">
       <div className="absolute left-0 top-0 w-full bg-black bg-opacity-35" />
       <div className="w-full flex flex-col items-center justify-center z-20">
         <motion.div
@@ -27,7 +24,7 @@ const NewProducts = forwardRef(({ props, ref }) => {
           }}
           className="w-full flex items-center justify-center lg:mt-10"
         >
-          <span className="text-4xl lg:text-5xl mb-1 text-center lg:text-start font-light">
+          <span className="text-4xl lg:text-5xl mb-2 text-center lg:text-start font-light">
             YENİ MODELLER
           </span>
         </motion.div>
@@ -41,53 +38,22 @@ const NewProducts = forwardRef(({ props, ref }) => {
           }}
           className="w-full flex items-center justify-center mt-5"
         >
-          <ProductsSlider />
-          <div className="max-lg:hidden w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 place-content-center place-items-center">
-            <ProductItem
-              image={Sample2}
-              secondImage={Sample3}
-              title="Olimpos Yatak Odası"
-            />
-            <ProductItem
-              image={Sample3}
-              secondImage={Sample2}
-              title="Belinda Koltuk Takımı"
-            />
-            <ProductItem
-              image={Sample}
-              secondImage={Sample3}
-              title="Rodos Yemek Takımı"
-            />
-            {/* <ProductItem
-              image={Sample2}
-              secondImage={Sample3}
-              title="Olimpos Yatak Odası"
-            />
-            <ProductItem
-              image={Sample3}
-              secondImage={Sample2}
-              title="Belinda Koltuk Takımı"
-            />
-            <ProductItem
-              image={Sample}
-              secondImage={Sample3}
-              title="Rodos Yemek Takımı"
-            />
-            <ProductItem
-              image={Sample2}
-              secondImage={Sample3}
-              title="Olimpos Yatak Odası"
-            />
-            <ProductItem
-              image={Sample3}
-              secondImage={Sample2}
-              title="Belinda Koltuk Takımı"
-            /> */}
+          <ProductsSlider products={products} />
+          <div className="max-lg:hidden w-full flex gap-4 place-content-center place-items-center">
+            {products?.data?.map((item, index) => {
+              return (
+                <ProductItem
+                  image={item.resim}
+                  secondImage={Sample2}
+                  title={item.urun_adi}
+                />
+              );
+            })}
           </div>
         </motion.div>
       </div>
     </div>
   );
-});
+};
 
 export default NewProducts;

@@ -1,10 +1,6 @@
 "use client";
-import { useEffect } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
-import { Animator, batch, MoveIn, StickyIn } from "react-scroll-motion";
 
-import CatalogueGold from "@assets/catalogue.png";
 import Button from "@/components/Button";
 
 export default function StoreField() {
@@ -33,26 +29,18 @@ export default function StoreField() {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="text-center text-[28px] lg:text-5xl xl:text-6xl w-full z-30 [text-shadow:_2px_2px_10px_rgb(0_0_0_/_50%)]"
+        className="text-center text-[28px] lg:text-4xl xl:text-5xl w-full z-30 [text-shadow:_2px_2px_10px_rgb(0_0_0_/_50%)] mb-8"
       >
         GELECEĞİN ANTİKALARINI ÜRETİYORUZ
       </motion.div>
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="w-[95%] mt-6 lg:mt-8 lg:w-[70%] text-center lg:text-base xl:text-xl z-30 mb-8"
-      >
-        Zamanın ötesine uzanan tasarımlarımızla, bugünün zarafetini geleceğin
-        mirasıyla buluşturuyoruz. Her modelimiz, geleceğin antikası olmaya aday
-        benzersiz bir sanat eseri.
-      </motion.div>
       <Button
-        className={"bg-white flex items-center w-[200px] py-2"}
+        className={
+          "!bg-transparent flex items-center w-[200px] py-2 border-2 border-white"
+        }
         background="white"
-        color="black"
+        color="white"
       >
-        <Image width={25} className="mr-3" src={CatalogueGold} />
+        {/* <Image width={25} className="mr-3" src={CatalogueGold} /> */}
         <span className="font-normal text-lg">KATALOG İNDİR</span>
       </Button>
     </motion.div>

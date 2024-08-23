@@ -2,12 +2,16 @@
 import { useTranslations } from "next-intl";
 import { useState, useEffect } from "react";
 
+import { useGetProductsQuery } from "@slices/categoriesService";
+
 import useIsSafari from "@/hooks/useIsSafari";
 import ProductsHeader from "./components/ProductsHeader";
 import ProductList from "./components/ProductList";
 
-export default function Products() {
+export default function Products({ params }) {
   const t = useTranslations("Header");
+  const { data } = useGetProductsQuery(params.slug);
+  console.log("data", data);
   const isSafari = useIsSafari();
   const [scrollY, setScrollY] = useState(0);
 
@@ -33,7 +37,7 @@ export default function Products() {
       }}
     >
       <ProductsHeader />
-      <ProductList />
+      <ProductList products={data?.data} />
     </div>
   );
 }

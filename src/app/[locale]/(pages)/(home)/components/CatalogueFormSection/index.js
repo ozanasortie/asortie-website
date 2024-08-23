@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+
+import { usePostContactMutation } from "@slices/homeServices";
 import useIsSafari from "@/hooks/useIsSafari";
 import Input from "@components/Input";
 import Button from "@/components/Button";
@@ -7,10 +9,32 @@ import FormBackground from "@/assets/form-background.png";
 
 export default function CatalogueFormSection() {
   const isSafari = useIsSafari();
+  const [postContact] = usePostContactMutation();
+
+  const handleSubmit = async () => {
+    const formData = {
+      name: "Ozan",
+      email: "ozanodak",
+      tel: "05390049090",
+      message: "Deneme",
+      ulke_kodu: "+90",
+      dil: "tr_",
+    };
+
+    console.log("formdata", formData);
+    console.log("Stringified formData", JSON.stringify(formData));
+
+    try {
+      const response = await postContact(formData).unwrap();
+      console.log("Form successfully submitted:", response);
+    } catch (error) {
+      console.error("Failed to submit form:", error);
+    }
+  };
 
   return (
     <div
-      className={`bg-cover bg-center relative lg:h-[70vh] p-10 py-20 flex flex-col lg:flex-row items-center lg:justify-around text-white ${
+      className={`bg-cover bg-center relative p-10 py-20 flex flex-col lg:flex-row items-center lg:justify-around text-white ${
         isSafari ? "" : "bg-fixed"
       }`}
       style={{ backgroundImage: `url(${FormBackground.src})` }}
@@ -24,7 +48,7 @@ export default function CatalogueFormSection() {
           visible: { opacity: 1, x: 0 },
           hidden: { opacity: 0, x: 90 },
         }}
-        className="w-1/2 lg:w-[40%] z-30 flex flex-col items-center"
+        className="w-full lg:w-[40%] z-30 mb-14 lg:mb-0 flex flex-col items-center"
       >
         <i className="mb-5 text-center">
           "Özenle tasarlanmış klasik mobilyalarımızla yaşam alanlarınıza zarafet
@@ -36,6 +60,7 @@ export default function CatalogueFormSection() {
           color="black"
           className="w-[90%] flex items-center justify-center py-4"
           text={"DİJİTAL KATALOG TALEP ET"}
+          onClick={() => handleSubmit()}
         />
       </motion.div>
       <motion.div
@@ -46,7 +71,7 @@ export default function CatalogueFormSection() {
           visible: { opacity: 1, x: 0 },
           hidden: { opacity: 0, x: 90 },
         }}
-        className="w-1/2 lg:w-[40%] z-30 flex flex-col items-center"
+        className="w-full lg:w-[40%] z-30 flex flex-col items-center"
       >
         <motion.div
           transition={{ duration: 1 }}

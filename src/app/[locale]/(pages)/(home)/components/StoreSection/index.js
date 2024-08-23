@@ -9,7 +9,7 @@ const StoreSection = () => {
 
   return (
     <div
-      className={`bg-cover bg-center relative h-[100vh] p-10 flex flex-col items-center justify-center text-white ${
+      className={`bg-cover bg-center relative h-[50vh] p-10 flex flex-col items-center justify-center text-white ${
         isSafari ? "" : "bg-fixed"
       }`}
       style={{ backgroundImage: `url(${Store.src})` }}
@@ -41,9 +41,14 @@ const StoreSection = () => {
       >
         Masko mağazamızı sanal tur ile keşfedebilirsiniz.
       </motion.div>
-      <div className="cursor-pointer mt-10 bg-white text-background-color rounded-md p-5 z-30 text-xl text-center hover:text-theme-color motion-safe:transition hover:scale-105 duration-500">
+      <a
+        href="https://cdn.mekan360.com/sanaltur_isletme/turkey/istanbul/basaksehir/basaksehir_istanbul_asortie_mobilya/basaksehir_istanbul_asortie_mobilya.html"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="cursor-pointer mt-10 bg-[rgba(0,0,0,0.5)] text-white border-2 border-white rounded-md p-3 lg:p-5 z-30 text-sm lg:text-xl text-center hover:text-theme-color motion-safe:transition hover:scale-105 duration-500"
+      >
         360 DERECE DENEYİMLE KEŞFET
-      </div>
+      </a>
     </div>
   );
 };

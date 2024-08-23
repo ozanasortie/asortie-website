@@ -55,6 +55,7 @@ export default function Header() {
             <Image
               src={small ? arma : logo}
               width={small ? 70 : 240}
+              className={`${small ? "max-md:w-[60px]" : "max-md:w-[180px]"}`}
               alt="Logo"
             />
           </Link>

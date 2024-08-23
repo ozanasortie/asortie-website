@@ -18,9 +18,12 @@ const categoriesApi = baseApi.injectEndpoints({
     getCategories: build.query({
       query: () => `categories`,
     }),
+    getProducts: build.query({
+      query: (url) => `products?url=${url}`,
+    }),
   }),
 });
 
 export const { setCategories } = categoriesSlice.actions;
-export const { useGetCategoriesQuery } = categoriesApi;
+export const { useGetCategoriesQuery, useGetProductsQuery } = categoriesApi;
 export default categoriesSlice.reducer;
