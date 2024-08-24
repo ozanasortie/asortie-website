@@ -27,11 +27,11 @@ export default function AboutUs() {
               visible: { opacity: 1, x: 0 },
               hidden: { opacity: 0, x: -50 },
             }}
-            className="lg:w-[100%] max-lg:mb-8 h-full"
+            className="lg:w-[100%] h-full max-lg:mb-8"
           >
             <Image
               src={Team}
-              className="lg:w-[100%] lg:h-full z-20 object-cover"
+              className="lg:w-[100%] h-full z-20 object-cover"
             />
           </motion.div>
 

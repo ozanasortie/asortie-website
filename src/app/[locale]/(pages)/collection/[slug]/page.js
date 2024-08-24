@@ -11,24 +11,10 @@ import Loading from "@/components/Loading";
 
 export default function Products({ params }) {
   const t = useTranslations("Header");
-  const { data } = useGetProductsQuery(params.slug);
-  console.log("data", data);
   const isSafari = useIsSafari();
-  const [scrollY, setScrollY] = useState(0);
+  const { data, isLoading } = useGetProductsQuery(params.slug);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  if (!data) return <Loading />;
+  if (isLoading) return <Loading />;
 
   return (
     <div
