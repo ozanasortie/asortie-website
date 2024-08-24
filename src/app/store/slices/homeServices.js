@@ -8,6 +8,9 @@ const homeApi = baseApi.injectEndpoints({
     getNews: build.query({
       query: () => `news`,
     }),
+    getBlogs: build.query({
+      query: () => `blogs`,
+    }),
     postContact: build.mutation({
       query: ({ name, email, tel, message, ulke_kodu, dil }) => ({
         url: `contact_information_send`,

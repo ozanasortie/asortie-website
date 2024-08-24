@@ -29,12 +29,12 @@ function BlogSlider({ news }) {
       className="lg:hidden w-full flex flex-wrap items-center justify-center z-30"
     >
       <Slider className="z-30 w-full" {...settings}>
-        {news &&
-          news.map((item) => {
+        {news?.data &&
+          news?.data?.map((item) => {
             return (
               <BlogItem
-                // imageBaseUrl={news.image_url}
-                image={BlogSample}
+                imageBaseUrl={news.image_url}
+                image={item.resim}
                 title={item.baslik}
               />
             );

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-function ProductsHeader() {
+function ProductsHeader({ data }) {
   return (
     <motion.div
       transition={{ duration: 0.8, delay: 0.2 }}
@@ -13,7 +13,7 @@ function ProductsHeader() {
       className="w-[100%] flex items-center flex-col"
     >
       <h1 className="font-light mt-40 mb-10 text-4xl lg:text-6xl text-center">
-        KLASİK YATAK TAKIMLARI
+        {data.kategori}
       </h1>
       <i className="max-w-[1100px] md:max-w-[900px] w-[95%] leading-loose text-xs lg:text-[16px] mb-10 text-center">
         Bir ömüre zor sığacak çok sayıda şaheseri dünyaya armağan eden Mimar

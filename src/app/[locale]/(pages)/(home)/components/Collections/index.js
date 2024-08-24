@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
-import kebabCase from "lodash/kebabCase";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
 import CollectionItem from "./CollectionItem";
@@ -55,10 +54,10 @@ export default function Collections() {
       >
         {categories.data &&
           categories.data.slice(0, 4).map((item, index) => {
-            const categoryName = kebabCase(item.kategori);
+            console.log("item", item);
             return (
               <CollectionItem
-                href={"/collection" + "/" + categoryName}
+                href={"/collection" + "/" + item.url}
                 image={categories.image_url + item.resimanasayfa}
                 secondImage={categories.image_url + item.resim}
                 title={item.kategori}

@@ -6,7 +6,7 @@ const BlogItem = ({ imageBaseUrl, image, title }) => {
     <div className="box-border w-[100%] cursor-pointer relative overflow-hidden flex flex-col items-center justify-center text-2xl group">
       <div className="overflow-hidden w-[97%] h-full relative">
         <Image
-          src={image}
+          src={imageBaseUrl + image}
           width={300}
           height={300}
           alt="Slider Furniture Product"

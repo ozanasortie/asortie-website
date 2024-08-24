@@ -31,15 +31,16 @@ export default function CollectionMenu({ data }) {
           {data &&
             data.map((item) => {
               return (
-                <div
+                <Link
                   key={"collection-" + item.id}
+                  href={"/collection" + "/" + item.url}
                   className="flex items-center cursor-pointer mr-5 my-3 group"
                 >
                   <div className="text-white relative">
                     {item.kategori}
                     <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
                   </div>
-                </div>
+                </Link>
               );
             })}
         </PopoverBody>

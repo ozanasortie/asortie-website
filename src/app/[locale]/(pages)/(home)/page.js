@@ -23,6 +23,9 @@ export default function Index({ props }) {
   const { data: newProducts, isLoading: isLoadingNewProducts } =
     useGetNewProductsQuery();
   const { data: news, isLoading: isLoadingNews } = useGetNewsQuery();
+  const { data: blogs, isLoading: isLoadingBlogs } = useGetBlogsQuery();
+
+  console.log("DATA BLOGS", blogs);
 
   if (isLoadingNewProducts || isLoadingNews) {
     return <div>Loading...</div>;
@@ -35,9 +38,9 @@ export default function Index({ props }) {
       <PromotionSection />
       <Collections />
       <AboutUs />
-      <News news={news.data} />
+      <News news={news} />
       <StoreSection />
-      <Blogs />
+      <Blogs blogs={blogs} />
       <CatalogueFormSection />
       <div className="flex justify-center py-4 lg:hidden">
         <InstagramEmbed

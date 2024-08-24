@@ -15,7 +15,7 @@ const settings = {
   slidesToScroll: 1,
 };
 
-function BlogSlider() {
+function BlogSlider({ blogs }) {
   return (
     <motion.div
       transition={{ duration: 1, delay: 0.2 }}
@@ -28,30 +28,16 @@ function BlogSlider() {
       className="lg:hidden w-full flex flex-wrap items-center justify-center z-30"
     >
       <Slider className="z-30 w-full" {...settings}>
-        <BlogItem
-          image={BlogSample2}
-          title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"
-        />
-        <BlogItem
-          image={BlogSample}
-          title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"
-        />
-        <BlogItem
-          image={BlogSample2}
-          title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"
-        />
-        <BlogItem
-          image={BlogSample}
-          title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"
-        />
-        <BlogItem
-          image={BlogSample2}
-          title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"
-        />
-        <BlogItem
-          image={BlogSample}
-          title="Mobilya Sektörünün Duayen İsmi Gaffur Yılmaz İle Söyleşi"
-        />
+        {blogs?.data &&
+          blogs?.data?.map((item) => {
+            return (
+              <BlogItem
+                imageBaseUrl={blogs.image_url}
+                image={item.resim}
+                title={item.baslik}
+              />
+            );
+          })}
       </Slider>
     </motion.div>
   );

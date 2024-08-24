@@ -14,7 +14,7 @@ import {
   Box,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { useRef } from "react";
+import { useSelector } from "react-redux";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -57,7 +57,7 @@ export default function MobileMenu({ categories, isSmall }) {
               HOME
             </Link>
             <Accordion allowToggle>
-              <AccordionItem className="!border-t-0 !p-0 !py-3">
+              <AccordionItem className="!border-0 !p-0 !py-3">
                 <AccordionButton
                   _expanded={{ bg: "var(--theme-color)", color: "white" }}
                   className="!p-0"
@@ -81,35 +81,12 @@ export default function MobileMenu({ categories, isSmall }) {
                         <Link
                           key={"collection-" + item.id}
                           className={styles.menuItem}
-                          href="/detail"
+                          href={"/collection" + "/" + item.kategori}
                         >
                           {item.kategori}
                         </Link>
                       );
                     })}
-                </AccordionPanel>
-              </AccordionItem>
-
-              <AccordionItem className="!border-t-0 !border-b-0 !py-3">
-                <AccordionButton className="!p-0">
-                  <Box as="span" flex="1" textAlign="left">
-                    DECORATION
-                  </Box>
-                  <AccordionIcon />
-                </AccordionButton>
-                <AccordionPanel className="flex flex-col items-start" pb={0}>
-                  <Link className={styles.menuItem} href="/detail">
-                    HOTEL FURNITURES
-                  </Link>
-                  <Link className={styles.menuItem} href="/detail">
-                    ABOUT US
-                  </Link>
-                  <Link className={styles.menuItem} href="/detail">
-                    CONTACT
-                  </Link>
-                  <Link className={styles.menuItem} href="/blog">
-                    BLOG
-                  </Link>
                 </AccordionPanel>
               </AccordionItem>
             </Accordion>
@@ -136,30 +113,27 @@ export default function MobileMenu({ categories, isSmall }) {
 function FollowSection() {
   return (
     <div className="flex flex-col">
-      <div className="mt-3 mb-2 border-b border-white text-center">
-        Follow Us
+      <div className="py-3 border-b border-white">FOLLOW</div>
+      <div className="flex justify-around">
+        <Button
+          color={"white"}
+          className="py-1 hover:text-theme-color motion-safe:transition !h-fit"
+        >
+          <div>Youtube</div>
+        </Button>
+        <Button
+          color={"white"}
+          className="py-1 hover:text-theme-color motion-safe:transition"
+        >
+          <div>Instagram</div>
+        </Button>
+        <Button
+          color={"white"}
+          className="py-1 hover:text-theme-color motion-safe:transition"
+        >
+          <div>Facebook</div>
+        </Button>
       </div>
-      <Button
-        color={"white"}
-        className="py-2 hover:text-theme-color motion-safe:transition"
-      >
-        <Image width={19} className="mr-2" src={Youtube} alt="Youtube" />{" "}
-        <div>Youtube</div>
-      </Button>
-      <Button
-        color={"white"}
-        className="py-2 hover:text-theme-color motion-safe:transition"
-      >
-        <Image width={19} className="mr-2" src={Instagram} alt="Instagram" />{" "}
-        <div>Instagram</div>
-      </Button>
-      <Button
-        color={"white"}
-        className="py-2 hover:text-theme-color motion-safe:transition"
-      >
-        <Image width={19} className="mr-2" src={Facebook} alt="Facebook" />{" "}
-        <div>Facebook</div>
-      </Button>
     </div>
   );
 }

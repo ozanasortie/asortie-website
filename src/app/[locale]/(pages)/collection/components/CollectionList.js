@@ -10,12 +10,12 @@ function CollectionList() {
   const categories = useSelector((state) => state.categories);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:max-w-[1000px] xl:max-w-[1200px] lg:mt-7">
+    <div className="grid place-content-center place-items-center grid-cols-1 sm:grid-cols-2 gap-6 lg:max-w-[1000px] xl:max-w-[1200px] lg:mt-7">
       {categories.data &&
         categories.data.map((item) => {
           return (
             <ListProduct
-              href={"/products"}
+              href={"/collection" + "/" + item.url}
               image={categories.image_url + item.resimanasayfa}
               secondImage={categories.image_url + item.resim}
               title={item.kategori}
