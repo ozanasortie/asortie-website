@@ -8,7 +8,7 @@ import { ChevronRightIcon } from "@chakra-ui/icons";
 
 export default function Blogs({ blogs }) {
   return (
-    <div className="w-full relative flex flex-1 justify-start items-start max-lg:flex-col mt-4 z-40 mb-14 lg:px-page">
+    <div className="w-full relative flex flex-1 justify-start items-start max-lg:flex-col mt-4 mb-14 lg:px-page">
       <div className="absolute left-0 top-0 w-full bg-black bg-opacity-35" />
       <div className="w-full flex flex-col items-center justify-center z-20">
         <motion.div

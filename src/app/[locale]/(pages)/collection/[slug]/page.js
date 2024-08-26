@@ -1,8 +1,6 @@
 "use client";
 import { useTranslations } from "next-intl";
-import { useState, useEffect } from "react";
-
-import { useGetProductsQuery } from "@slices/categoriesService";
+import { useGetProductsQuery } from "@services/categoriesService";
 
 import useIsSafari from "@/hooks/useIsSafari";
 import ProductsHeader from "./components/ProductsHeader";

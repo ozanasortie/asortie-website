@@ -3,6 +3,7 @@
 import { Button as ChakraButton } from "@chakra-ui/react";
 
 export default function Button({
+  type,
   background = "none",
   hoverBgColor = "none",
   hoverColor = "none",
@@ -15,10 +16,8 @@ export default function Button({
 }) {
   return (
     <ChakraButton
-      className={[
-        className,
-        "w-full flex items-center justify-center h-[56px] rounded-lg group",
-      ]}
+      type={type}
+      className={`flex items-center justify-center h-[56px] rounded-lg group ${className}`}
       color={color}
       background={background}
       size={size}

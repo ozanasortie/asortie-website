@@ -6,7 +6,7 @@ import {
   useGetNewProductsQuery,
   useGetBlogsQuery,
   useGetNewsQuery,
-} from "@slices/homeServices";
+} from "@services/homeServices";
 
 import BannerSection from "./components/BannerSection";
 import AboutUs from "./components/AboutUs";
@@ -18,14 +18,12 @@ import Collections from "./components/Collections";
 import PromotionSection from "./components/PromotionSection";
 import CatalogueFormSection from "./components/CatalogueFormSection";
 
-export default function Index({ props }) {
+export default function Index() {
   const t = useTranslations("Index");
   const { data: newProducts, isLoading: isLoadingNewProducts } =
     useGetNewProductsQuery();
   const { data: news, isLoading: isLoadingNews } = useGetNewsQuery();
   const { data: blogs, isLoading: isLoadingBlogs } = useGetBlogsQuery();
-
-  console.log("DATA BLOGS", blogs);
 
   if (isLoadingNewProducts || isLoadingNews) {
     return <div>Loading...</div>;

@@ -1,6 +1,6 @@
 import { baseApi } from "../index";
 
-const homeApi = baseApi.injectEndpoints({
+const formApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getNewProducts: build.query({
       query: () => `new_products`,
@@ -26,4 +26,4 @@ export const {
   useGetBlogsQuery,
   useGetNewsQuery,
   usePostContactMutation,
-} = homeApi;
+} = formApi;

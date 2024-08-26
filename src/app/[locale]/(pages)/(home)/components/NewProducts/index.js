@@ -9,7 +9,6 @@ import ProductItem from "./ProductItem";
 import ProductsSlider from "./ProductsSlider";
 
 const NewProducts = ({ products }) => {
-  console.log("products", products);
   return (
     <div className="w-full relative flex flex-1 justify-start items-start max-lg:flex-col lg:px-10 2xl:px-page z-40 pt-12 lg:pt-8 pb-14">
       <div className="absolute left-0 top-0 w-full bg-black bg-opacity-35" />

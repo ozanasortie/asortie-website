@@ -41,7 +41,6 @@ export default function Header() {
         }}
         className={`${styles.headerBase} ${small ? styles.headerSmall : ""}`}
       >
-        <nav className={styles.smallNav}></nav>
         <nav className={`${styles.navBase} ${small ? styles.navSmall : ""}`}>
           <MobileMenu categories={categories.data} isSmall={small} />
           <div className={styles.left}>

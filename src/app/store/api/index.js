@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { baseApi } from "./../index";
-import categoryiesReducer from "@slices/categoriesService";
+import categoryiesReducer from "@/app/store/services/categoriesService";
 
 export const store = configureStore({
   reducer: {

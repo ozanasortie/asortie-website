@@ -1,11 +1,11 @@
-import { Input as ChakraInput } from "@chakra-ui/react";
+"use client";
+import { Textarea as ChakraTextarea } from "@chakra-ui/react";
 
-export default function Input({
+export default function Textarea({
   name,
-  value,
-  onChange,
+  containerStyle,
   color = "black",
-  textColor = "white",
+  textColor = "black",
   outline = "none",
   width = "100%",
   height = "56px",
@@ -14,16 +14,15 @@ export default function Input({
   focusBorderColor = "white",
   placeholder = "",
   type = "text",
-  containerStyle,
   error,
   errorText,
+  onChange,
+  value,
 }) {
   return (
     <div className={`w-full ${containerStyle}`}>
-      <ChakraInput
+      <ChakraTextarea
         name={name}
-        value={value}
-        onChange={onChange}
         color={color}
         textColor={textColor}
         outline={outline}
@@ -35,8 +34,10 @@ export default function Input({
         _placeholder={{ color: color }}
         type={type}
         borderColor={borderColor}
+        onChange={onChange}
+        value={value}
       />
-      {error && <div className="text-red-500 mt-2 text-sm">{errorText}</div>}
+      {error && <div className="text-red-500 mt-2">{errorText}</div>}
     </div>
   );
 }

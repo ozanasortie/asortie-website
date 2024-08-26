@@ -7,7 +7,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import {
   useGetCategoriesQuery,
   setCategories,
-} from "@slices/categoriesService";
+} from "@/app/store/services/categoriesService";
 
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";

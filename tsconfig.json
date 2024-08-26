@@ -7,7 +7,7 @@
       "@hooks/*": ["hooks/*"],
       "@navigation/*": ["navigation.ts"],
       "@assets/*": ["assets/*"],
-      "@slices/*": ["app/store/slices/*"],
+      "@services/*": ["app/store/services/*"],
     },
     "lib": [
       "dom",
