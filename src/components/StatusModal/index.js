@@ -28,8 +28,7 @@ export default function StatusModal({ isOpen, onClose }) {
         <ModalCloseButton onClose={onClose} />
         <ModalBody className="my-10 flex flex-col justify-center items-center">
           <CheckCircleIcon w={20} h={20} />
-          <div className="text-2xl mt-5">Başarılı</div>
-          <div className="text-center mt-2">
+          <div className="text-center text-lg mt-5">
             Bize ulaştığınız için teşekkür ederiz. Size en kısa sürede geri
             dönüş yapacağız.
           </div>

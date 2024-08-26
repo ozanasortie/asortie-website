@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -79,7 +78,6 @@ export default function CatalogueFormSection() {
           color="black"
           className="w-[90%] flex items-center justify-center py-4"
           text={"DİJİTAL KATALOG TALEP ET"}
-          onClick={() => formik.handleSubmit()}
         />
       </motion.div>
       <motion.div
