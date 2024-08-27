@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 import Button from "@/components/Button";
 
-export default function StoreField() {
+export default function StoreField({ onOpen }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -39,6 +39,7 @@ export default function StoreField() {
         }
         background="white"
         color="white"
+        onClick={() => onOpen()}
       >
         {/* <Image width={25} className="mr-3" src={CatalogueGold} /> */}
         <span className="font-normal text-lg">KATALOG İNDİR</span>

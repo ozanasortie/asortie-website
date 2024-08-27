@@ -17,6 +17,7 @@ import Corporate from "./Corporate";
 import logo from "@assets/logo.png";
 import arma from "@assets/logo-left.png";
 import styles from "./header.module.css";
+import NavLink from "../NavLink";
 
 export default function Header() {
   const t = useTranslations("Header");
@@ -45,7 +46,7 @@ export default function Header() {
           <MobileMenu categories={categories.data} isSmall={small} />
           <div className={styles.left}>
             <div className={styles.desktopItems}>
-              <NavItem href="/">{t("home")}</NavItem>
+              <NavLink href="/">{t("home")}</NavLink>
               <CollectionMenu data={categories.data} />
               <NavItem href="/detail">PROJELER</NavItem>
             </div>

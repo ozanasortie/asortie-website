@@ -2,8 +2,6 @@
 import { motion } from "framer-motion";
 
 import Sample2 from "@assets/Samplebanner.jpg";
-import Sample from "@assets/sample.jpg";
-import Sample3 from "@assets/sample-3.jpg";
 
 import ProductItem from "./ProductItem";
 import ProductsSlider from "./ProductsSlider";
@@ -18,8 +16,8 @@ const NewProducts = ({ products }) => {
           initial="hidden"
           whileInView="visible"
           variants={{
-            visible: { opacity: 1, y: 0 },
-            hidden: { opacity: 0, y: 90 },
+            visible: { opacity: 1, x: 0 },
+            hidden: { opacity: 0, x: 90 },
           }}
           className="w-full flex items-center justify-center lg:mt-10"
         >
@@ -32,8 +30,8 @@ const NewProducts = ({ products }) => {
           initial="hidden"
           whileInView="visible"
           variants={{
-            visible: { opacity: 1, x: 0 },
-            hidden: { opacity: 0, x: 90 },
+            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: 90 },
           }}
           className="w-full flex items-center justify-center mt-5"
         >

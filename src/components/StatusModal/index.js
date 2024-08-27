@@ -4,14 +4,11 @@ import {
   ModalBody,
   ModalCloseButton,
   ModalContent,
-  ModalFooter,
-  ModalHeader,
   ModalOverlay,
 } from "@chakra-ui/react";
-import Button from "@components/Button";
-import { CheckCircleIcon, CheckIcon } from "@chakra-ui/icons";
+import { CheckCircleIcon, WarningIcon } from "@chakra-ui/icons";
 
-export default function StatusModal({ isOpen, onClose }) {
+export default function StatusModal({ isOpen, onClose, status }) {
   useEffect(() => {
     if (isOpen) {
       const timer = setTimeout(() => {
@@ -21,17 +18,42 @@ export default function StatusModal({ isOpen, onClose }) {
       return () => clearTimeout(timer);
     }
   }, [isOpen, onClose]);
+
+  const getStatusContent = () => {
+    switch (status) {
+      case "success":
+        return {
+          icon: <CheckCircleIcon color={"green"} w={20} h={20} />,
+          message:
+            "Bize ulaştığınız için teşekkür ederiz. Size en kısa sürede geri dönüş yapacağız.",
+        };
+      case "error":
+        return {
+          icon: <WarningIcon color={"red"} w={20} h={20} />,
+          message: "Bir hata oluştu. Lütfen tekrar deneyin.",
+        };
+      default:
+        return {
+          icon: null,
+          message: "",
+        };
+    }
+  };
+
+  const { icon, message } = getStatusContent();
   return (
-    <Modal isCentered isOpen={isOpen} motionPreset="slideInBottom">
+    <Modal
+      isCentered
+      isOpen={isOpen}
+      onClose={onClose}
+      motionPreset="slideInBottom"
+    >
       <ModalOverlay />
       <ModalContent>
-        <ModalCloseButton onClose={onClose} />
+        <ModalCloseButton onClick={onClose} />
         <ModalBody className="my-10 flex flex-col justify-center items-center">
-          <CheckCircleIcon w={20} h={20} />
-          <div className="text-center text-lg mt-5">
-            Bize ulaştığınız için teşekkür ederiz. Size en kısa sürede geri
-            dönüş yapacağız.
-          </div>
+          {icon}
+          <div className="text-center text-lg mt-5">{message}</div>
         </ModalBody>
       </ModalContent>
     </Modal>

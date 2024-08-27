@@ -8,10 +8,10 @@ import Background from "@assets/form-background.png";
 export default function Loading() {
   return (
     <div
-      className="fixed left-0 top-0 box-border w-[100vw] h-[100vh] flex justify-center items-center z-50"
+      className="fixed left-0 top-0 box-border w-screen h-screen flex justify-center items-center z-50"
       style={{ backgroundImage: `url(${Background.src})` }}
     >
-      <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-70" />
+      <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-85" />
       <motion.div
         transition={{
           opacity: {

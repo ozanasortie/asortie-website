@@ -7,10 +7,13 @@ import DetailHeader from "./components/DetailHeader";
 import ImageField from "./components/ImageField";
 import RecommendedProducts from "./components/RecommendProducts";
 
+import { useGetProductDetailQuery } from "@services/categoriesService";
+
 import SampleBanner from "@assets/bosna.jpg";
 
-export default function Detail() {
+export default function ProductDetail({ params }) {
   const isSafari = useIsSafari();
+  const { data, isLoading, isError } = useGetProductDetailQuery(params.subslug);
 
   return (
     <motion.div

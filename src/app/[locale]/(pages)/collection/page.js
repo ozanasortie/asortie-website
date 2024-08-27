@@ -11,7 +11,7 @@ export default function Collection() {
 
   return (
     <div
-      className={`bg-cover bg-center bg-no-repeat relative flex flex-col items-center lg:justify-around text-white ${
+      className={`bg-cover bg-center bg-no-repeat relative flex flex-col items-center lg:justify-around text-white pb-5 ${
         isSafari ? "" : "bg-fixed"
       }`}
       style={{

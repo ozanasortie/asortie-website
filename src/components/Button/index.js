@@ -3,6 +3,7 @@
 import { Button as ChakraButton } from "@chakra-ui/react";
 
 export default function Button({
+  isLoading,
   type,
   background = "none",
   hoverBgColor = "none",
@@ -16,6 +17,8 @@ export default function Button({
 }) {
   return (
     <ChakraButton
+      isLoading={isLoading}
+      loa
       type={type}
       className={`flex items-center justify-center h-[56px] rounded-lg group ${className}`}
       color={color}

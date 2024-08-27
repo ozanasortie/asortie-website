@@ -29,7 +29,7 @@ export default function ListProduct({ href, image, secondImage, title }) {
             className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110"
           />
         </div>
-        <div className="text-0 text-center text-xl lg:text-[20px] relative bg-white w-full">
+        <div className="text-0 text-center text-xl lg:text-[22px] relative bg-white w-full">
           <h2 className="motion-safe:transition font-light text-black py-5">
             {title}
           </h2>

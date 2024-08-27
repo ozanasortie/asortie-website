@@ -16,8 +16,8 @@ export default function News({ news }) {
           initial="hidden"
           whileInView="visible"
           variants={{
-            visible: { opacity: 1, y: 0 },
-            hidden: { opacity: 0, y: 90 },
+            visible: { opacity: 1, x: 0 },
+            hidden: { opacity: 0, x: 90 },
           }}
           className="w-full flex items-center justify-center lg:justify-between my-10 z-30"
         >
@@ -36,8 +36,8 @@ export default function News({ news }) {
           initial="hidden"
           whileInView="visible"
           variants={{
-            visible: { opacity: 1, x: 0 },
-            hidden: { opacity: 0, x: 90 },
+            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: 90 },
           }}
           className="w-full flex items-center justify-center"
         >

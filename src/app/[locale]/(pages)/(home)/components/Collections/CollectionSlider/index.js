@@ -30,7 +30,7 @@ function CollectionSlider({ categories }) {
             const categoryName = kebabCase(item.kategori);
             return (
               <CollectionItem
-                href={"/collection" + "/" + categoryName}
+                href={"/collection/" + categoryName}
                 image={categories.image_url + item.resimanasayfa}
                 secondImage={categories.image_url + item.resim}
                 title={item.kategori}

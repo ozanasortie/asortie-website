@@ -41,6 +41,21 @@ const homeApi = baseApi.injectEndpoints({
         };
       },
     }),
+    catalogueRequest: build.mutation({
+      query: ({ name, email, tel }) => {
+        const formData = new FormData();
+        formData.append("ad_soyad", name);
+        formData.append("email", email);
+        formData.append("telefon", tel);
+        formData.append("dil", "_tr");
+
+        return {
+          url: `catalog_form`,
+          method: "POST",
+          body: formData,
+        };
+      },
+    }),
   }),
 });
 
@@ -49,4 +64,5 @@ export const {
   useGetBlogsQuery,
   useGetNewsQuery,
   usePostContactMutation,
+  useCatalogueRequestMutation,
 } = homeApi;

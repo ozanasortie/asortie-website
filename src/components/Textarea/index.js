@@ -37,7 +37,7 @@ export default function Textarea({
         onChange={onChange}
         value={value}
       />
-      {error && <div className="text-red-500 mt-2">{errorText}</div>}
+      {error && <div className="text-red-500 mt-2 text-sm">{errorText}</div>}
     </div>
   );
 }

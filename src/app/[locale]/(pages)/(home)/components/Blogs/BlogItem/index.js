@@ -10,7 +10,7 @@ const BlogItem = ({ imageBaseUrl, image, title }) => {
           width={300}
           height={300}
           alt="Slider Furniture Product"
-          className="z-20 w-full h-full min-h-[300px] object-cover transform group-hover:scale-110 transition-transform duration-500"
+          className="z-20 w-full h-full min-h-[300px] object-cover transform transition-transform duration-1000 group-hover:scale-110"
         />
       </div>
       <div className="w-[98%] mt-2 text-0 text-center text-lg lg:text-[20px] relative">

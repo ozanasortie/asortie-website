@@ -11,15 +11,7 @@ const ProductItem = ({ image, secondImage, title }) => {
           width={300}
           height={300}
           alt="Slider Furniture Product"
-          className="w-full h-full lg:h-[320px] object-cover transform transition-transform duration-1000 group-hover:translate-x-full"
-        />
-        {/* İkinci resim - varsayılan olarak gizli ve sağdan gelecek */}
-        <Image
-          src={secondImage}
-          width={300}
-          height={300}
-          alt="Second Image"
-          className="absolute top-0 left-0 w-full h-full lg:h-[320px]  object-cover transform translate-x-full transition-transform duration-1000 group-hover:translate-x-0"
+          className="w-full h-full lg:h-[320px] object-cover transform transition-transform duration-1000 group-hover:scale-110"
         />
       </div>
       <div className="mt-2 text-0 text-center text-xl lg:text-[20px] relative">

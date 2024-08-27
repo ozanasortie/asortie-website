@@ -6,7 +6,7 @@ export default createMiddleware({
 
   // Used when no locale matches
   defaultLocale: "tr",
-  localePrefix: "as-needed",
+  localePrefix: "necessary",
   pathnames: {
     "/collection": {
       en: "/collection",
@@ -15,6 +15,10 @@ export default createMiddleware({
     "/collection/[endpoint]": {
       en: "/collection/[endpoint]",
       tr: "/koleksiyon/[endpoint]",
+    },
+    "/collection/[endpoint]/[subendpoint]": {
+      en: "/collection/[endpoint]/[subendpoint]",
+      tr: "/koleksiyon/[endpoint]/[subendpoint]",
     },
   },
 });

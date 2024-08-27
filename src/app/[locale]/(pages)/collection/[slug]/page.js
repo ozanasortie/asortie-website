@@ -1,5 +1,5 @@
 "use client";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useGetProductsQuery } from "@services/categoriesService";
 
 import useIsSafari from "@/hooks/useIsSafari";
@@ -9,14 +9,19 @@ import Loading from "@/components/Loading";
 
 export default function Products({ params }) {
   const t = useTranslations("Header");
+  const locale = useLocale();
   const isSafari = useIsSafari();
-  const { data, isLoading } = useGetProductsQuery(params.slug);
+
+  const { data, isLoading } = useGetProductsQuery({
+    slug: params.slug,
+    lang: locale,
+  });
 
   if (isLoading) return <Loading />;
 
   return (
     <div
-      className={`bg-cover bg-center bg-no-repeat relative flex flex-col items-center lg:justify-around text-white ${
+      className={`bg-cover bg-center bg-no-repeat relative flex flex-col items-center lg:justify-around text-white pb-5 ${
         isSafari ? "" : "bg-fixed"
       }`}
       style={{
@@ -24,7 +29,7 @@ export default function Products({ params }) {
       }}
     >
       <ProductsHeader data={data?.data[0]} />
-      <ProductList products={data?.data} />
+      <ProductList slug={params.slug} products={data?.data} />
     </div>
   );
 }

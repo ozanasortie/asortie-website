@@ -21,13 +21,19 @@ import arab from "@assets/icons/flags/arab.png";
 export default function LocalSwitcher({ small }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isPending, startTransition] = useTransition();
-  const pathname = usePathname();
+  const pathname = usePathname(); // Current pathname
   const router = useRouter();
-  const localActive = useLocale();
+  const locale = useLocale(); // Current locale
 
   function onLanguageChange(lang) {
+    const currentLocale = locale;
     const nextLocale = lang;
-    const newPathname = pathname.replace(`/${localActive}`, `/${nextLocale}`);
+    const pathSegments = pathname.split("/").filter(Boolean);
+
+    pathSegments[0] = nextLocale; // Mevcut dili yeni dil ile değiştir
+
+    const newPathname = `/${pathSegments.join("/")}`;
+
     startTransition(() => {
       router.replace(newPathname);
     });
@@ -41,7 +47,7 @@ export default function LocalSwitcher({ small }) {
         colorScheme="none"
         onClick={onOpen}
       >
-        <span className="font-normal">TR</span>
+        <span className="font-normal">{locale === "en" ? "EN" : "TR"}</span>
       </Button>
       <Drawer
         isOpen={isOpen}
@@ -67,55 +73,19 @@ export default function LocalSwitcher({ small }) {
                 src={eng}
                 alt="English"
               />
-              <div className={styles.buttonText}>İngilizce</div>
+              <div className={styles.buttonText}>English</div>
             </Button>
             <Button
-              onClick={() => onLanguageChange("ar")}
+              onClick={() => onLanguageChange("tr")}
               className={styles.languageButton}
             >
               <Image
                 width={22}
                 className={styles.image}
                 src={arab}
-                alt="Arabic"
+                alt="Turkish"
               />
-              <div className={styles.buttonText}>Arapça</div>
-            </Button>
-            <Button
-              onClick={() => onLanguageChange("en")}
-              className={styles.languageButton}
-            >
-              <Image
-                width={22}
-                className={styles.image}
-                src={eng}
-                alt="Russian"
-              />
-              <div className={styles.buttonText}>Rusça</div>
-            </Button>
-            <Button
-              onClick={() => onLanguageChange("en")}
-              className={styles.languageButton}
-            >
-              <Image
-                width={22}
-                className={styles.image}
-                src={eng}
-                alt="Fransızca"
-              />
-              <div className={styles.buttonText}>Fransızca</div>
-            </Button>
-            <Button
-              onClick={() => onLanguageChange("en")}
-              className={styles.languageButton}
-            >
-              <Image
-                width={22}
-                className={styles.image}
-                src={eng}
-                alt="Hausa"
-              />
-              <div className={styles.buttonText}>Hausa</div>
+              <div className={styles.buttonText}>Türkçe</div>
             </Button>
           </DrawerBody>
         </DrawerContent>

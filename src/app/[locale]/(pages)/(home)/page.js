@@ -1,6 +1,7 @@
 "use client";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { InstagramEmbed } from "react-social-media-embed";
+import { useDisclosure } from "@chakra-ui/react";
 
 import {
   useGetNewProductsQuery,
@@ -17,21 +18,26 @@ import StoreSection from "./components/StoreSection";
 import Collections from "./components/Collections";
 import PromotionSection from "./components/PromotionSection";
 import CatalogueFormSection from "./components/CatalogueFormSection";
+import DigitalCatalogueForm from "./components/DigitalCatalogueForm";
+import Loading from "@/components/Loading";
 
 export default function Index() {
-  const t = useTranslations("Index");
+  const { t } = useTranslations("Index");
+  const locale = useLocale();
+  console.log("locale", locale);
   const { data: newProducts, isLoading: isLoadingNewProducts } =
     useGetNewProductsQuery();
   const { data: news, isLoading: isLoadingNews } = useGetNewsQuery();
   const { data: blogs, isLoading: isLoadingBlogs } = useGetBlogsQuery();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   if (isLoadingNewProducts || isLoadingNews) {
-    return <div>Loading...</div>;
+    return <Loading />;
   }
 
   return (
     <div className="overflow-x-hidden">
-      <BannerSection />
+      <BannerSection onOpen={onOpen} />
       <NewProducts products={newProducts} />
       <PromotionSection />
       <Collections />
@@ -39,7 +45,8 @@ export default function Index() {
       <News news={news} />
       <StoreSection />
       <Blogs blogs={blogs} />
-      <CatalogueFormSection />
+      <CatalogueFormSection onDigitalOpen={onOpen} />
+      <DigitalCatalogueForm isOpen={isOpen} onClose={onClose} />
       <div className="flex justify-center py-4 lg:hidden">
         <InstagramEmbed
           url="https://www.instagram.com/asortiemobilya/"

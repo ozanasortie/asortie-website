@@ -8,7 +8,7 @@ export default function ProviderLayout({ children, messages, locale }) {
   return (
     <Provider store={store}>
       <ClientLayout locale={locale} messages={messages}>
-        {children}
+        <div className="min-h-screen">{children}</div>
       </ClientLayout>
     </Provider>
   );

@@ -22,13 +22,14 @@ const validationSchema = Yup.object({
     .matches(/^[0-9]+$/, "Telefon numarası sadece rakamlar içermelidir")
     .min(10, "Telefon numarası en az 10 haneli olmalıdır")
     .max(15, "Telefon numarası en fazla 15 haneli olmalıdır")
-    .required("Telefon is required"),
+    .required("Telefon numarası gereklidir"),
   message: Yup.string().required("Mesaj alanı gereklidir"),
 });
 
-export default function CatalogueFormSection() {
+export default function CatalogueFormSection({ onDigitalOpen }) {
   const isSafari = useIsSafari();
-  const [postContact] = usePostContactMutation();
+  const [postContact, { isLoading, isError, isSuccess }] =
+    usePostContactMutation();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const formik = useFormik({
@@ -42,13 +43,17 @@ export default function CatalogueFormSection() {
     onSubmit: async (values) => {
       try {
         const response = await postContact(values).unwrap();
-        console.log("Form successfully submitted:", response);
         onOpen();
+        formik.resetForm();
       } catch (error) {
-        console.error("Failed to submit form:", error);
+        onOpen();
       }
     },
   });
+
+  console.log("isSuccess", isSuccess, "isError", isError);
+
+  const status = isSuccess ? "success" : isError ? "error" : "";
 
   return (
     <div
@@ -78,6 +83,7 @@ export default function CatalogueFormSection() {
           color="black"
           className="w-[90%] flex items-center justify-center py-4"
           text={"DİJİTAL KATALOG TALEP ET"}
+          onClick={() => onDigitalOpen()}
         />
       </motion.div>
       <motion.div
@@ -163,6 +169,7 @@ export default function CatalogueFormSection() {
           />
 
           <Button
+            isLoading={isLoading}
             type="submit"
             background="white"
             color="black"
@@ -170,7 +177,7 @@ export default function CatalogueFormSection() {
             text={"GÖNDER"}
           />
         </form>
-        {isOpen && <StatusModal isOpen={isOpen} onClose={onClose} />}
+        <StatusModal status={status} isOpen={isOpen} onClose={onClose} />
       </motion.div>
     </div>
   );

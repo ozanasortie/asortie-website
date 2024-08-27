@@ -28,15 +28,15 @@ const CollectionItem = ({ image, secondImage, title, index, href }) => {
             width={300}
             height={300}
             alt="Slider Furniture Product"
-            className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:translate-x-full"
+            className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110"
           />
-          <Image
+          {/* <Image
             src={secondImage}
             width={300}
             height={300}
             alt="Second Image"
             className="absolute top-0 left-0 w-full h-full object-cover transform translate-x-full transition-transform duration-1000 group-hover:translate-x-0"
-          />
+          /> */}
         </div>
         <div className="mt-2 text-0 text-center text-[20px] relative">
           <h2 className="text-start motion-safe:transition font-light">
