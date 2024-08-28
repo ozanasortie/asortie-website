@@ -38,10 +38,11 @@ const NewProducts = ({ products }) => {
           <ProductsSlider products={products} />
           <div className="max-lg:hidden w-full flex gap-4 place-content-center place-items-center">
             {products?.data?.map((item, index) => {
+              console.log("iıııııem", item);
               return (
                 <ProductItem
                   image={item.resim}
-                  secondImage={Sample2}
+                  href={"/collection"}
                   title={item.urun_adi}
                 />
               );

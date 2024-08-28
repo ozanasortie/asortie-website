@@ -1,5 +1,7 @@
   .headerBase {
     @apply fixed z-50 w-full flex flex-col items-center justify-center motion-safe:transition-all;
+    /* background: rgb(17,16,16) !important; */
+    /* background: radial-gradient(circle, rgba(17,16,16,0.8260097984506303) 19%, rgba(30,26,20,0.28819467240021013) 99%) !important; */
   }
 
   .headerBase {
@@ -7,8 +9,6 @@
 
   .smallNav {
     @apply flex justify-end pr-5 w-full bg-black;
-    /* background: rgb(152,5,5); */
-    /* background: radial-gradient(circle, rgba(152,5,5,0.8624243642769608) 75%, rgba(217,120,21,0.8204075575542717) 100%); */
   }
 
   .headerSmall {

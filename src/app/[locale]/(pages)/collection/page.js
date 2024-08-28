@@ -15,7 +15,7 @@ export default function Collection() {
         isSafari ? "" : "bg-fixed"
       }`}
       style={{
-        backgroundImage: `url(${"https://www.cappellettisrl.com/wp-content/uploads/2021/01/luxury-sfondo-ok.jpg"})`,
+        backgroundImage: `url(${"https://www.cappellettisrl.com/wp-content/uploads/2023/05/EQ0.jpg"})`,
       }}
     >
       <CollectionHeader />

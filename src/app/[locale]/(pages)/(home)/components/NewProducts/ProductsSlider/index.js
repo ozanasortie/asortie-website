@@ -34,7 +34,7 @@ function ProductSlider({ products }) {
           return (
             <ProductItem
               image={item.resim}
-              secondImage={Sample2}
+              href={"/collection"}
               title={item.urun_adi}
             />
           );

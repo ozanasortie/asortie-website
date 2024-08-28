@@ -46,7 +46,9 @@ export default function Header() {
           <MobileMenu categories={categories.data} isSmall={small} />
           <div className={styles.left}>
             <div className={styles.desktopItems}>
-              <NavLink href="/">{t("home")}</NavLink>
+              <NavLink className={styles.navLink} href="/">
+                {t("home")}
+              </NavLink>
               <CollectionMenu data={categories.data} />
               <NavItem href="/detail">PROJELER</NavItem>
             </div>
@@ -61,7 +63,9 @@ export default function Header() {
           </Link>
           <div className={styles.right}>
             <div className={styles.desktopItems}>
-              <NavItem href="/blog">Blog</NavItem>
+              <NavLink className={styles.navLink} href="/blog">
+                BLOG
+              </NavLink>
               <Corporate />
               <NavItem href="/detail">İletişim</NavItem>
             </div>

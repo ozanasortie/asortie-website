@@ -12,9 +12,11 @@ export default function CollectionMenu({ data }) {
   return (
     <Popover trigger="hover">
       <PopoverTrigger>
-        <NavLink className={styles.navLink} href={"/collection"}>
-          Koleksiyon
-        </NavLink>
+        <span>
+          <NavLink className={styles.navLink} href={"/collection"}>
+            Koleksiyon
+          </NavLink>
+        </span>
       </PopoverTrigger>
       <PopoverContent
         className="mt-8"
