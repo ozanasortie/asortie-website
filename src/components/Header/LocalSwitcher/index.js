@@ -16,7 +16,7 @@ import Button from "@components/Button";
 import styles from "./localSwitcher.module.css";
 
 import eng from "@assets/icons/flags/eng.png";
-import arab from "@assets/icons/flags/arab.png";
+import turkey from "@assets/icons/flags/turkey.png";
 
 export default function LocalSwitcher({ small }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -56,13 +56,25 @@ export default function LocalSwitcher({ small }) {
         variant={"secondary"}
       >
         <DrawerOverlay backdropFilter="auto" backdropBlur="2px" />
-        <DrawerContent maxW={220} backgroundColor={"rgba(255,255,255,0.85)"}>
+        <DrawerContent maxW={220} backgroundColor={"rgba(255,255,255,255)"}>
           <DrawerHeader className={styles.drawerHeader}>
             <div className="text-lg font-normal">Dil Seçiniz</div>
             <DrawerCloseButton top={3.5} />
           </DrawerHeader>
 
           <DrawerBody className={styles.drawerBody}>
+            <Button
+              onClick={() => onLanguageChange("tr")}
+              className={styles.languageButton}
+            >
+              <Image
+                width={22}
+                className={styles.image}
+                src={turkey}
+                alt="Turkish"
+              />
+              <div className={styles.buttonText}>Türkçe</div>
+            </Button>
             <Button
               onClick={() => onLanguageChange("en")}
               className={styles.languageButton}
@@ -74,18 +86,6 @@ export default function LocalSwitcher({ small }) {
                 alt="English"
               />
               <div className={styles.buttonText}>English</div>
-            </Button>
-            <Button
-              onClick={() => onLanguageChange("tr")}
-              className={styles.languageButton}
-            >
-              <Image
-                width={22}
-                className={styles.image}
-                src={arab}
-                alt="Turkish"
-              />
-              <div className={styles.buttonText}>Türkçe</div>
             </Button>
           </DrawerBody>
         </DrawerContent>

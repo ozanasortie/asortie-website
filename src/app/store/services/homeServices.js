@@ -16,13 +16,13 @@ const homeSlices = createSlice({
 const homeApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getNewProducts: build.query({
-      query: () => `new_products`,
+      query: (lang) => `new_products?dil=${lang}_`,
     }),
     getNews: build.query({
-      query: () => `news`,
+      query: (lang) => `news?dil=${lang}_`,
     }),
     getBlogs: build.query({
-      query: () => `blogs`,
+      query: (lang) => `blogs?dil=${lang}_`,
     }),
     postContact: build.mutation({
       query: ({ name, email, tel, message, ulke_kodu, dil }) => {

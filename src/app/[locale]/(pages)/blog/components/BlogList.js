@@ -9,9 +9,7 @@ function BlogList({ blogs }) {
             key={item.id}
             title={item.baslik}
             imageBaseUrl={blogs.image_url}
-            description={
-              "Evinizi dekore ederken sıklıkla karşılaştığınız mobilyalardan biri olan dresuarlar, hem işlevsellikleri hem de şıklıklarıyla dikkat çeken parçalardır. ..."
-            }
+            description={item.ozet}
             href={"/blog/" + item.id}
             image={item.resim}
           />

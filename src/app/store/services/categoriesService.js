@@ -16,7 +16,7 @@ const categoriesSlice = createSlice({
 const categoriesApi = baseApi.injectEndpoints({
   endpoints: (build) => ({
     getCategories: build.query({
-      query: () => `categories`,
+      query: (lang) => `categories?dil=${lang}_`,
     }),
     getProducts: build.query({
       query: (params) => `products?url=${params.slug}&dil=${params.lang}_`,

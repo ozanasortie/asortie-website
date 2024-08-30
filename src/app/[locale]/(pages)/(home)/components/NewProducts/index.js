@@ -42,7 +42,7 @@ const NewProducts = ({ products }) => {
               return (
                 <ProductItem
                   image={item.resim}
-                  href={"/collection"}
+                  href={"/collection/" + item.slug + "/" + item.id}
                   title={item.urun_adi}
                 />
               );

@@ -58,7 +58,7 @@ export default function Collections() {
             return (
               <CollectionItem
                 href={"/collection" + "/" + item.url}
-                image={categories.image_url + item.resimanasayfa}
+                image={categories.image_url + item.resim}
                 secondImage={categories.image_url + item.resim}
                 title={item.kategori}
                 index={index}

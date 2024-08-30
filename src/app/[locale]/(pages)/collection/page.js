@@ -1,7 +1,4 @@
 "use client";
-import { useTranslations } from "next-intl";
-import { useState, useEffect } from "react";
-
 import useIsSafari from "@/hooks/useIsSafari";
 import CollectionHeader from "./components/CollectionHeader";
 import CollectionList from "./components/CollectionList";

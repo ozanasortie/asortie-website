@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NextIntlClientProvider } from "next-intl";
+import { NextIntlClientProvider, useLocale } from "next-intl";
 import { ChakraProvider } from "@chakra-ui/react";
 
 import {
@@ -15,7 +15,7 @@ import Loading from "@/components/Loading";
 
 export default function ClientLayout({ children, locale, messages }) {
   const dispatch = useDispatch();
-  const { data } = useGetCategoriesQuery();
+  const { data } = useGetCategoriesQuery(locale);
   const categories = useSelector((state) => state.categories);
 
   useEffect(() => {

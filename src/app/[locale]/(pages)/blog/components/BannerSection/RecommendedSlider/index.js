@@ -39,7 +39,7 @@ export default function RecommendedSlider() {
           className={`bg-no-repeat bg-center bg-cover h-full w-full flex flex-col items-center justify-center text-white relative`}
           style={{ backgroundImage: `url(${BlogSliderSample2.src})` }}
         >
-          <div className="absolute left-7 bottom-12 z-30">
+          <div className="absolute left-12 bottom-12 z-30">
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
@@ -76,7 +76,7 @@ export default function RecommendedSlider() {
       <div className="flex justify-center items-center h-[76vh]">
         <div
           className={`bg-no-repeat bg-center bg-cover h-full w-full flex flex-col items-center justify-center text-white relative`}
-          style={{ backgroundImage: `url(${BlogSliderSample2.src})` }}
+          style={{ backgroundImage: `url(${BlogSliderSample.src})` }}
         >
           <div className="absolute left-7 bottom-12 z-30">
             <motion.div

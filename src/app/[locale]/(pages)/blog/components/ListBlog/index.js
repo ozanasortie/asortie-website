@@ -13,7 +13,7 @@ export default function ListBlog({
 }) {
   return (
     <Link
-      className="box-border w-[98%] min-h-72 md:min-h-96 lg:h-[480px] mb-2 cursor-pointer relative overflow-hidden flex text-2xl group rounded-lg"
+      className="box-border w-[98%] min-h-72 md:min-h-96 lg:h-[430px] mb-2 cursor-pointer relative overflow-hidden flex text-2xl group rounded-md"
       href={href}
     >
       <motion.div
@@ -31,11 +31,16 @@ export default function ListBlog({
             height={300}
             src={imageBaseUrl + image}
             alt="Blog List Image"
-            className="rounded-lg absolute left-0 top-0 w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110"
+            className="rounded-md absolute left-0 top-0 w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110"
           />
         </div>
-        <h2 className="motion-safe:transition text-black pt-4 pb-2">{title}</h2>
-        <p className="motion-safe:transition text-[#8c8c8c] text-[15px]">
+        <h2 className="motion-safe:transition text-black font-light pt-4 pb-2">
+          {title}
+        </h2>
+        <p
+          className="motion-safe:transition
+        + text-[#8c8c8c] text-[14px] line-clamp-2"
+        >
           {description}
         </p>
       </motion.div>

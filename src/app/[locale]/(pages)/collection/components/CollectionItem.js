@@ -7,7 +7,7 @@ import Link from "next/link";
 export default function CollectionItem({ href, image, secondImage, title }) {
   return (
     <Link
-      className="box-border w-[97%] lg:w-full h-72 md:h-96 lg:h-[550px] cursor-pointer relative overflow-hidden flex items-center justify-center text-2xl group"
+      className="box-border w-[97%] lg:w-full h-72 md:h-96 lg:h-[620px] cursor-pointer relative overflow-hidden flex items-center justify-center text-2xl group"
       href={href}
     >
       <motion.div
@@ -30,7 +30,7 @@ export default function CollectionItem({ href, image, secondImage, title }) {
           />
         </div>
         <div className="text-0 text-center text-xl lg:text-[22px] relative bg-white w-full">
-          <h2 className="motion-safe:transition font-light text-black py-5">
+          <h2 className="motion-safe:transition font-light text-black py-3">
             {title}
           </h2>
           <div className="absolute left-0 right-0 bottom-0 h-[1px] bg-background-color scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>

@@ -19,16 +19,16 @@ import Collections from "./components/Collections";
 import PromotionSection from "./components/PromotionSection";
 import CatalogueFormSection from "./components/CatalogueFormSection";
 import DigitalCatalogueForm from "./components/DigitalCatalogueForm";
+import FeaturesSection from "./components/FeaturesSection";
 import Loading from "@/components/Loading";
 
 export default function Index() {
   const { t } = useTranslations("Index");
   const locale = useLocale();
-  console.log("locale", locale);
   const { data: newProducts, isLoading: isLoadingNewProducts } =
-    useGetNewProductsQuery();
-  const { data: news, isLoading: isLoadingNews } = useGetNewsQuery();
-  const { data: blogs, isLoading: isLoadingBlogs } = useGetBlogsQuery();
+    useGetNewProductsQuery(locale);
+  const { data: news, isLoading: isLoadingNews } = useGetNewsQuery(locale);
+  const { data: blogs, isLoading: isLoadingBlogs } = useGetBlogsQuery(locale);
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   if (isLoadingNewProducts || isLoadingNews) {
@@ -47,6 +47,7 @@ export default function Index() {
       <Blogs blogs={blogs} />
       <CatalogueFormSection onDigitalOpen={onOpen} />
       <DigitalCatalogueForm isOpen={isOpen} onClose={onClose} />
+      <FeaturesSection />
       <div className="flex justify-center py-4 lg:hidden">
         <InstagramEmbed
           url="https://www.instagram.com/asortiemobilya/"

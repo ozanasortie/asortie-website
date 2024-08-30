@@ -51,8 +51,6 @@ export default function CatalogueFormSection({ onDigitalOpen }) {
     },
   });
 
-  console.log("isSuccess", isSuccess, "isError", isError);
-
   const status = isSuccess ? "success" : isError ? "error" : "";
 
   return (
