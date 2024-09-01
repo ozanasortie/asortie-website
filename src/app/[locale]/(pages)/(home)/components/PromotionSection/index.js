@@ -41,7 +41,7 @@ export default function PRomotionSection() {
             }}
             className="w-full lg:w-fit flex flex-col items-start lg:ml-24"
           >
-            <h1 className="text-2xl mt-5 mb-5 text-center lg:hidden max-lg:block">
+            <h1 className="w-full text-2xl mt-5 mb-5 text-center lg:hidden max-lg:block">
               SİZİN İÇİN, SİZİNLE BİRLİKTE...
             </h1>
 

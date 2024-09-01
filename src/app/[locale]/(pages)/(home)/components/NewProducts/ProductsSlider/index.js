@@ -27,7 +27,7 @@ function ProductSlider({ products }) {
         visible: { opacity: 1, y: 0 },
         hidden: { opacity: 0, y: 90 },
       }}
-      className="lg:hidden w-full flex flex-wrap items-center justify-center z-30"
+      className="md:hidden w-full flex flex-wrap items-center justify-center z-30"
     >
       <Slider className="z-30 w-full" {...settings}>
         {products?.data?.map((item, index) => {

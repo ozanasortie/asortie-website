@@ -22,7 +22,7 @@ function CollectionSlider({ categories }) {
         visible: { opacity: 1, y: 0 },
         hidden: { opacity: 0, y: 90 },
       }}
-      className="lg:hidden w-full flex flex-wrap items-center justify-center z-30"
+      className="md:hidden w-full flex flex-wrap items-center justify-center z-30"
     >
       <Slider className="z-30 w-full" {...settings}>
         {categories.data &&
@@ -31,7 +31,7 @@ function CollectionSlider({ categories }) {
             return (
               <CollectionItem
                 href={"/collection/" + categoryName}
-                image={categories.image_url + item.resimanasayfa}
+                image={categories.image_url + item.resim}
                 secondImage={categories.image_url + item.resim}
                 title={item.kategori}
                 index={index}

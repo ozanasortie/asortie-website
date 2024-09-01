@@ -1,7 +1,8 @@
   .headerBase {
-    @apply fixed z-50 w-full flex flex-col items-center justify-center motion-safe:transition-all;
+    @apply fixed z-50 w-full flex flex-col items-center justify-center motion-safe:transition-all shadow-lg;
     /* background: rgb(17,16,16) !important; */
     /* background: radial-gradient(circle, rgba(17,16,16,0.8260097984506303) 19%, rgba(30,26,20,0.28819467240021013) 99%) !important; */
+
   }
 
   .headerBase {
@@ -16,7 +17,7 @@
   }
 
   .navBase {
-    @apply z-10 w-full flex justify-center items-center min-h-28 py-4 px-5 bg-white text-white bg-opacity-0 border-opacity-50 transition-all duration-300 ease-in-out;
+    @apply z-10 w-full flex justify-center items-center min-h-32 py-4 px-5 bg-white text-black bg-opacity-0 border-opacity-50 transition-all duration-300 ease-in-out;
   }
 
   .navSmall {

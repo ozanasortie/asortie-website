@@ -27,7 +27,7 @@ export default function Collections() {
           visible: { opacity: 1, y: 0 },
           hidden: { opacity: 0, y: 90 },
         }}
-        className="w-full flex items-center justify-between mt-10 mb-10 lg:mb-14 z-30"
+        className="w-full flex items-center justify-between mt-10 mb-8 lg:mb-10 z-30"
       >
         <span className="text-4xl lg:text-5xl text-center w-full lg:w-auto lg:text-start font-light">
           KOLEKSİYON
@@ -50,7 +50,7 @@ export default function Collections() {
           visible: { opacity: 1, y: 0 },
           hidden: { opacity: 0, y: 90 },
         }}
-        className="max-lg:hidden w-full flex items-center justify-between z-30 gap-6 -mt-16"
+        className="max-md:hidden w-full flex items-start justify-between z-30 gap-6 "
       >
         {categories.data &&
           categories.data.slice(0, 4).map((item, index) => {

@@ -70,7 +70,7 @@ export default function Header() {
               <NavItem href="/detail">İletişim</NavItem>
             </div>
           </div>
-          <div className="flex items-center absolute right-5">
+          <div className="flex items-center absolute right-7">
             <SearchSection small={small} />
             <LocalSwitcher small={small} />
             <FollowDropdown small={small} />

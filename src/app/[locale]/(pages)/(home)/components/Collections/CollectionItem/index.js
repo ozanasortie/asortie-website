@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const CollectionItem = ({ image, secondImage, title, index, href }) => {
-  const customClass = index === 0 || index === 2 ? "lg:mt-20" : "";
+  const customClass = index === 0 || index === 2 ? "lg:mt-10" : "";
 
   return (
     <motion.div

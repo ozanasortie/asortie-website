@@ -1,14 +1,22 @@
-import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
-function BlogItem({ image }) {
+function BlogItem({ href, item, image, imageBaseUrl }) {
   return (
-    <div className="w-[100%] flex items-center border-b p-1">
-      <Image src={image} className="w-2/6" />
-      <h1 className="font-ligh ml-2">
-        Lüks Dekorasyon Seçenekleri ile Evinizi Şık ve Zarif Bir Hale Getirin{" "}
+    <Link href={href} className="relative w-full mb-2 group cursor-pointer">
+      <div className="relative w-full h-52 overflow-hidden">
+        <Image
+          layout="fill"
+          src={imageBaseUrl + image}
+          objectFit="cover"
+          className="transition-transform duration-500 ease-in-out group-hover:scale-110"
+          alt="Blog image"
+        />
+      </div>
+      <h1 className="absolute top-0 left-0 w-full h-full flex items-center justify-center text-white text-xl font-bold bg-black bg-opacity-30 shadow-lg p-4">
+        {item.baslik}
       </h1>
-    </div>
+    </Link>
   );
 }
 

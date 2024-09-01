@@ -36,8 +36,8 @@ const NewProducts = ({ products }) => {
           className="w-full flex items-center justify-center mt-5"
         >
           <ProductsSlider products={products} />
-          <div className="max-lg:hidden w-full flex gap-4 place-content-center place-items-center">
-            {products?.data?.map((item, index) => {
+          <div className="max-md:hidden w-full flex gap-4 place-content-center place-items-start">
+            {products?.data?.slice(0, 3).map((item, index) => {
               console.log("iıııııem", item);
               return (
                 <ProductItem

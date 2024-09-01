@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-
 import Image from "next/image";
 import Link from "next/link";
 
@@ -10,11 +9,13 @@ export default function ListBlog({
   title,
   description,
   imageBaseUrl,
+  width = "w-full",
 }) {
+  console.log("width", width);
   return (
     <Link
-      className="box-border w-[98%] min-h-72 md:min-h-96 lg:h-[430px] mb-2 cursor-pointer relative overflow-hidden flex text-2xl group rounded-md"
       href={href}
+      className={`box-border ${width} max-w-lg mb-4 lg:mb-8 cursor-pointer relative overflow-hidden flex flex-col rounded-md group`}
     >
       <motion.div
         transition={{ duration: 1.5, delay: 0.2 }}
@@ -23,26 +24,23 @@ export default function ListBlog({
           visible: { opacity: 1, y: 0 },
           hidden: { opacity: 0, y: 80 },
         }}
-        className="box-border w-full h-full flex flex-col text-2xl" // Full height
+        className="flex flex-col w-full h-full"
       >
-        <div className="overflow-hidden w-full h-full max-h-[280px] relative">
+        <div className="relative w-full aspect-[4/3] overflow-hidden">
           <Image
-            width={300}
-            height={300}
             src={imageBaseUrl + image}
-            alt="Blog List Image"
-            className="rounded-md absolute left-0 top-0 w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110"
+            layout="fill"
+            objectFit="cover"
+            alt={title}
+            className="rounded-md transform transition-transform duration-1000 group-hover:scale-110"
           />
         </div>
-        <h2 className="motion-safe:transition text-black font-light pt-4 pb-2">
-          {title}
-        </h2>
-        <p
-          className="motion-safe:transition
-        + text-[#8c8c8c] text-[14px] line-clamp-2"
-        >
-          {description}
-        </p>
+        <div className="p-4 bg-white">
+          <h2 className="text-xl lg:text-2xl text-black mb-2">{title}</h2>
+          <p className="text-sm lg:text-base text-gray-600 line-clamp-2">
+            {description}
+          </p>
+        </div>
       </motion.div>
     </Link>
   );

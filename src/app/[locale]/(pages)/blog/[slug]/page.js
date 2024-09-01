@@ -1,7 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { useLocale } from "next-intl";
-import useIsSafari from "@/hooks/useIsSafari";
 import Image from "next/image";
 
 import Sample from "@assets/Naorabi.jpg";
@@ -12,30 +11,29 @@ import BlogItem from "./components/BlogItem";
 import RecommendedBlogs from "./components/RecommendedBlogs";
 import Loading from "@/components/Loading";
 
-import { useGetBlogDetailQuery } from "@services/blogService";
+import {
+  useGetBlogDetailQuery,
+  useGetMostReadedBlogsQuery,
+  useGetRecommendedBlogsQuery,
+} from "@services/blogService";
 
 export default function Page({ params }) {
-  console.log("PARAMS", params);
   const locale = useLocale();
-  const isSafari = useIsSafari();
   const { data: blog, isLoading: isLoadingBlog } = useGetBlogDetailQuery({
     slug: params.slug,
     lang: locale,
   });
-  console.log("blog", blog);
+  const { data: mostReadeds, isLoading: isMostReadedLoading } =
+    useGetMostReadedBlogsQuery(locale);
+  const { data: recommendedBlogs, isLoading: isRecommendedsLoading } =
+    useGetRecommendedBlogsQuery(locale);
 
-  if (isLoadingBlog) return <Loading />;
+  if (isLoadingBlog || isMostReadedLoading || isRecommendedsLoading)
+    return <Loading />;
 
   return (
-    <div
-      className={`pt-52 pb-10 bg-cover min-h-full bg-center bg-no-repeat relative flex flex-col items-center justify-center text-white ${
-        isSafari ? "" : "bg-fixed"
-      }`}
-      style={{
-        backgroundImage: `url(${"https://www.cappellettisrl.com/wp-content/uploads/2023/05/EQ0.jpg"})`,
-      }}
-    >
-      <div className="max-w-[1400px] flex justify-around">
+    <div className="pt-40 pb-10 bg-cover min-h-full bg-center bg-no-repeat relative flex flex-col items-center justify-center text-white">
+      <div className="max-w-[1600px] flex justify-around">
         <motion.div
           transition={{ duration: 0.8, delay: 0.2 }}
           initial="hidden"
@@ -44,17 +42,19 @@ export default function Page({ params }) {
             visible: { opacity: 1, x: 0 },
             hidden: { opacity: 0, x: -80 },
           }}
-          className="w-[29%] h-fit flex items-center flex-col bg-white text-black"
+          className="w-[30%] max-xl:hidden h-fit flex items-center flex-col bg-white text-black"
         >
-          <h1 className="w-full text-center text-2xl py-4 border-b">
-            ÇOK OKUNANLAR
-          </h1>
-          <BlogItem image={Sample} />
-          <BlogItem image={Sample2} />
-          <BlogItem image={Sample3} />
-          <BlogItem image={Sample} />
-          <BlogItem image={Sample2} />
-          <BlogItem image={Sample3} />
+          <h1 className="w-full text-center text-3xl py-4">ÇOK OKUNANLAR</h1>
+          {mostReadeds?.data?.map((item) => {
+            return (
+              <BlogItem
+                imageBaseUrl={mostReadeds?.image_url}
+                image={item.resim}
+                item={item}
+                href={"/blog/" + item.id}
+              />
+            );
+          })}
         </motion.div>
         <motion.div
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -64,21 +64,27 @@ export default function Page({ params }) {
             visible: { opacity: 1, y: 0 },
             hidden: { opacity: 0, y: -80 },
           }}
-          className="w-[69%] flex items-center flex-col"
+          className="w-[100%] flex flex-col items-center text-center"
         >
-          <h1 className="z-10 text-6xl w-full font-light leading-normal text-black bg-white p-6">
+          <h1 className="z-10 text-5xl w-[95%] leading-normal text-black p-6 uppercase">
             {blog.data[0].baslik}
           </h1>
-
+          <i className="z-10 text-lg w-[80%] leading-relaxed text-gray-600 mb-6">
+            {blog.data[0].ozet}
+          </i>
           <Image
             width={300}
             height={300}
-            className="w-full object-cover"
+            className="w-[70%] object-cover mb-6"
             src={blog.image_url + blog.data[0].resim}
+          />
+          <div
+            className="text-start w-[80%] text-gray-800"
+            dangerouslySetInnerHTML={{ __html: blog.data[0].icerik }}
           />
         </motion.div>
       </div>
-      {/* <RecommendedBlogs /> */}
+      <RecommendedBlogs data={recommendedBlogs} />
     </div>
   );
 }
