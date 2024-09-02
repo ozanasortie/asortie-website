@@ -23,7 +23,6 @@ import FeaturesSection from "./components/FeaturesSection";
 import Loading from "@/components/Loading";
 
 export default function Index() {
-  const { t } = useTranslations("Index");
   const locale = useLocale();
   const { data: newProducts, isLoading: isLoadingNewProducts } =
     useGetNewProductsQuery(locale);

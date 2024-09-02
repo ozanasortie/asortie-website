@@ -1,8 +1,8 @@
-import Transition from "@/components/Transition";
+import { motion } from "framer-motion";
 
 function BlogsHeader() {
   return (
-    <Transition
+    <motion.div
       transition={{ duration: 0.8, delay: 0.2 }}
       initial="hidden"
       whileInView="visible"
@@ -20,7 +20,7 @@ function BlogsHeader() {
         konu yelpazesi sunar. Güncel trendlerden yaşam tarzı ipuçlarına,
         kültürel analizlerden pratik önerilere kadar çeşitli içerikler sağlar.
       </i>
-    </Transition>
+    </motion.div>
   );
 }
 

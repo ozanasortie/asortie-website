@@ -35,9 +35,9 @@ export default function RecommendedSlider() {
       afterChange={(index) => setCurrentSlide(index)}
       {...settings}
     >
-      <div className="flex justify-center items-center h-[65vh] lg:h-[76vh]">
+      <div className="flex justify-center items-center h-[65vh] lg:h-[76vh] p-[10px]">
         <div
-          className={`bg-no-repeat bg-center bg-cover h-full w-full aspect-[16/9] flex flex-col items-center justify-center text-white relative`}
+          className={`bg-no-repeat bg-center bg-cover h-full w-full flex flex-col items-center justify-center text-white relative rounded-xl`}
           style={{ backgroundImage: `url(${BlogSliderSample2.src})` }}
         >
           <div className="absolute left-7 bottom-12 z-30">

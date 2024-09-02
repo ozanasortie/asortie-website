@@ -26,7 +26,7 @@ export default function ListBlog({
         }}
         className="flex flex-col w-full h-full"
       >
-        <div className="relative w-full aspect-[16/9] overflow-hidden">
+        <div className="relative w-full aspect-[4/3] overflow-hidden">
           <Image
             src={imageBaseUrl + image}
             layout="fill"

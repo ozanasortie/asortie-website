@@ -24,6 +24,14 @@ export default async function LocaleLayout({ children, params: { locale } }) {
 
   return (
     <html lang={locale}>
+      <head>
+        <link
+          rel="icon"
+          href="/logo-left.png"
+          type="image/<generated>"
+          sizes="<generated>"
+        />
+      </head>
       <body className={jost.variable}>
         <ProviderLayout messages={messages} locale={locale}>
           {children}

@@ -4,7 +4,7 @@ import Image from "next/image";
 const BlogItem = ({ imageBaseUrl, image, title }) => {
   return (
     <div className="box-border w-full cursor-pointer relative overflow-hidden flex flex-col items-center justify-center text-2xl group">
-      <div className="relative w-full aspect-[16/9] overflow-hidden">
+      <div className="relative w-full aspect-[4/3] overflow-hidden">
         <Image
           src={imageBaseUrl + image}
           layout="fill"
