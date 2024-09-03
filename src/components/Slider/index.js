@@ -1,10 +1,20 @@
 "use client";
-import { motion } from "framer-motion";
 import Slider from "react-slick";
 
-export default function SliderProvider({ children, className, settings }) {
+export default function SliderProvider({
+  key,
+  children,
+  className,
+  settings,
+  afterChange,
+}) {
   return (
-    <Slider className={className} {...settings}>
+    <Slider
+      key={key}
+      afterChange={afterChange}
+      className={className}
+      {...settings}
+    >
       {children}
     </Slider>
   );

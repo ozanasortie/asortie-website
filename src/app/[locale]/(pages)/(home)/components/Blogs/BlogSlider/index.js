@@ -1,9 +1,6 @@
 import React from "react";
-import Slider from "react-slick";
-
-import { motion } from "framer-motion";
-import BlogSample from "@assets/blog-sample.jpg";
-import BlogSample2 from "@assets/blog-sample-2.png";
+import Slider from "@components/Slider";
+import Transition from "@/components/Transition";
 
 import BlogItem from "../BlogItem";
 
@@ -17,7 +14,7 @@ const settings = {
 
 function BlogSlider({ blogs }) {
   return (
-    <motion.div
+    <Transition
       transition={{ duration: 1, delay: 0.2 }}
       initial="hidden"
       whileInView="visible"
@@ -39,7 +36,7 @@ function BlogSlider({ blogs }) {
             );
           })}
       </Slider>
-    </motion.div>
+    </Transition>
   );
 }
 

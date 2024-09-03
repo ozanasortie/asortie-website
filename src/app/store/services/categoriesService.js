@@ -34,3 +34,31 @@ export const {
   useGetProductDetailQuery,
 } = categoriesApi;
 export default categoriesSlice.reducer;
+
+const BASE_URL = "https://asortie.com/json/";
+
+export async function fetchCategories(lang) {
+  const response = await fetch(`${BASE_URL}/categories?dil=${lang}_`);
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return await response.json();
+}
+
+export async function fetchProducts({ slug, lang }) {
+  const response = await fetch(`${BASE_URL}/products?url=${slug}&dil=${lang}_`);
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return await response.json();
+}
+
+export async function fetchProductDetail({ slug, lang }) {
+  const response = await fetch(
+    `${BASE_URL}/productdetail?id=${slug}&dil=${lang}_`
+  );
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return await response.json();
+}

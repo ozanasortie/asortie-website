@@ -1,25 +1,20 @@
 import Image from "next/image";
-import { motion } from "framer-motion";
-
-import useIsSafari from "@hooks/useIsSafari";
 
 import Arma from "@/assets/16arma.png";
-import Background from "@assets/background.webp";
+import BackgroundSample from "@assets/background.webp";
+import Transition from "@/components/Transition";
+import BackgroundSection from "@components/Background";
 
-export default function PRomotionSection() {
-  const isSafari = useIsSafari();
-
+export default function PromotionSection() {
   return (
-    <div
-      className={`bg-cover bg-center relative py-4 lg:py-8 flex flex-col items-center justify-center text-white ${
-        isSafari ? "" : "bg-fixed"
-      }`}
-      style={{ backgroundImage: `url(${Background.src})` }}
+    <BackgroundSection
+      background={BackgroundSample.src}
+      className="bg-cover bg-center relative py-4 lg:py-8 flex flex-col items-center justify-center text-white"
     >
       <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-35 z-30" />
       <div className="flex flex-col w-full z-30">
         <div className="w-full flex flex-col lg:flex-row px-14 items-center justify-center lg:justify-start lg:items-center">
-          <motion.div
+          <Transition
             transition={{ duration: 1.2, delay: 0.2 }}
             initial="hidden"
             whileInView="visible"
@@ -30,8 +25,8 @@ export default function PRomotionSection() {
             className="flex flex-col items-start text-center lg:text-start lg:ml-10"
           >
             <Image src={Arma} className="w-[140px] lg:w-[220px]" />
-          </motion.div>
-          <motion.div
+          </Transition>
+          <Transition
             transition={{ duration: 1.2, delay: 0.2 }}
             initial="hidden"
             whileInView="visible"
@@ -55,9 +50,9 @@ export default function PRomotionSection() {
               sağlayan Asortie, kendine özgü çizgisi ile günün moda anlayışına
               paralel olarak dizayn edilmiş fark edilebilen ürünler tasarlıyor.
             </p>
-          </motion.div>
+          </Transition>
         </div>
       </div>
-    </div>
+    </BackgroundSection>
   );
 }

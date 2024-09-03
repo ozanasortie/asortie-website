@@ -1,11 +1,7 @@
 import React from "react";
-import Slider from "react-slick";
-
-import { motion } from "framer-motion";
-import BlogSample from "@assets/blog-sample.jpg";
-import BlogSample2 from "@assets/blog-sample-2.png";
-
+import Slider from "@components/Slider";
 import BlogItem from "../BlogItem";
+import Transition from "@/components/Transition";
 
 const settings = {
   centerMode: true,
@@ -18,7 +14,7 @@ const settings = {
 
 function BlogSlider({ news }) {
   return (
-    <motion.div
+    <Transition
       transition={{ duration: 1, delay: 0.2 }}
       initial="hidden"
       whileInView="visible"
@@ -40,7 +36,7 @@ function BlogSlider({ news }) {
             );
           })}
       </Slider>
-    </motion.div>
+    </Transition>
   );
 }
 

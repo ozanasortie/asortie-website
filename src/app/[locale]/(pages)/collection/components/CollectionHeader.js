@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
+import Transition from "@/components/Transition";
 
 function CollectionHeader() {
   return (
-    <motion.div
+    <Transition
       transition={{ duration: 0.8, delay: 0.2 }}
       initial="hidden"
       whileInView="visible"
@@ -18,7 +18,7 @@ function CollectionHeader() {
       <i className="max-w-[1100px] md:max-w-[900px] w-[95%] leading-loose lg:text-[16px] mb-6 text-center">
         "Mükemmele odaklan, gerisi kendiliğinden gelir..."
       </i>
-    </motion.div>
+    </Transition>
   );
 }
 

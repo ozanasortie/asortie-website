@@ -1,8 +1,13 @@
+"use client";
 import StoreField from "./StoreField";
 import { motion } from "framer-motion";
 import { ChevronDownIcon } from "@chakra-ui/icons";
+import { useDisclosure } from "@chakra-ui/react";
+import DigitalCatalogueForm from "../../components/DigitalCatalogueForm";
 
-export default function BannerSection({ onOpen }) {
+export default function BannerSection() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <div className="relative flex flex-1 max-lg:flex-col w-full box-border bg-background-color overflow-hidden">
       <StoreField onOpen={onOpen} />
@@ -14,6 +19,8 @@ export default function BannerSection({ onOpen }) {
       >
         <ChevronDownIcon color={"white"} boxSize={16} />
       </motion.div>
+
+      <DigitalCatalogueForm isOpen={isOpen} onClose={onClose} />
     </div>
   );
 }

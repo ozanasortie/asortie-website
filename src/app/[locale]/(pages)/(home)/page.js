@@ -1,12 +1,7 @@
-"use client";
-import { useTranslations, useLocale } from "next-intl";
-import { InstagramEmbed } from "react-social-media-embed";
-import { useDisclosure } from "@chakra-ui/react";
-
 import {
-  useGetNewProductsQuery,
-  useGetBlogsQuery,
-  useGetNewsQuery,
+  fetchBlogs,
+  fetchNewProducts,
+  fetchNews,
 } from "@services/homeServices";
 
 import BannerSection from "./components/BannerSection";
@@ -18,25 +13,22 @@ import StoreSection from "./components/StoreSection";
 import Collections from "./components/Collections";
 import PromotionSection from "./components/PromotionSection";
 import CatalogueFormSection from "./components/CatalogueFormSection";
-import DigitalCatalogueForm from "./components/DigitalCatalogueForm";
 import FeaturesSection from "./components/FeaturesSection";
-import Loading from "@/components/Loading";
+import Loading from "@components/Loading";
+import InstagramSection from "./components/InstagramSection";
 
-export default function Index() {
-  const locale = useLocale();
-  const { data: newProducts, isLoading: isLoadingNewProducts } =
-    useGetNewProductsQuery(locale);
-  const { data: news, isLoading: isLoadingNews } = useGetNewsQuery(locale);
-  const { data: blogs, isLoading: isLoadingBlogs } = useGetBlogsQuery(locale);
-  const { isOpen, onOpen, onClose } = useDisclosure();
+export default async function Index({ params }) {
+  const { locale } = params;
 
-  if (isLoadingNewProducts || isLoadingNews) {
-    return <Loading />;
-  }
+  const newProducts = await fetchNewProducts(locale);
+  const news = await fetchNews(locale);
+  const blogs = await fetchBlogs(locale);
+
+  if (!newProducts || !blogs || !news) return <Loading />;
 
   return (
-    <div className="overflow-x-hidden">
-      <BannerSection onOpen={onOpen} />
+    <div>
+      <BannerSection />
       <NewProducts products={newProducts} />
       <PromotionSection />
       <Collections />
@@ -44,15 +36,9 @@ export default function Index() {
       <News news={news} />
       <StoreSection />
       <Blogs blogs={blogs} />
-      <CatalogueFormSection onDigitalOpen={onOpen} />
-      <DigitalCatalogueForm isOpen={isOpen} onClose={onClose} />
+      <CatalogueFormSection />
       <FeaturesSection />
-      <div className="flex justify-center py-4 lg:hidden">
-        <InstagramEmbed
-          url="https://www.instagram.com/asortiemobilya/"
-          width={"95%"}
-        />
-      </div>
+      <InstagramSection />
     </div>
   );
 }

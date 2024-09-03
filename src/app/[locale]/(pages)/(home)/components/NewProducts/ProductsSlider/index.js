@@ -1,12 +1,8 @@
 import React from "react";
-import Slider from "react-slick";
-import { motion } from "framer-motion";
-
-import Sample3 from "@assets/sample-3.jpg";
-import Sample2 from "@assets/Samplebanner.jpg";
-import Sample from "@assets/sample.jpg";
+import Slider from "@components/Slider";
 
 import ProductItem from "../ProductItem";
+import Transition from "@/components/Transition";
 
 const settings = {
   centerMode: true,
@@ -19,7 +15,7 @@ const settings = {
 
 function ProductSlider({ products }) {
   return (
-    <motion.div
+    <Transition
       transition={{ duration: 1, delay: 0.2 }}
       initial="hidden"
       whileInView="visible"
@@ -40,7 +36,7 @@ function ProductSlider({ products }) {
           );
         })}
       </Slider>
-    </motion.div>
+    </Transition>
   );
 }
 

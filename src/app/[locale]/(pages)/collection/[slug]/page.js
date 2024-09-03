@@ -1,39 +1,47 @@
-"use client";
-import { useLocale, useTranslations } from "next-intl";
-import { useGetProductsQuery } from "@services/categoriesService";
+import { fetchProducts } from "@services/categoriesService";
 
-import useIsSafari from "@/hooks/useIsSafari";
 import ProductsHeader from "./components/ProductsHeader";
 import ProductList from "./components/ProductList";
 import Loading from "@/components/Loading";
+import BackgroundSection from "@/components/Background";
 
-export default function Products({ params }) {
-  const t = useTranslations("Header");
-  const locale = useLocale();
-  const isSafari = useIsSafari();
+export async function generateMetadata({ params }) {
+  const pageTitle = "Asortie | Ürün Listesi";
+  const pageDescription = "";
+  const pageImage = "";
 
-  const { data, isLoading } = useGetProductsQuery({
-    slug: params.slug,
+  return {
+    title: pageTitle,
+    description: pageDescription,
+    openGraph: {
+      title: pageTitle,
+      description: pageDescription,
+      images: [pageImage],
+    },
+  };
+}
+
+export default async function Products({ params }) {
+  const { locale, slug } = params;
+
+  const data = await fetchProducts({
+    slug,
     lang: locale,
   });
 
-  if (isLoading) return <Loading />;
+  if (!data) return <Loading />;
 
   return (
-    <div
-      className={`bg-cover bg-center bg-no-repeat relative flex flex-col items-center lg:justify-around text-white pb-5 ${
-        isSafari ? "" : "bg-fixed"
+    <BackgroundSection
+      className="bg-cover bg-center bg-no-repeat relative flex flex-col items-center lg:justify-around text-white pb-5"
+      background={`${
+        data?.data[0]?.kategori_resim_arkaplan
+          ? data?.data[0]?.image_url + data?.data[0]?.kategori_resim_arkaplan
+          : "https://www.cappellettisrl.com/wp-content/uploads/2023/05/EQ0.jpg"
       }`}
-      style={{
-        backgroundImage: `url(${
-          data?.data[0]?.kategori_resim_arkaplan
-            ? data?.data[0]?.image_url + data?.data[0]?.kategori_resim_arkaplan
-            : "https://www.cappellettisrl.com/wp-content/uploads/2023/05/EQ0.jpg"
-        })`,
-      }}
     >
       <ProductsHeader data={data?.data[0]} />
       <ProductList slug={params.slug} products={data?.data} />
-    </div>
+    </BackgroundSection>
   );
 }

@@ -5,9 +5,24 @@ import Loading from "@/components/Loading";
 
 import { fetchBlogs } from "@services/blogService";
 
+export async function generateMetadata({ params }) {
+  const pageTitle = "Asortie | Blog";
+  const pageDescription = "";
+  const pageImage = "";
+
+  return {
+    title: pageTitle,
+    description: pageDescription,
+    openGraph: {
+      title: pageTitle,
+      description: pageDescription,
+      images: [pageImage],
+    },
+  };
+}
+
 export default async function Blog({ params }) {
-  // const isSafari = useIsSafari();
-  const { locale, slug } = params;
+  const { locale } = params;
 
   const blogs = await fetchBlogs(locale);
 

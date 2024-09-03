@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-import { ChevronDownIcon } from "@chakra-ui/icons";
 import RecommendedSlider from "./RecommendedSlider";
 
 export default function BannerSection({ onClick }) {

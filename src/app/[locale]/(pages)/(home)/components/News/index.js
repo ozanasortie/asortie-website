@@ -1,17 +1,15 @@
-"use client";
-import { motion } from "framer-motion";
 import Link from "next/link";
+import Transition from "@/components/Transition";
 
 import BlogSlider from "./BlogSlider";
 import BlogItem from "./BlogItem";
-import { ChevronRightIcon } from "@chakra-ui/icons";
 
 export default function News({ news }) {
   return (
     <div className="w-full relative flex flex-1 justify-start items-start max-lg:flex-col mt-4 z-40 mb-14 lg:px-page">
       <div className="absolute left-0 top-0 w-full bg-black bg-opacity-35" />
       <div className="w-full flex flex-col items-center justify-center z-20">
-        <motion.div
+        <Transition
           transition={{ duration: 1, delay: 0.2 }}
           initial="hidden"
           whileInView="visible"
@@ -27,11 +25,11 @@ export default function News({ news }) {
 
           <Link href="/collection" className="max-lg:hidden">
             <span className="z-30 text-md lg:text-xl mt-5 cursor-pointer">
-              TÜMÜNÜ GÖR <ChevronRightIcon mb={1} />
+              TÜMÜNÜ GÖR
             </span>
           </Link>
-        </motion.div>
-        <motion.div
+        </Transition>
+        <Transition
           transition={{ duration: 1, delay: 0.2 }}
           initial="hidden"
           whileInView="visible"
@@ -54,7 +52,7 @@ export default function News({ news }) {
                 );
               })}
           </div>
-        </motion.div>
+        </Transition>
 
         <Link href="/collection" className="lg:hidden mt-8">
           <span className="z-30 text-md lg:text-xl last:cursor-pointer underline">

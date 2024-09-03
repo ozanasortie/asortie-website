@@ -10,7 +10,7 @@ function BlogList({ blogs }) {
             title={item.baslik}
             imageBaseUrl={blogs.image_url}
             description={item.ozet}
-            href={"/blog/" + item.id}
+            href={"/news/" + item.id}
             image={item.resim}
           />
         );

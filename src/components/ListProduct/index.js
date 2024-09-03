@@ -1,8 +1,6 @@
-"use client";
-import { motion } from "framer-motion";
-
 import Image from "next/image";
 import Link from "next/link";
+import Transition from "../Transition";
 
 export default function ListProduct({ href, image, secondImage, title }) {
   return (
@@ -10,7 +8,7 @@ export default function ListProduct({ href, image, secondImage, title }) {
       className="box-border w-[97%] lg:w-full h-72 md:h-96 lg:h-[400px] cursor-pointer relative overflow-hidden flex items-center justify-center text-2xl group"
       href={href}
     >
-      <motion.div
+      <Transition
         transition={{ duration: 1.5, delay: 0.2 }}
         initial="hidden"
         whileInView="visible"
@@ -35,7 +33,7 @@ export default function ListProduct({ href, image, secondImage, title }) {
           </h2>
           <div className="absolute left-0 right-0 bottom-0 h-[1px] bg-background-color scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
         </div>
-      </motion.div>
+      </Transition>
     </Link>
   );
 }

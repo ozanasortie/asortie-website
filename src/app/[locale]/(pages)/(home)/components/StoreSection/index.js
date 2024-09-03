@@ -1,21 +1,15 @@
-"use client";
-import { motion } from "framer-motion";
-
 import Store from "@/assets/store.png";
-import useIsSafari from "@/hooks/useIsSafari";
+import BackgroundSection from "@/components/Background";
+import Transition from "@/components/Transition";
 
 const StoreSection = () => {
-  const isSafari = useIsSafari();
-
   return (
-    <div
-      className={`bg-cover bg-center relative h-[50vh] p-10 flex flex-col items-center justify-center text-white ${
-        isSafari ? "" : "bg-fixed"
-      }`}
-      style={{ backgroundImage: `url(${Store.src})` }}
+    <BackgroundSection
+      background={Store.src}
+      className="bg-cover bg-center relative h-[50vh] p-10 flex flex-col items-center justify-center text-white"
     >
       <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-35 z-30" />
-      <motion.div
+      <Transition
         transition={{ duration: 0.8, delay: 0.2 }}
         initial="hidden"
         whileInView="visible"
@@ -28,8 +22,8 @@ const StoreSection = () => {
         <h1 className="text-3xl text-center lg:text-start lg:text-6xl my-4 mb-5 [text-shadow:_2px_2px_4px_rgb(0_0_0_/_70%)]">
           MÜKEMMELİN MEKÂNA YANSIMASI
         </h1>
-      </motion.div>
-      <motion.div
+      </Transition>
+      <Transition
         transition={{ duration: 0.8, delay: 0.2 }}
         initial="hidden"
         whileInView="visible"
@@ -40,7 +34,7 @@ const StoreSection = () => {
         className="z-30 text-xl lg:text-2xl text-center text-white [text-shadow:_2px_2px_4px_rgb(0_0_0_/_70%)]"
       >
         Masko mağazamızı sanal tur ile keşfedebilirsiniz.
-      </motion.div>
+      </Transition>
       <a
         href="https://cdn.mekan360.com/sanaltur_isletme/turkey/istanbul/basaksehir/basaksehir_istanbul_asortie_mobilya/basaksehir_istanbul_asortie_mobilya.html"
         target="_blank"
@@ -49,7 +43,7 @@ const StoreSection = () => {
       >
         360 DERECE DENEYİMLE KEŞFET
       </a>
-    </div>
+    </BackgroundSection>
   );
 };
 

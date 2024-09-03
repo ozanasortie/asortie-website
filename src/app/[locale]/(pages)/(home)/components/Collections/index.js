@@ -1,25 +1,20 @@
 "use client";
-import { motion } from "framer-motion";
 import { useSelector } from "react-redux";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 
 import CollectionItem from "./CollectionItem";
 import CollectionSlider from "./CollectionSlider";
 
-import useIsSafari from "@hooks/useIsSafari";
-
 import Link from "next/link";
+import Transition from "@/components/Transition";
 
 export default function Collections() {
-  const isSafari = useIsSafari();
   const categories = useSelector((state) => state.categories);
-  console.log("categories", categories);
-
   return (
     <div
       className={`flex flex-1 flex-col items-center w-full max-w-page box-border overflow-hidden py-7 pb-10 lg:px-page`}
     >
-      <motion.div
+      <Transition
         transition={{ duration: 1, delay: 0.2 }}
         initial="hidden"
         whileInView="visible"
@@ -38,11 +33,11 @@ export default function Collections() {
             TÜMÜNÜ GÖR <ChevronRightIcon mb={1} />
           </span>
         </Link>
-      </motion.div>
+      </Transition>
 
       <CollectionSlider categories={categories} />
 
-      <motion.div
+      <Transition
         transition={{ duration: 1, delay: 0.2 }}
         initial="hidden"
         whileInView="visible"
@@ -65,7 +60,7 @@ export default function Collections() {
               />
             );
           })}
-      </motion.div>
+      </Transition>
 
       <Link href="/collection" className="lg:hidden mt-4">
         <span className="z-30 text-md lg:text-xl last:cursor-pointer underline">

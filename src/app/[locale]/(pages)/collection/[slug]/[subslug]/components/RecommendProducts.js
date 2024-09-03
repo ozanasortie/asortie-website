@@ -1,11 +1,10 @@
-import Slider from "react-slick";
-import { motion } from "framer-motion";
-
+import Slider from "@components/Slider";
 import ListProduct from "@components/ListProduct";
 
 import SampleBanner from "@assets/olimpos-min.jpg";
 import SampleBanner2 from "@assets/bosna.jpg";
 import SampleBanner3 from "@assets/defne.jpg";
+import Transition from "@/components/Transition";
 
 function RecommendedProducts() {
   const settings = {
@@ -20,7 +19,7 @@ function RecommendedProducts() {
   return (
     <>
       <div className="z-30 flex flex-col items-center mt-24">
-        <motion.div
+        <Transition
           transition={{ duration: 0.8, delay: 0.2 }}
           initial="hidden"
           whileInView="visible"
@@ -33,7 +32,7 @@ function RecommendedProducts() {
           <h1 className="text-3xl text-center lg:text-start lg:text-6xl my-4 mb-5 uppercase">
             İLGİNİZİ ÇEKEBİLECEK MODELLERİMİZ
           </h1>
-        </motion.div>
+        </Transition>
         <div className="hidden lg:grid gap-4 grid-cols-3 px-4">
           <ListProduct
             image={SampleBanner}

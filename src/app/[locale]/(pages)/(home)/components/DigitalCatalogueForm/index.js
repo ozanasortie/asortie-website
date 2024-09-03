@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -12,7 +13,7 @@ import {
   ModalCloseButton,
   Textarea,
 } from "@chakra-ui/react";
-import StatusModal from "@/components/StatusModal";
+// import StatusModal from "@/components/StatusModal";
 import { useCatalogueRequestMutation } from "@services/homeServices"; // Import your mutation hook
 
 const validationSchema = Yup.object({
@@ -122,13 +123,13 @@ export default function DigitalCatalogueForm({ isOpen, onClose }) {
           </ModalBody>
         </ModalContent>
       </Modal>
-      {statusModalOpen && (
+      {/* {statusModalOpen && (
         <StatusModal
           isOpen={statusModalOpen}
           onClose={() => setStatusModalOpen(false)}
           status={status}
         />
-      )}
+      )} */}
     </>
   );
 }

@@ -50,7 +50,7 @@ export default function Header() {
                 {t("home")}
               </NavLink>
               <CollectionMenu data={categories.data} />
-              <NavItem href="/detail">PROJELER</NavItem>
+              <NavItem href="/news">HABERLER</NavItem>
             </div>
           </div>
           <Link className="mx-10" href={"/"}>

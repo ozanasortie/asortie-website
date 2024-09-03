@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -8,6 +9,7 @@ import Input from "@components/Input";
 import Textarea from "@/components/Textarea";
 import Button from "@components/Button";
 import StatusModal from "@/components/StatusModal";
+import DigitalCatalogueForm from "../../components/DigitalCatalogueForm";
 
 import { usePostContactMutation } from "@services/homeServices";
 
@@ -31,6 +33,11 @@ export default function CatalogueFormSection({ onDigitalOpen }) {
   const [postContact, { isLoading, isError, isSuccess }] =
     usePostContactMutation();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const {
+    isOpen: isFormOpen,
+    onOpen: onFormOpen,
+    onClose: onFormClose,
+  } = useDisclosure();
 
   const formik = useFormik({
     initialValues: {
@@ -81,7 +88,7 @@ export default function CatalogueFormSection({ onDigitalOpen }) {
           color="black"
           className="w-[90%] flex items-center justify-center py-4"
           text={"DİJİTAL KATALOG TALEP ET"}
-          onClick={() => onDigitalOpen()}
+          onClick={() => onFormOpen()}
         />
       </motion.div>
       <motion.div
@@ -176,6 +183,7 @@ export default function CatalogueFormSection({ onDigitalOpen }) {
           />
         </form>
         <StatusModal status={status} isOpen={isOpen} onClose={onClose} />
+        <DigitalCatalogueForm isOpen={isFormOpen} onClose={onFormClose} />
       </motion.div>
     </div>
   );

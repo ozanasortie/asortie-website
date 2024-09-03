@@ -1,50 +1,33 @@
-"use client";
-import { motion } from "framer-motion";
-
-import useIsSafari from "@/hooks/useIsSafari";
 import InformationField from "./components/InformationField";
 import DetailHeader from "./components/DetailHeader";
-import ImageField from "./components/ImageField";
 import RecommendedProducts from "./components/RecommendProducts";
 
-import { useGetProductDetailQuery } from "@services/categoriesService";
+import { fetchProductDetail } from "@services/categoriesService";
 
-import SampleBanner from "@assets/bosna.jpg";
+import Transition from "@/components/Transition";
+import Loading from "@/components/Loading";
+import ImageProvider from "./components/ImageProvider";
 
-export default function ProductDetail({ params }) {
-  const isSafari = useIsSafari();
-  const { data, isLoading, isError } = useGetProductDetailQuery(params.subslug);
+export default async function ProductDetail({ params }) {
+  const { locale, subslug } = params;
+  const data = await fetchProductDetail({ slug: subslug, lang: locale });
+
+  if (!data) return <Loading />;
 
   return (
-    <motion.div
-      transition={{ duration: 1, delay: 0.2 }}
-      initial="hidden"
-      whileInView="visible"
-      variants={{
-        visible: { opacity: 1 },
-        hidden: { opacity: 0 },
-      }}
-      className={`w-full bg-cover bg-center bg-no-repeat relative flex flex-col items-center text-black pb-16 lg:pb-32 ${
-        isSafari ? "" : "bg-fixed"
-      }`}
-      style={{
-        backgroundImage: `url(${SampleBanner.src})`,
-      }}
-    >
-      <div className="backdrop-blur-lg absolute left-0 top-0 w-full h-full bg-black bg-opacity-10 z-30" />
-      <DetailHeader />
-      <div
-        className={`w-full bg-cover bg-center bg-no-repeat flex flex-col mt-7 lg:mt-0 lg:flex-row lg:justify-between text-white lg:p-5 ${
-          isSafari ? "" : "bg-fixed"
-        }`}
-        style={{
-          backgroundImage: `url(${SampleBanner.src})`,
-        }}
-      >
-        <ImageField />
-        <InformationField />
-      </div>
+    <Transition className="w-full bg-cover bg-center bg-no-repeat relative flex flex-col items-center text-black pb-16 lg:pb-32 overflow-x-hidden">
+      <DetailHeader title={data.Urunler[0].urun_adi} />
+      <Transition className="w-full bg-cover bg-center bg-no-repeat flex flex-col mt-7 lg:mt-0 lg:flex-row lg:justify-between text-black lg:p-5">
+        <ImageProvider images={data.Resimler} />
+        <div className="w-full">
+          <div
+            className="text-start w-[100%] px-6 text-gray-800 my-4"
+            dangerouslySetInnerHTML={{ __html: data.Urunler[0].urun_detayi }}
+          />
+          <InformationField />
+        </div>
+      </Transition>
       <RecommendedProducts />
-    </motion.div>
+    </Transition>
   );
 }

@@ -1,25 +1,20 @@
 import Image from "next/image";
-import { motion } from "framer-motion";
-
-import useIsSafari from "@/hooks/useIsSafari";
 
 import Team from "@/assets/about-us.jpg";
 import Background from "@assets/background.webp";
+import BackgroundSection from "@/components/Background";
+import Transition from "@/components/Transition";
 
 export default function AboutUs() {
-  const isSafari = useIsSafari();
-
   return (
-    <div
-      className={`bg-cover bg-center relative p-2 lg:p-0 lg:px-page flex flex-col items-center justify-center text-white ${
-        isSafari ? "" : "bg-fixed"
-      }`}
-      style={{ backgroundImage: `url(${Background.src})` }}
+    <BackgroundSection
+      background={Background.src}
+      className="bg-cover bg-center relative p-2 lg:p-0 lg:px-page flex flex-col items-center justify-center text-white"
     >
       <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-35 z-30" />
       <div className="flex flex-col w-full z-30">
         <div className="flex flex-col lg:flex-row items-center lg:items-center py-8">
-          <motion.div
+          <Transition
             transition={{ duration: 1.2, delay: 0.2 }}
             initial="hidden"
             whileInView="visible"
@@ -33,9 +28,9 @@ export default function AboutUs() {
               src={Team}
               className="lg:w-[100%] h-full z-20 object-cover"
             />
-          </motion.div>
+          </Transition>
 
-          <motion.div
+          <Transition
             transition={{ duration: 1.2, delay: 0.2 }}
             initial="hidden"
             whileInView="visible"
@@ -45,7 +40,7 @@ export default function AboutUs() {
             }}
             className="flex flex-col items-center text-center lg:text-start lg:ml-8 lg:w-[100%]"
           >
-            <motion.div
+            <Transition
               transition={{ duration: 0.8, delay: 0.2 }}
               initial="hidden"
               whileInView="visible"
@@ -58,7 +53,7 @@ export default function AboutUs() {
               <h1 className="text-3xl text-center lg:text-start lg:text-5xl my-4 mb-8 uppercase">
                 Bizim Tasarımlarımız Kalıba Sığmaz
               </h1>
-            </motion.div>
+            </Transition>
             <p className="w-full mb-5">
               Bir ömüre zor sığacak çok sayıda şaheseri dünyaya armağan eden
               Mimar Sinan, önündeki kâğıda ilk çizgiyi çizmeden önce, bir şehrin
@@ -85,9 +80,9 @@ export default function AboutUs() {
               darbesindeki heyecanı. Bugün bizde böyle bir heyecanın içindeyiz.
               Bir ressamın ilk fırça darbesindeki heyecanı.
             </p>
-          </motion.div>
+          </Transition>
         </div>
       </div>
-    </div>
+    </BackgroundSection>
   );
 }
