@@ -1,131 +1,126 @@
 import React from "react";
-import FormBackground from "@/assets/featured-background.jpeg";
 import Transition from "@/components/Transition";
 import {
   AiBeautifyIcon,
   CustomerService01Icon,
   EarthIcon,
   House01Icon,
-  StartUp01Icon,
+  StarsIcon,
   Time01Icon,
 } from "hugeicons-react";
+import SliderProvider from "@/components/Slider";
+
+const settings = {
+  centerMode: true,
+  infinite: true,
+  centerPadding: "0px",
+  slidesToShow: 1,
+  speed: 1500,
+  rows: 3,
+  slidesPerRow: 1,
+  autoplay: true,
+};
+
+const featureData = [
+  {
+    icon: <StarsIcon size={38} color="#DCA50C" />,
+    title: "En Trend Modeller",
+    description:
+      "Günün şartlarına göre yenilenen mobilya ve dekorasyon modellerimiz ile en prestijli ve konforlu koleksiyonları taşarlıyoruz.",
+    delay: 0.2,
+  },
+  {
+    icon: <Time01Icon size={38} color="#DCA50C" />,
+    title: "Geleneksel Tecrübe",
+    description:
+      "Tasarım, üretim ve satış süreçlerini 1965’li yıllardan itibaren oluşan tecrübemiz ve işinin ehli bir ekip ile profesyonel şekilde yapıyoruz.",
+    delay: 0.4,
+  },
+  {
+    icon: <House01Icon size={38} color="#DCA50C" />,
+    title: "Mimari Destek",
+    description:
+      "Tüm mobilya seçim ve sipariş sürecinde mimarlarımızdan destek alabilir siparişten önce mobilyanızı 3 boyutlu olarak projelendirebilirsiniz.",
+    delay: 0.6,
+  },
+  {
+    icon: <CustomerService01Icon size={38} color="#DCA50C" />,
+    title: "Satış Sonrası Destek",
+    description:
+      "Satışı son halka olarak görmüyor, satış sonrasında da aynı özveri ve hizmet politikasıyla çalışıyor, karşılaşabileceğiniz problemlerde her zaman yanınızda oluyoruz.",
+    delay: 0.8,
+  },
+  {
+    icon: <AiBeautifyIcon size={38} color="#DCA50C" />,
+    title: "El İşçiliği Ve Doğal Ahşap",
+    description:
+      "Tüm mobilya tasarım ve üretim sürecinde, doğal ahşaplar ile el işçiliği kullanarak, oyma, boyama, nakış ve döşeme sanatının incelikleri ile her zaman değerli kalabilen, geleceğin antikalarını üretiyoruz.",
+    delay: 1,
+  },
+  {
+    icon: <EarthIcon size={38} color="#DCA50C" />,
+    title: "Tüm Dünyaya Teslimat",
+    description:
+      "Mobilyalarımızı dünyanın birçok yerine sorunsuz bir şekilde gönderebiliyoruz. Özellikle Avrupa, Orta Asya, Afrika ve Ortadoğu ülkelerinin birçoğunda montaj hizmeti de verebiliyoruz.",
+    delay: 1.2,
+  },
+];
 
 const FeaturesSection = () => {
   return (
-    <section className="bg-gray-100 py-16 max-lg:hidden">
-      <div className="container mx-auto px-6">
+    <section className="bg-gray-100 py-8 lg:py-16">
+      <div className="container mx-auto px-4">
         <Transition
           transition={{ duration: 1, delay: 0.2 }}
-          initial="hidden"
-          whileInView="visible"
           variants={{
-            visible: { opacity: 1, x: 0 },
-            hidden: { opacity: 0, x: 90 },
+            visible: { opacity: 1, y: 0 },
+            hidden: { opacity: 0, y: -90 },
           }}
-          className="w-full flex items-center justify-center my-10 z-30"
+          className="w-full flex items-center justify-center mt-8 mb-14 z-30"
         >
           <span className="text-4xl lg:text-5xl text-center font-light">
             ASORTIE AYRICALIĞI
           </span>
         </Transition>
-        <div className="flex flex-wrap">
-          <div className="w-full md:w-1/3 px-4 mb-8">
-            <Transition
-              background={FormBackground}
-              className="flex min-h-[200px] bg-white bg-no-repeat bg-center bg-cover p-6 rounded-lg shadow-lg border border-gray"
-            >
-              <div>
-                <div className="flex items-center text-xl text-black mb-4 uppercase">
-                  <StartUp01Icon boxSize={4} mr={2} mb={2} />
-                  <h3 className="ml-2">En Trend Modeller</h3>
+        <div className="hidden lg:flex flex-wrap">
+          {featureData.map((feature, index) => (
+            <div key={index} className="w-full md:w-1/3 px-4 mb-8">
+              <Transition
+                transition={{ duration: 0.8, delay: feature.delay }}
+                variants={{
+                  visible: { opacity: 1, x: 0 },
+                  hidden: { opacity: 0, x: -90 },
+                }}
+                className="flex min-h-[165px] bg-no-repeat bg-center bg-cover"
+              >
+                {feature.icon}
+                <div className="w-[80%] ml-4">
+                  <div className="flex items-center font-medium text-xl text-black">
+                    <h3>{feature.title}</h3>
+                  </div>
+                  <p className="text-black">{feature.description}</p>
                 </div>
-                <p className="text-black">
-                  Günün şartlarına göre yenilenen mobilya ve dekorasyon
-                  modellerimiz ile en prestijli ve konforlu koleksiyonları
-                  taşarlıyoruz.
-                </p>
-              </div>
-            </Transition>
-          </div>
-          <div className="w-full md:w-1/3 px-4 mb-8">
-            <Transition
-              background={FormBackground}
-              className="min-h-[200px] bg-white bg-no-repeat bg-center bg-cover p-6 rounded-lg shadow-lg border border-gray"
-            >
-              <div className="flex items-center text-xl text-black mb-4 uppercase">
-                <Time01Icon boxSize={4} mr={2} mb={2} />
-                <h3 className="ml-2">Geleneksel Tecrübe</h3>
-              </div>
-              <p className="text-black">
-                Tasarım, üretim ve satış süreçlerini 1965’li yıllardan itibaren
-                oluşan tecrübemiz ve işinin ehli bir ekip ile profesyonel
-                şekilde yapıyoruz.
-              </p>
-            </Transition>
-          </div>
-          <div className="w-full md:w-1/3 px-4 mb-8">
-            <Transition
-              background={FormBackground}
-              className="min-h-[200px] bg-white bg-no-repeat bg-center bg-cover p-6 rounded-lg shadow-lg border border-gray"
-            >
-              <div className="flex items-center text-xl text-black mb-4 uppercase">
-                <House01Icon boxSize={4} mr={2} mb={2} />
-                <h3 className="ml-2">Mimari Destek</h3>
-              </div>
-              <p className="text-black">
-                Tüm mobilya seçim ve sipariş sürecinde mimarlarımızdan destek
-                alabilir siparişten önce mobilyanızı 3 boyutlu olarak
-                projelendirebilirsiniz.
-              </p>
-            </Transition>
-          </div>
-          <div className="w-full md:w-1/3 px-4 mb-8">
-            <Transition
-              background={FormBackground}
-              className="min-h-[200px] bg-white bg-no-repeat bg-center bg-cover p-6 rounded-lg shadow-lg border border-gray"
-            >
-              <div className="flex items-center text-xl text-black mb-4 uppercase">
-                <CustomerService01Icon size={24} />
-                <h3 className="ml-2">Satış Sonrası Destek</h3>
-              </div>
-              <p className="text-black">
-                Satışı son halka olarak görmüyor, satış sonrasında da aynı
-                özveri ve hizmet politikasıyla çalışıyor, karşılaşabileceğiniz
-                problemlerde her zaman yanınızda oluyoruz.
-              </p>
-            </Transition>
-          </div>
-          <div className="w-full md:w-1/3 px-4 mb-8">
-            <Transition
-              background={FormBackground}
-              className="min-h-[200px] bg-white bg-no-repeat bg-center bg-cover p-6 rounded-lg shadow-lg border border-gray"
-            >
-              <div className="flex items-center text-xl text-black mb-4 uppercase">
-                <AiBeautifyIcon size={24} />
-                <h3 className="ml-2">El İşçiliği Ve Doğal Ahşap</h3>
-              </div>
-              <p className="text-black">
-                Tüm mobilya tasarım ve üretim sürecinde, doğal ahşaplar ile el
-                işçiliği kullanarak, oyma, boyama, nakış ve döşeme sanatının
-                incelikleri ile her zaman değerli kalabilen, geleceğin
-                antikalarını üretiyoruz.
-              </p>
-            </Transition>
-          </div>
-          <div className="w-full md:w-1/3 px-4 mb-8">
-            <Transition className="min-h-[200px] bg-white bg-no-repeat bg-center bg-cover p-6 rounded-lg shadow-lg border border-gray">
-              <div className="flex items-center text-xl text-black mb-4 uppercase">
-                <EarthIcon size={24} />
-                <h3 className="ml-2">Tüm Dünyaya Teslimat</h3>
-              </div>
-              <p className="text-black">
-                Mobilyalarımızı dünyanın birçok yerine sorunsuz bir şekilde
-                gönderebiliyoruz. Özellikle Avrupa, Orta Asya, Afrika ve
-                Ortadoğu ülkelerinin birçoğunda montaj hizmeti de verebiliyoruz.
-              </p>
-            </Transition>
-          </div>
+              </Transition>
+            </div>
+          ))}
         </div>
+
+        <SliderProvider settings={settings} className="w-full px-4 lg:hidden">
+          {featureData.map((feature, index) => (
+            <div
+              key={index}
+              className="!flex flex-row w-full mb-10 bg-no-repeat bg-center bg-cover"
+            >
+              {feature.icon}
+              <div className="w-[80%] ml-4">
+                <div className="flex items-center font-medium text-xl text-black">
+                  <h3>{feature.title}</h3>
+                </div>
+                <p className="text-black">{feature.description}</p>
+              </div>
+            </div>
+          ))}
+        </SliderProvider>
       </div>
     </section>
   );

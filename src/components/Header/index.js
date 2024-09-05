@@ -22,6 +22,7 @@ import NavLink from "../NavLink";
 export default function Header() {
   const t = useTranslations("Header");
   const categories = useSelector((state) => state.categories);
+  const headerVariant = useSelector((state) => state.ui.headerVariant);
   const [small, setSmall] = useState(false);
 
   useEffect(() => {
@@ -29,6 +30,9 @@ export default function Header() {
       window.addEventListener("scroll", () => setSmall(window.pageYOffset > 1));
     }
   }, []);
+
+  const navStyle =
+    headerVariant === "second" ? "!text-background-color" : "text-white";
 
   return (
     <header>
@@ -42,7 +46,11 @@ export default function Header() {
         }}
         className={`${styles.headerBase} ${small ? styles.headerSmall : ""}`}
       >
-        <nav className={`${styles.navBase} ${small ? styles.navSmall : ""}`}>
+        <nav
+          className={`${styles.navBase} ${
+            small ? styles.navSmall : ""
+          } ${navStyle}`}
+        >
           <MobileMenu categories={categories.data} isSmall={small} />
           <div className={styles.left}>
             <div className={styles.desktopItems}>
@@ -50,7 +58,9 @@ export default function Header() {
                 {t("home")}
               </NavLink>
               <CollectionMenu data={categories.data} />
-              <NavItem href="/news">HABERLER</NavItem>
+              <NavLink className={styles.navLink} href="/news">
+                HABERLER
+              </NavLink>
             </div>
           </div>
           <Link className="mx-10" href={"/"}>
@@ -71,9 +81,9 @@ export default function Header() {
             </div>
           </div>
           <div className="flex items-center absolute right-7">
-            <SearchSection small={small} />
-            <LocalSwitcher small={small} />
-            <FollowDropdown small={small} />
+            <SearchSection headerVariant={headerVariant} small={small} />
+            <LocalSwitcher headerVariant={headerVariant} small={small} />
+            <FollowDropdown headerVariant={headerVariant} small={small} />
           </div>
         </nav>
       </motion.div>

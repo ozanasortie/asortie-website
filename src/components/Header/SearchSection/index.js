@@ -15,7 +15,7 @@ import ResultItem from "./ResultItem";
 import styles from "./searchSection.module.css";
 import { SearchIcon } from "@chakra-ui/icons";
 
-export default function SearchSection({ small }) {
+export default function SearchSection({ headerVariant, small }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -26,7 +26,7 @@ export default function SearchSection({ small }) {
         onClick={onOpen}
       >
         <SearchIcon
-          color={small ? "#1d1d1b" : "white"}
+          color={small || headerVariant === "second" ? "#1d1d1b" : "white"}
           fontWeight={"thin"}
           boxSize={5}
         />

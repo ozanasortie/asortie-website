@@ -14,13 +14,13 @@ export default function Button({
   children,
   onClick,
   className,
+  fontWeight,
 }) {
   return (
     <ChakraButton
       isLoading={isLoading}
-      loa
       type={type}
-      className={`flex items-center justify-center h-[56px] rounded-lg group ${className}`}
+      className={`flex items-center justify-center h-[53px] rounded-lg group ${className}`}
       color={color}
       background={background}
       size={size}
@@ -37,7 +37,9 @@ export default function Button({
     >
       {children}
       {text && (
-        <div className="font-light text-lg group-hover:text-theme-color motion-safe:transition">
+        <div
+          className={`font-light text-lg group-hover:text-theme-color motion-safe:transition ${fontWeight}`}
+        >
           {text}
         </div>
       )}

@@ -5,6 +5,7 @@ function CollectionList({ categories }) {
     <>
       {categories.data &&
         categories.data.map((item) => {
+          console.log("item", item);
           return (
             <CollectionItem
               href={"/collection" + "/" + item.url}

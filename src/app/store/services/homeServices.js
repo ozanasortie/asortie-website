@@ -90,11 +90,16 @@ export async function fetchNews(lang) {
 
 // Fetch blogları
 export async function fetchBlogs(lang) {
-  const response = await fetch(`${BASE_URL}/blogs?dil=${lang}_`);
-  if (!response.ok) {
-    throw new Error("Network response was not ok");
+  try {
+    const response = await fetch(`${BASE_URL}/blogs?dil=${lang}_`);
+    console.log("RESPONSE", response);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return await response.json();
+  } catch (error) {
+    console.log("BLOGS RES ERR", error);
   }
-  return await response.json();
 }
 
 // İletişim formu gönder

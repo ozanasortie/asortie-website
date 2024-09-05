@@ -62,7 +62,7 @@ export default function CatalogueFormSection({ onDigitalOpen }) {
 
   return (
     <div
-      className={`bg-cover bg-center relative p-10 py-20 flex flex-col lg:flex-row items-center lg:justify-around text-white ${
+      className={`bg-cover bg-center relative p-4 lg:p-10 py-20 flex flex-col lg:flex-row items-center lg:justify-around text-white ${
         isSafari ? "" : "bg-fixed"
       }`}
       style={{ backgroundImage: `url(${FormBackground.src})` }}

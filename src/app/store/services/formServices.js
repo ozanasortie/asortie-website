@@ -18,6 +18,13 @@ const formApi = baseApi.injectEndpoints({
         body: { name, email, tel, message, ulke_kodu, dil },
       }),
     }),
+    postProductRequest: build.mutation({
+      query: ({ detay_name, detay_email, telefon, mesaj, dil }) => ({
+        url: `product_information_form`,
+        method: "POST",
+        body: { detay_name, detay_email, telefon, mesaj, dil },
+      }),
+    }),
   }),
 });
 
@@ -26,4 +33,5 @@ export const {
   useGetBlogsQuery,
   useGetNewsQuery,
   usePostContactMutation,
+  usePostProductRequestMutation,
 } = formApi;

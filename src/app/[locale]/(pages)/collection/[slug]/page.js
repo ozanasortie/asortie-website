@@ -33,11 +33,11 @@ export default async function Products({ params }) {
 
   return (
     <BackgroundSection
-      className="bg-cover bg-center bg-no-repeat relative flex flex-col items-center lg:justify-around text-white pb-5"
+      className="bg-cover bg-[#1d1d1b] bg-center bg-no-repeat relative flex flex-col items-center lg:justify-around text-white pb-5"
       background={`${
         data?.data[0]?.kategori_resim_arkaplan
           ? data?.data[0]?.image_url + data?.data[0]?.kategori_resim_arkaplan
-          : "https://www.cappellettisrl.com/wp-content/uploads/2023/05/EQ0.jpg"
+          : ""
       }`}
     >
       <ProductsHeader data={data?.data[0]} />

@@ -2,10 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Transition from "../Transition";
 
-export default function ListProduct({ href, image, secondImage, title }) {
+export default function ListProduct({ href, image, title }) {
   return (
     <Link
-      className="box-border w-[97%] lg:w-full h-72 md:h-96 lg:h-[400px] cursor-pointer relative overflow-hidden flex items-center justify-center text-2xl group"
+      className="box-border w-full max-w-lg cursor-pointer relative overflow-hidden flex items-center justify-center text-2xl group"
       href={href}
     >
       <Transition
@@ -16,15 +16,15 @@ export default function ListProduct({ href, image, secondImage, title }) {
           visible: { opacity: 1, y: 0 },
           hidden: { opacity: 0, y: 80 },
         }}
-        className="box-border w-full h-72 md:h-96 lg:h-[400px] flex flex-col items-center justify-center text-2xl"
+        className="box-border w-full flex flex-col items-center justify-center text-2xl"
       >
-        <div className="overflow-hidden w-full h-full relative">
+        <div className="relative w-full min-w-[500px] aspect-[16/9] overflow-hidden">
           <Image
-            width={300}
-            height={300}
             src={image}
-            alt="Slider Furniture Product"
-            className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110"
+            layout="fill"
+            objectFit="cover"
+            alt={title}
+            className="transform transition-transform duration-1000 group-hover:scale-110"
           />
         </div>
         <div className="text-0 text-center text-xl lg:text-[22px] relative bg-white w-full">

@@ -10,18 +10,20 @@ import {
   Textarea,
 } from "@chakra-ui/react";
 
-export default function InformationForm({ isOpen, onClose }) {
+export default function InformationForm({ title, isOpen, onClose }) {
   return (
     <Modal isCentered isOpen={isOpen} onClose={onClose}>
       <ModalOverlay className="backdrop-blur-sm" />
       <ModalContent
-        className="w-full"
+        width={"95%"}
+        borderRadius={5}
+        className="w-[95%]"
         background={"white"}
-        maxW={"40rem"}
         py={5}
+        pt={10}
       >
         <ModalHeader>
-          <div className="font-light text-3xl">ÜRÜN BİLGİSİ TALEP ET</div>
+          <div className="font-light text-3xl text-center">{title}</div>
         </ModalHeader>
         <ModalCloseButton color={"black"} />
         <ModalBody
@@ -41,7 +43,7 @@ export default function InformationForm({ isOpen, onClose }) {
             background="black"
             color="white"
             className="w-full flex items-center justify-center py-4"
-            text={"TALEP ET"}
+            text={"BİLGİ AL"}
           />
         </ModalBody>
       </ModalContent>

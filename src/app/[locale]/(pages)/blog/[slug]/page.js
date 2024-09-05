@@ -4,6 +4,7 @@ import {
   fetchRecommendedBlogs,
 } from "@services/blogService";
 import BlogItem from "./components/BlogItem";
+import HiddenHeader from "@components/HiddenHeader.js";
 import RecommendedBlogs from "./components/RecommendedBlogs";
 import Loading from "@components/Loading";
 import Image from "next/image";
@@ -38,6 +39,7 @@ async function Page({ params }) {
 
   return (
     <div className="w-full pt-48 pb-10 bg-cover min-h-full bg-center bg-no-repeat relative flex flex-col items-center justify-center text-white">
+      <HiddenHeader />
       <div className="w-full max-w-[1600px] flex justify-around px-4">
         <div className="w-2/6 max-xl:hidden h-fit flex items-center flex-col bg-white text-black">
           {/* <h1 className="w-full text-center text-3xl py-4">ÇOK OKUNANLAR</h1> */}

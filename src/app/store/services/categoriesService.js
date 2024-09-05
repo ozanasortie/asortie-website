@@ -62,3 +62,11 @@ export async function fetchProductDetail({ slug, lang }) {
   }
   return await response.json();
 }
+
+export async function fetchFeaturedProducts(lang) {
+  const response = await fetch(`${BASE_URL}/random_products?dil=${lang}_`);
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return await response.json();
+}

@@ -5,13 +5,15 @@ import {
   PopoverBody,
 } from "@chakra-ui/react";
 
-export default function FollowDropdown({ small }) {
+export default function FollowDropdown({ headerVariant, small }) {
   return (
     <Popover trigger="hover">
       <PopoverTrigger className="w-auto">
         <span
           className={`ml-6 max-md:hidden ${
-            small ? "text-black" : "text-white"
+            small || headerVariant === "second"
+              ? "text-background-color"
+              : "text-white"
           } text-sm cursor-pointer`}
           href={"/"}
         >

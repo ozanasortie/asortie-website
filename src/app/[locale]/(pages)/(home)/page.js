@@ -19,15 +19,16 @@ import InstagramSection from "./components/InstagramSection";
 
 export default async function Index({ params }) {
   const { locale } = params;
+  console.log("LOCALE", locale);
 
   const newProducts = await fetchNewProducts(locale);
   const news = await fetchNews(locale);
   const blogs = await fetchBlogs(locale);
 
-  if (!newProducts || !blogs || !news) return <Loading />;
+  if (!newProducts || !news) return <Loading />;
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <BannerSection />
       <NewProducts products={newProducts} />
       <PromotionSection />
@@ -38,7 +39,7 @@ export default async function Index({ params }) {
       <Blogs blogs={blogs} />
       <CatalogueFormSection />
       <FeaturesSection />
-      <InstagramSection />
+      {/* <InstagramSection /> */}
     </div>
   );
 }

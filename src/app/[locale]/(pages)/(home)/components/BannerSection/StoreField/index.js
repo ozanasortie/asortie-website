@@ -11,15 +11,9 @@ export default function StoreField({ onOpen }) {
       transition={{ duration: 0.8, delay: 0.2 }}
       className="overflow-hidden relative flex items-center justify-center flex-col group w-[100vw] h-[75vh] lg:h-[100vh] text-white"
     >
-      {/* <Image
-        className="w-full h-full object-cover absolute left-0 top-0"
-        src={AsortieGif}
-        alt="Asortie"
-        unoptimized
-      /> */}
       <video
         id="video"
-        src="asortie.mp4"
+        src="/asortie.mp4"
         className="w-full h-full object-cover absolute left-0 top-0"
         autoPlay
         muted
