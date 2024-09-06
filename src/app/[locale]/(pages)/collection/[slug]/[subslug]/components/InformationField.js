@@ -3,6 +3,7 @@ import { Box, useDisclosure } from "@chakra-ui/react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { Upload04Icon } from "hugeicons-react";
+import { useRouter } from "next/router";
 
 import { usePostProductRequestMutation } from "@/app/store/services/formServices";
 
@@ -12,22 +13,30 @@ import Transition from "@/components/Transition";
 import Input from "@/components/Input";
 import Textarea from "@/components/Textarea";
 import StatusModal from "@/components/StatusModal";
+import { useLocale } from "next-intl";
 
 const validationSchema = Yup.object({
-  name: Yup.string().required("Ad Soyad alanı gereklidir"),
-  email: Yup.string()
+  detay_name: Yup.string().required("Ad Soyad alanı gereklidir"),
+  detay_email: Yup.string()
     .email("Geçersiz email adresi")
     .required("Email alanı gereklidir"),
-  tel: Yup.string()
+  telefon: Yup.string()
     .matches(/^[0-9]+$/, "Telefon numarası sadece rakamlar içermelidir")
     .min(10, "Telefon numarası en az 10 haneli olmalıdır")
     .max(15, "Telefon numarası en fazla 15 haneli olmalıdır")
     .required("Telefon numarası gereklidir"),
-  message: Yup.string().required("Mesaj alanı gereklidir"),
+  mesaj: Yup.string().required("Mesaj alanı gereklidir"),
 });
 
 function InformationField({ title }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const locale = useLocale();
+  console.log();
+  const {
+    isOpen: isFormOpen,
+    onOpen: onFormOpen,
+    onClose: onFormClose,
+  } = useDisclosure();
   const [postProductRequest, { isLoading, isError, isSuccess }] =
     usePostProductRequestMutation();
 
@@ -37,6 +46,8 @@ function InformationField({ title }) {
       detay_email: "",
       telefon: "",
       mesaj: "",
+      sayfa: window && window?.location?.href,
+      dil: locale + "_",
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
@@ -61,16 +72,20 @@ function InformationField({ title }) {
               background="black"
               className="w-[100%] justify-center h-[43px]"
               text={"ÜRÜN BİLGİSİ AL"}
-              onClick={onOpen}
+              onClick={onFormOpen}
             />
           </Box>
 
-          <InformationForm title={title} isOpen={isOpen} onClose={onClose} />
+          <InformationForm
+            title={title}
+            isOpen={isFormOpen}
+            onClose={onFormClose}
+          />
           <form
             onSubmit={formik.handleSubmit}
             className="w-full hidden lg:block"
           >
-            <div className="font-light text-3xl mb-5 w-full">
+            <div className="font-light text-3xl w-full">
               ÜRÜN BİLGİSİ TALEP ET
             </div>
 
@@ -79,7 +94,7 @@ function InformationField({ title }) {
               textColor="black"
               focusBorderColor="black"
               placeholder="Ad Soyad"
-              className="mb-5"
+              className="mt-5"
               onChange={formik.handleChange}
               value={formik.values.detay_name}
               error={formik.errors.detay_name && formik.touched.detay_name}
@@ -90,7 +105,7 @@ function InformationField({ title }) {
               textColor="black"
               focusBorderColor="black"
               placeholder="E-Mail"
-              className="mb-5"
+              className="mt-5"
               onChange={formik.handleChange}
               value={formik.values.detay_email}
               error={formik.errors.detay_email && formik.touched.detay_email}
@@ -101,7 +116,7 @@ function InformationField({ title }) {
               textColor="black"
               focusBorderColor="black"
               placeholder="Telefon"
-              className="mb-5"
+              className="mt-5"
               onChange={formik.handleChange}
               value={formik.values.telefon}
               error={formik.errors.telefon && formik.touched.telefon}
@@ -112,7 +127,7 @@ function InformationField({ title }) {
               focusBorderColor="black"
               _placeholder={{ color: "black" }}
               placeholder="Mesaj"
-              className="mb-5"
+              className="mt-5"
               borderColor={"black"}
               onChange={formik.handleChange}
               value={formik.values.mesaj}
@@ -123,7 +138,7 @@ function InformationField({ title }) {
               type="submit"
               background="black"
               color="white"
-              className="w-full flex items-center justify-center py-4 mb-5"
+              className="w-full flex items-center justify-center py-4 my-5"
               text={"TALEP ET"}
               isLoading={isLoading}
             />

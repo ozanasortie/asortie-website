@@ -14,7 +14,7 @@ function RecommendedBlogs({ data }) {
 
   return (
     <>
-      <div className="z-30 flex flex-col items-center mt-12">
+      <div className="z-30 flex flex-col items-center mt-12 lg:w-[85%]">
         <Transition
           transition={{ duration: 0.8, delay: 0.2 }}
           initial="hidden"

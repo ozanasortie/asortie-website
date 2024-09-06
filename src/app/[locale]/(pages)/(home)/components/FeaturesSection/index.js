@@ -48,21 +48,21 @@ const featureData = [
     title: "Satış Sonrası Destek",
     description:
       "Satışı son halka olarak görmüyor, satış sonrasında da aynı özveri ve hizmet politikasıyla çalışıyor, karşılaşabileceğiniz problemlerde her zaman yanınızda oluyoruz.",
-    delay: 0.8,
+    delay: 0.7,
   },
   {
     icon: <AiBeautifyIcon size={38} color="#DCA50C" />,
     title: "El İşçiliği Ve Doğal Ahşap",
     description:
       "Tüm mobilya tasarım ve üretim sürecinde, doğal ahşaplar ile el işçiliği kullanarak, oyma, boyama, nakış ve döşeme sanatının incelikleri ile her zaman değerli kalabilen, geleceğin antikalarını üretiyoruz.",
-    delay: 1,
+    delay: 0.8,
   },
   {
     icon: <EarthIcon size={38} color="#DCA50C" />,
     title: "Tüm Dünyaya Teslimat",
     description:
       "Mobilyalarımızı dünyanın birçok yerine sorunsuz bir şekilde gönderebiliyoruz. Özellikle Avrupa, Orta Asya, Afrika ve Ortadoğu ülkelerinin birçoğunda montaj hizmeti de verebiliyoruz.",
-    delay: 1.2,
+    delay: 1,
   },
 ];
 

@@ -16,13 +16,18 @@ export async function generateMetadata({ params }) {
   const { locale, slug, subslug } = params;
   const data = await fetchProductDetail({ slug: subslug, lang: locale });
 
-  const pageTitle = data.Urunler[0].urun_adi || "Product Page";
+  const pageTitle = data.Urunler[0].seo_baslik;
+  const pageDescription = data.Urunler[0].seo_aciklama;
+  const pageKeywords = data.Urunler[0].seo_anaktar;
   const pageImage = data.Resimler[0].resim;
 
   return {
     title: pageTitle,
+    description: pageDescription,
+    keywords: pageKeywords,
     openGraph: {
       title: pageTitle,
+      description: pageDescription,
       images: [pageImage],
     },
   };
@@ -31,6 +36,7 @@ export async function generateMetadata({ params }) {
 export default async function ProductDetail({ params }) {
   const { locale, subslug } = params;
   const data = await fetchProductDetail({ slug: subslug, lang: locale });
+
   const featuredProducts = await fetchFeaturedProducts(locale);
 
   if (!data) return <Loading />;

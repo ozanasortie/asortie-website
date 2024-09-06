@@ -11,7 +11,6 @@ export default function ListBlog({
   imageBaseUrl,
   width = "w-full",
 }) {
-  console.log("width", width);
   return (
     <Link
       href={href}

@@ -19,11 +19,20 @@ const formApi = baseApi.injectEndpoints({
       }),
     }),
     postProductRequest: build.mutation({
-      query: ({ detay_name, detay_email, telefon, mesaj, dil }) => ({
-        url: `product_information_form`,
-        method: "POST",
-        body: { detay_name, detay_email, telefon, mesaj, dil },
-      }),
+      query: ({ detay_name, detay_email, telefon, mesaj, dil, sayfa }) => {
+        const formData = new FormData();
+        formData.append("detay_name", detay_name);
+        formData.append("detay_email", detay_email);
+        formData.append("telefon", telefon);
+        formData.append("mesaj", mesaj);
+        formData.append("sayfa", sayfa);
+        formData.append("dil", dil);
+        return {
+          url: `product_information_form`,
+          method: "POST",
+          body: formData,
+        };
+      },
     }),
   }),
 });
