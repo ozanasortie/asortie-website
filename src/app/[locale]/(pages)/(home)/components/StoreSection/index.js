@@ -6,7 +6,7 @@ const StoreSection = () => {
   return (
     <BackgroundSection
       background={Store.src}
-      className="bg-cover bg-center relative h-[50vh] p-10 flex flex-col items-center justify-center text-white"
+      className="w-full bg-cover bg-center relative h-[50vh] p-10 flex flex-col items-center justify-center text-white"
     >
       <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-35 z-30" />
       <Transition

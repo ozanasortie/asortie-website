@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-function BlogItem({ href, item, image, imageBaseUrl }) {
+function NewsItem({ href, item, image, imageBaseUrl }) {
   return (
     <Link href={href} className="relative w-full mb-2 group cursor-pointer">
       <div className="relative w-full h-52 overflow-hidden">
@@ -20,4 +20,4 @@ function BlogItem({ href, item, image, imageBaseUrl }) {
   );
 }
 
-export default BlogItem;
+export default NewsItem;

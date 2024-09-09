@@ -24,3 +24,13 @@ const generalApi = baseApi.injectEndpoints({
 export const { setContact } = generalSlice.actions;
 export const { useGetContactQuery } = generalApi;
 export default generalSlice.reducer;
+
+const BASE_URL = "https://asortie.com/json/";
+
+export async function fetchCorporate(lang) {
+  const response = await fetch(`${BASE_URL}/institutional?dil=${lang}_`);
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return await response.json();
+}

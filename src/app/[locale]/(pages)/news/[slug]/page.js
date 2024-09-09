@@ -1,14 +1,11 @@
 import {
-  fetchBlogDetail,
-  fetchMostReadedBlogs,
+  fetchMostReadedNews,
   fetchNewDetail,
-  fetchRecommendedBlogs,
+  fetchRecommendedNews,
 } from "@services/newsService";
 
-import Image from "next/image";
-
-import BlogItem from "./components/BlogItem";
-import RecommendedBlogs from "./components/RecommendedBlogs";
+import NewsItem from "./components/NewsItem";
+import RecommendedNews from "./components/RecommendedNews";
 import Loading from "@components/Loading";
 import HiddenHeader from "@/components/HiddenHeader";
 import Transition from "@components/Transition";
@@ -36,8 +33,8 @@ async function Page({ params }) {
   const { locale, slug } = params;
   const newDetail = await fetchNewDetail({ slug, lang: locale });
   console.log("new detail", newDetail);
-  // const mostReadeds = await fetchMostReadedBlogs(locale);
-  // const recommendedBlogs = await fetchRecommendedBlogs(locale);
+  const mostReadeds = await fetchMostReadedNews(locale);
+  const recommendedNews = await fetchRecommendedNews(locale);
 
   if (!newDetail) return <Loading />;
 
@@ -45,10 +42,9 @@ async function Page({ params }) {
     <div className="w-full pt-48 pb-10 bg-cover min-h-full bg-center bg-no-repeat relative flex flex-col items-center justify-center text-white">
       <HiddenHeader />
       <div className="w-full max-w-[1600px] flex justify-around px-4">
-        {/* <div className="w-2/6 max-xl:hidden h-fit flex items-center flex-col bg-white text-black">
-          <h1 className="w-full text-center text-3xl py-4">ÇOK OKUNANLAR</h1>
+        <div className="w-2/6 max-xl:hidden h-fit flex items-center flex-col bg-white text-black">
           {mostReadeds.data.map((item) => (
-            <BlogItem
+            <NewsItem
               key={item.id}
               imageBaseUrl={mostReadeds.image_url}
               image={item.resim}
@@ -56,7 +52,7 @@ async function Page({ params }) {
               href={`/news/${item.id}`}
             />
           ))}
-        </div> */}
+        </div>
         <div className="w-[100%] flex flex-col items-center text-center">
           <Transition
             variants={{
@@ -81,7 +77,7 @@ async function Page({ params }) {
               {newDetail.data[0].ozet}
             </i>
           </Transition>
-
+          {/* 
           <Transition
             variants={{
               visible: { opacity: 1, x: 0 },
@@ -92,19 +88,19 @@ async function Page({ params }) {
             <Image
               width={300}
               height={300}
-              className="w-[100%] aspect-[16/9] object-cover"
-              src={newDetail.image_url + newDetail.data[0].resim}
+              className="w-[70%] aspect-[4/3] object-cover"
+              src={newDetail.image_url + newDetail.data[0]?.resim}
               alt={newDetail.data[0].baslik}
             />
-          </Transition>
+          </Transition> */}
 
-          {/* <div
+          <div
             className="text-start w-[80%] text-gray-800"
-            dangerouslySetInnerHTML={{ __html: newDetail.data[0].icerik }}
-          /> */}
+            dangerouslySetInnerHTML={{ __html: newDetail.data[0]?.icerik }}
+          />
         </div>
       </div>
-      {/* <RecommendedBlogs data={recommendedBlogs} /> */}
+      <RecommendedNews data={recommendedNews} />
     </div>
   );
 }

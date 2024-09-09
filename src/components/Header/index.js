@@ -37,12 +37,12 @@ export default function Header() {
   return (
     <header>
       <motion.div
-        transition={{ duration: 1, delay: 0.2 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
         initial="hidden"
         whileInView="visible"
         variants={{
           visible: { opacity: 1, y: 0 },
-          hidden: { opacity: 0, y: -90 },
+          hidden: { opacity: 0, y: -70 },
         }}
         className={`${styles.headerBase} ${small ? styles.headerSmall : ""}`}
       >

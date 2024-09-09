@@ -1,26 +1,18 @@
 import { useState, useRef } from "react";
 import { Box, Flex } from "@chakra-ui/react";
 import Image from "next/image";
-import YouTube from "react-youtube";
 
 import SliderProvider from "@/components/Slider";
-import Transition from "@/components/Transition";
 import VerticalPagination from "./VerticalPagination";
-import Button from "@/components/Button";
 import {
   ArrowLeft01Icon,
   ArrowRight01Icon,
-  ArrowRight02Icon,
-  ArrowRight03Icon,
-  ArrowRight04Icon,
-  ArrowRight05Icon,
   Search01Icon,
 } from "hugeicons-react";
 
 function ImageSliders({ images, handleImageClick }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const sliderRef = useRef(null);
-  console.log("images", images.length);
 
   const sliderSettings = {
     infinite: true,

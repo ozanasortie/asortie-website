@@ -1,7 +1,8 @@
 "use client";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NextIntlClientProvider, useLocale } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
+import { extendTheme, withDefaultColorScheme } from "@chakra-ui/react";
 import { ChakraProvider } from "@chakra-ui/react";
 
 import {
@@ -31,12 +32,50 @@ export default function ClientLayout({ children, locale, messages }) {
     }
   }, [data, contactData]);
 
+  useEffect(() => {
+    const originalTitle = document.title;
+    let intervalId;
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        document.title = "Bu Lüksü Unutma!";
+
+        intervalId = setInterval(() => {
+          document.title =
+            document.title === "Asortie Mobilya"
+              ? "Bu Lüksü Unutma!"
+              : "Asortie Mobilya";
+        }, 1500);
+      } else {
+        clearInterval(intervalId);
+        document.title = originalTitle;
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      clearInterval(intervalId);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      document.title = originalTitle;
+    };
+  }, []);
+
+  const customTheme = extendTheme(
+    {
+      colors: {
+        black: "black",
+      },
+    },
+    withDefaultColorScheme({ colorScheme: "black" })
+  );
+
   console.log("contact data", contactData);
 
   if (!categories) return <Loading />;
 
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={customTheme}>
       <NextIntlClientProvider locale={locale} messages={messages}>
         <Header />
         {children}

@@ -1,5 +1,5 @@
   .headerBase {
-    @apply fixed z-50 w-full flex flex-col items-center justify-center motion-safe:transition-all shadow-lg;
+    @apply fixed z-50 w-full flex flex-col items-center justify-center motion-safe:transition-all;
     /* background: rgb(17,16,16) !important; */
     /* background: radial-gradient(circle, rgba(17,16,16,0.8260097984506303) 19%, rgba(30,26,20,0.28819467240021013) 99%) !important; */
 
