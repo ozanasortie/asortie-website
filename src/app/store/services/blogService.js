@@ -29,6 +29,7 @@ const BASE_URL = "https://asortie.com/json/";
 
 export async function fetchBlogs(lang) {
   const response = await fetch(`${BASE_URL}/blogs?dil=${lang}_`);
+  console.log("LANG", lang);
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
@@ -55,6 +56,14 @@ export async function fetchMostReadedBlogs(lang) {
 
 export async function fetchRecommendedBlogs(lang) {
   const response = await fetch(`${BASE_URL}/blog_featured?dil=${lang}_`);
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return await response.json();
+}
+
+export async function fetchFeaturedBlogs(lang) {
+  const response = await fetch(`${BASE_URL}/blogs_backgrounds?dil=${lang}_`);
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }

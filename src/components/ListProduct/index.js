@@ -2,10 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import Transition from "../Transition";
 
-export default function ListProduct({ href, image, title }) {
+export default function ListProduct({ width = "90%", href, image, title }) {
   return (
     <Link
-      className="box-border w-full max-w-lg cursor-pointer relative overflow-hidden flex items-center justify-center text-2xl group"
+      className={`box-border !${width} max-w-lg cursor-pointer relative overflow-hidden flex items-center justify-center text-2xl group`}
       href={href}
     >
       <Transition
@@ -18,7 +18,7 @@ export default function ListProduct({ href, image, title }) {
         }}
         className="box-border w-full flex flex-col items-center justify-center text-2xl"
       >
-        <div className="relative w-full min-w-[500px] aspect-[16/9] overflow-hidden">
+        <div className="relative w-full lg:min-w-[600px] aspect-[16/9] overflow-hidden">
           <Image
             src={image}
             layout="fill"

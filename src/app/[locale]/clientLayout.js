@@ -12,7 +12,9 @@ import {
 
 import {
   setContact,
+  setWhatsappNumbers,
   useGetContactQuery,
+  useGetWhatsappNumbersQuery,
 } from "@/app/store/services/generalService";
 
 import Header from "@/components/Header";
@@ -21,16 +23,20 @@ import Loading from "@/components/Loading";
 
 export default function ClientLayout({ children, locale, messages }) {
   const dispatch = useDispatch();
+  const categories = useSelector((state) => state.categories);
+  const general = useSelector((state) => state.general);
+
   const { data } = useGetCategoriesQuery(locale);
   const { data: contactData } = useGetContactQuery(locale);
-  const categories = useSelector((state) => state.categories);
+  const { data: whatsappData } = useGetWhatsappNumbersQuery(locale);
 
   useEffect(() => {
     if (data && contactData) {
       dispatch(setCategories(data));
       dispatch(setContact(contactData));
+      dispatch(setWhatsappNumbers(whatsappData));
     }
-  }, [data, contactData]);
+  }, [data, contactData, whatsappData]);
 
   useEffect(() => {
     const originalTitle = document.title;
@@ -70,8 +76,6 @@ export default function ClientLayout({ children, locale, messages }) {
     withDefaultColorScheme({ colorScheme: "black" })
   );
 
-  console.log("contact data", contactData);
-
   if (!categories) return <Loading />;
 
   return (
@@ -79,7 +83,6 @@ export default function ClientLayout({ children, locale, messages }) {
       <NextIntlClientProvider locale={locale} messages={messages}>
         <Header />
         {children}
-        <Footer />
       </NextIntlClientProvider>
     </ChakraProvider>
   );

@@ -16,7 +16,6 @@ import { fetchCorporate } from "@services/generalService";
 import NavLink from "@components/NavLink";
 import BackgroundSection from "@/components/Background";
 import SliderProvider from "@/components/Slider";
-import { ArrowLeft01Icon, ArrowRight01Icon } from "hugeicons-react";
 
 const tabLabels = {
   hakkimizda: "Asortie Hakkında",
@@ -64,8 +63,6 @@ export default async function Page({ params }) {
     label,
     content: content[key] || "İçerik mevcut değil.",
   }));
-
-  console.log("tabs", tabsContent);
 
   const settings = {
     slidesToShow: 3,

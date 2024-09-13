@@ -5,8 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const CollectionItem = ({ image, secondImage, title, index, href }) => {
-  const customClass = index === 0 || index === 2 ? "lg:mt-10" : "";
-
   return (
     <motion.div
       transition={{ duration: 1, delay: 0.4 }}
@@ -14,21 +12,21 @@ const CollectionItem = ({ image, secondImage, title, index, href }) => {
       whileInView="visible"
       variants={{
         visible: { opacity: 1, y: 0 },
-        hidden: { opacity: 0, y: index === 1 || index === 3 ? -90 : 90 },
+        hidden: { opacity: 0, y: 90 },
       }}
-      className={`box-border w-[100%] mb-5 cursor-pointer relative overflow-hidden flex flex-col items-center justify-center text-2xl group ${customClass}`}
+      className={`box-border w-[100%] mb-5 cursor-pointer relative overflow-hidden flex flex-col items-center justify-center text-2xl group `}
     >
       <Link
         href={href}
         className="w-full h-full flex flex-col justify-center items-center"
       >
-        <div className="overflow-hidden w-[98%] h-full relative">
+        <div className="overflow-hidden w-[96%] h-full relative min-h-[520px]">
           <Image
             src={image}
             width={300}
             height={300}
             alt="Slider Furniture Product"
-            className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110"
+            className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110 min-h-[550px]"
           />
           {/* <Image
             src={secondImage}
@@ -38,7 +36,7 @@ const CollectionItem = ({ image, secondImage, title, index, href }) => {
             className="absolute top-0 left-0 w-full h-full object-cover transform translate-x-full transition-transform duration-1000 group-hover:translate-x-0"
           /> */}
         </div>
-        <div className="mt-2 text-0 text-center text-[20px] relative">
+        <div className="mt-2 text-0 text-center text-[21px] relative">
           <h2 className="text-start motion-safe:transition font-light">
             {title}
           </h2>

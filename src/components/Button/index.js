@@ -15,6 +15,7 @@ export default function Button({
   onClick,
   className,
   fontWeight,
+  textSize,
 }) {
   return (
     <ChakraButton
@@ -38,7 +39,7 @@ export default function Button({
       {children}
       {text && (
         <div
-          className={`font-light text-lg group-hover:text-theme-color motion-safe:transition ${fontWeight}`}
+          className={`font-light text-lg group-hover:text-theme-color motion-safe:transition ${fontWeight} ${textSize}`}
         >
           {text}
         </div>

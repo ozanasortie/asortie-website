@@ -11,10 +11,10 @@ import {
   ModalHeader,
   ModalBody,
   ModalCloseButton,
-  Textarea,
 } from "@chakra-ui/react";
-// import StatusModal from "@/components/StatusModal";
+import StatusModal from "@/components/StatusModal";
 import { useCatalogueRequestMutation } from "@services/homeServices"; // Import your mutation hook
+import PhoneInput from "@/components/PhoneInput";
 
 const validationSchema = Yup.object({
   name: Yup.string().required("Ad Soyad alanı gereklidir"),
@@ -53,6 +53,11 @@ export default function DigitalCatalogueForm({ isOpen, onClose }) {
       }
     },
   });
+
+  const handlePhoneChange = (value) => {
+    const formattedValue = value.replace(/\D/g, "");
+    formik.setFieldValue("tel", formattedValue);
+  };
 
   const status = isSuccess ? "success" : isError ? "error" : "";
 
@@ -100,13 +105,13 @@ export default function DigitalCatalogueForm({ isOpen, onClose }) {
                 error={formik.errors.email && formik.touched.email}
                 errorText={formik.errors.email}
               />
-              <Input
+              <PhoneInput
                 name="tel"
+                textColor="black"
                 focusBorderColor="black"
-                textColor={"black"}
                 placeholder="Telefon"
                 className="mt-5"
-                onChange={formik.handleChange}
+                onChange={handlePhoneChange}
                 value={formik.values.tel}
                 error={formik.errors.tel && formik.touched.tel}
                 errorText={formik.errors.tel}
@@ -123,13 +128,13 @@ export default function DigitalCatalogueForm({ isOpen, onClose }) {
           </ModalBody>
         </ModalContent>
       </Modal>
-      {/* {statusModalOpen && (
+      {statusModalOpen && (
         <StatusModal
           isOpen={statusModalOpen}
           onClose={() => setStatusModalOpen(false)}
           status={status}
         />
-      )} */}
+      )}
     </>
   );
 }

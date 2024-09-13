@@ -32,7 +32,6 @@ export async function generateMetadata({ params }) {
 async function Page({ params }) {
   const { locale, slug } = params;
   const newDetail = await fetchNewDetail({ slug, lang: locale });
-  console.log("new detail", newDetail);
   const mostReadeds = await fetchMostReadedNews(locale);
   const recommendedNews = await fetchRecommendedNews(locale);
 

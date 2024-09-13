@@ -104,7 +104,7 @@ function InformationField() {
             <Button
               background="transparent"
               className="w-[100%] flex items-center justify-center py-4"
-              text={"Modeli Tavsiye Et"}
+              text={"MODELİ PAYLAŞ"}
               onClick={onOpen}
             />
             <div></div>

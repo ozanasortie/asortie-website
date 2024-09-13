@@ -25,7 +25,7 @@ export default function Blogs({ blogs }) {
             BLOG
           </span>
 
-          <Link href="/collection" className="max-lg:hidden">
+          <Link href="/news" className="max-lg:hidden">
             <span className="z-30 text-md lg:text-xl mt-5 cursor-pointer">
               TÜMÜNÜ GÖR <ChevronRightIcon mb={1} />
             </span>
@@ -56,7 +56,7 @@ export default function Blogs({ blogs }) {
           </div>
         </motion.div>
 
-        <Link href="/collection" className="lg:hidden mt-8">
+        <Link href="/news" className="lg:hidden mt-8">
           <span className="z-30 text-md lg:text-xl last:cursor-pointer underline">
             TÜMÜNÜ GÖR
           </span>

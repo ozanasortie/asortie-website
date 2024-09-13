@@ -4,6 +4,8 @@ import Image from "next/image";
 
 import SliderProvider from "@/components/Slider";
 import VerticalPagination from "./VerticalPagination";
+
+import Olimpos from "@/assets/yatak.jpg";
 import {
   ArrowLeft01Icon,
   ArrowRight01Icon,
@@ -57,9 +59,9 @@ function ImageSliders({ images, handleImageClick }) {
             {images.map((item, index) => (
               <Box key={index}>
                 <Image
-                  width={300}
-                  height={100}
-                  className="w-full aspect-[16/9]"
+                  width={1920}
+                  height={1080}
+                  className="w-full aspect-[16/9] object-cover"
                   src={item.resim}
                   alt={`Sample ${index}`}
                 />

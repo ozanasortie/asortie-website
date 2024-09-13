@@ -1,17 +1,15 @@
-"use client";
-import { motion } from "framer-motion";
-
 import BlogSlider from "./BlogSlider";
 import BlogItem from "./BlogItem";
 import Link from "next/link";
-import { ChevronRightIcon } from "@chakra-ui/icons";
+import Transition from "@/components/Transition";
+import { ArrowRight01Icon } from "hugeicons-react";
 
 export default function Blogs({ blogs }) {
   return (
     <div className="w-full relative flex flex-1 justify-start items-start max-lg:flex-col mt-4 mb-14 lg:px-page">
       <div className="absolute left-0 top-0 w-full bg-black bg-opacity-35" />
       <div className="w-full flex flex-col items-center justify-center z-20">
-        <motion.div
+        <Transition
           transition={{ duration: 1, delay: 0.2 }}
           initial="hidden"
           whileInView="visible"
@@ -25,13 +23,13 @@ export default function Blogs({ blogs }) {
             BLOG
           </span>
 
-          <Link href="/collection" className="max-lg:hidden">
-            <span className="z-30 text-md lg:text-xl mt-5 cursor-pointer">
-              TÜMÜNÜ GÖR <ChevronRightIcon mb={1} />
+          <Link href="/blog" className="max-lg:hidden">
+            <span className="flex justify-center items-center z-30 text-md lg:text-xl mt-5 cursor-pointer">
+              TÜMÜNÜ GÖR <ArrowRight01Icon className="ml-1" />
             </span>
           </Link>
-        </motion.div>
-        <motion.div
+        </Transition>
+        <Transition
           transition={{ duration: 1, delay: 0.2 }}
           initial="hidden"
           whileInView="visible"
@@ -42,21 +40,23 @@ export default function Blogs({ blogs }) {
           className="w-full flex items-center justify-center"
         >
           <BlogSlider blogs={blogs} />
-          <div className="max-md:hidden w-full flex gap-4 place-content-center place-items-start">
+          <div className="max-md:hidden w-full flex gap-6 place-content-center place-items-start">
             {blogs?.data &&
-              blogs?.data?.slice(0, 4).map((item) => {
+              blogs?.data?.slice(0, 3).map((item) => {
+                console.log("item", item);
                 return (
                   <BlogItem
                     imageBaseUrl={blogs.image_url}
                     image={item.resim}
                     title={item.baslik}
+                    href={"/blog/" + item.id}
                   />
                 );
               })}
           </div>
-        </motion.div>
+        </Transition>
 
-        <Link href="/collection" className="lg:hidden mt-8">
+        <Link href="/blog" className="lg:hidden mt-8">
           <span className="z-30 text-md lg:text-xl last:cursor-pointer underline">
             TÜMÜNÜ GÖR
           </span>

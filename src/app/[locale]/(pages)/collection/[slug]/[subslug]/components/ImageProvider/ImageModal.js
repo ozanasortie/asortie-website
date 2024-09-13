@@ -48,11 +48,11 @@ export default function ImageModal({
                   className="box-border flex items-center justify-center overflow-hidden outline-none"
                 >
                   <Image
-                    width={300}
-                    height={100}
+                    width={1920}
+                    height={1080}
                     src={item.resim}
                     alt={`Sample ${index}`}
-                    className="w-[100%] h-full object-cover"
+                    className="w-[100%] h-full object-cover aspect-[16/9]"
                   />
                   <div className="pt-3 pr-3 w-full text-end">
                     {index + 1 + " / " + images.length}

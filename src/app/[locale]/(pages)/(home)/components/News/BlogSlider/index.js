@@ -32,6 +32,7 @@ function BlogSlider({ news }) {
                 imageBaseUrl={news.image_url}
                 image={item.resim}
                 title={item.baslik}
+                href={"/news/" + item.id}
               />
             );
           })}

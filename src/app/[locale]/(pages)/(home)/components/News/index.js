@@ -23,7 +23,7 @@ export default function News({ news }) {
             HABERLER
           </span>
 
-          <Link href="/collection" className="max-lg:hidden">
+          <Link href="/news" className="max-lg:hidden">
             <span className="z-30 text-md lg:text-xl mt-5 cursor-pointer">
               TÜMÜNÜ GÖR
             </span>
@@ -48,13 +48,14 @@ export default function News({ news }) {
                     imageBaseUrl={news.image_url}
                     image={item.resim}
                     title={item.baslik}
+                    href={"/news/" + item.id}
                   />
                 );
               })}
           </div>
         </Transition>
 
-        <Link href="/collection" className="lg:hidden mt-8">
+        <Link href="/news" className="lg:hidden mt-8">
           <span className="z-30 text-md lg:text-xl last:cursor-pointer underline">
             TÜMÜNÜ GÖR
           </span>

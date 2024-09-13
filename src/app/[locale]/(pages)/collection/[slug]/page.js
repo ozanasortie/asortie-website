@@ -37,7 +37,7 @@ export default async function Products({ params }) {
       background={`${
         data?.data[0]?.kategori_resim_arkaplan
           ? data?.data[0]?.image_url + data?.data[0]?.kategori_resim_arkaplan
-          : ""
+          : "https://www.cappellettisrl.com/wp-content/uploads/2023/05/EQ0.jpg"
       }`}
     >
       <ProductsHeader data={data?.data[0]} />

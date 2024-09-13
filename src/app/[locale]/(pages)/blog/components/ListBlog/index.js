@@ -14,7 +14,7 @@ export default function ListBlog({
   return (
     <Link
       href={href}
-      className={`box-border ${width} max-w-lg mb-4 lg:mb-8 cursor-pointer relative overflow-hidden flex flex-col rounded-md group`}
+      className={`box-border ${width} max-w-lg mb-4 lg:mb-8 cursor-pointer relative overflow-hidden flex flex-col group`}
     >
       <Transition
         transition={{ duration: 1.5, delay: 0.2 }}
@@ -31,11 +31,11 @@ export default function ListBlog({
             layout="fill"
             objectFit="cover"
             alt={title}
-            className="rounded-md transform transition-transform duration-1000 group-hover:scale-110"
+            className="transform transition-transform duration-1000 group-hover:scale-110"
           />
         </div>
         <div className="p-4 bg-white">
-          <h2 className="text-xl lg:text-2xl text-black mb-2">{title}</h2>
+          <h2 className="text-xl text-black mb-2">{title}</h2>
           <p className="text-sm lg:text-base text-gray-600 line-clamp-2">
             {description}
           </p>

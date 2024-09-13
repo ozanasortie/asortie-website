@@ -1,19 +1,17 @@
 import Slider from "@components/Slider";
 import ListProduct from "@components/ListProduct";
 
-import SampleBanner from "@assets/olimpos-min.jpg";
-import SampleBanner2 from "@assets/bosna.jpg";
-import SampleBanner3 from "@assets/defne.jpg";
 import Transition from "@/components/Transition";
 
 function RecommendedProducts({ data }) {
   const settings = {
     centerMode: true,
-    centerPadding: "20px",
+    centerPadding: "40px",
     infinite: true,
-    speed: 500,
+    speed: 1500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
   };
 
   return (
@@ -55,6 +53,7 @@ function RecommendedProducts({ data }) {
               image={item.resim}
               title={item.urun_adi}
               href={"/collection/" + item.slug + "/" + item.id}
+              width="w-[97%]"
             />
           );
         })}

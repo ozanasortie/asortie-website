@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { Jost } from "next/font/google";
 import "./globals.css";
+import Footer from "@/components/Footer";
 
 const jost = Jost({
   subsets: ["latin"],
@@ -35,6 +36,7 @@ export default async function LocaleLayout({ children, params: { locale } }) {
       <body className={jost.variable}>
         <ProviderLayout messages={messages} locale={locale}>
           {children}
+          <Footer locale={locale} />
         </ProviderLayout>
       </body>
     </html>

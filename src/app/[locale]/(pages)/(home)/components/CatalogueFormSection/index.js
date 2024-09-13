@@ -10,6 +10,7 @@ import Textarea from "@/components/Textarea";
 import Button from "@components/Button";
 import StatusModal from "@/components/StatusModal";
 import DigitalCatalogueForm from "../../components/DigitalCatalogueForm";
+import PhoneInput from "@/components/PhoneInput";
 
 import { usePostContactMutation } from "@services/homeServices";
 
@@ -58,11 +59,16 @@ export default function CatalogueFormSection({ onDigitalOpen }) {
     },
   });
 
+  const handlePhoneChange = (value) => {
+    const formattedValue = value.replace(/\D/g, "");
+    formik.setFieldValue("tel", formattedValue);
+  };
+
   const status = isSuccess ? "success" : isError ? "error" : "";
 
   return (
     <div
-      className={`bg-cover bg-center relative p-4 lg:p-10 py-20 flex flex-col lg:flex-row items-center lg:justify-around text-white ${
+      className={`bg-cover bg-center relative p-4 lg:p-10 py-20 lg:pb-24 flex flex-col lg:flex-row items-center lg:justify-around text-white ${
         isSafari ? "" : "bg-fixed"
       }`}
       style={{ backgroundImage: `url(${FormBackground.src})` }}
@@ -148,13 +154,15 @@ export default function CatalogueFormSection({ onDigitalOpen }) {
             errorText={formik.errors.email}
           />
 
-          <Input
+          <PhoneInput
             name="tel"
-            borderColor="white"
-            color="white"
+            textColor="black"
+            focusBorderColor="black"
             placeholder="Telefon"
             className="mt-5"
-            onChange={formik.handleChange}
+            inputClassName="!bg-transparent !text-white !border-white"
+            buttonClassName="!bg-transparent !border-white"
+            onChange={handlePhoneChange}
             value={formik.values.tel}
             error={formik.errors.tel && formik.touched.tel}
             errorText={formik.errors.tel}
