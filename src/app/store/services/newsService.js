@@ -1,7 +1,7 @@
 const BASE_URL = "https://asortie.com/json/";
 
 export async function fetchNews(lang) {
-  const response = await fetch(`${BASE_URL}/news_all?dil=${lang}_`);
+  const response = await fetch(`${BASE_URL}/news_all?dil=${lang}_&sira=0`);
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }

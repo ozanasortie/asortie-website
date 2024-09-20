@@ -19,6 +19,7 @@ import styles from "./localSwitcher.module.css";
 import eng from "@assets/icons/flags/eng.png";
 import turkey from "@assets/icons/flags/turkey.png";
 import arab from "@assets/icons/flags/arab.png";
+import russia from "@assets/icons/flags/russia.png";
 import france from "@assets/icons/flags/france.png";
 import nigeria from "@assets/icons/flags/nigeria.png";
 
@@ -126,6 +127,18 @@ export default function LocalSwitcher({ headerVariant, small }) {
                 alt="Arapça"
               />
               <div className={styles.buttonText}>Arapça</div>
+            </Button>
+            <Button
+              onClick={() => onLanguageChange("ru")}
+              className={styles.languageButton}
+            >
+              <Image
+                width={22}
+                className={styles.image}
+                src={russia}
+                alt="Rusça"
+              />
+              <div className={styles.buttonText}>Rusça</div>
             </Button>
             <Button
               onClick={() => onLanguageChange("fr")}

@@ -6,8 +6,8 @@ import {
   ModalHeader,
   ModalBody,
   ModalCloseButton,
-  useDisclosure,
 } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import { useLocale } from "next-intl";
 
@@ -28,6 +28,7 @@ export default function InformationForm({
   const locale = useLocale();
   const [postProductRequest, { isLoading, isError, isSuccess }] =
     usePostProductRequestMutation();
+  const [pageUrl, setPageUrl] = useState("");
 
   const validationSchema = Yup.object({
     detay_name: Yup.string().required("Ad Soyad alanı gereklidir"),
@@ -42,13 +43,17 @@ export default function InformationForm({
     mesaj: Yup.string().required("Mesaj alanı gereklidir"),
   });
 
+  useEffect(() => {
+    setPageUrl(window?.location?.href);
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       detay_name: "",
       detay_email: "",
       telefon: "",
       mesaj: "",
-      sayfa: window && window?.location?.href,
+      sayfa: pageUrl,
       dil: locale + "_",
     },
     validationSchema: validationSchema,

@@ -4,13 +4,18 @@ import ProviderLayout from "./providerLayout";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { Jost } from "next/font/google";
+import {
+  Cormorant_Garamond,
+  Cormorant_Infant,
+  EB_Garamond,
+  Jost,
+} from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/Footer";
 
-const jost = Jost({
+const jost = Cormorant_Infant({
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600"],
+  weight: ["500", "600", "700"],
   variable: "--font-jost",
 });
 

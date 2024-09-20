@@ -28,9 +28,7 @@ export default function ListProduct({ width = "90%", href, image, title }) {
           />
         </div>
         <div className="text-0 text-center text-xl lg:text-[22px] relative bg-white w-full">
-          <h2 className="motion-safe:transition font-light text-black py-3">
-            {title}
-          </h2>
+          <h2 className="motion-safe:transition text-black py-3">{title}</h2>
           <div className="absolute left-0 right-0 bottom-0 h-[1px] bg-background-color scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
         </div>
       </Transition>

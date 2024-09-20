@@ -48,7 +48,7 @@ export default async function ProductDetail({ params }) {
       <DetailHeader
         title={data.Urunler[0].urun_adi}
         description={
-          "Zarafetin ve işlevselliğin mükemmel uyumunu yansıtan bu tasarım, her detayında estetiği ve konforu bir araya getiriyor."
+          "Estetik ve konforu bir arada sunduğumuz bu tasarımı, zarafet ve işlevselliği mükemmel şekilde harmanlayarak tüm dünyaya ulaştırıyoruz."
         }
       />
       <Transition className="w-full bg-cover bg-center bg-no-repeat flex flex-col mt-7 lg:mt-0 lg:flex-row lg:justify-center text-black p-4">

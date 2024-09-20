@@ -88,7 +88,7 @@ export default async function Page({ params }) {
       >
         <BackgroundSection
           background={Store.src}
-          className="w-full bg-cover bg-center relative h-[55vh] p-10 flex flex-col items-center justify-center text-white"
+          className="w-full bg-cover bg-center relative h-[530px] p-10 flex flex-col items-center justify-center text-white"
         >
           <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-40 z-30 backdrop-blur-sm" />
           <h1 className="text-4xl lg:text-[55px] font-base uppercase z-30 -mt-20 text-center">

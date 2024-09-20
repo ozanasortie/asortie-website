@@ -39,7 +39,7 @@ export default function Button({
       {children}
       {text && (
         <div
-          className={`font-light text-lg group-hover:text-theme-color motion-safe:transition ${fontWeight} ${textSize}`}
+          className={`font-light text-lg group-hover:text-theme-color motion-safe:transition !${fontWeight} ${textSize}`}
         >
           {text}
         </div>

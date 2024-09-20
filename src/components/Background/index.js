@@ -7,7 +7,7 @@ const BackgroundSection = ({ children, className = "", background }) => {
 
   return (
     <div
-      className={`bg-cover  bg-center relative py-4 lg:py-8 flex flex-col items-center justify-center text-white ${
+      className={`bg-cover  bg-center relative py-4 lg:py-8 flex flex-col items-center justify-center text-white backdrop-blur-md ${
         isSafari ? "" : "bg-fixed"
       } ${className}`}
       style={{ backgroundImage: `url(${background})` }}

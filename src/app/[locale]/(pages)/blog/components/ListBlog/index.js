@@ -35,7 +35,9 @@ export default function ListBlog({
           />
         </div>
         <div className="p-4 bg-white">
-          <h2 className="text-xl text-black mb-2">{title}</h2>
+          <h2 className="text-xl text-black mb-2 group-hover:text-theme-color motion-safe:transition">
+            {title}
+          </h2>
           <p className="text-sm lg:text-base text-gray-600 line-clamp-2">
             {description}
           </p>

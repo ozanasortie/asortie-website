@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Box, useDisclosure } from "@chakra-ui/react";
 import * as Yup from "yup";
@@ -38,6 +38,7 @@ function InformationField({ title }) {
   const whatsappNumber = useSelector((state) => state.general.whatsappNumbers);
   const contact = useSelector((state) => state.general.contact);
   const [status, setStatus] = useState("");
+  const [pageUrl, setPageUrl] = useState("");
 
   const {
     isOpen: isFormOpen,
@@ -66,13 +67,17 @@ function InformationField({ title }) {
     window.open(whatsappUrl, "_blank");
   };
 
+  useEffect(() => {
+    setPageUrl(window?.location?.href);
+  }, []);
+
   const formik = useFormik({
     initialValues: {
       detay_name: "",
       detay_email: "",
       telefon: "",
       mesaj: "",
-      sayfa: window && window?.location?.href,
+      sayfa: pageUrl,
       dil: locale + "_",
     },
     validationSchema: validationSchema,

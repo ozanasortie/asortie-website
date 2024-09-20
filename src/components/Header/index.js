@@ -77,7 +77,7 @@ export default function Header() {
                 BLOG
               </NavLink>
               <Corporate />
-              <NavItem href="/detail">İletişim</NavItem>
+              <NavItem href="/contact">İLETİŞİM</NavItem>
             </div>
           </div>
           <div className="flex items-center absolute right-7">

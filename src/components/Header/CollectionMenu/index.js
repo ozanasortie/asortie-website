@@ -14,7 +14,7 @@ export default function CollectionMenu({ data }) {
       <PopoverTrigger>
         <span>
           <NavLink className={styles.navLink} href={"/collection"}>
-            Koleksiyon
+            KOLEKSİYON
           </NavLink>
         </span>
       </PopoverTrigger>
@@ -36,7 +36,7 @@ export default function CollectionMenu({ data }) {
                 <NavLink
                   key={"collection-" + item.id}
                   href={"/collection" + "/" + item.url}
-                  className="flex items-center cursor-pointer mr-5 my-3 group"
+                  className="flex items-center cursor-pointer mr-5 my-3 group font-light"
                 >
                   <div className="text-white relative">
                     {item.kategori}

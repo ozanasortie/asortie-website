@@ -37,9 +37,7 @@ const CollectionItem = ({ image, secondImage, title, index, href }) => {
           /> */}
         </div>
         <div className="mt-2 text-0 text-center text-[21px] relative">
-          <h2 className="text-start motion-safe:transition font-light">
-            {title}
-          </h2>
+          <h2 className="text-start motion-safe:transition">{title}</h2>
           <div className="absolute left-0 right-0 bottom-0 h-[0.5px] bg-[gray] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
         </div>
       </Link>

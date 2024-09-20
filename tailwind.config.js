@@ -22,6 +22,7 @@ module.exports = {
       yellow: colors.amber,
       "theme-color": "#bd8f0f",
       "background-color": "#1d1d1b",
+      "title-color": "#353839",
     },
     extend: {
       backgroundImage: {
@@ -31,6 +32,15 @@ module.exports = {
       },
       padding: {
         page: "7rem",
+      },
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+      },
+      keyframes: {
+        spin: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
       },
     },
   },

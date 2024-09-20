@@ -27,17 +27,34 @@ const generalApi = baseApi.injectEndpoints({
     getWhatsappNumbers: build.query({
       query: (lang) => `whatsap?dil=${lang}_`,
     }),
+    getSearchResult: build.query({
+      query: ({ key, lang }) => `search?q=${key}&dil=${lang}_`,
+    }),
   }),
 });
 
 export const { setContact, setWhatsappNumbers } = generalSlice.actions;
-export const { useGetContactQuery, useGetWhatsappNumbersQuery } = generalApi;
+export const {
+  useGetContactQuery,
+  useGetWhatsappNumbersQuery,
+  useGetSearchResultQuery,
+} = generalApi;
 export default generalSlice.reducer;
 
 const BASE_URL = "https://asortie.com/json/";
 
 export async function fetchCorporate(lang) {
   const response = await fetch(`${BASE_URL}/institutional?dil=${lang}_`);
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return await response.json();
+}
+
+export async function fetchSearchResult(lang, key) {
+  console.log("lang", lang, "key", key);
+  const response = await fetch(`${BASE_URL}/search?q=${key}&dil=${lang}_`);
+  console.log("response", response);
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }

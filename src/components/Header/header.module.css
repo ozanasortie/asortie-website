@@ -25,7 +25,7 @@
   }
 
   .navLink {
-    @apply cursor-pointer hover:text-theme-color motion-safe:transition px-3 uppercase text-lg mx-2;
+    @apply cursor-pointer hover:text-theme-color motion-safe:transition px-3 uppercase font-bold text-lg mx-2;
   }
 
   .searchIcon {

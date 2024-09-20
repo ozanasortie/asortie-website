@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NextIntlClientProvider } from "next-intl";
 import { extendTheme, withDefaultColorScheme } from "@chakra-ui/react";

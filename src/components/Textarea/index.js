@@ -28,7 +28,7 @@ export default function Textarea({
         outline={outline}
         width={width}
         height={height}
-        className={className}
+        className={`${className}`}
         focusBorderColor={focusBorderColor}
         placeholder={placeholder}
         _placeholder={{ color: color }}
@@ -36,6 +36,7 @@ export default function Textarea({
         borderColor={borderColor}
         onChange={onChange}
         value={value}
+        h={200}
       />
       {error && <div className="text-red-500 mt-2 text-sm">{errorText}</div>}
     </div>
