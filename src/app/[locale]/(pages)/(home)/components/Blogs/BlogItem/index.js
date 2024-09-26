@@ -5,9 +5,9 @@ const BlogItem = ({ href, imageBaseUrl, image, title }) => {
   return (
     <Link
       href={href}
-      className="box-border w-full cursor-pointer relative overflow-hidden flex flex-col items-center justify-center text-2xl group"
+      className="box-border w-full cursor-pointer relative flex flex-col items-center justify-center text-2xl group"
     >
-      <div className="relative w-full aspect-[16/9] overflow-hidden">
+      <div className="relative w-[97%] aspect-[16/9] overflow-hidden">
         <Image
           src={imageBaseUrl + image}
           layout="fill"

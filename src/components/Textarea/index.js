@@ -10,7 +10,7 @@ export default function Textarea({
   width = "100%",
   height = "56px",
   className = "w-full",
-  borderColor = "black",
+  borderColor = "#adadad",
   focusBorderColor = "white",
   placeholder = "",
   type = "text",
@@ -18,6 +18,7 @@ export default function Textarea({
   errorText,
   onChange,
   value,
+  h = 70
 }) {
   return (
     <div className={`w-full ${containerStyle}`}>
@@ -36,7 +37,8 @@ export default function Textarea({
         borderColor={borderColor}
         onChange={onChange}
         value={value}
-        h={200}
+        fontSize={13}
+        h={h}
       />
       {error && <div className="text-red-500 mt-2 text-sm">{errorText}</div>}
     </div>

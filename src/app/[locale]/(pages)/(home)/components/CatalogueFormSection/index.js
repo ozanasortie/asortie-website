@@ -68,131 +68,133 @@ export default function CatalogueFormSection({ onDigitalOpen }) {
 
   return (
     <div
-      className={`bg-cover bg-center relative p-4 lg:p-10 py-20 lg:pb-24 flex flex-col lg:flex-row items-center lg:justify-around text-white ${
+      className={`bg-cover bg-center relative p-4 lg:p-10 py-20 lg:pb-24 flex justify-center items-center text-white ${
         isSafari ? "" : "bg-fixed"
       }`}
       style={{ backgroundImage: `url(${FormBackground.src})` }}
     >
       <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-55 z-20" />
-      <motion.div
-        transition={{ duration: 1 }}
-        initial="hidden"
-        whileInView="visible"
-        variants={{
-          visible: { opacity: 1, x: 0 },
-          hidden: { opacity: 0, x: 90 },
-        }}
-        className="w-full lg:w-[40%] z-30 mb-14 lg:mb-0 flex flex-col items-center"
-      >
-        <i className="mb-5 text-center">
-          "Özenle tasarlanmış klasik mobilyalarımızla yaşam alanlarınıza zarafet
-          katmak için, katalog talep formumuzu doldurarak geniş ürün yelpazemizi
-          keşfedin."
-        </i>
-        <Button
-          background="white"
-          color="black"
-          className="w-[90%] flex items-center justify-center py-4"
-          text={"DİJİTAL KATALOG TALEP ET"}
-          onClick={() => onFormOpen()}
-        />
-      </motion.div>
-      <motion.div
-        transition={{ duration: 1 }}
-        initial="hidden"
-        whileInView="visible"
-        variants={{
-          visible: { opacity: 1, x: 0 },
-          hidden: { opacity: 0, x: 90 },
-        }}
-        className="w-full lg:w-[40%] z-30 flex flex-col items-center"
-      >
+      <div className="w-full max-w-[500px] lg:max-w-[1400px] flex flex-col lg:flex-row items-center lg:justify-around">
         <motion.div
           transition={{ duration: 1 }}
           initial="hidden"
           whileInView="visible"
           variants={{
-            visible: { opacity: 1, y: 0 },
-            hidden: { opacity: 0, y: 90 },
+            visible: { opacity: 1, x: 0 },
+            hidden: { opacity: 0, x: 90 },
           }}
-          className="flex items-center justify-center lg:mt-10 mb-10 z-30"
+          className="w-full lg:w-[40%] z-30 mb-14 lg:mb-0 flex flex-col items-center"
         >
-          <span className="text-4xl lg:text-6xl text-center font-light">
-            BİZE ULAŞIN
-          </span>
-        </motion.div>
-        <i className="mb-5 text-center">
-          "Özenle tasarlanmış klasik mobilyalarımızla yaşam alanlarınıza zarafet
-          katmak için, katalog talep formumuzu doldurarak geniş ürün yelpazemizi
-          keşfedin."
-        </i>
-        <form
-          onSubmit={formik.handleSubmit}
-          className="w-full flex flex-col items-center"
-        >
-          <Input
-            name="name"
-            borderColor="white"
-            color="white"
-            placeholder="Ad Soyad"
-            className="mt-5"
-            onChange={formik.handleChange}
-            value={formik.values.name}
-            error={formik.errors.name && formik.touched.name}
-            errorText={formik.errors.name}
-          />
-
-          <Input
-            name="email"
-            borderColor="white"
-            color="white"
-            placeholder="E-Mail"
-            className="mt-5"
-            onChange={formik.handleChange}
-            value={formik.values.email}
-            error={formik.errors.email && formik.touched.email}
-            errorText={formik.errors.email}
-          />
-
-          <PhoneInput
-            name="tel"
-            textColor="black"
-            focusBorderColor="black"
-            placeholder="Telefon"
-            className="mt-5"
-            inputClassName="!bg-transparent !text-white !border-white"
-            buttonClassName="!bg-transparent !border-white"
-            onChange={handlePhoneChange}
-            value={formik.values.tel}
-            error={formik.errors.tel && formik.touched.tel}
-            errorText={formik.errors.tel}
-          />
-
-          <Textarea
-            name="message"
-            borderColor="white"
-            color="white"
-            placeholder="Mesaj"
-            className="mt-5"
-            textColor="white"
-            onChange={formik.handleChange}
-            value={formik.values.message}
-            error={formik.errors.message && formik.touched.message}
-            errorText={formik.errors.message}
-          />
-
+          <i className="mb-5 text-center">
+            "Özenle tasarlanmış klasik mobilyalarımızla yaşam alanlarınıza
+            zarafet katmak için, katalog talep formumuzu doldurarak geniş ürün
+            yelpazemizi keşfedin."
+          </i>
           <Button
-            isLoading={isLoading}
-            type="submit"
             background="white"
             color="black"
-            className="w-full flex items-center justify-center py-4 mt-5"
-            text={"GÖNDER"}
+            className="w-[90%] flex items-center justify-center py-4"
+            text={"DİJİTAL KATALOG TALEP ET"}
+            onClick={() => onFormOpen()}
           />
-        </form>
-        <StatusModal status={status} isOpen={isOpen} onClose={onClose} />
-        <DigitalCatalogueForm isOpen={isFormOpen} onClose={onFormClose} />
-      </motion.div>
+        </motion.div>
+        <motion.div
+          transition={{ duration: 1 }}
+          initial="hidden"
+          whileInView="visible"
+          variants={{
+            visible: { opacity: 1, x: 0 },
+            hidden: { opacity: 0, x: 90 },
+          }}
+          className="w-full lg:w-[40%] z-30 flex flex-col items-center"
+        >
+          <motion.div
+            transition={{ duration: 1 }}
+            initial="hidden"
+            whileInView="visible"
+            variants={{
+              visible: { opacity: 1, y: 0 },
+              hidden: { opacity: 0, y: 90 },
+            }}
+            className="flex items-center justify-center lg:mt-10 mb-10 z-30"
+          >
+            <span className="text-4xl lg:text-5xl text-center font-light">
+              BİZE ULAŞIN
+            </span>
+          </motion.div>
+          <i className="mb-5 text-center">
+            "Özenle tasarlanmış klasik mobilyalarımızla yaşam alanlarınıza
+            zarafet katmak için, katalog talep formumuzu doldurarak geniş ürün
+            yelpazemizi keşfedin."
+          </i>
+          <form
+            onSubmit={formik.handleSubmit}
+            className="w-full flex flex-col items-center"
+          >
+            <Input
+              name="name"
+              borderColor="white"
+              color="white"
+              placeholder="Ad Soyad"
+              className="mt-5"
+              onChange={formik.handleChange}
+              value={formik.values.name}
+              error={formik.errors.name && formik.touched.name}
+              errorText={formik.errors.name}
+            />
+
+            <Input
+              name="email"
+              borderColor="white"
+              color="white"
+              placeholder="E-Mail"
+              className="mt-5"
+              onChange={formik.handleChange}
+              value={formik.values.email}
+              error={formik.errors.email && formik.touched.email}
+              errorText={formik.errors.email}
+            />
+
+            <PhoneInput
+              name="tel"
+              textColor="black"
+              focusBorderColor="black"
+              placeholder="Telefon"
+              className="mt-5"
+              inputClassName="!bg-transparent !text-white !border-white"
+              buttonClassName="!bg-transparent !border-white"
+              onChange={handlePhoneChange}
+              value={formik.values.tel}
+              error={formik.errors.tel && formik.touched.tel}
+              errorText={formik.errors.tel}
+            />
+
+            <Textarea
+              name="message"
+              borderColor="white"
+              color="white"
+              placeholder="Mesaj"
+              className="mt-5"
+              textColor="white"
+              onChange={formik.handleChange}
+              value={formik.values.message}
+              error={formik.errors.message && formik.touched.message}
+              errorText={formik.errors.message}
+            />
+
+            <Button
+              isLoading={isLoading}
+              type="submit"
+              background="white"
+              color="black"
+              className="w-full flex items-center justify-center py-4 mt-5"
+              text={"GÖNDER"}
+            />
+          </form>
+          <StatusModal status={status} isOpen={isOpen} onClose={onClose} />
+          <DigitalCatalogueForm isOpen={isFormOpen} onClose={onFormClose} />
+        </motion.div>
+      </div>
     </div>
   );
 }

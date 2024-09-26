@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import Team from "@/assets/about-us.jpg";
+import Team from "@assets/about-us.JPG";
 import Background from "@assets/background.webp";
 import BackgroundSection from "@/components/Background";
 import Transition from "@/components/Transition";

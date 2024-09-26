@@ -1,8 +1,9 @@
 import HiddenHeader from "@/components/HiddenHeader";
 import Transition from "@/components/Transition";
+import ContactForm from "./ContactForm";
 
 export async function generateMetadata({ params }) {
-  const pageTitle = "Asortie | İç Mimar Desteği";
+  const pageTitle = "Asortie | Mimar Desteği";
 
   return {
     title: pageTitle,
@@ -16,11 +17,11 @@ export default async function Page({ params }) {
   return (
     <div className="w-full bg-cover bg-center bg-no-repeat relative flex flex-col items-center lg:justify-around pt-36 pb-10">
       <HiddenHeader />
-      <h1 className="text-5xl">İÇ MİMARLIK HİZMETİ</h1>
-      <div className="max-w-[1600px] flex flex-col lg:flex-row mt-14 px-4">
-        <Transition className="w-full px-4 mt-10 mb-5 lg:mt-0 lg:w-[43%]">
+      <h1 className="text-4xl lg:text-5xl">MİMARLIK HİZMETİ</h1>
+      <div className="max-w-[1400px] flex flex-col lg:flex-row justify-center lg:mt-14 px-4">
+        <Transition className="w-full px-4 mt-10 lg:mb-5 lg:mt-0 lg:w-[49%] lg:mr-5">
           <h1 className="text-3xl">
-            İç Mimarlık Hizmetlerimizle Mekânlarınıza Estetik Katın!
+            Mimarlık Hizmetlerimizle Mekânlarınıza Estetik Katın!
           </h1>
           <p className="mt-4 text-lg">
             Hayalinizdeki iç mekânı yaratmak için buradayız! İç mimarlık
@@ -47,6 +48,7 @@ export default async function Page({ params }) {
             sürekli destek ve izleme.
           </li>
         </Transition>
+        <ContactForm/>
       </div>
     </div>
   );

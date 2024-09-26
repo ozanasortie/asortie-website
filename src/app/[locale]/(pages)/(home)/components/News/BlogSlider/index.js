@@ -1,12 +1,12 @@
 import React from "react";
-import Slider from "@components/Slider";
 import BlogItem from "../BlogItem";
 import Transition from "@/components/Transition";
+import SliderProvider from "@components/Slider";
 
 const settings = {
   centerMode: true,
   infinite: true,
-  centerPadding: "20px",
+  centerPadding: "35px",
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
@@ -24,7 +24,7 @@ function BlogSlider({ news }) {
       }}
       className="md:hidden w-full flex flex-wrap items-center justify-center z-30"
     >
-      <Slider className="z-30 w-full" {...settings}>
+      <SliderProvider className="z-30 w-full" settings={settings}>
         {news?.data &&
           news?.data?.map((item) => {
             return (
@@ -36,7 +36,7 @@ function BlogSlider({ news }) {
               />
             );
           })}
-      </Slider>
+      </SliderProvider>
     </Transition>
   );
 }

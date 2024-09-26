@@ -68,7 +68,7 @@ export default function DigitalCatalogueForm({ isOpen, onClose }) {
         <ModalContent
           className="w-full"
           background={"white"}
-          maxW={"40rem"}
+          maxW={"30rem"}
           py={5}
         >
           <ModalHeader>

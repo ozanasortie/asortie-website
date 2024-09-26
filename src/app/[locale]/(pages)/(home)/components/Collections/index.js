@@ -45,7 +45,7 @@ export default function Collections() {
           visible: { opacity: 1, y: 0 },
           hidden: { opacity: 0, y: 90 },
         }}
-        className="max-md:hidden w-full flex items-start justify-between z-30 gap-6 "
+        className="max-md:hidden w-full grid grid-cols-2 lg:grid-cols-4 place-items-start justify-between z-30"
       >
         {categories.data &&
           categories.data.slice(0, 4).map((item, index) => {

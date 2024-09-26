@@ -4,8 +4,8 @@ import Image from "next/image";
 
 import SliderProvider from "@/components/Slider";
 import VerticalPagination from "./VerticalPagination";
+import "./images.css";
 
-import Olimpos from "@/assets/yatak.jpg";
 import {
   ArrowLeft01Icon,
   ArrowRight01Icon,
@@ -19,9 +19,8 @@ function ImageSliders({ images, handleImageClick }) {
   const sliderSettings = {
     infinite: true,
     fade: true,
-    centerPadding: "20px",
     speed: 500,
-    slidesToShow: 1,
+    slidesToShow: 3,
     slidesToScroll: 1,
     afterChange: (current) => setActiveIndex(current),
     nextArrow: images.length > 1 ? <FsNextArrow /> : false,
@@ -45,15 +44,15 @@ function ImageSliders({ images, handleImageClick }) {
   return (
     <>
       <Flex
-        direction={"column"}
+        direction={"row"}
         justifyContent={"space-between"}
-        className="w-full lg:w-[52%]"
+        className="w-full lg:w-[75%] relative"
         height="100%"
       >
-        <Box width={"100%"}>
+        <Box width={"100%"} height={"100%"}>
           <SliderProvider
             ref={sliderRef}
-            className="w-full z-40"
+            className="w-[100%] z-40 h-full overflow-hidden"
             settings={sliderSettings}
           >
             {images.map((item, index) => (
@@ -92,7 +91,7 @@ function FsNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={`absolute top-1/2 right-2 transform -translate-y-1/2 p-2 z-50 cursor-pointer hover:scale-110 motion-safe:transition`}
+      className={`absolute top-1/2 h-full flex justify-center items-center opacity-50 right-0 transform -translate-y-1/2 p-2 z-50 cursor-pointer hover:scale-110 motion-safe:transition gradient-arrow-left`}
       onClick={onClick}
     >
       <ArrowRight01Icon
@@ -109,7 +108,7 @@ function FsPrevArrow(props) {
   return (
     <div
       className={
-        "absolute top-1/2 left-2 transform -translate-y-1/2 bg-green-500 p-2 z-50 cursor-pointer hover:scale-110 motion-safe:transition"
+        "absolute top-1/2 left-0 h-full flex justify-center items-center hover:bg-black opacity-50 transform -translate-y-1/2 bg-green-500 p-2 z-50 cursor-pointer hover:scale-110 motion-safe:transition gradient-arrow-left"
       }
       onClick={onClick}
     >

@@ -8,9 +8,9 @@ export default function Input({
   textColor = "white",
   outline = "none",
   width = "100%",
-  height = "56px",
+  height = "40px",
   className = "w-full",
-  borderColor = "black",
+  borderColor = "#adadad",
   focusBorderColor = "white",
   placeholder = "",
   type = "text",
@@ -35,6 +35,7 @@ export default function Input({
         _placeholder={{ color: color }}
         type={type}
         borderColor={borderColor}
+        fontSize={13}
       />
       {error && <div className="text-red-500 mt-2 text-sm">{errorText}</div>}
     </div>

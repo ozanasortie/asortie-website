@@ -15,6 +15,7 @@ import PromotionSection from "./components/PromotionSection";
 import CatalogueFormSection from "./components/CatalogueFormSection";
 import FeaturesSection from "./components/FeaturesSection";
 import Loading from "@components/Loading";
+import InstagramSection from "@components/InstagramSection";
 
 export default async function Index({ params }) {
   const { locale } = params;
@@ -37,7 +38,7 @@ export default async function Index({ params }) {
       <Blogs blogs={blogs} />
       <CatalogueFormSection />
       <FeaturesSection />
-      {/* <InstagramSection /> */}
+      <InstagramSection />
     </div>
   );
 }

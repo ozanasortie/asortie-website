@@ -6,7 +6,7 @@ const libraries = ["places", "drawing", "geometry"];
 
 export default function Map() {
   const containerStyle = {
-    width: "50%",
+    width: "100%",
     height: "500px",
     borderRadius: "20px",
     zIndex: 40,

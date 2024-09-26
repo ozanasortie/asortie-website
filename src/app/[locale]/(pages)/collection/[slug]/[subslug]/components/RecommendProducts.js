@@ -16,7 +16,7 @@ function RecommendedProducts({ data }) {
 
   return (
     <>
-      <div className="z-30 flex flex-col items-center mt-8 w-[85%]">
+      <div className="z-30 flex flex-col items-center mt-8 w-[90%]">
         <Transition
           transition={{ duration: 0.8, delay: 0.2 }}
           initial="hidden"
@@ -27,7 +27,7 @@ function RecommendedProducts({ data }) {
           }}
           className="text-black font-light text-3xl text-center lg:text-5xl xl:text-5xl mb-6"
         >
-          <h1 className="text-3xl text-center lg:text-start lg:text-5xl my-4 uppercase">
+          <h1 className="text-3xl text-center lg:text-start lg:text-4xl my-4 uppercase">
             İLGİNİZİ ÇEKEBİLECEK MODELLER
           </h1>
         </Transition>
@@ -35,6 +35,7 @@ function RecommendedProducts({ data }) {
           {data.data?.map((item) => {
             return (
               <ListProduct
+                secondVariant
                 key={item.id}
                 image={item.resim}
                 title={item.urun_adi}
@@ -49,6 +50,7 @@ function RecommendedProducts({ data }) {
         {data.data?.map((item) => {
           return (
             <ListProduct
+              secondVariant
               key={item.id}
               image={item.resim}
               title={item.urun_adi}

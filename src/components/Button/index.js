@@ -21,7 +21,7 @@ export default function Button({
     <ChakraButton
       isLoading={isLoading}
       type={type}
-      className={`flex items-center justify-center h-[53px] rounded-lg group ${className}`}
+      className={`flex items-center justify-center h-[40px] rounded-lg group ${className}`}
       color={color}
       background={background}
       size={size}

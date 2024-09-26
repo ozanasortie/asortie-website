@@ -43,7 +43,7 @@ export default async function ProductDetail({ params }) {
   if (!data) return <Loading />;
 
   return (
-    <div className="w-full relative flex flex-col items-center pb-16 overflow-x-hidden pt-32">
+    <div className="w-full relative flex flex-col items-center pb-16 overflow-x-hidden pt-24">
       <HiddenHeader />
       <DetailHeader
         title={data.Urunler[0].urun_adi}
@@ -51,9 +51,9 @@ export default async function ProductDetail({ params }) {
           "Estetik ve konforu bir arada sunduğumuz bu tasarımı, zarafet ve işlevselliği mükemmel şekilde harmanlayarak tüm dünyaya ulaştırıyoruz."
         }
       />
-      <Transition className="w-full bg-cover bg-center bg-no-repeat flex flex-col mt-7 lg:mt-0 lg:flex-row lg:justify-center text-black p-4">
+      <Transition className="w-[90%] bg-cover bg-center bg-no-repeat flex lg:flex-row mt-7 lg:mt-0 lg:justify-center text-black p-4">
         <ImageProvider images={data.Resimler} />
-        <div className="w-full lg:w-[35%] flex flex-col-reverse lg:flex-col">
+        <div className="w-full ml-5 flex-col-reverse lg:flex-col">
           <div
             className="lg:hidden text-start w-[100%] px-6 text-gray-800 my-4"
             dangerouslySetInnerHTML={{ __html: data.Urunler[0].urun_detayi }}
@@ -63,7 +63,7 @@ export default async function ProductDetail({ params }) {
       </Transition>
 
       <div
-        className="hidden lg:block text-start w-[87%] px-6 text-gray-800 my-4"
+        className="hidden lg:block text-start w-[90%] px-6 text-gray-800 mt-24"
         dangerouslySetInnerHTML={{ __html: data.Urunler[0].urun_detayi }}
       />
       <ServiceField data={data && data.Sabit && data.Sabit[0]} />

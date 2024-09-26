@@ -1,8 +1,8 @@
 import React from "react";
-import Slider from "@components/Slider";
 import Transition from "@/components/Transition";
 
 import BlogItem from "../BlogItem";
+import SliderProvider from "@components/Slider";
 
 const settings = {
   centerMode: true,
@@ -24,7 +24,7 @@ function BlogSlider({ blogs }) {
       }}
       className="md:hidden w-full flex flex-wrap items-center justify-center z-30"
     >
-      <Slider className="z-30 w-full" {...settings}>
+      <SliderProvider className="z-30 w-full" settings={settings}>
         {blogs?.data &&
           blogs?.data?.map((item) => {
             return (
@@ -36,7 +36,7 @@ function BlogSlider({ blogs }) {
               />
             );
           })}
-      </Slider>
+      </SliderProvider>
     </Transition>
   );
 }

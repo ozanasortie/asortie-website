@@ -88,13 +88,13 @@ export default async function Page({ params }) {
       >
         <BackgroundSection
           background={Store.src}
-          className="w-full bg-cover bg-center relative h-[530px] p-10 flex flex-col items-center justify-center text-white"
+          className="w-full bg-cover bg-center relative h-[430px] lg:h-[530px] p-10 flex flex-col items-center justify-center text-white"
         >
           <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-40 z-30 backdrop-blur-sm" />
-          <h1 className="text-4xl lg:text-[55px] font-base uppercase z-30 -mt-20 text-center">
+          <h1 className="text-3xl lg:text-[55px] font-base uppercase z-30 -mt-20 text-center">
             {tabsContent[initialIndex].label}
           </h1>
-          <TabList className="w-full max-w-[1400px] z-30 absolute bottom-28">
+          <TabList className="w-[90%] max-w-[1400px] z-30 absolute bottom-28">
             <div className="max-xl:hidden w-full flex justify-center items-center">
               {tabsContent.map((tab, index) => {
                 const selectedKey = tabsContent[index].key;

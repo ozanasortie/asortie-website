@@ -59,7 +59,7 @@ export default function Header() {
               </NavLink>
               <CollectionMenu data={categories.data} />
               <NavLink className={styles.navLink} href="/news">
-                HABERLER
+                DEKORASYON
               </NavLink>
             </div>
           </div>
@@ -73,17 +73,18 @@ export default function Header() {
           </Link>
           <div className={styles.right}>
             <div className={styles.desktopItems}>
-              <NavLink className={styles.navLink} href="/blog">
-                BLOG
-              </NavLink>
               <Corporate />
+
+              <NavLink className={styles.navLink} href="/news">
+                HABERLER
+              </NavLink>
               <NavItem href="/contact">İLETİŞİM</NavItem>
             </div>
           </div>
           <div className="flex items-center absolute right-7">
             <SearchSection headerVariant={headerVariant} small={small} />
             <LocalSwitcher headerVariant={headerVariant} small={small} />
-            <FollowDropdown headerVariant={headerVariant} small={small} />
+            {/* <FollowDropdown headerVariant={headerVariant} small={small} /> */}
           </div>
         </nav>
       </motion.div>

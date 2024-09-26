@@ -10,6 +10,11 @@ import {
   AccordionIcon,
   Accordion,
 } from "@chakra-ui/react";
+import {
+  ArrowDown02Icon,
+  ArrowRight01Icon,
+  ArrowRight02Icon,
+} from "hugeicons-react";
 import Link from "next/link";
 
 const tabLabels = {
@@ -48,7 +53,7 @@ function ServiceField({ data }) {
   }));
 
   return (
-    <div className="w-[92%] bg-cover bg-center bg-no-repeat relative flex flex-col lg:flex-row lg:justify-around lg:mt-14 lg:mb-10">
+    <div className="w-[92%] bg-cover bg-center bg-no-repeat relative flex flex-col items-center lg:mt-5">
       {/* <Tabs
         isFitted
         colorScheme="black"
@@ -72,9 +77,13 @@ function ServiceField({ data }) {
             );
           })}
         </SliderProvider> */}
+      <ArchitectService />
+
+      <div className="text-2xl mb-4 bg-gray-50 min-w-[94%] py-4 text-center">
+        Çok Merak Edilenler
+      </div>
 
       <SliderWithAccordion tabsContent={tabsContent} />
-      <ArchitectService />
     </div>
   );
 }
@@ -82,14 +91,17 @@ function ServiceField({ data }) {
 const SliderWithAccordion = ({ tabsContent, settings }) => {
   return (
     <Accordion
-      allowMultiple
-      className="w-full lg:w-[43%] border-0 border-b-0 rounded-md py-2 px-4"
+      allowToggle
+      className="w-[95%] flex flex-wrap justify-center items-start gap-2 border-0 border-b-0 rounded-md mb-12"
     >
       {tabsContent.map((tab, index) => (
-        <AccordionItem key={index} className="!border-0 py-1 mb-2">
+        <AccordionItem
+          key={index}
+          className="!border-0 py-1 w-[49%] flex flex-col items-center"
+        >
           <AccordionButton
             _expanded={{ bg: "var(--theme-color)" }}
-            className="!p-0 flex justify-between items-center w-full py-1"
+            className="flex items-center !w-[100%] border border-gray-200 p-4"
           >
             <Box
               as="span"
@@ -117,41 +129,12 @@ const SliderWithAccordion = ({ tabsContent, settings }) => {
 
 const ArchitectService = () => {
   return (
-    <Transition className="w-full px-4 mt-10 mb-5 lg:mt-0 lg:w-[43%]">
-      <h1 className="text-2xl">
-        İç Mimarlık Hizmetlerimizle Mekânlarınıza Estetik Katın!
-      </h1>
-      <p className="mt-4">
-        Hayalinizdeki iç mekânı yaratmak için buradayız! İç mimarlık
-        hizmetlerimiz, her türlü mekânı estetik ve işlevsellik açısından en iyi
-        şekilde tasarlamak üzere tasarlanmıştır. Uzman ekibimiz, müşteri
-        ihtiyaçlarını dikkate alarak kişiye özel çözümler sunar.
-      </p>
-
-      <h2 className="text-xl mt-4">Hizmetlerimiz</h2>
-      <li className="mt-2">
-        Tasarım Danışmanlığı: Projelerinizin başlangıcından itibaren profesyonel
-        danışmanlık.
-      </li>
-      <li className="mt-2">
-        Kapsamlı İç Mekân Tasarımı: Evinizden ofisinize kadar her mekân için
-        özgün tasarım çözümleri.
-      </li>
-      <li className="mt-2">
-        Mobilya Seçimi ve Düzenleme: Mekânınıza en uygun mobilya ve dekorasyon
-        önerileri.
-      </li>
-      <li className="mt-2 mb-8">
-        Uygulama ve Proje Yönetimi: Tasarımın hayata geçirilmesi sürecinde
-        sürekli destek ve izleme.
-      </li>
-      <Link
-        href={"/architect-service"}
-        className={
-          "flex justify-center items-center w-full lg:w-fit bg-black text-white rounded-md p-4 text-lg hover:text-theme-color hover:scale-105 motion-safe:transition"
-        }
-      >
-        İç Mimarlık Hizmeti Al
+    <Transition className="w-[95%] group flex justify-center items-center px-4 py-7 mb-20 lg:mt-8 border hover:bg-black hover:border-black text-white motion-safe:transition cursor-pointer p-4">
+      <Link href={"/architect-service"}>
+        <h1 className="text-xl group-hover:text-white text-black">
+          Daha estetik ve fonksiyonel yaşam alanları oluşturmak için profesyonel
+          mimarlık hizmeti almak ister misiniz ?
+        </h1>
       </Link>
     </Transition>
   );

@@ -19,24 +19,25 @@ export default function CollectionMenu({ data }) {
         </span>
       </PopoverTrigger>
       <PopoverContent
-        className="mt-8"
+        className="mt-[36px]"
         border={0}
-        borderRadius={2}
-        width={"100vw"}
+        borderRadius={10}
+        padding={0}
+        width={250}
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
-        background={"#a67f5e"}
+        background={"transparent"}
         zIndex={99}
       >
-        <PopoverBody className="flex flex-wrap justify-center items-center w-[100%] rounded-sm">
+        <PopoverBody className="bg-black bg-opacity-80 flex flex-col justify-center items-start w-fit rounded-md">
           {data &&
             data.map((item) => {
               return (
                 <NavLink
                   key={"collection-" + item.id}
                   href={"/collection" + "/" + item.url}
-                  className="flex items-center cursor-pointer mr-5 my-3 group font-light"
+                  className="flex items-center cursor-pointer my-3 group font-light"
                 >
                   <div className="text-white relative">
                     {item.kategori}

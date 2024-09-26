@@ -10,9 +10,8 @@ export default function PhoneInput({
   textColor = "white",
   outline = "none",
   width = "100%",
-  height = "56px",
   className = "w-full",
-  borderColor = "black",
+  borderColor = "#adadad",
   focusBorderColor = "white",
   placeholder = "",
   containerStyle,
@@ -31,17 +30,16 @@ export default function PhoneInput({
         color={color}
         textColor={textColor}
         outline={outline}
-        className={"w-full mt-5"}
+        className={`w-full mt-2 ${className}`}
         borderColor={borderColor}
         placeholder={placeholder}
         focusBorderColor={focusBorderColor}
         width={width}
-        height={height}
-        inputClassName={`w-full !h-[56px] !text-base !border-black ${inputClassName}`}
+        inputClassName={`w-full !h-[40px] !text-[13px] !text-base !border-[#adadad] ${inputClassName}`}
         countrySelectorStyleProps={{
-          className: "!h-[56px]",
+          className: "!h-[40px] !text-[13px] ",
           buttonClassName:
-            "!h-[56px] !border-black !border-r-0 !pl-4" + " " + buttonClassName,
+            "!h-[40px] !text-[13px] !border-[#adadad] !border-r-0 !pl-4" + " " + buttonClassName,
         }}
       />
       {error && <div className="text-red-500 mt-2 text-sm">{errorText}</div>}

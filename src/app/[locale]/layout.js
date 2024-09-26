@@ -13,9 +13,9 @@ import {
 import "./globals.css";
 import Footer from "@/components/Footer";
 
-const jost = Cormorant_Infant({
+const jost = Jost({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
   variable: "--font-jost",
 });
 

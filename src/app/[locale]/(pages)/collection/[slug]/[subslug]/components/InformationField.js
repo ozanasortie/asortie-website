@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Box, useDisclosure } from "@chakra-ui/react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import { WhatsappIcon } from "hugeicons-react";
+import { Share01Icon, Share02Icon, Share03Icon, WhatsappIcon } from "hugeicons-react";
 import { useLocale } from "next-intl";
 import { useSelector } from "react-redux";
 import { PhoneIcon } from "@chakra-ui/icons";
@@ -102,8 +102,8 @@ function InformationField({ title }) {
 
   return (
     <div className="w-full !text-black">
-      <div className="w-full flex flex-col items-center">
-        <Transition className="w-[90%] flex flex-col items-center">
+      <div className="w-full flex flex-col lg:flex-row justify-center items-center">
+        <Transition className="w-[100%] flex flex-col">
           <Box className="w-full lg:hidden mt-4">
             <Button
               background="black"
@@ -139,13 +139,13 @@ function InformationField({ title }) {
             <Button
               background="transparent"
               className="w-full flex items-center justify-center py-4 border"
-              text={"MODELİ PAYLAŞ"}
+              text={"Modeli Paylaş"}
               fontWeight={"font-normal"}
               borderColor={"black"}
               color="black"
               onClick={handleRecommendationClick}
             >
-              <WhatsappIcon
+              <Share01Icon
                 size={24}
                 className="mr-2 group-hover:text-theme-color motion-safe:transition"
               />
@@ -159,89 +159,95 @@ function InformationField({ title }) {
             onStatusOpen={onOpen}
             setStatus={setStatus}
           />
-          <form
-            onSubmit={formik.handleSubmit}
-            className="w-full hidden lg:block"
-          >
-            <div className="text-2xl w-full uppercase">Ürün Bilgisi Al</div>
-
-            <Input
-              name="detay_name"
-              textColor="black"
-              focusBorderColor="black"
-              placeholder="Ad Soyad"
-              className="mt-5"
-              onChange={formik.handleChange}
-              value={formik.values.detay_name}
-              error={formik.errors.detay_name && formik.touched.detay_name}
-              errorText={formik.errors.detay_name}
-            />
-            <Input
-              name="detay_email"
-              textColor="black"
-              focusBorderColor="black"
-              placeholder="E-Mail"
-              className="mt-5"
-              onChange={formik.handleChange}
-              value={formik.values.detay_email}
-              error={formik.errors.detay_email && formik.touched.detay_email}
-              errorText={formik.errors.detay_email}
-            />
-            <PhoneInput
-              name="telefon"
-              textColor="black"
-              focusBorderColor="black"
-              placeholder="Telefon"
-              className="mt-5"
-              onChange={handlePhoneChange}
-              value={formik.values.telefon}
-              error={formik.errors.telefon && formik.touched.telefon}
-              errorText={formik.errors.telefon}
-            />
-            <Textarea
-              name="mesaj"
-              focusBorderColor="black"
-              _placeholder={{ color: "black" }}
-              placeholder="Mesaj"
-              className="mt-5"
-              borderColor={"black"}
-              onChange={formik.handleChange}
-              value={formik.values.mesaj}
-              error={formik.errors.mesaj && formik.touched.mesaj}
-              errorText={formik.errors.mesaj}
-            ></Textarea>
-            <Button
-              type="submit"
-              background="black"
-              color="white"
-              className="w-full flex items-center justify-center py-4 my-5 lg:my-3"
-              text={"BİLGİ AL"}
-              isLoading={isLoading}
-            />
-
-            <div className="w-full">
-              <div className="flex flex-col xl:flex-row lg:justify-between">
+          <div className="text-lg w-full">Ürün Bilgi Formu</div>
+          <div className="flex flex-col w-[100%]">
+            <form
+              onSubmit={formik.handleSubmit}
+              className="w-[100%] hidden lg:block mr-5"
+            >
+              <Input
+                name="detay_name"
+                textColor="black"
+                focusBorderColor="#adadad"
+                placeholder="Adınız Soyadınız"
+                borderColor="#adadad"
+                className="mt-2"
+                onChange={formik.handleChange}
+                value={formik.values.detay_name}
+                error={formik.errors.detay_name && formik.touched.detay_name}
+                errorText={formik.errors.detay_name}
+              />
+              <PhoneInput
+                name="telefon"
+                textColor="black"
+                focusBorderColor="#adadad"
+                borderColor="#adadad"
+                placeholder="Telefon"
+                onChange={handlePhoneChange}
+                value={formik.values.telefon}
+                error={formik.errors.telefon && formik.touched.telefon}
+                errorText={formik.errors.telefon}
+              />
+              <Input
+                name="detay_email"
+                textColor="black"
+                focusBorderColor="adadad"
+                borderColor="#adadad"
+                placeholder="E-Mail"
+                className="mt-2"
+                onChange={formik.handleChange}
+                value={formik.values.detay_email}
+                error={formik.errors.detay_email && formik.touched.detay_email}
+                errorText={formik.errors.detay_email}
+              />
+              <Textarea
+                name="mesaj"
+                focusBorderColor="adadad"
+                _placeholder={{ color: "black" }}
+                placeholder="Mesaj"
+                className="mt-2"
+                onChange={formik.handleChange}
+                value={formik.values.mesaj}
+                error={formik.errors.mesaj && formik.touched.mesaj}
+                errorText={formik.errors.mesaj}
+              ></Textarea>
+              <div className="w-full flex justify-end">
                 <Button
-                  className="w-full xl:w-[49.5%] mb-3 flex items-center justify-center !bg-[#075e54] text-white py-4 border !border-[#075e54]"
+                  type="submit"
+                  background="black"
+                  color="white"
+                  textSize={"text-sm"}
+                  className="w-full flex items-center justify-center py-2 mt-5 mb-0 lg:my-3"
+                  text={"GÖNDER"}
+                  isLoading={isLoading}
+                />
+              </div>
+            </form>
+            <div className="w-full font-thin text-center border-b border-gray-200 pb-2 mt-8">Tüm Dünyaya Teslimat Yapıyoruz</div>
+            <div className="w-[100%] mt-3">
+              <div className="flex flex-col">
+                <Button
+                  className="w-full mb-3 flex items-center justify-center !bg-[#128c7e] text-white py-4"
                   text={whatsappNumber?.data[0].whatsap}
                   color="white"
                   fontWeight={"font-normal"}
+                  textSize={"text-sm"}
                   onClick={handleWhatsappClick}
                 >
                   <WhatsappIcon
-                    size={24}
+                    size={20}
                     className="mr-2 group-hover:text-theme-color motion-safe:transition"
                   />
                 </Button>
                 <Link
                   background="transparent"
-                  className="w-full xl:w-[49.5%] flex items-center justify-center text-lg mb-3 border border-black rounded-md"
+                  className="w-full flex h-[40px] items-center justify-center text-sm mb-3 border border-black rounded-md"
                   color="black"
                   fontWeight={"font-normal"}
                   href={"tel:" + contact?.data[0].tel1}
                 >
                   <PhoneIcon
-                    size={24}
+                    size={20}
                     className="mr-2 group-hover:text-theme-color motion-safe:transition"
                   />
                   {contact?.data[0].tel1}
@@ -250,21 +256,20 @@ function InformationField({ title }) {
               <Button
                 background="transparent"
                 className="w-[100%] flex items-center justify-center py-4 border"
-                text={"MODELİ PAYLAŞ"}
+                text={"Modeli Paylaş"}
                 fontWeight={"font-normal"}
+                textSize={"text-sm"}
                 borderColor={"black"}
                 color="black"
                 onClick={handleRecommendationClick}
               >
-                <WhatsappIcon
-                  size={24}
+                <Share03Icon
+                  size={20}
                   className="mr-2 group-hover:text-theme-color motion-safe:transition"
                 />
               </Button>
-              <div></div>
-              <div className="underline"></div>
             </div>
-          </form>
+          </div>
         </Transition>
       </div>
       <StatusModal status={status} isOpen={isOpen} onClose={onClose} />

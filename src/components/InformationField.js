@@ -90,7 +90,7 @@ function InformationField() {
             <div className="flex flex-col lg:flex-row lg:justify-between">
               <Button
                 background="transparent"
-                className="w-full lg:w-[49.5%] mb-3 lg:mb-0 flex items-center justify-center py-4 border !border-[#075e54]"
+                className="w-full lg:w-[49.5%] mb-3 lg:mb-0 flex items-center justify-center py-4 border !border-[#128c7e]"
                 text={"WhatsApp: +90 549 460 30 07"}
                 onClick={onOpen}
               />
@@ -104,7 +104,7 @@ function InformationField() {
             <Button
               background="transparent"
               className="w-[100%] flex items-center justify-center py-4"
-              text={"MODELİ PAYLAŞ"}
+              text={"Modeli Paylaş"}
               onClick={onOpen}
             />
             <div></div>

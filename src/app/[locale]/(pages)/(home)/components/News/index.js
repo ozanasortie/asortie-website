@@ -55,7 +55,7 @@ export default function News({ news }) {
           </div>
         </Transition>
 
-        <Link href="/news" className="lg:hidden mt-8">
+        <Link href="/news" className="lg:hidden mt-6">
           <span className="z-30 text-md lg:text-xl last:cursor-pointer underline">
             TÜMÜNÜ GÖR
           </span>

@@ -13,7 +13,7 @@ function ProductsHeader({ data }) {
       }}
       className="w-[100%] flex items-center flex-col"
     >
-      <h1 className="font-light mt-40 mb-10 text-4xl lg:text-5xl text-center uppercase">
+      <h1 className="font-light mt-[120px] mb-10 text-4xl lg:text-5xl text-center uppercase">
         {data?.kategori}
       </h1>
       <i className="max-w-[1100px] md:max-w-[900px] w-[95%] leading-loose text-xs lg:text-[15px] mb-10 text-center">
