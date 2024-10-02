@@ -78,7 +78,7 @@ const FeaturesSection = () => {
           }}
           className="w-full flex items-center justify-center mt-8 mb-14 z-30"
         >
-          <span className="text-4xl lg:text-5xl text-center font-light">
+          <span className="text-3xl lg:text-4xl text-center font-light">
             ASORTIE AYRICALIĞI
           </span>
         </Transition>

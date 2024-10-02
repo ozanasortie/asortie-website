@@ -118,7 +118,7 @@ export default function CatalogueFormSection({ onDigitalOpen }) {
             }}
             className="flex items-center justify-center lg:mt-10 mb-10 z-30"
           >
-            <span className="text-4xl lg:text-5xl text-center font-light">
+            <span className="text-3xl lg:text-4xl text-center font-light">
               BİZE ULAŞIN
             </span>
           </motion.div>

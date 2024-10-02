@@ -1,4 +1,4 @@
-const BASE_URL = "https://asortie.com/json/";
+const BASE_URL = "https://www.asortie.com/json/";
 
 export async function fetchNews(lang) {
   const response = await fetch(`${BASE_URL}/news_all?dil=${lang}_&sira=0`);

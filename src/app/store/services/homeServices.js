@@ -67,12 +67,11 @@ export const {
   useCatalogueRequestMutation,
 } = homeApi;
 
-const BASE_URL = "https://asortie.com/json/";
+const BASE_URL = "https://www.asortie.com/json/";
 
 // Fetch yeni ürünleri
 export async function fetchNewProducts(lang) {
   const response = await fetch(`${BASE_URL}/new_products?dil=${lang}_`);
-  console.log("RES", response);
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
@@ -92,13 +91,11 @@ export async function fetchNews(lang) {
 export async function fetchBlogs(lang) {
   try {
     const response = await fetch(`${BASE_URL}/blogs?dil=${lang}_`);
-    console.log("RESPONSE", response);
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
     return await response.json();
   } catch (error) {
-    console.log("BLOGS RES ERR", error);
   }
 }
 

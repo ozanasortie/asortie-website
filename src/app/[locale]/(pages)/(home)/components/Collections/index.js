@@ -24,7 +24,7 @@ export default function Collections() {
         }}
         className="w-full flex items-center justify-between mt-10 mb-8 lg:mb-10 z-30"
       >
-        <span className="text-4xl lg:text-5xl text-center w-full lg:w-auto lg:text-start font-light">
+        <span className="text-3xl lg:text-4xl text-center w-full lg:w-auto lg:text-start font-light">
           KOLEKSİYON
         </span>
 
@@ -49,7 +49,6 @@ export default function Collections() {
       >
         {categories.data &&
           categories.data.slice(0, 4).map((item, index) => {
-            console.log("item", item);
             return (
               <CollectionItem
                 href={"/collection" + "/" + item.url}

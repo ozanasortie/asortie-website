@@ -1,8 +1,3 @@
-"use client";
-import { motion } from "framer-motion";
-import { useFormik } from "formik";
-import * as Yup from "yup";
-import { useDisclosure } from "@chakra-ui/react";
 import {
   Clock01Icon,
   CustomerSupportIcon,
@@ -11,33 +6,17 @@ import {
 } from "hugeicons-react";
 import Image from "next/image";
 import Link from "next/link";
-import useIsSafari from "@/hooks/useIsSafari";
-import Input from "@components/Input";
-import Textarea from "@/components/Textarea";
-import Button from "@components/Button";
-import StatusModal from "@/components/StatusModal";
-import PhoneInput from "@/components/PhoneInput";
-import { usePostContactMutation } from "@services/homeServices";
 import FormBackground from "@/assets/form-background.png";
+import BackgroundSection from "@/components/Background";
+import Transition from "@/components/Transition";
+import ContactForm from "./ContactForm";
+
 import eng from "@assets/icons/flags/eng.png";
 import turkey from "@assets/icons/flags/turkey.png";
 import arab from "@assets/icons/flags/arab.png";
 import france from "@assets/icons/flags/france.png";
 import russia from "@assets/icons/flags/russia.png";
 import nigeria from "@assets/icons/flags/nigeria.png";
-
-const validationSchema = Yup.object({
-  name: Yup.string().required("Ad Soyad alanı gereklidir"),
-  email: Yup.string()
-    .email("Geçersiz email adresi")
-    .required("Email alanı gereklidir"),
-  tel: Yup.string()
-    .matches(/^[0-9]+$/, "Telefon numarası sadece rakamlar içermelidir")
-    .min(10, "Telefon numarası en az 10 haneli olmalıdır")
-    .max(15, "Telefon numarası en fazla 15 haneli olmalıdır")
-    .required("Telefon numarası gereklidir"),
-  message: Yup.string().required("Mesaj alanı gereklidir"),
-});
 
 const ContactInfo = () => (
   <div className="flex flex-col lg:flex-row lg:justify-around w-full max-w-[1400px]">
@@ -65,7 +44,7 @@ const ContactInfo = () => (
 );
 
 const SupportCard = ({ icon, title, description, delay }) => (
-  <motion.div
+  <Transition
     transition={{ duration: 1.2, delay }}
     initial="hidden"
     whileInView="visible"
@@ -80,48 +59,10 @@ const SupportCard = ({ icon, title, description, delay }) => (
       {title}
     </div>
     <div className="mt-4 text-sm">{description}</div>
-  </motion.div>
+  </Transition>
 );
 
-const WhatsappNumbers = () => {
-  const whatsappNumbers = [
-    {
-      language: "İngilizce",
-      numbers: ["+1 234 567 8901", "+1 234 567 8902"],
-      flag: eng,
-      delay: 0.2,
-    },
-    {
-      language: "Türkçe",
-      numbers: ["+90 123 456 7890", "+90 123 456 7891"],
-      flag: turkey,
-      delay: 0.4,
-    },
-    {
-      language: "Arapça",
-      numbers: ["+20 123 456 7890", "+20 123 456 7891"],
-      flag: arab,
-      delay: 0.6,
-    },
-    {
-      language: "Rusça",
-      numbers: ["+33 1 23 45 67 89", "+33 1 23 45 67 90"],
-      flag: russia,
-      delay: 0.8,
-    },
-    {
-      language: "Fransızca",
-      numbers: ["+33 1 23 45 67 89", "+33 1 23 45 67 90"],
-      flag: france,
-      delay: 1,
-    },
-    {
-      language: "Hausaca",
-      numbers: ["+234 123 456 7890", "+234 123 456 7891"],
-      flag: nigeria,
-      delay: 1.2,
-    },
-  ];
+const WhatsappNumbers = ({ whatsappNumbers }) => {
   return (
     <div className="flex-col mt-10">
       <div className="w-full text-xl mb-6">
@@ -137,7 +78,7 @@ const WhatsappNumbers = () => {
 };
 
 const WhatsappCard = ({ item }) => (
-  <motion.div
+  <Transition
     transition={{ duration: 1, delay: item.delay }}
     initial="hidden"
     whileInView="visible"
@@ -166,138 +107,57 @@ const WhatsappCard = ({ item }) => (
         </Link>
       ))}
     </div>
-  </motion.div>
+  </Transition>
 );
 
-const ContactForm = () => {
-  const isSafari = useIsSafari();
-  const [postContact, { isLoading, isError, isSuccess }] =
-    usePostContactMutation();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const formik = useFormik({
-    initialValues: {
-      name: "",
-      email: "",
-      tel: "",
-      message: "",
-    },
-    validationSchema,
-    onSubmit: async (values) => {
-      try {
-        await postContact(values).unwrap();
-        onOpen();
-        formik.resetForm();
-      } catch (error) {
-        onOpen();
-      }
-    },
-  });
-
-  const handlePhoneChange = (value) => {
-    const formattedValue = value.replace(/\D/g, "");
-    formik.setFieldValue("tel", formattedValue);
+const transformWhatsappData = (data) => {
+  const languages = {
+    tr: { name: "Türkçe", flag: turkey },
+    en: { name: "İngilizce", flag: eng },
+    fr: { name: "Fransızca", flag: france },
+    arp: { name: "Arapça", flag: arab },
+    ru: { name: "Rusça", flag: russia },
   };
 
-  const status = isSuccess ? "success" : isError ? "error" : "";
+  const transformed = {};
 
-  return (
-    <motion.div
-      transition={{ duration: 1 }}
-      initial="hidden"
-      whileInView="visible"
-      variants={{
-        visible: { opacity: 1, x: 0 },
-        hidden: { opacity: 0, x: 90 },
-      }}
-      className="w-full mt-10 lg:mt-0 md:w-[40%] z-30 flex flex-col items-center text-white"
-    >
-      <span className="w-full text-3xl lg:text-4xl mb-2">Bize Ulaşın</span>
-      <form
-        onSubmit={formik.handleSubmit}
-        className="w-full flex flex-col items-center"
-      >
-        <Input
-          name="name"
-          borderColor="white"
-          color="white"
-          placeholder="Adınız Soyadınız"
-          className="mt-3"
-          onChange={formik.handleChange}
-          value={formik.values.name}
-          error={formik.errors.name && formik.touched.name}
-          errorText={formik.errors.name}
-        />
-        <Input
-          name="email"
-          borderColor="white"
-          color="white"
-          placeholder="E-Mail Adresiniz"
-          className="mt-4"
-          onChange={formik.handleChange}
-          value={formik.values.email}
-          error={formik.errors.email && formik.touched.email}
-          errorText={formik.errors.email}
-        />
-        <PhoneInput
-          name="tel"
-          textColor="white"
-          borderColor="white"
-          focusBorderColor="white"
-          placeholder="Telefon"
-          color="white"
-          containerStyle="mt-2"
-          inputClassName="!bg-transparent !text-white !border-white"
-          buttonClassName="!bg-transparent !border-white"
-          onChange={handlePhoneChange}
-          value={formik.values.tel}
-          error={formik.errors.tel && formik.touched.tel}
-          errorText={formik.errors.tel}
-        />
-        <Textarea
-          name="message"
-          borderColor="white"
-          color="white"
-          placeholder="Mesajınız"
-          className="mt-4"
-          textColor="white"
-          onChange={formik.handleChange}
-          value={formik.values.message}
-          error={formik.errors.message && formik.touched.message}
-          errorText={formik.errors.message}
-        />
-        <Button
-          isLoading={isLoading}
-          type="submit"
-          background="white"
-          color="black"
-          className="w-full flex items-center justify-center py-4 mt-5"
-          text={"GÖNDER"}
-        />
-      </form>
-      <StatusModal status={status} isOpen={isOpen} onClose={onClose} />
-    </motion.div>
-  );
+  for (const key in data) {
+    const match = key.match(/^(w_)([a-z]{2})(_\d+)?$/);
+    if (match) {
+      const langCode = match[2];
+      const number = data[key].trim();
+      if (!transformed[langCode]) {
+        transformed[langCode] = {
+          language: languages[langCode].name,
+          flag: languages[langCode].flag,
+          numbers: [],
+        };
+      }
+      if (number) {
+        transformed[langCode].numbers.push(number);
+      }
+    }
+  }
+
+  return Object.values(transformed);
 };
 
-export default function FormField() {
-  const isSafari = useIsSafari();
+export default function FormField({ whatsappNumbers }) {
+  const numbers = transformWhatsappData(whatsappNumbers);
 
   return (
-    <div
-      className={`w-full bg-cover bg-center relative p-4 lg:p-10 py-20 lg:pb-24 flex flex-col items-center lg:justify-center text-white pt-32 lg:!pt-44 ${
-        isSafari ? "" : "bg-fixed"
-      }`}
-      style={{ backgroundImage: `url(${FormBackground.src})` }}
+    <BackgroundSection
+      background={FormBackground.src}
+      className={`w-full p-4 lg:p-10 py-20 lg:pb-24 flex flex-col items-center lg:justify-center text-white pt-32 lg:!pt-44`}
     >
       <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-60 z-20" />
       <div className="w-full max-w-[1400px] bg-cover bg-center bg-no-repeat relative flex flex-col md:flex-row items-start md:justify-around pb-10 z-30">
         <div className="flex flex-col justify-center md:w-[50%]">
           <ContactInfo />
-          <WhatsappNumbers />
+          <WhatsappNumbers whatsappNumbers={numbers} />
         </div>
         <ContactForm />
       </div>
-    </div>
+    </BackgroundSection>
   );
 }

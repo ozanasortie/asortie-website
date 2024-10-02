@@ -35,7 +35,7 @@ export const {
 } = categoriesApi;
 export default categoriesSlice.reducer;
 
-const BASE_URL = "https://asortie.com/json/";
+const BASE_URL = "https://www.asortie.com/json/";
 
 export async function fetchCategories(lang) {
   const response = await fetch(`${BASE_URL}/categories?dil=${lang}_`);

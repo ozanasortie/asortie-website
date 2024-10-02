@@ -8,7 +8,8 @@ export default function ListProduct({
   image,
   title,
   secondVariant,
-  secondImage, // New prop for the second image
+  secondImage,
+  gif,
 }) {
   return (
     <Link
@@ -28,24 +29,39 @@ export default function ListProduct({
         className="box-border w-full flex flex-col items-center justify-center text-2xl"
       >
         <div className="relative w-full aspect-[16/9] overflow-hidden">
-          {/* Primary image */}
+          {/* Ana resim her zaman gösteriliyor */}
           <Image
             src={image}
             width={1920}
             height={1080}
             objectFit="cover"
             alt={title}
-            className="transform transition-transform duration-1000"
+            className="transform transition-transform duration-1000 group-hover:scale-110"
           />
-          {/* Secondary image with fade effect */}
-          <Image
-            src={secondImage} // New second image prop
-            width={1920}
-            height={1080}
-            objectFit="cover"
-            alt={`${title} - second image`}
-            className="absolute inset-0 transition-opacity opacity-0 group-hover:opacity-100 group-hover:scale-100 transform duration-500"
-          />
+
+          {/* GIF var mı kontrol et, fare üzerine gelindiğinde gösterilecek */}
+          {gif && gif.length > 0 && (
+            <Image
+              src={gif}
+              width={1920}
+              height={1080}
+              objectFit="cover"
+              alt={`${title} GIF`}
+              className="absolute inset-0 z-30 transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+            />
+          )}
+
+          {/* İkinci resim var mı kontrol et, fare üzerine gelindiğinde gösterilecek */}
+          {secondImage && secondImage.length > 0 && (
+            <Image
+              src={secondImage}
+              width={1920}
+              height={1080}
+              objectFit="cover"
+              alt={`${title} - second image`}
+              className="absolute inset-0 transition-opacity duration-500 opacity-0 group-hover:opacity-100"
+            />
+          )}
         </div>
         <div
           className={`text-0 text-center font-light text-xl lg:text-[20px] relative w-full ${

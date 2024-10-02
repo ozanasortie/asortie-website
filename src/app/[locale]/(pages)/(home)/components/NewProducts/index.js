@@ -17,7 +17,7 @@ const NewProducts = ({ products }) => {
           }}
           className="w-full flex items-center justify-center lg:mt-10"
         >
-          <span className="text-4xl lg:text-5xl mb-2 text-center lg:text-start font-light">
+          <span className="text-3xl lg:text-4xl mb-2 text-center lg:text-start font-light">
             YENİ MODELLER
           </span>
         </Transition>

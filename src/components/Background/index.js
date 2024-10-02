@@ -2,7 +2,6 @@
 import React from "react";
 import useIsSafari from "../../hooks/useIsSafari";
 const BackgroundSection = ({ children, className = "", background }) => {
-  console.log("BACGRKOUND", background);
   const isSafari = useIsSafari();
 
   return (

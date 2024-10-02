@@ -12,7 +12,7 @@ function CollectionHeader() {
       }}
       className="w-[100%] flex items-center flex-col"
     >
-      <h1 className="font-light mt-40 mb-10 text-5xl lg:text-6xl text-center">
+      <h1 className="font-light mt-32 mb-10 text-5xl lg:text-6xl text-center">
         KOLEKSİYON
       </h1>
       <i className="max-w-[1100px] md:max-w-[900px] w-[95%] leading-loose lg:text-[16px] mb-6 text-center">

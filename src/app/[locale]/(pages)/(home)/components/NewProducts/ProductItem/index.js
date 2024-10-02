@@ -16,7 +16,7 @@ const ProductItem = ({ image, href, title }) => {
           className="transition-transform duration-1000 transform group-hover:scale-110"
         />
       </div>
-      <div className="w-full p-4 bg-white text-center text-2xl lg:text-[20px]">
+      <div className="w-full p-4 bg-white text-center text-[20px]">
         <h2 className="font-light">{title}</h2>
       </div>
     </Link>

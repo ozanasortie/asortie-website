@@ -41,7 +41,7 @@ export const {
 } = generalApi;
 export default generalSlice.reducer;
 
-const BASE_URL = "https://asortie.com/json/";
+const BASE_URL = "https://www.asortie.com/json/";
 
 export async function fetchCorporate(lang) {
   const response = await fetch(`${BASE_URL}/institutional?dil=${lang}_`);
@@ -51,10 +51,16 @@ export async function fetchCorporate(lang) {
   return await response.json();
 }
 
+export async function fetchCustomerService(lang) {
+  const response = await fetch(`${BASE_URL}/customer_service?dil=${lang}_`);
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return await response.json();
+}
+
 export async function fetchSearchResult(lang, key) {
-  console.log("lang", lang, "key", key);
   const response = await fetch(`${BASE_URL}/search?q=${key}&dil=${lang}_`);
-  console.log("response", response);
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }

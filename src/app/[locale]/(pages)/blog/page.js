@@ -4,6 +4,7 @@ import BannerSection from "./components/BannerSection";
 import Loading from "@/components/Loading";
 
 import { fetchBlogs, fetchFeaturedBlogs } from "@services/blogService";
+import HiddenHeader from "@/components/HiddenHeader";
 
 export async function generateMetadata({ params }) {
   const pageTitle = "Asortie | Blog";
@@ -24,18 +25,16 @@ export async function generateMetadata({ params }) {
 export default async function Blog({ params }) {
   const { locale } = params;
 
-  const blogs = await fetchBlogs(locale);
   const featureds = await fetchFeaturedBlogs(locale);
-
-  if (!blogs) return <Loading />;
 
   return (
     <div
       className={`bg-cover bg-center bg-no-repeat relative flex flex-col items-center lg:justify-around text-white`}
     >
-      <BannerSection featureds={featureds} />
+      <HiddenHeader/>
       <BlogsHeader />
-      <BlogList blogs={blogs} />
+      <BannerSection featureds={featureds} />
+      <BlogList />
     </div>
   );
 }

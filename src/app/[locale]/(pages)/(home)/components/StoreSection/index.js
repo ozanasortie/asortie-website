@@ -19,7 +19,7 @@ const StoreSection = () => {
         }}
         className="z-30 text-2xl text-center text-white"
       >
-        <h1 className="text-3xl text-center lg:text-start lg:text-6xl my-4 mb-5 [text-shadow:_2px_2px_4px_rgb(0_0_0_/_70%)]">
+        <h1 className="text-3xl text-center lg:text-start lg:text-5xl my-4 mb-5 [text-shadow:_2px_2px_4px_rgb(0_0_0_/_70%)]">
           MÜKEMMELİN MEKÂNA YANSIMASI
         </h1>
       </Transition>
@@ -39,7 +39,7 @@ const StoreSection = () => {
         href="https://cdn.mekan360.com/sanaltur_isletme/turkey/istanbul/basaksehir/basaksehir_istanbul_asortie_mobilya/basaksehir_istanbul_asortie_mobilya.html"
         target="_blank"
         rel="noopener noreferrer"
-        className="cursor-pointer mt-10 bg-[rgba(0,0,0,0.5)] text-white border-2 border-white rounded-md p-3 lg:p-5 z-30 text-sm lg:text-xl text-center hover:text-theme-color motion-safe:transition hover:scale-105 duration-500"
+        className="cursor-pointer mt-10 bg-[rgba(0,0,0,0.5)] text-white border-2 border-white rounded-md p-3 lg:p-4 z-30 text-sm lg:text-lg text-center hover:text-theme-color motion-safe:transition hover:scale-105 duration-500"
       >
         360 DERECE DENEYİMLE KEŞFET
       </a>

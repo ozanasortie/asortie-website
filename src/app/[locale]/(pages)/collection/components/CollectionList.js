@@ -3,9 +3,8 @@ import CollectionItem from "./CollectionItem";
 function CollectionList({ categories }) {
   return (
     <>
-      {categories.data &&
-        categories.data.map((item) => {
-          console.log("item", item);
+      {categories.koleksiyon &&
+        categories.koleksiyon.map((item) => {
           return (
             <CollectionItem
               href={"/collection" + "/" + item.url}

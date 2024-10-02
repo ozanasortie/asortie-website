@@ -1,5 +1,4 @@
 import Transition from "@/components/Transition";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -31,7 +30,7 @@ export default function ListBlog({
             layout="fill"
             objectFit="cover"
             alt={title}
-            className="transform transition-transform duration-1000 group-hover:scale-110"
+            className="transform transition-transform duration-1000 group-hover:scale-110 rounded-md"
           />
         </div>
         <div className="p-4 bg-white">

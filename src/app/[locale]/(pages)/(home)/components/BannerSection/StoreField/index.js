@@ -23,20 +23,20 @@ export default function StoreField({ onOpen }) {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="text-center font-light text-[28px] lg:text-4xl xl:text-6xl w-full z-30 [text-shadow:_2px_2px_10px_rgb(0_0_0_/_50%)] mb-8"
+        className="text-center font-light text-[32px] lg:text-4xl xl:text-5xl w-full z-30 [text-shadow:_2px_2px_10px_rgb(0_0_0_/_50%)] mb-8"
       >
         GELECEĞİN ANTİKALARI
       </motion.div>
       <Button
         className={
-          "!bg-transparent flex items-center w-[200px] py-2 border-2 border-white h-[44px]"
+          "!bg-[rgba(0,0,0,0.5)] flex items-center w-[200px] py-2 border-2 border-white h-[44px]"
         }
         background="white"
         color="white"
         onClick={() => onOpen()}
       >
         {/* <Image width={25} className="mr-3" src={CatalogueGold} /> */}
-        <span className="font-normal text-lg">KATALOG İNDİR</span>
+        <span className="font-normal text-lg">Katalog İndir</span>
       </Button>
     </motion.div>
   );

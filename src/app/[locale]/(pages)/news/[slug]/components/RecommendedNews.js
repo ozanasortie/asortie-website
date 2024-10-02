@@ -25,11 +25,11 @@ function RecommendedNews({ data }) {
           }}
           className="text-black font-light text-center lg:text-5xl xl:text-5xl mb-10"
         >
-          <h1 className="text-4xl text-center lg:text-start lg:text-5xl my-4 lg:mb-5 uppercase">
+          <h1 className="text-3xl text-center lg:text-start lg:text-4xl my-4 lg:mb-2 uppercase">
             İLGİNİZİ ÇEKEBİLECEK HABERLERİMİZ
           </h1>
         </Transition>
-        <div className="w-full max-md:hidden lg:grid gap-4 grid-cols-3 px-4">
+        <div className="w-full max-md:hidden lg:grid gap-4 grid-cols-3">
           {data?.data?.map((item) => {
             return (
               <ListBlog

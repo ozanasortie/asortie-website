@@ -25,11 +25,10 @@ export const {
   useGetRecommendedBlogsQuery,
 } = blogsApi;
 
-const BASE_URL = "https://asortie.com/json/";
+const BASE_URL = "https://www.asortie.com/json/";
 
 export async function fetchBlogs(lang) {
   const response = await fetch(`${BASE_URL}/blogs?dil=${lang}_&sira=0`);
-  console.log("LANG", lang);
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }

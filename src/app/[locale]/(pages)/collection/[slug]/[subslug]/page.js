@@ -17,10 +17,11 @@ export async function generateMetadata({ params }) {
   const { locale, slug, subslug } = params;
   const data = await fetchProductDetail({ slug: subslug, lang: locale });
 
-  const pageTitle = data.Urunler[0].seo_baslik;
-  const pageDescription = data.Urunler[0].seo_aciklama;
-  const pageKeywords = data.Urunler[0].seo_anaktar;
-  const pageImage = data.Resimler[0].resim;
+  const pageTitle = data.Urunler[0]?.seo_baslik || "Asortie Mobilya";
+  const pageDescription =
+    data.Urunler[0]?.seo_aciklama || "Asortie Mobilya Ürün Detay";
+  const pageKeywords = data.Urunler[0]?.seo_anaktar;
+  const pageImage = data.Resimler[0]?.resim;
 
   return {
     title: pageTitle,
@@ -42,6 +43,10 @@ export default async function ProductDetail({ params }) {
 
   if (!data) return <Loading />;
 
+  const imagesWithVideo = data.Urunler[0].video && data.Urunler[0].video.trim() !== ""
+  ? [{ resim: data.Urunler[0].video }, ...data.Resimler]
+  : [...data.Resimler];
+
   return (
     <div className="w-full relative flex flex-col items-center pb-16 overflow-x-hidden pt-24">
       <HiddenHeader />
@@ -51,11 +56,11 @@ export default async function ProductDetail({ params }) {
           "Estetik ve konforu bir arada sunduğumuz bu tasarımı, zarafet ve işlevselliği mükemmel şekilde harmanlayarak tüm dünyaya ulaştırıyoruz."
         }
       />
-      <Transition className="w-[90%] bg-cover bg-center bg-no-repeat flex lg:flex-row mt-7 lg:mt-0 lg:justify-center text-black p-4">
-        <ImageProvider images={data.Resimler} />
-        <div className="w-full ml-5 flex-col-reverse lg:flex-col">
+      <Transition className="w-[90%] bg-cover bg-center bg-no-repeat flex flex-col lg:flex-row mt-7 lg:mt-0 lg:justify-center text-black p-4">
+        <ImageProvider images={imagesWithVideo} />
+        <div className="w-full lg:w-[24%] mt-10 lg:mt-0 ml-5 flex-col-reverse lg:flex-col">
           <div
-            className="lg:hidden text-start w-[100%] px-6 text-gray-800 my-4"
+            className="lg:hidden text-start w-[100%] text-gray-800 my-4"
             dangerouslySetInnerHTML={{ __html: data.Urunler[0].urun_detayi }}
           />
           <InformationField title={data.Urunler[0].urun_adi} />

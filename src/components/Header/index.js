@@ -12,6 +12,7 @@ import SearchSection from "./SearchSection";
 import LocalSwitcher from "./LocalSwitcher";
 import MobileMenu from "./MobileMenu";
 import CollectionMenu from "./CollectionMenu";
+import DecorationMenu from "./DecorationMenu";
 import Corporate from "./Corporate";
 
 import logo from "@assets/logo.png";
@@ -51,16 +52,14 @@ export default function Header() {
             small ? styles.navSmall : ""
           } ${navStyle}`}
         >
-          <MobileMenu categories={categories.data} isSmall={small} />
+          <MobileMenu categories={categories.koleksiyon} isSmall={small} />
           <div className={styles.left}>
             <div className={styles.desktopItems}>
               <NavLink className={styles.navLink} href="/">
                 {t("home")}
               </NavLink>
-              <CollectionMenu data={categories.data} />
-              <NavLink className={styles.navLink} href="/news">
-                DEKORASYON
-              </NavLink>
+              <CollectionMenu data={categories.koleksiyon} />
+              <DecorationMenu data={categories.dekorasyon} />
             </div>
           </div>
           <Link className="mx-10" href={"/"}>

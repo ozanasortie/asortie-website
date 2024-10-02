@@ -1,5 +1,4 @@
 import ListProduct from "@components/ListProduct";
-import SecondImage from "@assets/sample-2.jpg";
 
 function ProductList({ slug, products }) {
   return (
@@ -8,10 +7,12 @@ function ProductList({ slug, products }) {
         products.map((item) => {
           return (
             <ListProduct
+              key={item.id}
               href={"/collection/" + slug + "/" + item.id}
-              image={item.resim}
-              secondImage={SecondImage.src}
+              image={item.resim1}
+              secondImage={item.resim2}
               title={item.urun_adi}
+              gif={item.gif}
             />
           );
         })}

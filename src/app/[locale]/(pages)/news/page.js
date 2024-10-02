@@ -25,7 +25,6 @@ export default async function Blog({ params }) {
   const { locale } = params;
 
   const news = await fetchNews(locale);
-  console.log("NEWS", news);
 
   if (!news) return <Loading />;
 

@@ -74,7 +74,7 @@ export default async function Footer({ locale }) {
         <div className="w-[95%] h-[360px] xl:w-[70%] flex flex-col items-start justify-between text-white">
           <div className="mb-8">
             <div className="z-30 max-w-[1600px] w-full p-4 text-white leading-6 grid grid-cols-3 lg:grid-cols-6">
-              {categories.data.map((item) => {
+              {categories.koleksiyon.map((item) => {
                 return (
                   <NavLink
                     key={"collection-" + item.id}

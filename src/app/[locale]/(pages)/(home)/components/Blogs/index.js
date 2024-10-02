@@ -19,7 +19,7 @@ export default function Blogs({ blogs }) {
           }}
           className="w-full flex items-center justify-center lg:justify-between my-10 z-30"
         >
-          <span className="text-4xl lg:text-5xl text-center lg:text-start font-light">
+          <span className="text-3xl lg:text-4xl text-center lg:text-start font-light">
             BLOG
           </span>
 
@@ -40,10 +40,9 @@ export default function Blogs({ blogs }) {
           className="w-full flex items-center justify-center"
         >
           <BlogSlider blogs={blogs} />
-          <div className="max-md:hidden w-full flex gap-6 place-content-center place-items-start">
+          <div className="max-md:hidden w-full flex gap-2 place-content-center place-items-start">
             {blogs?.data &&
               blogs?.data?.slice(0, 3).map((item) => {
-                console.log("item", item);
                 return (
                   <BlogItem
                     imageBaseUrl={blogs.image_url}

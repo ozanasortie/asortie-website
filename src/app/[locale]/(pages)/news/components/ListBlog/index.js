@@ -11,7 +11,6 @@ export default function ListBlog({
   imageBaseUrl,
   width = "w-full",
 }) {
-  console.log("width", width);
   return (
     <Link
       href={href}
@@ -26,7 +25,7 @@ export default function ListBlog({
         }}
         className="flex flex-col w-full h-full"
       >
-        <div className="relative w-full aspect-[4/3] overflow-hidden">
+        <div className="relative w-full aspect-[16/9] overflow-hidden">
           <Image
             src={imageBaseUrl + image}
             layout="fill"
@@ -36,7 +35,7 @@ export default function ListBlog({
           />
         </div>
         <div className="p-4 bg-white">
-          <h2 className="text-xl lg:text-2xl text-black mb-2">{title}</h2>
+          <h2 className="font-light text-xl lg:text-[20px] text-title-color mb-2">{title}</h2>
           <p className="text-sm lg:text-base text-gray-600 line-clamp-2">
             {description}
           </p>

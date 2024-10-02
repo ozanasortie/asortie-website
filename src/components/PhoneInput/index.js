@@ -35,7 +35,7 @@ export default function PhoneInput({
         placeholder={placeholder}
         focusBorderColor={focusBorderColor}
         width={width}
-        inputClassName={`w-full !h-[40px] !text-[13px] !text-base !border-[#adadad] ${inputClassName}`}
+        inputClassName={`w-full !h-[40px] !text-[13px] !text-sm !border-[#adadad] ${inputClassName}`}
         countrySelectorStyleProps={{
           className: "!h-[40px] !text-[13px] ",
           buttonClassName:
