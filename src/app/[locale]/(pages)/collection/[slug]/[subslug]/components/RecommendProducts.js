@@ -1,4 +1,4 @@
-import Slider from "@components/Slider";
+import SliderProvider from "@components/Slider";
 import ListProduct from "@components/ListProduct";
 
 import Transition from "@/components/Transition";
@@ -8,15 +8,14 @@ function RecommendedProducts({ data }) {
     centerMode: true,
     centerPadding: "40px",
     infinite: true,
-    speed: 1500,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,
   };
 
   return (
     <>
-      <div className="z-30 flex flex-col items-center mt-8 w-[90%]">
+      <div className="z-30 flex flex-col items-center mt-8 w-[85%]">
         <Transition
           transition={{ duration: 0.8, delay: 0.2 }}
           initial="hidden"
@@ -31,7 +30,7 @@ function RecommendedProducts({ data }) {
             İLGİNİZİ ÇEKEBİLECEK MODELLER
           </h1>
         </Transition>
-        <div className="w-full hidden lg:grid gap-4 grid-cols-3">
+        <div className="w-full hidden md:grid gap-4 grid-cols-3 place-items-start">
           {data.data?.map((item) => {
             return (
               <ListProduct
@@ -46,20 +45,25 @@ function RecommendedProducts({ data }) {
         </div>
       </div>
 
-      <Slider className="z-30 w-full md:hidden overflow-hidden" {...settings}>
+      <SliderProvider
+        className="z-30 w-full md:hidden overflow-hidden"
+        settings={settings}
+      >
         {data.data?.map((item) => {
           return (
-            <ListProduct
-              secondVariant
-              key={item.id}
-              image={item.resim}
-              title={item.urun_adi}
-              href={"/collection/" + item.slug + "/" + item.id}
-              width="w-[97%]"
-            />
+            <div className="w-full flex items-center justify-center">
+              <ListProduct
+                width="w-[95%]"
+                secondVariant
+                key={item.id}
+                image={item.resim}
+                title={item.urun_adi}
+                href={"/collection/" + item.slug + "/" + item.id}
+              />
+            </div>
           );
         })}
-      </Slider>
+      </SliderProvider>
     </>
   );
 }

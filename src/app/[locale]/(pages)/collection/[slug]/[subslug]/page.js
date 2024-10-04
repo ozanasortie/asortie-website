@@ -58,7 +58,7 @@ export default async function ProductDetail({ params }) {
       />
       <Transition className="w-[90%] bg-cover bg-center bg-no-repeat flex flex-col lg:flex-row mt-7 lg:mt-0 lg:justify-center text-black p-4">
         <ImageProvider images={imagesWithVideo} />
-        <div className="w-full lg:w-[24%] mt-10 lg:mt-0 ml-5 flex-col-reverse lg:flex-col">
+        <div className="w-full lg:w-[24%] mt-10 lg:mt-0 lg:ml-5 flex-col-reverse lg:flex-col">
           <div
             className="lg:hidden text-start w-[100%] text-gray-800 my-4"
             dangerouslySetInnerHTML={{ __html: data.Urunler[0].urun_detayi }}

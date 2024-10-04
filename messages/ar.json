@@ -3,6 +3,14 @@
       "title": "Merhaba Dünya!"
     },
     "Header": {
-       "home": "Anasayfa"
+       "home": "Anasayfa",
+       "collection": "Koleksiyon",
+       "decoration": "Dekorasyon",
+       "corporate": "Kurumsal",
+       "news": "Haberler",
+       "contact": "İletişim"
+    },
+    "Corporate": {
+      "about_asortie": "Asortie Hakkında"
     }
   }

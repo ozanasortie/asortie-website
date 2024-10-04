@@ -13,7 +13,7 @@ export default function ListProduct({
 }) {
   return (
     <Link
-      className={`box-border !${width} cursor-pointer relative overflow-hidden flex items-center justify-center text-2xl group ${
+      className={`box-border ${width} cursor-pointer relative overflow-hidden flex items-center justify-center text-2xl group ${
         secondVariant ? "rounded-none" : "rounded-md"
       }`}
       href={href}

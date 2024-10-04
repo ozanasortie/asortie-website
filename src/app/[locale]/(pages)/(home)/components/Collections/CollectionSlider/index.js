@@ -25,8 +25,8 @@ function CollectionSlider({ categories }) {
       className="md:hidden w-full flex flex-wrap items-center justify-center z-30"
     >
       <Slider className="z-30 w-full" {...settings}>
-        {categories.data &&
-          categories.data.slice(0, 4).map((item, index) => {
+        {categories && categories.koleksiyon &&
+          categories.koleksiyon.slice(0, 4).map((item, index) => {
             const categoryName = kebabCase(item.kategori);
             return (
               <CollectionItem

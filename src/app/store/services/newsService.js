@@ -33,3 +33,12 @@ export async function fetchRecommendedNews(lang) {
   }
   return await response.json();
 }
+
+export async function fetchFeaturedNews(lang) {
+  const response = await fetch(`${BASE_URL}/news_backgrounds?dil=${lang}_`);
+  if (!response.ok) {
+    throw new Error("Network response was not ok");
+  }
+  return await response.json();
+}
+

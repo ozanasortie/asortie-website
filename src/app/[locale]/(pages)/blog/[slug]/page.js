@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import {
   fetchBlogDetail,
   fetchMostReadedBlogs,
@@ -13,6 +14,13 @@ import Transition from "@components/Transition";
 export async function generateMetadata({ params }) {
   const { locale, slug } = params;
   const blog = await fetchBlogDetail({ slug, lang: locale });
+
+  if (!blog || blog.data.length === 0) {
+    return {
+      title: "404 - Sayfa Bulunamadı",
+      description: "Aradığınız blog bulunamadı",
+    };
+  }
 
   const pageTitle = blog?.data[0]?.baslik || "Blog Page";
   const pageDescription = blog?.data[0]?.ozet || "";
@@ -32,10 +40,28 @@ export async function generateMetadata({ params }) {
 async function Page({ params }) {
   const { locale, slug } = params;
   const blog = await fetchBlogDetail({ slug, lang: locale });
+
+  if (!blog || blog.data.length === 0) {
+    return notFound();
+  }
+
   const mostReadeds = await fetchMostReadedBlogs(locale);
   const recommendedBlogs = await fetchRecommendedBlogs(locale);
 
-  if (!blog || !mostReadeds || !recommendedBlogs) return <Loading />;
+  const baseUrl = "https://www.asortie.com";
+
+  const updateImageSrc = (htmlContent) => {
+    return htmlContent.replace(/<img\s+[^>]*src="([^"]+)"/g, (match, src) => {
+      if (!src.startsWith("http") && !src.startsWith("https")) {
+        return match.replace(src, baseUrl + src);
+      }
+      return match;
+    });
+  };
+
+  const updatedContent = updateImageSrc(blog.data[0].icerik || "");
+
+  if (!mostReadeds || !recommendedBlogs) return <Loading />;
 
   return (
     <div className="w-full pt-36 pb-10 bg-cover min-h-full bg-center bg-no-repeat relative flex flex-col items-center justify-center text-white">
@@ -71,7 +97,7 @@ async function Page({ params }) {
               visible: { opacity: 1, x: 0 },
               hidden: { opacity: 0, x: 50 },
             }}
-            className="w-[80%] mb-6"
+            className="w-[95%] lg:w-[80%] mb-6"
           >
             <Image
               width={300}
@@ -82,13 +108,12 @@ async function Page({ params }) {
             />
           </Transition>
 
-          <div className="w-[80%] flex justify-between">
+          <div className="w-[95%] lg:w-[80%] flex justify-between">
             <div
-              className="text-start w-[72%] text-gray-800"
-              dangerouslySetInnerHTML={{ __html: blog.data[0].icerik }}
+              className="text-start w-full lg:w-[72%] text-gray-800"
+              dangerouslySetInnerHTML={{ __html: updatedContent }}
             />
             <div className="w-[25%] max-w-[400px] max-xl:hidden h-fit flex items-center flex-col bg-white text-black">
-              {/* <h1 className="w-full text-center text-3xl py-4">ÇOK OKUNANLAR</h1> */}
               {mostReadeds.data.map((item) => (
                 <BlogItem
                   key={item.id}

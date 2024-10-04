@@ -14,20 +14,15 @@ import {
   Box,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
-import { useSelector } from "react-redux";
 import Link from "next/link";
 import Image from "next/image";
 
 import Button from "@components/Button";
-
-import Instagram from "@assets/icons/socials/instagram.png";
-import Facebook from "@assets/icons/socials/facebook.png";
-import Youtube from "@assets/icons/socials/youtube.png";
 import logo from "@assets/logo-left.png";
 
 import styles from "./mobileMenu.module.css";
 
-export default function MobileMenu({ categories, isSmall }) {
+export default function MobileMenu({ variant, categories, decorations, isSmall }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -37,7 +32,7 @@ export default function MobileMenu({ categories, isSmall }) {
       }
     >
       <Button className={styles.buttonBase} colorScheme="none" onClick={onOpen}>
-        <HamburgerIcon fontSize={30} color={isSmall ? "black" : "white"} />
+        <HamburgerIcon fontSize={30} color={(variant === "second" || isSmall) ? "black" : "white"} />
       </Button>
       <Drawer
         isOpen={isOpen}
@@ -46,24 +41,24 @@ export default function MobileMenu({ categories, isSmall }) {
         variant={"secondary"}
       >
         <DrawerOverlay backdropFilter="auto" backdropBlur="2px" />
-        <DrawerContent backgroundColor={"#1d1d1b"}>
+        <DrawerContent backgroundColor={"white"}>
           <DrawerHeader className={styles.drawerHeader}>
             <Image src={logo} width={50} alt="Logo" />
-            <DrawerCloseButton top={3.5} color={"white"} />
+            <DrawerCloseButton top={3.5} color={"black"} />
           </DrawerHeader>
 
           <DrawerBody className={styles.drawerBody}>
             <Link onClick={onClose} className={styles.menuItem} href="/">
-              HOME
+              ANASAYFA
             </Link>
             <Accordion allowToggle>
               <AccordionItem className="!border-0 !p-0 !py-3">
                 <AccordionButton
-                  _expanded={{ bg: "var(--theme-color)", color: "white" }}
+                  _expanded={{ bg: "var(--theme-color)", color: "black" }}
                   className="!p-0"
                 >
                   <Box as="span" flex="1" textAlign="left">
-                    COLLECTION
+                    KOLEKSİYON
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
@@ -73,7 +68,7 @@ export default function MobileMenu({ categories, isSmall }) {
                     className={styles.menuItem}
                     href="/collection"
                   >
-                    All
+                    Tümü
                   </Link>
                   {categories &&
                     categories.map((item) => {
@@ -81,7 +76,8 @@ export default function MobileMenu({ categories, isSmall }) {
                         <Link
                           key={"collection-" + item.id}
                           className={styles.menuItem}
-                          href={"/collection" + "/" + item.kategori}
+                          href={"/collection" + "/" + item.url}
+                          onClick={onClose}
                         >
                           {item.kategori}
                         </Link>
@@ -90,17 +86,53 @@ export default function MobileMenu({ categories, isSmall }) {
                 </AccordionPanel>
               </AccordionItem>
             </Accordion>
-            <Link className={styles.menuItem} href="/detail">
-              HOTEL FURNITURES
+            <Accordion allowToggle>
+              <AccordionItem className="!border-0 !p-0 !py-3">
+                <AccordionButton
+                  _expanded={{ bg: "var(--theme-color)", color: "black" }}
+                  className="!p-0"
+                >
+                  <Box as="span" flex="1" textAlign="left">
+                    DEKORASYON
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+                <AccordionPanel className="flex flex-col items-start" pb={0}>
+                  <Link
+                    onClick={onClose}
+                    className={styles.menuItem}
+                    href="/decoration"
+                  >
+                    Tümü
+                  </Link>
+                  {decorations &&
+                    decorations.map((item) => {
+                      return (
+                        <Link
+                          key={"decoration-" + item.id}
+                          className={styles.menuItem}
+                          href={"/decoration" + "/" + item.url}
+                          onClick={onClose}
+                        >
+                          {item.kategori}
+                        </Link>
+                      );
+                    })}
+                </AccordionPanel>
+              </AccordionItem>
+            </Accordion>
+            <Link
+              className={styles.menuItem}
+              href="/corporate/hakkimizda"
+              onClick={onClose}
+            >
+              KURUMSAL
             </Link>
-            <Link className={styles.menuItem} href="/detail">
-              ABOUT US
+            <Link className={styles.menuItem} href="/news" onClick={onClose}>
+              HABERLER
             </Link>
-            <Link className={styles.menuItem} href="/detail">
-              CONTACT
-            </Link>
-            <Link className={styles.menuItem} href="/blog">
-              BLOG
+            <Link className={styles.menuItem} href="/contact" onClick={onClose}>
+              İLETİŞİM
             </Link>
             <FollowSection />
           </DrawerBody>
@@ -112,27 +144,30 @@ export default function MobileMenu({ categories, isSmall }) {
 
 function FollowSection() {
   return (
-    <div className="flex flex-col">
-      <div className="py-3 border-b border-white">FOLLOW</div>
+    <div className="flex flex-col justify-start">
+      <div className="py-3 border-b mb-2 border-gray-300">TAKİP ET</div>
       <div className="flex justify-around">
-        <Button
-          color={"white"}
-          className="py-1 hover:text-theme-color motion-safe:transition !h-fit"
+        <Link
+          target="_blank"
+          href={"https://www.youtube.com/channel/UCUNag5nQXWxWS9qMe1-B1qw"}
+          className="py-1 hover:text-theme-color motion-safe:transition text-black"
         >
           <div>Youtube</div>
-        </Button>
-        <Button
-          color={"white"}
-          className="py-1 hover:text-theme-color motion-safe:transition"
+        </Link>
+        <Link
+          target="_blank"
+          href={"https://www.instagram.com/asortiemobilya/"}
+          className="py-1 hover:text-theme-color motion-safe:transition text-black"
         >
           <div>Instagram</div>
-        </Button>
-        <Button
-          color={"white"}
-          className="py-1 hover:text-theme-color motion-safe:transition"
+        </Link>
+        <Link
+          target="_blank"
+          href={"https://www.facebook.com/asortiemobilya/"}
+          className="py-1 hover:text-theme-color motion-safe:transition text-black"
         >
           <div>Facebook</div>
-        </Button>
+        </Link>
       </div>
     </div>
   );

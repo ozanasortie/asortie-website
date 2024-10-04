@@ -13,10 +13,10 @@ const BlogItem = ({ href, imageBaseUrl, image, title }) => {
           layout="fill"
           objectFit="cover"
           alt={title}
-          className="transition-transform duration-1000 transform group-hover:scale-110"
+          className="transition-transform duration-1000 transform group-hover:scale-110 rounded-md"
         />
       </div>
-      <div className="w-full mt-2 text-center text-lg lg:text-xl bg-white">
+      <div className="w-full mt-2 text-center text-lg lg:text-xl bg-white font-light">
         <h2>{title}</h2>
       </div>
     </Link>

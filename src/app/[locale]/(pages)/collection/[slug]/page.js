@@ -42,6 +42,10 @@ export default async function Products({ params }) {
     >
       <ProductsHeader data={data?.data[0]} />
       <ProductList slug={params.slug} products={data?.data} />
+      <div
+        className="max-w-[1400px] text-start w-full mt-10 text-white"
+        dangerouslySetInnerHTML={{ __html: data?.data[0].urun_detayi }}
+      />
     </BackgroundSection>
   );
 }

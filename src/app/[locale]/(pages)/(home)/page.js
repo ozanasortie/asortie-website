@@ -16,10 +16,13 @@ import CatalogueFormSection from "./components/CatalogueFormSection";
 import FeaturesSection from "./components/FeaturesSection";
 import Loading from "@components/Loading";
 import InstagramSection from "@components/InstagramSection";
+import { getTranslations } from "next-intl/server";
 
 export default async function Index({ params }) {
   const { locale } = params;
+  const t = await getTranslations("Header");
 
+  
   const newProducts = await fetchNewProducts(locale);
   const news = await fetchNews(locale);
   const blogs = await fetchBlogs(locale);

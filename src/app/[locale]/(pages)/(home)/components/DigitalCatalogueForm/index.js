@@ -66,7 +66,7 @@ export default function DigitalCatalogueForm({ isOpen, onClose }) {
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
         <ModalOverlay className="backdrop-blur-sm" />
         <ModalContent
-          className="w-full"
+          className="w-[90%]"
           background={"white"}
           maxW={"30rem"}
           py={5}
@@ -88,7 +88,7 @@ export default function DigitalCatalogueForm({ isOpen, onClose }) {
                 focusBorderColor="black"
                 textColor={"black"}
                 placeholder="Ad Soyad"
-                className="mt-5"
+                className="mt-4"
                 onChange={formik.handleChange}
                 value={formik.values.name}
                 error={formik.errors.name && formik.touched.name}
@@ -99,7 +99,7 @@ export default function DigitalCatalogueForm({ isOpen, onClose }) {
                 focusBorderColor="black"
                 textColor={"black"}
                 placeholder="E-Mail"
-                className="mt-5"
+                className="mt-4"
                 onChange={formik.handleChange}
                 value={formik.values.email}
                 error={formik.errors.email && formik.touched.email}
@@ -110,7 +110,7 @@ export default function DigitalCatalogueForm({ isOpen, onClose }) {
                 textColor="black"
                 focusBorderColor="black"
                 placeholder="Telefon"
-                className="mt-5"
+                className="mt-4"
                 onChange={handlePhoneChange}
                 value={formik.values.tel}
                 error={formik.errors.tel && formik.touched.tel}
@@ -121,7 +121,7 @@ export default function DigitalCatalogueForm({ isOpen, onClose }) {
                 type="submit"
                 background="black"
                 color="white"
-                className="w-full flex items-center justify-center py-4 mt-5"
+                className="w-full flex items-center justify-center py-4 mt-4"
                 text={"TALEP ET"}
               />
             </form>

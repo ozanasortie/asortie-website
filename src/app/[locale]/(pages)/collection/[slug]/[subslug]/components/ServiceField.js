@@ -1,20 +1,12 @@
-import Button from "@/components/Button";
-import SliderProvider from "@/components/Slider";
 import Transition from "@/components/Transition";
 import {
   Box,
-  ScaleFade,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
   AccordionIcon,
   Accordion,
 } from "@chakra-ui/react";
-import {
-  ArrowDown02Icon,
-  ArrowRight01Icon,
-  ArrowRight02Icon,
-} from "hugeicons-react";
 import Link from "next/link";
 
 const tabLabels = {
@@ -53,36 +45,11 @@ function ServiceField({ data }) {
   }));
 
   return (
-    <div className="w-[100%] bg-cover bg-center bg-no-repeat relative flex flex-col items-center lg:mt-5">
-      {/* <Tabs
-        isFitted
-        colorScheme="black"
-        className="w-full mb-10 !flex flex-col items-center"
-        position="relative"
-      > */}
-      {/* <TabList className="w-full max-w-[85%] border-0 border-b-0 rounded-md py-2 lg:mt-14"> */}
-      {/* <SliderProvider
-          className="hidden xl:block w-full z-30"
-          settings={desktopSettings}
-        >
-          {tabsContent.map((tab, index) => {
-            return (
-              <div
-                color={"black"}
-                className="text-center uppercase !p-0 flex justify-center items-center"
-                key={index}
-              >
-                {tab.label}
-              </div>
-            );
-          })}
-        </SliderProvider> */}
+    <div className="w-[90%] bg-cover bg-center bg-no-repeat relative flex flex-col items-center mt-5">
       <ArchitectService />
-
       <div className="text-2xl mb-4 bg-gray-50 min-w-[94%] py-4 text-center">
-        Çok Merak Edilenler
+        Çok Sorulanlar
       </div>
-
       <SliderWithAccordion tabsContent={tabsContent} />
     </div>
   );
@@ -92,12 +59,12 @@ const SliderWithAccordion = ({ tabsContent, settings }) => {
   return (
     <Accordion
       allowToggle
-      className="w-[95%] flex flex-wrap justify-center items-start gap-2 border-0 border-b-0 rounded-md mb-12"
+      className="w-[95%] flex flex-col lg:flex-wrap justify-center items-start gap-1 border-0 border-b-0 rounded-md mb-12"
     >
       {tabsContent.map((tab, index) => (
         <AccordionItem
           key={index}
-          className="!border-0 py-1 w-[49%] flex flex-col items-center"
+          className="!border-0 py-1 w-full flex flex-col items-center"
         >
           <AccordionButton
             _expanded={{ bg: "var(--theme-color)" }}
@@ -111,7 +78,7 @@ const SliderWithAccordion = ({ tabsContent, settings }) => {
               color="black"
               className="uppercase"
             >
-              {tab.label}
+             <span className="text-sm">{tab.label}</span>
             </Box>
             <AccordionIcon />
           </AccordionButton>
@@ -129,9 +96,9 @@ const SliderWithAccordion = ({ tabsContent, settings }) => {
 
 const ArchitectService = () => {
   return (
-    <Transition className="w-[95%] group flex justify-center items-center px-4 py-7 mb-20 lg:mt-8 border hover:bg-black hover:border-black text-white motion-safe:transition cursor-pointer p-4">
-      <Link href={"/architect-service"}>
-        <h1 className="text-xl group-hover:text-white text-black">
+    <Transition className="w-[95%] group flex justify-center items-center mb-8  lg:mb-20 lg:mt-8 border hover:bg-black hover:border-black duration-1000 text-white motion-safe:transition cursor-pointer">
+      <Link className="w-full flex justify-center items-center px-4 py-7" href={"/architect-service"}>
+        <h1 className="lg:text-xl group-hover:text-white duration-1000 text-black">
           Daha estetik ve fonksiyonel yaşam alanları oluşturmak için profesyonel
           mimarlık hizmeti almak ister misiniz ?
         </h1>

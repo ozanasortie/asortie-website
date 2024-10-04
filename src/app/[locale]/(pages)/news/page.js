@@ -1,11 +1,10 @@
+import { fetchFeaturedNews } from "@/app/store/services/newsService";
 import BlogList from "./components/BlogList";
 import BlogsHeader from "./components/BlogsHeader";
+import HiddenHeader from "@/components/HiddenHeader";
 import BannerSection from "./components/BannerSection";
-import Loading from "@/components/Loading";
 
-import { fetchNews } from "@services/newsService";
-
-export async function generateMetadata({ params }) {
+export async function generateMetadata() {
   const pageTitle = "Asortie | Haberler";
   const pageDescription = "";
   const pageImage = "";
@@ -24,17 +23,16 @@ export async function generateMetadata({ params }) {
 export default async function Blog({ params }) {
   const { locale } = params;
 
-  const news = await fetchNews(locale);
-
-  if (!news) return <Loading />;
+  const featureds = await fetchFeaturedNews(locale);
 
   return (
     <div
       className={`bg-cover bg-center bg-no-repeat relative flex flex-col items-center lg:justify-around text-white`}
     >
-      <BannerSection />
+      <HiddenHeader />
       <BlogsHeader />
-      <BlogList blogs={news} />
+      <BannerSection featureds={featureds} />
+      <BlogList />
     </div>
   );
 }

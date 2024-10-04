@@ -1,7 +1,7 @@
 .drawerBody {
-    @apply text-white flex flex-col
+    @apply text-black flex flex-col
 }
 
 .menuItem {
-    @apply py-3
+    @apply py-3 text-black
 }

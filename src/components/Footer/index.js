@@ -1,8 +1,11 @@
+import Link from "next/link";
+import Image from "next/image";
+
 import { fetchCategories } from "@/app/store/services/categoriesService";
 import FooterBackground from "./FooterBackground";
 import NavLink from "../NavLink";
-import Image from "next/image";
 import Logo from "@assets/logo.png";
+import ISO from "@assets/icons/iso.png";
 import {
   Facebook02Icon,
   FlickrIcon,
@@ -11,8 +14,6 @@ import {
 } from "hugeicons-react";
 import LocalSwitcher from "../Header/LocalSwitcher";
 import CatalogueFormButton from "./CatalogueFormButton";
-import Button from "../Button";
-import Link from "next/link";
 
 export default async function Footer({ locale }) {
   const categories = await fetchCategories(locale);
@@ -26,7 +27,7 @@ export default async function Footer({ locale }) {
       <Link
         href={"/architect-service"}
         className={
-          "z-30 w-[250px] mt-8 bg-white text-black text-xl flex justify-center items-center p-4 rounded-lg hover:text-theme-color hover:scale-105 motion-safe:transition"
+          "z-30 w-[250px] mt-8 bg-white text-black text-xl flex justify-center items-center p-2 rounded-lg hover:text-theme-color hover:scale-105 motion-safe:transition"
         }
       >
         MİMARİ DESTEK
@@ -66,13 +67,13 @@ export default async function Footer({ locale }) {
               </Link>
             </div>
             <div className="flex justify-center items-center">
-              <CatalogueFormButton/>
+              <CatalogueFormButton />
               <LocalSwitcher />
             </div>
           </div>
         </div>
-        <div className="w-[95%] h-[360px] xl:w-[70%] flex flex-col items-start justify-between text-white">
-          <div className="mb-8">
+        <div className="w-[95%] lg:pl-4 2xl:pl-0 lg:h-[360px] xl:w-[70%] flex flex-col lg:items-start justify-between text-white">
+          <div className="w-full mb-8 flex justify-center items-center">
             <div className="z-30 max-w-[1600px] w-full p-4 text-white leading-6 grid grid-cols-3 lg:grid-cols-6">
               {categories.koleksiyon.map((item) => {
                 return (
@@ -87,54 +88,75 @@ export default async function Footer({ locale }) {
               })}
             </div>
           </div>
-          <div>
-            <div className="z-30 max-w-[1600px] w-full px-4 text-white leading-6 grid grid-cols-2 gap-2 lg:flex lg:flex-wrap text-sm">
-              <NavLink href="/corporate/hakkimizda" className="m-2 font-normal">
-                Asortie Hakkında
-              </NavLink>
-              <NavLink href="/corporate/felsefemiz" className="m-2 font-normal">
-                Felsefemiz
-              </NavLink>
-              <NavLink
-                href="/corporate/musteri-haklari"
-                className="m-2 font-normal"
-              >
-                Müşteri Hakları
-              </NavLink>
-              <NavLink
-                href="/corporate/insan-kaynaklari"
-                className="m-2 font-normal"
-              >
-                İnsan Kaynakları
-              </NavLink>
-              <NavLink
-                href="/corporate/sikayet-ve-oneri"
-                className="m-2 font-normal"
-              >
-                Şikayet ve Öneri
-              </NavLink>
-              <NavLink
-                href="/corporate/yasal-uyarilar"
-                className="m-2 font-normal"
-              >
-                Yasal Uyarılar
-              </NavLink>
-              <NavLink
-                href="/blog"
-                className="m-2 font-normal"
-              >
-                Blog
-              </NavLink>
-              <NavLink
-                href="/news"
-                className="m-2 font-normal"
-              >
-                Haberler
-              </NavLink>
+          <div className="mb-8 z-30 max-w-[1600px] w-full px-4 text-white leading-6 flex flex-wrap text-sm">
+            <Link
+              target="_blank"
+              href="https://www.youtube.com/@asortiemobilya"
+              className="m-2 font-normal"
+            >
+              Asortie TV
+            </Link>
+            <NavLink href="/corporate/hakkimizda" className="m-2 font-normal">
+              Asortie Hakkında
+            </NavLink>
+            <NavLink href="/corporate/felsefemiz" className="m-2 font-normal">
+              Felsefemiz
+            </NavLink>
+            <NavLink
+              href="/corporate/musteri-haklari"
+              className="m-2 font-normal"
+            >
+              Müşteri Hakları
+            </NavLink>
+            <NavLink
+              href="/corporate/insan-kaynaklari"
+              className="m-2 font-normal"
+            >
+              İnsan Kaynakları
+            </NavLink>
+            <NavLink
+              href="/corporate/sikayet-ve-oneri"
+              className="m-2 font-normal"
+            >
+              Şikayet ve Öneri
+            </NavLink>
+            <NavLink
+              href="/corporate/yasal-uyarilar"
+              className="m-2 font-normal"
+            >
+              Yasal Uyarılar
+            </NavLink>
+            <NavLink href="/blog" className="m-2 font-normal">
+              Blog
+            </NavLink>
+            <NavLink href="/news" className="m-2 font-normal">
+              Haberler
+            </NavLink>
+          </div>
+          <div className="z-30 max-w-[1600px] w-full px-4 text-white leading-6 flex flex-wrap text-sm place-items-center">
+            <Image
+              className="w-[45px] h-[45px] mr-2"
+              src={ISO}
+              alt="iso certification"
+            />
+            <div className="m-4">
+              <div>ISO 9001 : 2015</div>
+              <div>NO : KY - 26269</div>
+            </div>
+            <div className="m-2">
+              <div>ISO 14001 : 2015</div>
+              <div>NO : CY - 32757</div>
+            </div>
+            <div className="m-2">
+              <div>ISO 10002 : 2014</div>
+              <div>NO : MM - 70430</div>
+            </div>
+            <div className="m-2">
+              <div>ISO 18001 : 2007</div>
+              <div>NO : OH - 52286</div>
             </div>
           </div>
         </div>
-        {/* <Image src={Logo} width={100} className="z-30 mt-4 mb-2" /> */}
       </div>
       <p className="w-[80%] xl:w-[95%] xl:max-w-[1100px] text-center text-white text-sm leading-6 z-30 pt-8">
         Copyright © 2010-2024 asortie.com, Site içeriğinin her hakkı mahfuzdur

@@ -13,7 +13,7 @@ export default function ListBlog({
   return (
     <Link
       href={href}
-      className={`box-border ${width} max-w-lg mb-4 lg:mb-8 cursor-pointer relative overflow-hidden flex flex-col group`}
+      className={`box-border ${width} mb-4 lg:mb-8 cursor-pointer relative overflow-hidden flex flex-col group`}
     >
       <Transition
         transition={{ duration: 1.5, delay: 0.2 }}
@@ -22,7 +22,7 @@ export default function ListBlog({
           visible: { opacity: 1, y: 0 },
           hidden: { opacity: 0, y: 80 },
         }}
-        className="flex flex-col w-full h-full"
+        className={`flex flex-col w-full h-full`}
       >
         <div className="relative w-full aspect-[16/9] overflow-hidden">
           <Image

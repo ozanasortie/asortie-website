@@ -47,8 +47,8 @@ export default function Collections() {
         }}
         className="max-md:hidden w-full grid grid-cols-2 lg:grid-cols-4 place-items-start justify-between z-30"
       >
-        {categories.data &&
-          categories.data.slice(0, 4).map((item, index) => {
+        {categories.koleksiyon &&
+          categories.koleksiyon.slice(0, 4).map((item, index) => {
             return (
               <CollectionItem
                 href={"/collection" + "/" + item.url}

@@ -19,7 +19,6 @@ export default function ImageModal({
   onClose,
 }) {
   const fullVideoRef = useRef(null);
-  console.log("imqgae", images);
 
   const fullScreenSettings = {
     initialSlide: currentImageIndex,

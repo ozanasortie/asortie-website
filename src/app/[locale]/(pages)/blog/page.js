@@ -1,9 +1,8 @@
 import BlogList from "./components/BlogList";
 import BlogsHeader from "./components/BlogsHeader";
 import BannerSection from "./components/BannerSection";
-import Loading from "@/components/Loading";
 
-import { fetchBlogs, fetchFeaturedBlogs } from "@services/blogService";
+import { fetchFeaturedBlogs } from "@services/blogService";
 import HiddenHeader from "@/components/HiddenHeader";
 
 export async function generateMetadata({ params }) {

@@ -33,7 +33,7 @@ export default function Header() {
   }, []);
 
   const navStyle =
-    headerVariant === "second" ? "!text-background-color" : "text-white";
+    headerVariant === "second" ? "!text-background-color shadow-lg" : "text-white";
 
   return (
     <header>
@@ -52,7 +52,7 @@ export default function Header() {
             small ? styles.navSmall : ""
           } ${navStyle}`}
         >
-          <MobileMenu categories={categories.koleksiyon} isSmall={small} />
+          <MobileMenu variant={headerVariant} decorations={categories.dekorasyon} categories={categories.koleksiyon} isSmall={small} />
           <div className={styles.left}>
             <div className={styles.desktopItems}>
               <NavLink className={styles.navLink} href="/">
