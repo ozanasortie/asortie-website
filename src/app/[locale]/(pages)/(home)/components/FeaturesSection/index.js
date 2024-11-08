@@ -9,6 +9,7 @@ import {
   Time01Icon,
 } from "hugeicons-react";
 import SliderProvider from "@/components/Slider";
+import { useTranslations } from "next-intl";
 
 const settings = {
   centerMode: true,
@@ -21,52 +22,48 @@ const settings = {
   autoplay: true,
 };
 
-const featureData = [
-  {
-    icon: <StarsIcon size={38} color="#DCA50C" />,
-    title: "En Trend Modeller",
-    description:
-      "Günün şartlarına göre yenilenen mobilya ve dekorasyon modellerimiz ile en prestijli ve konforlu koleksiyonları taşarlıyoruz.",
-    delay: 0.2,
-  },
-  {
-    icon: <Time01Icon size={38} color="#DCA50C" />,
-    title: "Geleneksel Tecrübe",
-    description:
-      "Tasarım, üretim ve satış süreçlerini 1965’li yıllardan itibaren oluşan tecrübemiz ve işinin ehli bir ekip ile profesyonel şekilde yapıyoruz.",
-    delay: 0.4,
-  },
-  {
-    icon: <House01Icon size={38} color="#DCA50C" />,
-    title: "Mimari Destek",
-    description:
-      "Tüm mobilya seçim ve sipariş sürecinde mimarlarımızdan destek alabilir siparişten önce mobilyanızı 3 boyutlu olarak projelendirebilirsiniz.",
-    delay: 0.6,
-  },
-  {
-    icon: <CustomerService01Icon size={38} color="#DCA50C" />,
-    title: "Satış Sonrası Destek",
-    description:
-      "Satışı son halka olarak görmüyor, satış sonrasında da aynı özveri ve hizmet politikasıyla çalışıyor, karşılaşabileceğiniz problemlerde her zaman yanınızda oluyoruz.",
-    delay: 0.7,
-  },
-  {
-    icon: <AiBeautifyIcon size={38} color="#DCA50C" />,
-    title: "El İşçiliği Ve Doğal Ahşap",
-    description:
-      "Tüm mobilya tasarım ve üretim sürecinde, doğal ahşaplar ile el işçiliği kullanarak, oyma, boyama, nakış ve döşeme sanatının incelikleri ile her zaman değerli kalabilen, geleceğin antikalarını üretiyoruz.",
-    delay: 0.8,
-  },
-  {
-    icon: <EarthIcon size={38} color="#DCA50C" />,
-    title: "Tüm Dünyaya Teslimat",
-    description:
-      "Mobilyalarımızı dünyanın birçok yerine sorunsuz bir şekilde gönderebiliyoruz. Özellikle Avrupa, Orta Asya, Afrika ve Ortadoğu ülkelerinin birçoğunda montaj hizmeti de verebiliyoruz.",
-    delay: 1,
-  },
-];
-
 const FeaturesSection = () => {
+  const t = useTranslations("");
+
+  const featureData = [
+    {
+      icon: <StarsIcon size={38} color="#DCA50C" />,
+      title: t("asortie_ayricaligi_1_baslik"),
+      description: t("asortie_ayricaligi_1_icerik"),
+      delay: 0.2,
+    },
+    {
+      icon: <Time01Icon size={38} color="#DCA50C" />,
+      title: t("asortie_ayricaligi_2_baslik"),
+      description: t("asortie_ayricaligi_2_icerik"),
+      delay: 0.4,
+    },
+    {
+      icon: <House01Icon size={38} color="#DCA50C" />,
+      title: t("asortie_ayricaligi_3_baslik"),
+      description: t("asortie_ayricaligi_3_icerik"),
+      delay: 0.6,
+    },
+    {
+      icon: <CustomerService01Icon size={38} color="#DCA50C" />,
+      title: t("asortie_ayricaligi_4_baslik"),
+      description: t("asortie_ayricaligi_4_icerik"),
+      delay: 0.7,
+    },
+    {
+      icon: <AiBeautifyIcon size={38} color="#DCA50C" />,
+      title: t("asortie_ayricaligi_5_baslik"),
+      description: t("asortie_ayricaligi_5_icerik"),
+      delay: 0.8,
+    },
+    {
+      icon: <EarthIcon size={38} color="#DCA50C" />,
+      title: t("asortie_ayricaligi_6_baslik"),
+      description: t("asortie_ayricaligi_6_icerik"),
+      delay: 1,
+    },
+  ];
+
   return (
     <section className="bg-gray-100 py-8 lg:py-16">
       <div className="container mx-auto px-4">
@@ -79,7 +76,7 @@ const FeaturesSection = () => {
           className="w-full flex items-center justify-center mt-8 mb-14 z-30"
         >
           <span className="text-3xl lg:text-4xl text-center font-light">
-            ASORTIE AYRICALIĞI
+            {t("asortie_ayricaligi")}
           </span>
         </Transition>
         <div className="hidden lg:flex flex-wrap">

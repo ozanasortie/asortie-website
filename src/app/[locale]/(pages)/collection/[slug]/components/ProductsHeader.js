@@ -11,17 +11,16 @@ function ProductsHeader({ data }) {
         visible: { opacity: 1, y: 0 },
         hidden: { opacity: 0, y: 80 },
       }}
-      className="w-[100%] flex items-center flex-col"
+      className="w-[100%] flex items-center flex-col z-20 mb-10"
     >
-      <h1 className="font-light mt-[120px] mb-10 text-4xl lg:text-5xl text-center uppercase">
+      <h1 className="font-light mt-[120px] text-4xl lg:text-5xl text-center">
         {data?.kategori}
       </h1>
-      <i className="max-w-[1100px] md:max-w-[900px] w-[95%] leading-loose text-xs lg:text-[15px] mb-10 text-center">
-        Bir ömüre zor sığacak çok sayıda şaheseri dünyaya armağan eden Mimar
-        Sinan, önündeki kâğıda ilk çizgiyi çizmeden önce, bir şehrin geleceğini
-        değiştirecek olmanın heyecanını yaşıyordu. Bu yüzden eserleri yüzyıllar
-        boyu ayakta ve yüzyıllar boyu kılavuz…
-      </i>
+      {data?.motto && (
+        <i className="max-w-[1100px] md:max-w-[900px] w-[95%] leading-loose text-xs lg:text-[15px] mt-8 text-center">
+         {data?.motto}
+        </i>
+      )}
     </motion.div>
   );
 }

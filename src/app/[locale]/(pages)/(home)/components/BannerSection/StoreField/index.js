@@ -2,8 +2,10 @@
 import { motion } from "framer-motion";
 
 import Button from "@/components/Button";
+import { useTranslations } from "next-intl";
 
 export default function StoreField({ onOpen }) {
+  const t = useTranslations("");
   return (
     <motion.div
       initial={{ opacity: 0, y: 50 }}
@@ -23,9 +25,9 @@ export default function StoreField({ onOpen }) {
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="text-center font-light text-[32px] lg:text-4xl xl:text-5xl w-full z-30 [text-shadow:_2px_2px_10px_rgb(0_0_0_/_50%)] mb-8"
+        className="uppercase text-center font-light text-[32px] lg:text-4xl xl:text-5xl w-full z-30 [text-shadow:_2px_2px_10px_rgb(0_0_0_/_50%)] mb-8"
       >
-        GELECEĞİN ANTİKALARI
+        {t("gelecegin_antikalari")}
       </motion.div>
       <Button
         className={
@@ -36,7 +38,7 @@ export default function StoreField({ onOpen }) {
         onClick={() => onOpen()}
       >
         {/* <Image width={25} className="mr-3" src={CatalogueGold} /> */}
-        <span className="font-normal text-lg">Katalog İndir</span>
+        <span className="font-normal text-lg">{t("katalog_indir")}</span>
       </Button>
     </motion.div>
   );

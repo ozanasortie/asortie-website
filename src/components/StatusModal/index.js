@@ -8,6 +8,7 @@ import {
   ModalOverlay,
 } from "@chakra-ui/react";
 import { CheckCircleIcon, WarningIcon } from "@chakra-ui/icons";
+import { useTranslations } from "next-intl";
 
 export default function StatusModal({ isOpen, onClose, status }) {
   useEffect(() => {
@@ -20,18 +21,19 @@ export default function StatusModal({ isOpen, onClose, status }) {
     }
   }, [isOpen, onClose]);
 
+  const t = useTranslations("");
+
   const getStatusContent = () => {
     switch (status) {
       case "success":
         return {
           icon: <CheckCircleIcon color={"green"} w={20} h={20} />,
-          message:
-            "Bize ulaştığınız için teşekkür ederiz. Size en kısa sürede geri dönüş yapacağız.",
+          message: t("durum_popup_basarili"),
         };
       case "error":
         return {
           icon: <WarningIcon color={"red"} w={20} h={20} />,
-          message: "Bir hata oluştu. Lütfen tekrar deneyin.",
+          message: t("durum_popup_basarisiz"),
         };
       default:
         return {

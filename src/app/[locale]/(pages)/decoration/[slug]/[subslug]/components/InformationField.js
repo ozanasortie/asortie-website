@@ -4,13 +4,8 @@ import Link from "next/link";
 import { Box, useDisclosure } from "@chakra-ui/react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import {
-  Share01Icon,
-  Share02Icon,
-  Share03Icon,
-  WhatsappIcon,
-} from "hugeicons-react";
-import { useLocale } from "next-intl";
+import { Share03Icon, WhatsappIcon } from "hugeicons-react";
+import { useLocale, useTranslations } from "next-intl";
 import { useSelector } from "react-redux";
 import { PhoneIcon } from "@chakra-ui/icons";
 
@@ -24,19 +19,6 @@ import Textarea from "@/components/Textarea";
 import StatusModal from "@/components/StatusModal";
 import PhoneInput from "@/components/PhoneInput";
 
-const validationSchema = Yup.object({
-  detay_name: Yup.string().required("Ad Soyad alanı gereklidir"),
-  detay_email: Yup.string()
-    .email("Geçersiz email adresi")
-    .required("Email alanı gereklidir"),
-  telefon: Yup.string()
-    .matches(/^[0-9]+$/, "Telefon numarası sadece rakamlar içermelidir")
-    .min(10, "Telefon numarası en az 10 haneli olmalıdır")
-    .max(15, "Telefon numarası en fazla 15 haneli olmalıdır")
-    .required("Telefon numarası gereklidir"),
-  mesaj: Yup.string().required("Mesaj alanı gereklidir"),
-});
-
 function InformationField({ title }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const locale = useLocale();
@@ -44,6 +26,20 @@ function InformationField({ title }) {
   const contact = useSelector((state) => state.general.contact);
   const [status, setStatus] = useState("");
   const [pageUrl, setPageUrl] = useState("");
+  const t = useTranslations("");
+
+  const validationSchema = Yup.object({
+    detay_name: Yup.string().required(t("input_ad_soyad_uyari")),
+    detay_email: Yup.string()
+      .email(t("input_email_uyari"))
+      .required(t("input_email_gerekli_uyari")),
+    telefon: Yup.string()
+      .matches(/^[0-9]+$/, t("input_telefon_numara_uyari"))
+      .min(10, t("input_telefon_minimum_uyari"))
+      .max(15, t("input_telefon_maximum_uyari"))
+      .required(t("input_phone_uyari")),
+    mesaj: Yup.string().required(t("input_message_uyari")),
+  });
 
   const {
     isOpen: isFormOpen,
@@ -55,7 +51,7 @@ function InformationField({ title }) {
 
   const handleRecommendationClick = () => {
     const pageUrl = window?.location?.href;
-    const message = `Merhaba, şuna bir göz at!: ${encodeURIComponent(pageUrl)}`;
+    const message = `${t("urun_detay_tavsiye")} ${encodeURIComponent(pageUrl)}`;
     const whatsappUrl = `https://api.whatsapp.com/send?text=${message}`;
 
     window.open(whatsappUrl, "_blank");
@@ -64,7 +60,7 @@ function InformationField({ title }) {
   const handleWhatsappClick = () => {
     const number = whatsappNumber?.data[0].whatsap;
     const pageUrl = window?.location?.href;
-    const message = `Merhaba, bu ürün hakkında bilgi almak istiyorum: ${encodeURIComponent(
+    const message = `${t("urun_detay_bilgi_al")} ${encodeURIComponent(
       pageUrl
     )}`;
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${number}&text=${message}`;
@@ -112,7 +108,7 @@ function InformationField({ title }) {
             <Button
               background="black"
               className="w-[100%] justify-center mb-3"
-              text={"ÜRÜN BİLGİSİ AL"}
+              text={t("urun_bilgisi_al")}
               onClick={onFormOpen}
             />
           </Box>
@@ -124,7 +120,9 @@ function InformationField({ title }) {
             onStatusOpen={onOpen}
             setStatus={setStatus}
           />
-          <div className="mt-5 lg:mt-0 text-lg w-full hidden md:block">Ürün Bilgi Formu</div>
+          <div className="mt-5 lg:mt-0 text-lg w-full hidden md:block">
+            {t("urun_bilgi_formu")}
+          </div>
           <div className="flex flex-col w-[100%]">
             <form
               onSubmit={formik.handleSubmit}
@@ -134,7 +132,7 @@ function InformationField({ title }) {
                 name="detay_name"
                 textColor="black"
                 focusBorderColor="#adadad"
-                placeholder="Adınız Soyadınız"
+                placeholder={t("input_name_surname")}
                 borderColor="#adadad"
                 className="mt-2"
                 onChange={formik.handleChange}
@@ -147,7 +145,7 @@ function InformationField({ title }) {
                 textColor="black"
                 focusBorderColor="#adadad"
                 borderColor="#adadad"
-                placeholder="Telefon"
+                placeholder={t("tel_no")}
                 onChange={handlePhoneChange}
                 value={formik.values.telefon}
                 error={formik.errors.telefon && formik.touched.telefon}
@@ -158,7 +156,7 @@ function InformationField({ title }) {
                 textColor="black"
                 focusBorderColor="adadad"
                 borderColor="#adadad"
-                placeholder="E-Mail"
+                placeholder={t("input_email")}
                 className="mt-2"
                 onChange={formik.handleChange}
                 value={formik.values.detay_email}
@@ -169,7 +167,7 @@ function InformationField({ title }) {
                 name="mesaj"
                 focusBorderColor="adadad"
                 _placeholder={{ color: "black" }}
-                placeholder="Mesaj"
+                placeholder={t("input_message")}
                 className="mt-2"
                 onChange={formik.handleChange}
                 value={formik.values.mesaj}
@@ -183,13 +181,13 @@ function InformationField({ title }) {
                   color="white"
                   textSize={"text-sm"}
                   className="w-full flex items-center justify-center py-2 mt-5 mb-0 lg:my-3"
-                  text={"GÖNDER"}
+                  text={t('gonder')}
                   isLoading={isLoading}
                 />
               </div>
             </form>
             <div className="w-full font-thin text-center border-b border-gray-200 pb-2 mt-8">
-              Tüm Dünyaya Teslimat Yapıyoruz
+              {t('tum_dunyaya_teslimat')}
             </div>
             <div className="w-[100%] flex flex-col items-center lg:items-center mt-3">
               <div className="w-[100%] flex flex-col">
@@ -223,7 +221,7 @@ function InformationField({ title }) {
               <Button
                 background="transparent"
                 className="w-[100%] flex items-center justify-center py-4 border"
-                text={"Modeli Paylaş"}
+                text={t('modeli_paylas')}
                 fontWeight={"font-normal"}
                 textSize={"text-sm"}
                 borderColor={"black"}

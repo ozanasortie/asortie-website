@@ -17,25 +17,26 @@ import arab from "@assets/icons/flags/arab.png";
 import france from "@assets/icons/flags/france.png";
 import russia from "@assets/icons/flags/russia.png";
 import nigeria from "@assets/icons/flags/nigeria.png";
+import { getTranslations } from "next-intl/server";
 
-const ContactInfo = () => (
+const ContactInfo = ({ t }) => (
   <div className="flex flex-col lg:flex-row lg:justify-around w-full max-w-[1400px]">
     <div className="w-full flex flex-col text-white z-30 mr-5">
       <h1 className="text-3xl xl:text-4xl z-30 flex items-center">
-        <CustomerSupportIcon color="white" className="mr-4" size={35} /> 7/24
-        Çok Dilli Müşteri Destek Hizmeti
+        <CustomerSupportIcon color="white" className="mr-4" size={35} />
+        {t("iletisim_sayfa_baslik")}
       </h1>
       <div className="flex justify-between text-black mt-6">
         <SupportCard
           icon={<Clock01Icon size={25} className="mr-2" />}
-          title="Günün Her Saati Erişilebilirlik"
-          description="Alanında deneyimli ve güleryüzlü müşteri temsilcilerimiz her zaman hizmetinizdedir."
+          title={t("iletisim_sayfa_bilgi_1_baslik")}
+          description={t("iletisim_sayfa_bilgi_1_icerik")}
           delay={0.2}
         />
         <SupportCard
           icon={<LanguageCircleIcon size={25} className="mr-2" />}
-          title="Çok Dilli Destek"
-          description="Müşteri temsilcilerimizden ihtiyacınıza uygun olarak, farklı dillerde hizmet alabilirsiniz."
+          title={t("iletisim_sayfa_bilgi_2_baslik")}
+          description={t("iletisim_sayfa_bilgi_2_icerik")}
           delay={0.8}
         />
       </div>
@@ -62,11 +63,11 @@ const SupportCard = ({ icon, title, description, delay }) => (
   </Transition>
 );
 
-const WhatsappNumbers = ({ whatsappNumbers }) => {
+const WhatsappNumbers = ({ t, whatsappNumbers }) => {
   return (
     <div className="flex-col mt-10">
       <div className="w-full text-xl mb-6">
-        Lütfen destek almak istediğiniz numaraya tıklayın
+        {t("iletisim_sayfa_numaralar_baslik")}
       </div>
       <div className="grid grid-cols-2 xl:grid-cols-3">
         {whatsappNumbers.map((item, index) => (
@@ -117,12 +118,13 @@ const transformWhatsappData = (data) => {
     fr: { name: "Fransızca", flag: france },
     arp: { name: "Arapça", flag: arab },
     ru: { name: "Rusça", flag: russia },
+    ha: { name: "Hausa", flag: nigeria },
   };
 
   const transformed = {};
 
   for (const key in data) {
-    const match = key.match(/^(w_)([a-z]{2})(_\d+)?$/);
+    const match = key.match(/^(w_)([a-z]{2,3})(_\d+)?$/);
     if (match) {
       const langCode = match[2];
       const number = data[key].trim();
@@ -142,8 +144,9 @@ const transformWhatsappData = (data) => {
   return Object.values(transformed);
 };
 
-export default function FormField({ whatsappNumbers }) {
+export default async function FormField({ whatsappNumbers }) {
   const numbers = transformWhatsappData(whatsappNumbers);
+  const t = await getTranslations("");
 
   return (
     <BackgroundSection
@@ -153,8 +156,8 @@ export default function FormField({ whatsappNumbers }) {
       <div className="absolute left-0 top-0 w-full h-full bg-black bg-opacity-60 z-20" />
       <div className="w-full max-w-[1400px] bg-cover bg-center bg-no-repeat relative flex flex-col md:flex-row items-start md:justify-around pb-10 z-30">
         <div className="flex flex-col justify-center md:w-[50%]">
-          <ContactInfo />
-          <WhatsappNumbers whatsappNumbers={numbers} />
+          <ContactInfo t={t} />
+          <WhatsappNumbers t={t} whatsappNumbers={numbers} />
         </div>
         <ContactForm />
       </div>

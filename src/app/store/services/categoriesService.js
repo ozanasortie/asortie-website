@@ -46,7 +46,10 @@ export async function fetchCategories(lang) {
 }
 
 export async function fetchProducts({ slug, lang }) {
-  const response = await fetch(`${BASE_URL}/products?url=${slug}&dil=${lang}_`);
+  const response = await fetch(
+    `${BASE_URL}/products?url=${slug}&dil=${lang}_`,
+    { cache: "no-store" }
+  );
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
@@ -64,7 +67,9 @@ export async function fetchProductDetail({ slug, lang }) {
 }
 
 export async function fetchFeaturedProducts(lang) {
-  const response = await fetch(`${BASE_URL}/random_products?dil=${lang}_`);
+  const response = await fetch(`${BASE_URL}/random_products?dil=${lang}_`, {
+    cache: "no-store",
+  });
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }

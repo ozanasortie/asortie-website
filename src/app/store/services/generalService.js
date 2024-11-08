@@ -52,7 +52,9 @@ export async function fetchCorporate(lang) {
 }
 
 export async function fetchCustomerService(lang) {
-  const response = await fetch(`${BASE_URL}/customer_service?dil=${lang}_`);
+  const response = await fetch(`${BASE_URL}/customer_service?dil=${lang}_`, {
+    cache: "no-store",
+  });
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }

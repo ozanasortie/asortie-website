@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 import {
   fetchMostReadedNews,
   fetchNewDetail,
@@ -11,15 +9,16 @@ import Loading from "@components/Loading";
 import HiddenHeader from "@/components/HiddenHeader";
 import Transition from "@components/Transition";
 import NewsItem from "./components/NewsItem";
+import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({ params }) {
   const { locale, slug } = params;
   const newDetail = await fetchNewDetail({ slug, lang: locale });
 
-  const pageTitle = newDetail?.data[0]?.baslik || "Blog Page";
-  const pageDescription = newDetail?.data[0]?.ozet || "Default description";
+  const pageTitle = newDetail?.data[0]?.baslik || "";
+  const pageDescription = newDetail?.data[0]?.ozet || "";
   const pageImage = newDetail?.image_url + newDetail?.data[0]?.resim;
-  
+
   return {
     title: pageTitle,
     description: pageDescription,
@@ -36,6 +35,7 @@ async function Page({ params }) {
   const newDetail = await fetchNewDetail({ slug, lang: locale });
   const mostReadeds = await fetchMostReadedNews(locale);
   const recommendedNews = await fetchRecommendedNews(locale);
+  const t = await getTranslations("");
 
   if (!newDetail) return <Loading />;
 
@@ -43,7 +43,7 @@ async function Page({ params }) {
 
   const updateImageSrc = (htmlContent) => {
     return htmlContent.replace(/<img\s+[^>]*src="([^"]+)"/g, (match, src) => {
-      if (!src.startsWith('http') && !src.startsWith('https')) {
+      if (!src.startsWith("http") && !src.startsWith("https")) {
         return match.replace(src, baseUrl + src);
       }
       return match;
@@ -74,14 +74,14 @@ async function Page({ params }) {
               visible: { opacity: 1, x: 0 },
               hidden: { opacity: 0, x: 50 },
             }}
-            className="lg:w-[80%] mb-6"
+            className="lg:w-[85%] mb-6"
           >
             <i className="z-10 text-lg w-[100%] leading-relaxed text-gray-600">
               {newDetail.data[0].ozet}
             </i>
           </Transition>
 
-          <div className="w-[95%] lg:w-[80%] flex justify-between">
+          <div className="w-[95%] lg:w-[85%] flex justify-between">
             <div
               className="text-start w-full lg:w-[72%] text-gray-800"
               dangerouslySetInnerHTML={{ __html: updatedContent }}
@@ -100,7 +100,7 @@ async function Page({ params }) {
           </div>
         </div>
       </div>
-      <RecommendedNews data={recommendedNews} />
+      <RecommendedNews t={t} data={recommendedNews} />
     </div>
   );
 }

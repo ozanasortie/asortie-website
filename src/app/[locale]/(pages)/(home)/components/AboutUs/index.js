@@ -5,7 +5,7 @@ import Background from "@assets/background.webp";
 import BackgroundSection from "@/components/Background";
 import Transition from "@/components/Transition";
 
-export default function AboutUs() {
+export default function AboutUs({ t }) {
   return (
     <BackgroundSection
       background={Background.src}
@@ -50,36 +50,12 @@ export default function AboutUs() {
               }}
               className="w-[100%] flex items-center lg:items-start flex-col"
             >
-              <h1 className="text-3xl text-center lg:text-start lg:text-5xl my-4 mb-8 uppercase">
-                Bizim Tasarımlarımız Kalıba Sığmaz
+              <h1 className="text-3xl text-center lg:text-start lg:text-4xl my-4 mb-8">
+                {t("anasayfa_hakkimizda_baslik")}
               </h1>
             </Transition>
-            <p className="w-full mb-5">
-              Bir ömüre zor sığacak çok sayıda şaheseri dünyaya armağan eden
-              Mimar Sinan, önündeki kâğıda ilk çizgiyi çizmeden önce, bir şehrin
-              geleceğini değiştirecek olmanın heyecanını yaşıyordu. Gelecek
-              nesillerin nasıl bir dünyada nefes alacaklarını, yürürken ne
-              görürlerse mutlu olacaklarını, hangi binalara girmekten huzur ve
-              gurur duyacaklarını hayal ediyordu. Bu yüzden eserleri yüzyıllar
-              boyu ayakta ve yüzyıllar boyu kılavuz…
-            </p>
-            <p className="mb-5">
-              Bugün bizde böyle bir heyecanın içindeyiz. Bir ressamın ilk fırça
-              darbesindeki heyecanı, bir heykeltıraşın toprağa ilk dokunuşunda
-              duyduğu his, bir nakkaşın kaleminden damlayan ilk mürekkebin
-              coşkusu ve bir çocuğun ilk adım atmasının heyecanı…
-            </p>
-            <p className="mb-5">
-              Bugün bizde böyle bir heyecanın içindeyiz. Bir ressamın ilk fırça
-              darbesindeki heyecanı, bir heykeltıraşın toprağa ilk dokunuşunda
-              duyduğu his, bir nakkaşın kaleminden damlayan ilk mürekkebin
-              coşkusu ve bir çocuğun ilk adım atmasının heyecanı…
-            </p>
-            <p className="mb-5">
-              Bugün bizde böyle bir heyecanın içindeyiz. Bir ressamın ilk fırça
-              darbesindeki heyecanı. Bugün bizde böyle bir heyecanın içindeyiz.
-              Bir ressamın ilk fırça darbesindeki heyecanı.
-            </p>
+            <p className="w-full mb-5">{t("anasayfa_hakkimizda_icerik")}</p>
+            <p className="mb-5">{t("anasayfa_hakkimizda_icerik_2")}</p>
           </Transition>
         </div>
       </div>

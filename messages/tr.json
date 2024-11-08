@@ -1,8 +1,4 @@
 {
-    "Index": {
-      "title": "Merhaba Dünya!"
-    },
-    "Header": {
-       "home": "Anasayfa"
-    }
-  }
+  "title": "Merhaba Dünya!",
+  "home": "Anasayfa"
+}

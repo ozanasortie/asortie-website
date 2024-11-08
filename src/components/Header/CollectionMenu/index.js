@@ -8,13 +8,13 @@ import NavLink from "@components/NavLink";
 
 import styles from "../header.module.css";
 
-export default function CollectionMenu({ data }) {
+export default function CollectionMenu({ data, t }) {
   return (
     <Popover trigger="hover">
       <PopoverTrigger>
         <span>
           <NavLink className={styles.navLink} href={"/collection"}>
-            KOLEKSİYON
+            {t('koleksiyon')}
           </NavLink>
         </span>
       </PopoverTrigger>

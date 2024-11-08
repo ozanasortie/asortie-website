@@ -1,9 +1,11 @@
+import { useEffect, useRef } from "react";
 import {
   Modal,
   ModalOverlay,
   ModalContent,
   ModalBody,
   ModalCloseButton,
+  Box,
 } from "@chakra-ui/react";
 import Image from "next/image";
 
@@ -16,12 +18,20 @@ export default function ImageModal({
   isOpen,
   onClose,
 }) {
+  const fullVideoRef = useRef(null);
+
   const fullScreenSettings = {
     initialSlide: currentImageIndex,
     infinite: true,
+    fade: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    afterChange: () => {
+      if (fullVideoRef.current) {
+        fullVideoRef.current.pause();
+      }
+    },
     nextArrow: <FsNextArrow />,
     prevArrow: <FsPrevArrow />,
   };
@@ -29,7 +39,7 @@ export default function ImageModal({
   return (
     <Modal isCentered isOpen={isOpen} onClose={onClose}>
       <ModalOverlay className="backdrop-blur-sm" />
-      <ModalContent borderRadius={0} background={"white"} maxW={"75rem"}>
+      <ModalContent borderRadius={0} background={"transparent"} maxW={"75rem"}>
         <ModalCloseButton
           className="z-30 mt-4 mr-4"
           size={40}
@@ -43,21 +53,35 @@ export default function ImageModal({
               settings={fullScreenSettings}
             >
               {images.map((item, index) => (
-                <div
+                <Box
                   key={index}
                   className="box-border flex items-center justify-center overflow-hidden outline-none"
                 >
-                  <Image
-                    width={1920}
-                    height={1080}
-                    src={item.resim}
-                    alt={`Sample ${index}`}
-                    className="w-[90%] h-full object-cover aspect-[16/9]"
-                  />
-                  <div className="pt-3 pr-3 w-full text-end">
+                  {item.resim && item.resim.includes(".mp4") && (
+                    <video
+                      ref={fullVideoRef}
+                      width="100%"
+                      height="100%"
+                      controls
+                      loop
+                    >
+                      <source src={item.resim} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  )}
+                  {item.resim && !item.resim.includes(".mp4") && (
+                    <Image
+                      width={1920}
+                      height={1080}
+                      className="w-full aspect-[16/9] object-cover"
+                      src={item.resim}
+                      alt={`Product ${index}`}
+                    />
+                  )}
+                  <div className="pt-2 pr-3 w-full text-end text-white">
                     {index + 1 + " / " + images.length}
                   </div>
-                </div>
+                </Box>
               ))}
             </SliderProvider>
           ) : (
@@ -67,14 +91,29 @@ export default function ImageModal({
                   key={index}
                   className="w-full box-border flex flex-col items-center justify-center overflow-hidden outline-none"
                 >
-                  <Image
-                    width={300}
-                    height={100}
-                    src={item.resim}
-                    alt={`Sample ${index}`}
-                    className="w-[100%] h-full object-cover"
-                  />
-                  <div className="pt-3 pb-2 pr-3 w-full text-end">
+                  {item.resim && item.resim.includes(".mp4") && (
+                    <video
+                      ref={fullVideoRef}
+                      width="100%"
+                      height="100%"
+                      controls
+                      autoPlay
+                      loop
+                    >
+                      <source src={item.resim} type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
+                  )}
+                  {item.resim && !item.resim.includes(".mp4") && (
+                    <Image
+                      width={1920}
+                      height={1080}
+                      className="w-full aspect-[16/9] object-cover"
+                      src={item.resim}
+                      alt={`Product ${index}`}
+                    />
+                  )}
+                  <div className="pt-2 pb-2 pr-3 w-full text-end text-white">
                     {index + 1 + " / " + images.length}
                   </div>
                 </div>

@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useFormik } from "formik";
 import { useDisclosure } from "@chakra-ui/react";
 import * as Yup from "yup";
+import { useTranslations } from "next-intl";
 
 import Input from "@components/Input";
 import Textarea from "@/components/Textarea";
@@ -11,20 +12,22 @@ import StatusModal from "@/components/StatusModal";
 import PhoneInput from "@/components/PhoneInput";
 import { usePostContactMutation } from "@services/homeServices";
 
-const validationSchema = Yup.object({
-  name: Yup.string().required("Ad Soyad alanı gereklidir"),
-  email: Yup.string()
-    .email("Geçersiz email adresi")
-    .required("Email alanı gereklidir"),
-  tel: Yup.string()
-    .matches(/^[0-9]+$/, "Telefon numarası sadece rakamlar içermelidir")
-    .min(10, "Telefon numarası en az 10 haneli olmalıdır")
-    .max(15, "Telefon numarası en fazla 15 haneli olmalıdır")
-    .required("Telefon numarası gereklidir"),
-  message: Yup.string().required("Mesaj alanı gereklidir"),
-});
-
 const ContactForm = () => {
+  const t = useTranslations("");
+
+  const validationSchema = Yup.object({
+    name: Yup.string().required(t("input_ad_soyad_uyari")),
+    email: Yup.string()
+      .email(t("input_email_uyari"))
+      .required(t("input_email_gerekli_uyari")),
+    tel: Yup.string()
+      .matches(/^[0-9]+$/, t("input_telefon_numara_uyari"))
+      .min(10, t("input_telefon_minimum_uyari"))
+      .max(15, t("input_telefon_maximum_uyari"))
+      .required(t("input_phone_uyari")),
+    message: Yup.string().required(t("input_message_uyari")),
+  });
+
   const [postContact, { isLoading, isError, isSuccess }] =
     usePostContactMutation();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -66,7 +69,9 @@ const ContactForm = () => {
       }}
       className="px-4 w-full mt-5 lg:mt-0 lg:w-[40%] z-30 flex flex-col items-center text-black"
     >
-      <span className="w-full text-4xl lg:text-4xl mb-2">Bize Ulaşın</span>
+      <span className="w-full text-3xl lg:text-4xl mb-2">
+        {t("bize_ulasin")}
+      </span>
       <form
         onSubmit={formik.handleSubmit}
         className="w-full flex flex-col items-center"
@@ -75,7 +80,8 @@ const ContactForm = () => {
           name="name"
           borderColor="black"
           color="black"
-          placeholder="Ad Soyad"
+          textColor="black"
+          placeholder={t("input_name_surname")}
           className="mt-3 !border-[#adadad]"
           onChange={formik.handleChange}
           value={formik.values.name}
@@ -86,7 +92,8 @@ const ContactForm = () => {
           name="email"
           borderColor="black"
           color="black"
-          placeholder="E-Mail"
+          textColor="black"
+          placeholder={t("input_email")}
           className="mt-3 !border-[#adadad]"
           onChange={formik.handleChange}
           value={formik.values.email}
@@ -98,7 +105,7 @@ const ContactForm = () => {
           textColor="black"
           borderColor="black"
           focusBorderColor="black"
-          placeholder="Telefon"
+          placeholder={t("input_phone")}
           color="black"
           className="mt-3"
           inputClassName="!bg-transparent"
@@ -112,7 +119,7 @@ const ContactForm = () => {
           name="message"
           borderColor="black"
           color="black"
-          placeholder="Mesaj"
+          placeholder={t("input_message")}
           className="mt-3 !border-[#adadad]"
           textColor="black"
           onChange={formik.handleChange}
@@ -126,7 +133,7 @@ const ContactForm = () => {
           background="black"
           color="white"
           className="w-full flex items-center justify-center py-4 mt-3"
-          text={"GÖNDER"}
+          text={t("gonder")}
         />
       </form>
       <StatusModal status={status} isOpen={isOpen} onClose={onClose} />

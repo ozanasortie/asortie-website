@@ -16,25 +16,28 @@ import { fetchCorporate } from "@services/generalService";
 import NavLink from "@components/NavLink";
 import BackgroundSection from "@/components/Background";
 import SliderProvider from "@/components/Slider";
-
-const tabLabels = {
-  hakkimizda: "Asortie Hakkında",
-  felsefemiz: "Felsefemiz",
-  referanslar: "Referanslar",
-  musteri_haklari: "Müşteri Hakları",
-  sikayet_ve_oneri: "Şikayet ve Öneri",
-  insan_kaynaklari: "İnsan Kaynakları",
-  asortie_vip: "Asortie Vip",
-  biz_kimiz: "Yasal Uyarılar",
-};
+import { getTranslations } from "next-intl/server";
 
 const kebabToSnake = (kebab) => kebab.replace(/-/g, "_");
 
 export async function generateMetadata({ params }) {
+  const t = await getTranslations("");
+
+  const tabLabels = {
+    hakkimizda: t("asortie_hakkinda"),
+    felsefemiz: t("felsefemiz"),
+    referanslar: t("referanslar"),
+    musteri_haklari: t("musteri_haklari"),
+    sikayet_ve_oneri: t("sikayet_ve_oneri"),
+    insan_kaynaklari: t("insan_kaynaklari"),
+    asortie_vip: "Asortie Vip",
+    biz_kimiz: t("yasal_uyarilar"),
+  };
+
   const { slug } = params;
   const snakeSlug = kebabToSnake(slug);
 
-  const pageTitle = `Asortie | ${tabLabels[snakeSlug] || "Kurumsal"}`;
+  const pageTitle = `Asortie | ${tabLabels[snakeSlug] || t('kurumsal')}`;
   const pageDescription = "";
   const pageImage = "";
 
@@ -56,12 +59,25 @@ export default async function Page({ params }) {
 
   const corporate = await fetchCorporate(locale);
 
+  const t = await getTranslations("");
+
+  const tabLabels = {
+    hakkimizda: t("asortie_hakkinda"),
+    felsefemiz: t("felsefemiz"),
+    referanslar: t("referanslar"),
+    musteri_haklari: t("musteri_haklari"),
+    sikayet_ve_oneri: t("sikayet_ve_oneri"),
+    insan_kaynaklari: t("insan_kaynaklari"),
+    asortie_vip: "Asortie Vip",
+    biz_kimiz: t("yasal_uyarilar"),
+  };
+
   const content = corporate.data[0];
 
   const tabsContent = Object.entries(tabLabels).map(([key, label]) => ({
     key,
     label,
-    content: content[key] || "İçerik mevcut değil.",
+    content: content[key] || t('icerik_mevcut_degil')
   }));
 
   const settings = {

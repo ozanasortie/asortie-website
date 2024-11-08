@@ -8,7 +8,18 @@ export default getRequestConfig(async ({ locale }) => {
     notFound();
   }
 
-  return {
-    messages: (await import(`../messages/${locale}.json`)).default
-  };
+  try {
+    const response = await fetch(`https://www.asortie.com/json/language?dil=${locale}`);
+
+    if (!response.ok) {
+      notFound();
+    }
+    
+    const messages = await response.json();
+    return {
+      messages
+    };
+  } catch (error) {
+    notFound();
+  }
 });

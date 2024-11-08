@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import useIsSafari from "../../hooks/useIsSafari";
-const BackgroundSection = ({ children, className = "", background }) => {
+const BackgroundSection = ({ children, className = "", background, bgOpacity }) => {
   const isSafari = useIsSafari();
 
   return (
@@ -11,7 +11,9 @@ const BackgroundSection = ({ children, className = "", background }) => {
       } ${className}`}
       style={{ backgroundImage: `url(${background})` }}
     >
-      {/* <div className="absolute left-0 top-0 backdrop-blur-[2px] w-full h-full" /> */}
+      {bgOpacity && (
+        <div className="absolute left-0 top-0 w-full h-full bg-opacity-50 bg-black" />
+      )}
       {children}
     </div>
   );

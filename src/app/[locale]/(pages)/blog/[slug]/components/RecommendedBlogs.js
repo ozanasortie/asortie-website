@@ -2,7 +2,7 @@ import Transition from "@/components/Transition";
 import SliderProvider from "@/components/Slider";
 import ListBlog from "../../components/ListBlog";
 
-function RecommendedBlogs({ data }) {
+function RecommendedBlogs({ t, data }) {
   const settings = {
     centerMode: true,
     centerPadding: "40px",
@@ -25,8 +25,8 @@ function RecommendedBlogs({ data }) {
           }}
           className="max-w-[95%] text-black font-light text-center lg:text-5xl xl:text-5xl mb-5 lg:mb-10"
         >
-          <h1 className="text-3xl text-center lg:text-start lg:text-4xl my-4 lg:mb-5 uppercase">
-            İLGİNİZİ ÇEKEBİLECEK YAZILARIMIZ
+          <h1 className="text-3xl text-center lg:text-start lg:text-4xl my-4 lg:mb-2">
+            {t('ilginizi_cekebilecek_yazilarimiz')}
           </h1>
         </Transition>
         <div className="w-full max-md:hidden grid gap-4 grid-cols-3">

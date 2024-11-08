@@ -13,7 +13,7 @@ export default function ListBlog({
   return (
     <Link
       href={href}
-      className={`box-border ${width} mb-4 lg:mb-8 cursor-pointer relative overflow-hidden flex items-center flex-col rounded-md group`}
+      className={`box-border ${width} mb-4 cursor-pointer relative overflow-hidden flex items-center flex-col rounded-md group`}
     >
       <Transition
         transition={{ duration: 1.5, delay: 0.2 }}

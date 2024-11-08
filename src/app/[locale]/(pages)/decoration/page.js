@@ -1,9 +1,10 @@
 import BackgroundSection from "@/components/Background";
 import CollectionHeader from "./components/CollectionHeader";
 import ListWrapper from "./components/ListWrapper";
+import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({ params }) {
-  const pageTitle = "Asortie | Dekorasyon";
+  const pageTitle = "Asortie | Koleksiyon";
   const pageDescription = "";
   const pageImage = "";
 
@@ -18,16 +19,18 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default function Decoration() {
+export default async function Decoration() {
+  const t = await getTranslations("");
+
   return (
     <BackgroundSection
+      bgOpacity
       className={`bg-cover bg-center bg-no-repeat relative flex flex-col items-center lg:justify-around text-white pb-5`}
       background={
-        "https://www.cappellettisrl.com/wp-content/uploads/2021/01/charme-sfondo-ok.jpg"
+        "https://www.cappellettisrl.com/wp-content/uploads/2023/05/EQ0.jpg"
       }
     >
-      <div className="absolute left-0 top-0 bg-black opacity-20 w-full h-full"/>
-      <CollectionHeader />
+      <CollectionHeader t={t} />
       <ListWrapper />
     </BackgroundSection>
   );

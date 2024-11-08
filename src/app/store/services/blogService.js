@@ -46,7 +46,9 @@ export async function fetchBlogDetail({ slug, lang }) {
 }
 
 export async function fetchMostReadedBlogs(lang) {
-  const response = await fetch(`${BASE_URL}/blog_most_read?dil=${lang}_`);
+  const response = await fetch(`${BASE_URL}/blog_most_read?dil=${lang}_`, {
+    cache: "no-store",
+  });
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
@@ -54,7 +56,9 @@ export async function fetchMostReadedBlogs(lang) {
 }
 
 export async function fetchRecommendedBlogs(lang) {
-  const response = await fetch(`${BASE_URL}/blog_featured?dil=${lang}_`);
+  const response = await fetch(`${BASE_URL}/blog_featured?dil=${lang}_`, {
+    cache: "no-store",
+  });
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
@@ -62,7 +66,9 @@ export async function fetchRecommendedBlogs(lang) {
 }
 
 export async function fetchFeaturedBlogs(lang) {
-  const response = await fetch(`${BASE_URL}/blogs_backgrounds?dil=${lang}_`);
+  const response = await fetch(`${BASE_URL}/blogs_backgrounds?dil=${lang}_`, {
+    cache: "no-store",
+  });
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }

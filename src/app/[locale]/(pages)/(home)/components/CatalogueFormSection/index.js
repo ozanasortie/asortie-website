@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDisclosure } from "@chakra-ui/react";
+import { useTranslations } from "next-intl";
 
 import useIsSafari from "@/hooks/useIsSafari";
 import Input from "@components/Input";
@@ -16,20 +17,7 @@ import { usePostContactMutation } from "@services/homeServices";
 
 import FormBackground from "@/assets/form-background.png";
 
-const validationSchema = Yup.object({
-  name: Yup.string().required("Ad Soyad alanı gereklidir"),
-  email: Yup.string()
-    .email("Geçersiz email adresi")
-    .required("Email alanı gereklidir"),
-  tel: Yup.string()
-    .matches(/^[0-9]+$/, "Telefon numarası sadece rakamlar içermelidir")
-    .min(10, "Telefon numarası en az 10 haneli olmalıdır")
-    .max(15, "Telefon numarası en fazla 15 haneli olmalıdır")
-    .required("Telefon numarası gereklidir"),
-  message: Yup.string().required("Mesaj alanı gereklidir"),
-});
-
-export default function CatalogueFormSection({ onDigitalOpen }) {
+export default function CatalogueFormSection() {
   const isSafari = useIsSafari();
   const [postContact, { isLoading, isError, isSuccess }] =
     usePostContactMutation();
@@ -39,6 +27,20 @@ export default function CatalogueFormSection({ onDigitalOpen }) {
     onOpen: onFormOpen,
     onClose: onFormClose,
   } = useDisclosure();
+  const t = useTranslations("");
+
+  const validationSchema = Yup.object({
+    name: Yup.string().required(t('input_ad_soyad_uyari')),
+    email: Yup.string()
+      .email(t('input_email_uyari'))
+      .required(t('input_email_gerekli_uyari')),
+    tel: Yup.string()
+      .matches(/^[0-9]+$/, t('input_telefon_numara_uyari'))
+      .min(10, t('input_telefon_minimum_uyari'))
+      .max(15, t('input_telefon_maximum_uyari'))
+      .required(t('input_phone_uyari')),
+    message: Yup.string().required(t('input_message_uyari')),
+  });
 
   const formik = useFormik({
     initialValues: {
@@ -85,16 +87,12 @@ export default function CatalogueFormSection({ onDigitalOpen }) {
           }}
           className="w-full lg:w-[40%] z-30 mb-14 lg:mb-0 flex flex-col items-center"
         >
-          <i className="mb-5 text-center">
-            "Özenle tasarlanmış klasik mobilyalarımızla yaşam alanlarınıza
-            zarafet katmak için, katalog talep formumuzu doldurarak geniş ürün
-            yelpazemizi keşfedin."
-          </i>
+          <i className="mb-5 text-center">{t("katalog_aciklama")}</i>
           <Button
             background="white"
             color="black"
             className="w-[90%] flex items-center justify-center py-4"
-            text={"DİJİTAL KATALOG TALEP ET"}
+            text={t("e_katalog_buton")}
             onClick={() => onFormOpen()}
           />
         </motion.div>
@@ -116,17 +114,12 @@ export default function CatalogueFormSection({ onDigitalOpen }) {
               visible: { opacity: 1, y: 0 },
               hidden: { opacity: 0, y: 90 },
             }}
-            className="flex items-center justify-center lg:mt-10 mb-10 z-30"
+            className="flex items-center justify-center mt-10 mb-5 z-30"
           >
             <span className="text-3xl lg:text-4xl text-center font-light">
-              BİZE ULAŞIN
+              {t("bize_ulasin")}
             </span>
           </motion.div>
-          <i className="mb-5 text-center">
-            "Özenle tasarlanmış klasik mobilyalarımızla yaşam alanlarınıza
-            zarafet katmak için, katalog talep formumuzu doldurarak geniş ürün
-            yelpazemizi keşfedin."
-          </i>
           <form
             onSubmit={formik.handleSubmit}
             className="w-full flex flex-col items-center"
@@ -135,7 +128,7 @@ export default function CatalogueFormSection({ onDigitalOpen }) {
               name="name"
               borderColor="white"
               color="white"
-              placeholder="Ad Soyad"
+              placeholder={t("input_name_surname")}
               className="mt-5"
               onChange={formik.handleChange}
               value={formik.values.name}
@@ -147,7 +140,7 @@ export default function CatalogueFormSection({ onDigitalOpen }) {
               name="email"
               borderColor="white"
               color="white"
-              placeholder="E-Mail"
+              placeholder={t("input_email")}
               className="mt-5"
               onChange={formik.handleChange}
               value={formik.values.email}
@@ -159,7 +152,7 @@ export default function CatalogueFormSection({ onDigitalOpen }) {
               name="tel"
               textColor="black"
               focusBorderColor="black"
-              placeholder="Telefon"
+              placeholder={t("input_phone")}
               className="mt-5"
               inputClassName="!bg-transparent !text-white !border-white"
               buttonClassName="!bg-transparent !border-white"
@@ -173,7 +166,7 @@ export default function CatalogueFormSection({ onDigitalOpen }) {
               name="message"
               borderColor="white"
               color="white"
-              placeholder="Mesaj"
+              placeholder={t("input_message")}
               className="mt-5"
               textColor="white"
               onChange={formik.handleChange}
@@ -188,7 +181,7 @@ export default function CatalogueFormSection({ onDigitalOpen }) {
               background="white"
               color="black"
               className="w-full flex items-center justify-center py-4 mt-5"
-              text={"GÖNDER"}
+              text={t("gonder")}
             />
           </form>
           <StatusModal status={status} isOpen={isOpen} onClose={onClose} />

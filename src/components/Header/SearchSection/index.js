@@ -11,7 +11,7 @@ import {
   ScaleFade,
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { debounce } from "lodash";
 
 import Button from "@components/Button";
@@ -42,6 +42,7 @@ export default function SearchSection({ headerVariant, small }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
+  const t = useTranslations("");
 
   const fetchResults = async (term) => {
     setLoading(true);
@@ -107,7 +108,7 @@ export default function SearchSection({ headerVariant, small }) {
               textAlign={"center"}
               paddingX={10}
               focusBorderColor="white"
-              placeholder="Ne Aramıştınız ?"
+              placeholder={t("input_arama")}
               value={searchTerm}
               onChange={handleSearchChange}
             />
@@ -119,7 +120,7 @@ export default function SearchSection({ headerVariant, small }) {
             ) : result ? (
               <ScaleFade in={true}>
                 <ResultsSection
-                  title="Modeller"
+                  title={t("modeller")}
                   items={result.products}
                   renderItem={(item) => (
                     <ResultItem
@@ -137,7 +138,7 @@ export default function SearchSection({ headerVariant, small }) {
                   )}
                 />
                 <ResultsSection
-                  title="Blog"
+                  title={t("blog")}
                   items={result.blogs}
                   renderItem={(blog) => (
                     <ResultItem
@@ -150,7 +151,7 @@ export default function SearchSection({ headerVariant, small }) {
                   )}
                 />
                 <ResultsSection
-                  title="Haberler"
+                  title={t("haberler")}
                   items={result.news}
                   renderItem={(item) => (
                     <ResultItem
@@ -163,7 +164,7 @@ export default function SearchSection({ headerVariant, small }) {
                   )}
                 />
                 <ResultsSection
-                  title="Kategoriler"
+                  title={t("koleksiyon")}
                   items={result.category}
                   renderItem={(item) => (
                     <Link
@@ -182,13 +183,14 @@ export default function SearchSection({ headerVariant, small }) {
                   !result.news?.length &&
                   !result.category?.length && (
                     <div className="text-2xl text-center mt-10 flex flex-col justify-center items-center">
-                      Aradığınız içerik bulunamadı.
-                      <Button
-                        color="white"
-                        background="black"
-                        className={"w-[210px] mt-5"}
-                        text={"Daha Fazlasını Keşfet"}
-                      />
+                      {t("arama_icerik_bulunamadi")}
+                      <Link
+                        href={"/collection"}
+                        className="bg-black text-white w-[210px] mt-5 rounded-md p-2 hover:text-theme-color motion-safe:transition-all"
+                        onClick={onClose}
+                      >
+                        {t("daha_fazla_kesfet")}
+                      </Link>
                     </div>
                   )}
               </ScaleFade>
@@ -197,13 +199,14 @@ export default function SearchSection({ headerVariant, small }) {
                 in={true}
                 className="text-2xl text-center mt-10 flex flex-col justify-center items-center"
               >
-                Aradığınız içerik bulunamadı.
-                <Button
-                  color="white"
-                  background="black"
-                  className={"w-[210px] mt-5"}
-                  text={"Daha Fazlasını Keşfet"}
-                />
+                {t("arama_icerik_bulunamadi")}
+                <Link
+                  href={"/collection"}
+                  className="bg-black text-white w-[210px] mt-5 rounded-md p-2 hover:text-theme-color motion-safe:transition-all"
+                  onClick={onClose}
+                >
+                  {t("daha_fazla_kesfet")}
+                </Link>
               </ScaleFade>
             )}
           </DrawerBody>

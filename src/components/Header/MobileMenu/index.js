@@ -22,7 +22,13 @@ import logo from "@assets/logo-left.png";
 
 import styles from "./mobileMenu.module.css";
 
-export default function MobileMenu({ variant, categories, decorations, isSmall }) {
+export default function MobileMenu({
+  t,
+  variant,
+  categories,
+  decorations,
+  isSmall,
+}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -32,7 +38,10 @@ export default function MobileMenu({ variant, categories, decorations, isSmall }
       }
     >
       <Button className={styles.buttonBase} colorScheme="none" onClick={onOpen}>
-        <HamburgerIcon fontSize={30} color={(variant === "second" || isSmall) ? "black" : "white"} />
+        <HamburgerIcon
+          fontSize={30}
+          color={variant === "second" || isSmall ? "black" : "white"}
+        />
       </Button>
       <Drawer
         isOpen={isOpen}
@@ -49,7 +58,7 @@ export default function MobileMenu({ variant, categories, decorations, isSmall }
 
           <DrawerBody className={styles.drawerBody}>
             <Link onClick={onClose} className={styles.menuItem} href="/">
-              ANASAYFA
+              {t("anasayfa")}
             </Link>
             <Accordion allowToggle>
               <AccordionItem className="!border-0 !p-0 !py-3">
@@ -57,8 +66,13 @@ export default function MobileMenu({ variant, categories, decorations, isSmall }
                   _expanded={{ bg: "var(--theme-color)", color: "black" }}
                   className="!p-0"
                 >
-                  <Box as="span" flex="1" textAlign="left">
-                    KOLEKSİYON
+                  <Box
+                    as="span"
+                    flex="1"
+                    textAlign="left"
+                    className="uppercase"
+                  >
+                    {t("koleksiyon")}
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
@@ -68,7 +82,7 @@ export default function MobileMenu({ variant, categories, decorations, isSmall }
                     className={styles.menuItem}
                     href="/collection"
                   >
-                    Tümü
+                    {t("tumu")}
                   </Link>
                   {categories &&
                     categories.map((item) => {
@@ -92,8 +106,13 @@ export default function MobileMenu({ variant, categories, decorations, isSmall }
                   _expanded={{ bg: "var(--theme-color)", color: "black" }}
                   className="!p-0"
                 >
-                  <Box as="span" flex="1" textAlign="left">
-                    DEKORASYON
+                  <Box
+                    as="span"
+                    flex="1"
+                    textAlign="left"
+                    className="uppercase"
+                  >
+                    {t("dekorasyon")}
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
@@ -103,7 +122,7 @@ export default function MobileMenu({ variant, categories, decorations, isSmall }
                     className={styles.menuItem}
                     href="/decoration"
                   >
-                    Tümü
+                    {t("tumu")}
                   </Link>
                   {decorations &&
                     decorations.map((item) => {
@@ -126,15 +145,15 @@ export default function MobileMenu({ variant, categories, decorations, isSmall }
               href="/corporate/hakkimizda"
               onClick={onClose}
             >
-              KURUMSAL
+              {t("kurumsal")}
             </Link>
             <Link className={styles.menuItem} href="/news" onClick={onClose}>
-              HABERLER
+              {t("haberler")}
             </Link>
             <Link className={styles.menuItem} href="/contact" onClick={onClose}>
-              İLETİŞİM
+              {t("iletisim")}
             </Link>
-            <FollowSection />
+            <FollowSection t={t} />
           </DrawerBody>
         </DrawerContent>
       </Drawer>
@@ -142,10 +161,10 @@ export default function MobileMenu({ variant, categories, decorations, isSmall }
   );
 }
 
-function FollowSection() {
+function FollowSection({ t }) {
   return (
     <div className="flex flex-col justify-start">
-      <div className="py-3 border-b mb-2 border-gray-300">TAKİP ET</div>
+      <div className="py-3 border-b mb-2 border-gray-300 uppercase">{t("takip")}</div>
       <div className="flex justify-around">
         <Link
           target="_blank"

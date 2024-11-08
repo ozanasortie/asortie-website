@@ -20,8 +20,7 @@ import { getTranslations } from "next-intl/server";
 
 export default async function Index({ params }) {
   const { locale } = params;
-  const t = await getTranslations("Header");
-
+  const t = await getTranslations("");
   
   const newProducts = await fetchNewProducts(locale);
   const news = await fetchNews(locale);
@@ -32,13 +31,13 @@ export default async function Index({ params }) {
   return (
     <div className="overflow-hidden">
       <BannerSection />
-      <NewProducts products={newProducts} />
-      <PromotionSection />
+      <NewProducts t={t} products={newProducts} />
+      <PromotionSection t={t} />
       <Collections />
-      <AboutUs />
-      <News news={news} />
-      <StoreSection />
-      <Blogs blogs={blogs} />
+      <AboutUs t={t} />
+      <News t={t} news={news} />
+      <StoreSection t={t} />
+      <Blogs t={t} blogs={blogs} />
       <CatalogueFormSection />
       <FeaturesSection />
       <InstagramSection />

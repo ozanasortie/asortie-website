@@ -19,7 +19,9 @@ export async function fetchNewDetail({ slug, lang }) {
 }
 
 export async function fetchMostReadedNews(lang) {
-  const response = await fetch(`${BASE_URL}/news_most_read_6?dil=${lang}_`);
+  const response = await fetch(`${BASE_URL}/news_most_read_6?dil=${lang}_`, {
+    cache: "no-store",
+  });
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
@@ -27,7 +29,9 @@ export async function fetchMostReadedNews(lang) {
 }
 
 export async function fetchRecommendedNews(lang) {
-  const response = await fetch(`${BASE_URL}/news_most_read?dil=${lang}_`);
+  const response = await fetch(`${BASE_URL}/news_most_read?dil=${lang}_`, {
+    cache: "no-store",
+  });
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
@@ -35,10 +39,11 @@ export async function fetchRecommendedNews(lang) {
 }
 
 export async function fetchFeaturedNews(lang) {
-  const response = await fetch(`${BASE_URL}/news_backgrounds?dil=${lang}_`);
+  const response = await fetch(`${BASE_URL}/news_backgrounds?dil=${lang}_`, {
+    cache: "no-store",
+  });
   if (!response.ok) {
     throw new Error("Network response was not ok");
   }
   return await response.json();
 }
-

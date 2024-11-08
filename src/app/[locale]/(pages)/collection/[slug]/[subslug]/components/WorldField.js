@@ -18,7 +18,7 @@ function WorldField({ description }) {
         visible: { opacity: 1, y: 0 },
         hidden: { opacity: 0, y: 80 },
       }}
-      className="w-full flex justify-center items-center z-30 lg:mt-4 lg:mb-[10px]"
+      className="w-full flex justify-center items-center z-30 lg:mb-[12px]"
     >
       {/* <Lottie options={defaultOptions} height={47} width={47} /> */}
       <p className="w-full text-center text-[#414a4c] max-w-[90%]">

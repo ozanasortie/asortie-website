@@ -5,7 +5,7 @@ import BackgroundSample from "@assets/background.webp";
 import Transition from "@/components/Transition";
 import BackgroundSection from "@components/Background";
 
-export default function PromotionSection() {
+export default function PromotionSection({ t }) {
   return (
     <BackgroundSection
       background={BackgroundSample.src}
@@ -37,18 +37,14 @@ export default function PromotionSection() {
             className="w-full lg:w-fit flex flex-col items-start lg:ml-24"
           >
             <h1 className="w-full text-2xl mt-5 mb-5 text-center lg:hidden max-lg:block">
-              SİZİN İÇİN, SİZİNLE BİRLİKTE...
+              {t("tanitim_baslik")}
             </h1>
 
             <h1 className="w-full text-4xl xl:text-4xl mt-3 mb-5 text-start max-lg:hidden">
-              SİZİN İÇİN, SİZİNLE BİRLİKTE...
+              {t("tanitim_baslik")}
             </h1>
             <p className="mb-5 lg:text-lg text-center lg:text-start !w-full lg:w-[45vw]">
-              Asortie, mobilya ve dekorasyon adına, kendinizi mutlu
-              hissedeceğiniz olağanüstü tasarımlara imza atıyor. 1965 yılından
-              bugüne gelişen engin bir tecrübenin ürünü ile müşterilerine hizmet
-              sağlayan Asortie, kendine özgü çizgisi ile günün moda anlayışına
-              paralel olarak dizayn edilmiş fark edilebilen ürünler tasarlıyor.
+             {t('tanitim_icerik')}
             </p>
           </Transition>
         </div>

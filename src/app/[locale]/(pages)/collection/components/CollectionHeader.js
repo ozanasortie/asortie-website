@@ -1,6 +1,6 @@
 import Transition from "@/components/Transition";
 
-function CollectionHeader() {
+function CollectionHeader({ t }) {
   return (
     <Transition
       transition={{ duration: 0.8, delay: 0.2 }}
@@ -10,13 +10,13 @@ function CollectionHeader() {
         visible: { opacity: 1, y: 0 },
         hidden: { opacity: 0, y: 80 },
       }}
-      className="w-[100%] flex items-center flex-col"
+      className="w-[100%] flex items-center flex-col z-20"
     >
-      <h1 className="font-light mt-32 mb-10 text-5xl lg:text-6xl text-center">
-        KOLEKSİYON
+      <h1 className="font-light mt-32 mb-8 text-5xl text-center">
+        {t("koleksiyon")}
       </h1>
       <i className="max-w-[1100px] md:max-w-[900px] w-[95%] leading-loose lg:text-[16px] mb-6 text-center">
-        "Mükemmele odaklan, gerisi kendiliğinden gelir..."
+        "{t("mukemmele_odaklan")}"
       </i>
     </Transition>
   );

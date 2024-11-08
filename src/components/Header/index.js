@@ -21,7 +21,7 @@ import styles from "./header.module.css";
 import NavLink from "../NavLink";
 
 export default function Header() {
-  const t = useTranslations("Header");
+  const t = useTranslations("");
   const categories = useSelector((state) => state.categories);
   const headerVariant = useSelector((state) => state.ui.headerVariant);
   const [small, setSmall] = useState(false);
@@ -33,7 +33,9 @@ export default function Header() {
   }, []);
 
   const navStyle =
-    headerVariant === "second" ? "!text-background-color shadow-lg" : "text-white";
+    headerVariant === "second"
+      ? "!text-background-color shadow-lg"
+      : "text-white";
 
   return (
     <header>
@@ -52,14 +54,20 @@ export default function Header() {
             small ? styles.navSmall : ""
           } ${navStyle}`}
         >
-          <MobileMenu variant={headerVariant} decorations={categories.dekorasyon} categories={categories.koleksiyon} isSmall={small} />
+          <MobileMenu
+            t={t}
+            variant={headerVariant}
+            decorations={categories.dekorasyon}
+            categories={categories.koleksiyon}
+            isSmall={small}
+          />
           <div className={styles.left}>
             <div className={styles.desktopItems}>
               <NavLink className={styles.navLink} href="/">
-                {t("home")}
+                {t("anasayfa")}
               </NavLink>
-              <CollectionMenu data={categories.koleksiyon} />
-              <DecorationMenu data={categories.dekorasyon} />
+              <CollectionMenu t={t} data={categories.koleksiyon} />
+              <DecorationMenu t={t} data={categories.dekorasyon} />
             </div>
           </div>
           <Link className="mx-10" href={"/"}>
@@ -72,17 +80,17 @@ export default function Header() {
           </Link>
           <div className={styles.right}>
             <div className={styles.desktopItems}>
-              <Corporate />
+              <Corporate t={t} />
 
               <NavLink className={styles.navLink} href="/news">
-                HABERLER
+                {t("haberler")}
               </NavLink>
-              <NavItem href="/contact">İLETİŞİM</NavItem>
+              <NavItem href="/contact"> {t("iletisim")}</NavItem>
             </div>
           </div>
           <div className="flex items-center absolute right-7">
             <SearchSection headerVariant={headerVariant} small={small} />
-            <LocalSwitcher headerVariant={headerVariant} small={small} />
+            <LocalSwitcher t={t} headerVariant={headerVariant} small={small} />
             {/* <FollowDropdown headerVariant={headerVariant} small={small} /> */}
           </div>
         </nav>

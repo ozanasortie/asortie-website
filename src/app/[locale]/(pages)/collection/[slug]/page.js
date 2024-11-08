@@ -33,6 +33,7 @@ export default async function Products({ params }) {
 
   return (
     <BackgroundSection
+      bgOpacity
       className="bg-cover bg-[#1d1d1b] bg-center bg-no-repeat relative flex flex-col items-center lg:justify-around text-white pb-5"
       background={`${
         data?.data[0]?.kategori_resim_arkaplan
@@ -43,7 +44,7 @@ export default async function Products({ params }) {
       <ProductsHeader data={data?.data[0]} />
       <ProductList slug={params.slug} products={data?.data} />
       <div
-        className="max-w-[1400px] text-start w-full mt-10 text-white"
+        className="max-w-[1400px] text-start w-full mt-10 text-white z-30"
         dangerouslySetInnerHTML={{ __html: data?.data[0].urun_detayi }}
       />
     </BackgroundSection>

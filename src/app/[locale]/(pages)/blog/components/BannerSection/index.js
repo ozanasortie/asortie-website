@@ -1,4 +1,3 @@
-"use client";
 import RecommendedSlider from "./RecommendedSlider";
 
 export default function BannerSection({ featureds }) {

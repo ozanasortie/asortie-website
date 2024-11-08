@@ -13,10 +13,10 @@ function DetailHeader({ title, description }) {
       }}
       className="w-[97%] flex flex-col justify-center items-center z-30 mt-16 lg:mb-[2px]"
     >
-      <h1 className="text-center text-[#353839] text-3xl lg:text-4xl uppercase">
+      <h1 className="text-center text-[#353839] text-3xl lg:text-4xl mb-4 uppercase">
         {title}
       </h1>
-      <WorldField description={description} />
+      {description && <WorldField description={description} />}
     </Transition>
   );
 }

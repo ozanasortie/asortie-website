@@ -11,7 +11,7 @@ import {
 import Image from "next/image";
 import { useRef, useTransition } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 import Button from "@components/Button";
 import styles from "./localSwitcher.module.css";
@@ -26,16 +26,17 @@ import nigeria from "@assets/icons/flags/nigeria.png";
 export default function LocalSwitcher({ headerVariant, small }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [isPending, startTransition] = useTransition();
-  const pathname = usePathname(); // Current pathname
+  const t = useTranslations("");
+  const pathname = usePathname();
   const router = useRouter();
-  const locale = useLocale(); // Current locale
+  const locale = useLocale();
 
   function onLanguageChange(lang) {
     const currentLocale = locale;
     const nextLocale = lang;
     const pathSegments = pathname.split("/").filter(Boolean);
 
-    pathSegments[0] = nextLocale; // Mevcut dili yeni dil ile değiştir
+    pathSegments[0] = nextLocale;
 
     const newPathname = `/${pathSegments.join("/")}`;
     startTransition(() => {
@@ -87,7 +88,7 @@ export default function LocalSwitcher({ headerVariant, small }) {
         <DrawerOverlay backdropFilter="auto" backdropBlur="2px" />
         <DrawerContent maxW={200} backgroundColor={"white"}>
           <DrawerHeader className={styles.drawerHeader}>
-            <div className="text-lg font-normal">Dil Seçiniz</div>
+            <div className="text-lg font-normal">{t('dil_seciniz')}</div>
             <DrawerCloseButton top={3.5} />
           </DrawerHeader>
 
@@ -124,9 +125,9 @@ export default function LocalSwitcher({ headerVariant, small }) {
                 width={22}
                 className={styles.image}
                 src={arab}
-                alt="Arapça"
+                alt="العربية"
               />
-              <div className={styles.buttonText}>Arapça</div>
+              <div className={styles.buttonText}>العربية</div>
             </Button>
             <Button
               onClick={() => onLanguageChange("ru")}
@@ -136,9 +137,9 @@ export default function LocalSwitcher({ headerVariant, small }) {
                 width={22}
                 className={styles.image}
                 src={russia}
-                alt="Rusça"
+                alt="Pусский"
               />
-              <div className={styles.buttonText}>Rusça</div>
+              <div className={styles.buttonText}>Pусский</div>
             </Button>
             <Button
               onClick={() => onLanguageChange("fr")}
@@ -148,9 +149,9 @@ export default function LocalSwitcher({ headerVariant, small }) {
                 width={22}
                 className={styles.image}
                 src={france}
-                alt="Fransızca"
+                alt="Français"
               />
-              <div className={styles.buttonText}>Fransızca</div>
+              <div className={styles.buttonText}>Français</div>
             </Button>
             <Button
               onClick={() => onLanguageChange("ha")}
@@ -160,7 +161,7 @@ export default function LocalSwitcher({ headerVariant, small }) {
                 width={22}
                 className={styles.image}
                 src={nigeria}
-                alt="Hausaca"
+                alt="Hausa"
               />
               <div className={styles.buttonText}>Hausa</div>
             </Button>

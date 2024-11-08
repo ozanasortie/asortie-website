@@ -13,25 +13,27 @@ import {
   ModalCloseButton,
 } from "@chakra-ui/react";
 import StatusModal from "@/components/StatusModal";
-import { useCatalogueRequestMutation } from "@services/homeServices"; // Import your mutation hook
+import { useCatalogueRequestMutation } from "@services/homeServices";
 import PhoneInput from "@/components/PhoneInput";
-
-const validationSchema = Yup.object({
-  name: Yup.string().required("Ad Soyad alanı gereklidir"),
-  email: Yup.string()
-    .email("Geçersiz email adresi")
-    .required("Email alanı gereklidir"),
-  tel: Yup.string()
-    .matches(/^[0-9]+$/, "Telefon numarası sadece rakamlar içermelidir")
-    .min(10, "Telefon numarası en az 10 haneli olmalıdır")
-    .max(15, "Telefon numarası en fazla 15 haneli olmalıdır")
-    .required("Telefon numarası gereklidir"),
-});
+import { useTranslations } from "next-intl";
 
 export default function DigitalCatalogueForm({ isOpen, onClose }) {
   const [postContact, { isLoading, isError, isSuccess }] =
     useCatalogueRequestMutation();
   const [statusModalOpen, setStatusModalOpen] = useState(false);
+  const t = useTranslations("");
+
+  const validationSchema = Yup.object({
+    name: Yup.string().required(t("input_ad_soyad_uyari")),
+    email: Yup.string()
+      .email(t("input_email_uyari"))
+      .required(t("input_email_gerekli_uyari")),
+    tel: Yup.string()
+      .matches(/^[0-9]+$/, t("input_telefon_numara_uyari"))
+      .min(10, t("input_telefon_minimum_uyari"))
+      .max(15, t("input_telefon_maximum_uyari"))
+      .required(t("input_phone_uyari")),
+  });
 
   const formik = useFormik({
     initialValues: {
@@ -72,7 +74,9 @@ export default function DigitalCatalogueForm({ isOpen, onClose }) {
           py={5}
         >
           <ModalHeader>
-            <div className="font-light text-3xl">KATALOG TALEP ET</div>
+            <div className="font-light text-3xl">
+              {t("katalog_talep_formu")}
+            </div>
           </ModalHeader>
           <ModalCloseButton color={"black"} />
           <ModalBody
@@ -87,7 +91,7 @@ export default function DigitalCatalogueForm({ isOpen, onClose }) {
                 name="name"
                 focusBorderColor="black"
                 textColor={"black"}
-                placeholder="Ad Soyad"
+                placeholder={t("input_name_surname")}
                 className="mt-4"
                 onChange={formik.handleChange}
                 value={formik.values.name}
@@ -98,7 +102,7 @@ export default function DigitalCatalogueForm({ isOpen, onClose }) {
                 name="email"
                 focusBorderColor="black"
                 textColor={"black"}
-                placeholder="E-Mail"
+                placeholder={t("input_email")}
                 className="mt-4"
                 onChange={formik.handleChange}
                 value={formik.values.email}
@@ -109,7 +113,7 @@ export default function DigitalCatalogueForm({ isOpen, onClose }) {
                 name="tel"
                 textColor="black"
                 focusBorderColor="black"
-                placeholder="Telefon"
+                placeholder={t("input_phone")}
                 className="mt-4"
                 onChange={handlePhoneChange}
                 value={formik.values.tel}
@@ -122,7 +126,7 @@ export default function DigitalCatalogueForm({ isOpen, onClose }) {
                 background="black"
                 color="white"
                 className="w-full flex items-center justify-center py-4 mt-4"
-                text={"TALEP ET"}
+                text={t('gonder')}
               />
             </form>
           </ModalBody>

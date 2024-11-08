@@ -3,5 +3,5 @@
 }
 
 .menuItem {
-    @apply py-3 text-black
+    @apply py-3 text-black uppercase
 }

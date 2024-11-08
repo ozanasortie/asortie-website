@@ -2,7 +2,7 @@ import Transition from "@/components/Transition";
 import ProductItem from "./ProductItem";
 import ProductsSlider from "./ProductsSlider";
 
-const NewProducts = ({ products }) => {
+const NewProducts = ({ t, products }) => {
   return (
     <div className="w-full relative flex flex-1 justify-start items-start max-lg:flex-col lg:px-10 2xl:px-page z-40 pt-12 lg:pt-8 pb-14">
       <div className="absolute left-0 top-0 w-full bg-black bg-opacity-35" />
@@ -17,8 +17,8 @@ const NewProducts = ({ products }) => {
           }}
           className="w-full flex items-center justify-center lg:mt-10"
         >
-          <span className="text-3xl lg:text-4xl mb-2 text-center lg:text-start font-light">
-            YENİ MODELLER
+          <span className="uppercase text-3xl lg:text-4xl mb-2 text-center lg:text-start font-light">
+            {t("yeni_modeller")}
           </span>
         </Transition>
         <Transition

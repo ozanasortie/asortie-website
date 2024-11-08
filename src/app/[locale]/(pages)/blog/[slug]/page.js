@@ -10,19 +10,20 @@ import RecommendedBlogs from "./components/RecommendedBlogs";
 import Loading from "@components/Loading";
 import Image from "next/image";
 import Transition from "@components/Transition";
+import { getTranslations } from "next-intl/server";
 
 export async function generateMetadata({ params }) {
   const { locale, slug } = params;
   const blog = await fetchBlogDetail({ slug, lang: locale });
+  const t = await getTranslations("");
 
   if (!blog || blog.data.length === 0) {
     return {
-      title: "404 - Sayfa Bulunamadı",
-      description: "Aradığınız blog bulunamadı",
+      title: "404 - " + t("sayfa_bulunamadi"),
     };
   }
 
-  const pageTitle = blog?.data[0]?.baslik || "Blog Page";
+  const pageTitle = blog?.data[0]?.baslik || "";
   const pageDescription = blog?.data[0]?.ozet || "";
   const pageImage = blog?.image_url + blog?.data[0]?.resim;
 
@@ -47,6 +48,7 @@ async function Page({ params }) {
 
   const mostReadeds = await fetchMostReadedBlogs(locale);
   const recommendedBlogs = await fetchRecommendedBlogs(locale);
+  const t = await getTranslations("");
 
   const baseUrl = "https://www.asortie.com";
 
@@ -85,7 +87,7 @@ async function Page({ params }) {
               visible: { opacity: 1, x: 0 },
               hidden: { opacity: 0, x: 50 },
             }}
-            className="lg:w-[80%] mb-6"
+            className="lg:w-[85%] mb-6"
           >
             <i className="z-10 text-lg w-[100%] leading-relaxed text-gray-600">
               {blog.data[0].ozet}
@@ -108,7 +110,7 @@ async function Page({ params }) {
             />
           </Transition>
 
-          <div className="w-[95%] lg:w-[80%] flex justify-between">
+          <div className="w-[95%] lg:w-[85%] flex justify-between">
             <div
               className="text-start w-full lg:w-[72%] text-gray-800"
               dangerouslySetInnerHTML={{ __html: updatedContent }}
@@ -127,7 +129,7 @@ async function Page({ params }) {
           </div>
         </div>
       </div>
-      <RecommendedBlogs data={recommendedBlogs} />
+      <RecommendedBlogs t={t} data={recommendedBlogs} />
     </div>
   );
 }

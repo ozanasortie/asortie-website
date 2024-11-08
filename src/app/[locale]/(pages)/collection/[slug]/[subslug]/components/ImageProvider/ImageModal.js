@@ -63,7 +63,6 @@ export default function ImageModal({
                       width="100%"
                       height="100%"
                       controls
-                      autoPlay
                       loop
                     >
                       <source src={item.resim} type="video/mp4" />

@@ -3,9 +3,11 @@ import { useState } from "react";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 export default function RecommendedSlider({ featureds }) {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const t = useTranslations("");
 
   const settings = {
     infinite: true,
@@ -61,7 +63,9 @@ export default function RecommendedSlider({ featureds }) {
                   color="white"
                   href={item.url}
                 >
-                  <div className="w-full font-normal lg:text-lg text-center">Yazıyı Oku</div>
+                  <div className="w-full font-normal lg:text-lg text-center">
+                    {t('yaziyi_oku')}
+                  </div>
                 </Link>
               </div>
             </div>

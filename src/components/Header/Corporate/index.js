@@ -1,100 +1,102 @@
 import {
   Popover,
   PopoverTrigger,
-  PopoverArrow,
   PopoverContent,
   PopoverBody,
 } from "@chakra-ui/react";
-import { ChevronDownIcon } from "@chakra-ui/icons";
 
 import styles from "../header.module.css";
 import Link from "next/link";
 
-export default function FollowDropdown() {
+export default function FollowDropdown({ t }) {
   return (
     <Popover trigger="hover">
       <PopoverTrigger className="w-auto">
         <Link className={styles.navLink} href={"/corporate/hakkimizda"}>
-          Kurumsal
+          {t("kurumsal")}
         </Link>
       </PopoverTrigger>
       <PopoverContent
-        w={"100vw"}
-        mt={9}
+        className="mt-[36px]"
         border={0}
-        borderRadius={0}
-        py={1}
-        background={"#a67f5e"}
+        borderRadius={10}
+        padding={0}
+        width={250}
+        display={"flex"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        background={"transparent"}
+        zIndex={99}
       >
-        <PopoverBody className="flex justify-center items-center">
-          <Link href="/corporate/hakkimizda">
-            <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
-              <div className="text-white relative">
-                Hakkımızda
+        <PopoverBody className="bg-black bg-opacity-80 flex flex-col justify-center items-start w-fit rounded-md">
+          <Link className="my-3" href="/corporate/hakkimizda">
+            <div className="flex items-center cursor-pointer mr-5 group">
+              <div className="text-white font-light relative">
+                {t("asortie_hakkinda")}
                 <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
               </div>
             </div>
           </Link>
-          <Link href="/corporate/felsefemiz">
-            <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
-              <div className="text-white relative">
-                Felsefemiz
+          <Link className="my-3" href="/corporate/felsefemiz">
+            <div className="flex items-center cursor-pointer mr-5 group">
+              <div className="text-white font-light relative">
+                {t("felsefemiz")}
                 <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
               </div>
             </div>
           </Link>
-          <Link href="/corporate/referanslar">
-            <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
-              <div className="text-white relative">
-                Referanslar
+          <Link className="my-3" href="/corporate/referanslar">
+            <div className="flex items-center cursor-pointer mr-5 group">
+              <div className="text-white font-light relative">
+                {t("referanslar")}
                 <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
               </div>
             </div>
           </Link>
-          <Link href="/corporate/asortie-vip">
-            <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
-              <div className="text-white relative">
+          <Link className="my-3" href="/corporate/asortie-vip">
+            <div className="flex items-center cursor-pointer mr-5 group">
+              <div className="text-white font-light relative">
                 Asortie VIP
                 <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
               </div>
             </div>
           </Link>
-          <Link href="/corporate/musteri-haklari">
-            <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
-              <div className="text-white relative">
-                Müşteri Hakları
+          <Link className="my-3" href="/corporate/musteri-haklari">
+            <div className="flex items-center cursor-pointer mr-5 group">
+              <div className="text-white font-light relative">
+                {t("musteri_haklari")}
                 <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
               </div>
             </div>
           </Link>
-          <Link href="/corporate/insan-kaynaklari">
-            <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
-              <div className="text-white relative">
-                İnsan Kaynakları
+          <Link className="my-3" href="/corporate/insan-kaynaklari">
+            <div className="flex items-center cursor-pointer mr-5 group">
+              <div className="text-white font-light relative">
+                {t("insan_kaynaklari")}
                 <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
               </div>
             </div>
           </Link>
-          <Link href="/corporate/sikayet-ve-oneri">
-            <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
-              <div className="text-white relative">
-                Şikayet ve Öneri
+          <Link className="my-3" href="/corporate/sikayet-ve-oneri">
+            <div className="flex items-center cursor-pointer mr-5 group">
+              <div className="text-white font-light relative">
+                {t("sikayet_ve_oneri")}
                 <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
               </div>
             </div>
           </Link>
-          <Link target="_blank" href="https://www.youtube.com/@asortiemobilya">
-            <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
-              <div className="text-white relative">
-                Asortie TV
+          <Link target="_blank" className="my-3" href="https://www.youtube.com/@asortiemobilya">
+            <div className="flex items-center cursor-pointer mr-5 group">
+              <div className="text-white font-light relative">
+                {t("asortie_tv_k")}
                 <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
               </div>
             </div>
           </Link>
-          <Link href="/corporate/biz-kimiz">
-            <div className="flex items-center py-1.5 cursor-pointer mr-5 group">
-              <div className="text-white relative">
-                Yasal Uyarılar
+          <Link className="my-3" href="/corporate/biz-kimiz">
+            <div className="flex items-center cursor-pointer mr-5 group">
+              <div className="text-white font-light relative">
+                {t("yasal_uyarilar")}
                 <span className="absolute left-0 bottom-0 w-0 h-[1px] bg-white transition-all duration-300 group-hover:w-full"></span>
               </div>
             </div>

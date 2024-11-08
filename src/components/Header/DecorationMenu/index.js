@@ -8,13 +8,13 @@ import NavLink from "@components/NavLink";
 
 import styles from "../header.module.css";
 
-export default function DecorationMenu({ data }) {
+export default function DecorationMenu({ t, data }) {
   return (
     <Popover trigger="hover">
       <PopoverTrigger>
         <span>
           <NavLink className={styles.navLink} href={"/decoration"}>
-            DEKORASYON
+            {t('dekorasyon')}
           </NavLink>
         </span>
       </PopoverTrigger>
