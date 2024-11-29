@@ -1,8 +1,0 @@
-.gradient-arrow-left:hover {
-  background: rgb(2, 2, 3);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 2, 3, 0.4805380770472252) 3%,
-    rgba(245, 244, 244, 1) 100%
-  );
-}
