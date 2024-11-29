@@ -1,0 +1,26 @@
+/* localSwitcher.module.css */
+
+.buttonBase {
+    @apply flex items-center cursor-pointer hover:opacity-60 motion-safe:transition mr-3 ml-6;
+  }
+  
+  .drawerHeader {
+    @apply flex items-center text-lg;
+  }
+  
+  .drawerBody {
+    @apply flex items-start flex-col;
+  }
+  
+  .languageButton {
+    @apply flex !justify-start items-start w-full;
+  }
+  
+  .image {
+    @apply mr-2;
+  }
+  
+  .buttonText {
+    @apply font-normal hover:text-theme-color motion-safe:transition text-black;
+  }
+  

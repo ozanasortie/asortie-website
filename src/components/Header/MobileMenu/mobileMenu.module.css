@@ -1,0 +1,7 @@
+.drawerBody {
+    @apply text-black flex flex-col
+}
+
+.menuItem {
+    @apply py-3 text-black uppercase
+}
